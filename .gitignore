@@ -37,3 +37,7 @@ next-env.d.ts
 
 bun.lockb
 package-lock.json
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
