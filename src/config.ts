@@ -6,7 +6,7 @@ enum backendServices {
 export const clientURL =
   process.env.NODE_ENV === "production"
     ? "https://jetsim-web.vercel.app/"
-    : `http://localhost:${process.env.PORT}`;
+    : `http://localhost:${process.env.PORT}/`;
 
 export const authRedirect = `${clientURL}/auth/callback`;
 
