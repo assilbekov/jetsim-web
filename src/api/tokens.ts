@@ -1,4 +1,4 @@
-import { authServiceURL, clientURL } from "@/config";
+import { authServiceURL, authRedirect } from "@/config";
 
 export type Tokens = {
   accessToken: string;
@@ -21,7 +21,7 @@ export const getAuthSocialCallback = async (
   provider: string
 ): Promise<Tokens> => {
   const res = await fetch(
-    `${authServiceURL}${provider}/callback${window.location.search}&redirect=${clientURL}`
+    `${authServiceURL}${provider}/callback${window.location.search}&redirect=${authRedirect}`
   );
   const json = await res.json();
   return json;
