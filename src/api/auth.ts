@@ -1,7 +1,7 @@
 import { authServiceURL, authRedirect } from "@/config";
 
 export type SocialAuthLinkResponse = {
-  url: string;
+  link: string;
 };
 
 export const getSocialAuthLink = async (
