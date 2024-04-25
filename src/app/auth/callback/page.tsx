@@ -1,12 +1,9 @@
 "use client"
 
-import { useParams, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 
 export default function CallbackPage() {
-  const params = useParams();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     (async() => {
@@ -26,8 +23,8 @@ export default function CallbackPage() {
   }, [])
   return(
   <div>
-     <h1>Callback: {JSON.stringify(params)}</h1>
-      <h1>Search param: {JSON.stringify(searchParams)}</h1>
+     <h1>Callback: {JSON.stringify({})}</h1>
+      <h1>Search param: {JSON.stringify({})}</h1>
   </div>
   );
 }
