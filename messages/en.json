@@ -4,5 +4,9 @@
   },
   "NotFoundPage": {
     "title": "404: Not found"
+  },
+  "MainPage": {
+    "title": "Stay connected anywhere with eSIM",
+    "subtitle": "Get reliable worldwide internet with JetSim eSIM, all at an affordable rate"
   }
 }
