@@ -1,4 +1,6 @@
+import { AuthProvider } from "@/contexts/AuthContext";
 import "./globals.css";
+import { QueryContext } from "@/contexts/QueryContext";
 
 export default function LocaleLayout({
   children,
@@ -9,7 +11,11 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body>{children}</body>
+      <body>
+        <QueryContext>
+          <AuthProvider>{children}</AuthProvider>
+        </QueryContext>
+      </body>
     </html>
   );
 }
