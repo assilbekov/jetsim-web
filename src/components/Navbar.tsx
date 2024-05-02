@@ -4,7 +4,7 @@ import Link from "next/link";
 export const Navbar = () => {
   const t = useTranslations("MainPage");
   return (
-    <nav className="max-w-[1600px] px-8 py-6 flex justify-between">
+    <nav className="flex justify-between">
       <div>Logo</div>
       <div className="flex gap-10">
         <Link href="#">{t("check_compatability")}</Link>
