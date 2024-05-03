@@ -1,0 +1,55 @@
+.primary-navigation {
+  background: hsl(0 0% 0% / 0.75);
+}
+
+/** if backdrop-filter is supported (it's not in firefox) */
+@supports (backdrop-filter: blur(10px)) {
+  .primary-navigation {
+    background: hsl(0 0% 100% / 0.1);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .primary-navigation {
+    gap: 2em;
+
+    position: fixed;
+    inset: 0 0 0 30px;
+    z-index: 1000;
+
+    flex-direction: column;
+    padding: min(20vh, 10rem) 2rem;
+
+    /** Move 100% width of the page */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .primary-navigation[data-visible="true"] {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-repeat: no-repeat;
+    border: 0;
+    z-index: 9999;
+    width: 2rem;
+    aspect-ratio: 1;
+    background-color: red;
+
+    transition: background-image 0.3s ease-in-out;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] {
+    background-color: aqua;
+  }
+}
