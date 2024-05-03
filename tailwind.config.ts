@@ -7,6 +7,31 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      xxxs: "320px",
+      // => @media (min-width: 320px) { ... }
+
+      xxs: "375px",
+      // => @media (min-width: 375px) { ... }
+
+      xs: "430px",
+      // => @media (min-width: 430px) { ... }
+
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "980px",
+      // => @media (min-width: 980px) { ... }
+
+      lg: "1200px",
+      // => @media (min-width: 1200px) { ... }
+
+      xl: "1440px",
+      // => @media (min-width: 1440px) { ... }
+
+      "2xl": "1920px",
+      // => @media (min-width: 1920px) { ... }
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
