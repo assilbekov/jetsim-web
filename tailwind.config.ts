@@ -21,7 +21,7 @@ const config: Config = {
         300: "#333D40",
         500: "#7E888C",
         700: "#DAE3E5",
-        900: "#FFFFFF"
+        900: "#FFFFFF",
       },
       secondary: {
         0: "#1A0900",
@@ -29,7 +29,7 @@ const config: Config = {
         300: "#662200",
         500: "#F25100",
         700: "#F2B191",
-        900: "#F2DACE"
+        900: "#F2DACE",
       },
       primary: {
         0: "#00141A",
@@ -37,9 +37,9 @@ const config: Config = {
         300: "#004C66",
         500: "#00B5F2",
         700: "#99E5FF",
-        900: "#D9F5FF"
-      }
-    }
+        900: "#D9F5FF",
+      },
+    },
   },
   plugins: [],
 };
