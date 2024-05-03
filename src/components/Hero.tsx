@@ -11,7 +11,7 @@ export const Hero = () => {
         alt="hero image"
         width={556}
         height={594}
-        style={{ width: "42%", height: "auto" }}
+        className="w-[42%] h-auto min-w-[556px] min-h-[42%]"
       />
       <div className="pt-4 pl-12 pr-16 flex flex-col gap-8">
         <div className="flex flex-col gap-4">
