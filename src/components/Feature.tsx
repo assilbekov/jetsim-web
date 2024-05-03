@@ -8,9 +8,9 @@ type FeatureProps = {
 
 export const Feature = ({ icon, title, iconAlt }: FeatureProps) => {
   return (
-    <div>
+    <div className="flex gap-2 items-center">
       <Image src={icon} alt={iconAlt} width={24} height={24} />
-      <span>{title}</span>
+      <span className="featureText">{title}</span>
     </div>
   );
 };

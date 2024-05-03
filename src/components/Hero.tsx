@@ -5,7 +5,7 @@ import { Feature } from "./Feature";
 export const Hero = () => {
   const t = useTranslations("MainPage");
   return (
-    <div className="flex gap-12 items-center">
+    <div className="flex items-center">
       <Image
         src="/hero_2x.png"
         alt="hero image"
@@ -13,11 +13,11 @@ export const Hero = () => {
         height={594}
         style={{ width: "42%", height: "auto" }}
       />
-      <div>
-        <h3>{t("subheader")}</h3>
-        <h1>{t("header")}</h1>
+      <div className="pt-4 pl-12 pr-16">
+        <h3 className="subheader">{t("subheader")}</h3>
+        <h1 className="header">{t("header")}</h1>
         <div>INPUT</div>
-        <div>
+        <div className="flex gap-6 m-auto">
           <Feature
             icon="/timer.svg"
             iconAlt="timer icon"

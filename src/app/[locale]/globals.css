@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.subheader {
+  text-align: center;
+  font-feature-settings: "ss05" on, "ss04" on, "ss03" on;
+
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+}
+
+.header {
+  text-align: center;
+
+  font-family: "Inter Tight";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 64px; /* 114.286% */
+  letter-spacing: 1.12px;
+}
+
+.featureText {
+  font-feature-settings: "ss05" on, "ss04" on, "ss03" on;
+
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 120% */
+}
