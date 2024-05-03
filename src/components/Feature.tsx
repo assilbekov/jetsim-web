@@ -10,7 +10,7 @@ export const Feature = ({ icon, title, iconAlt }: FeatureProps) => {
   return (
     <div className="flex gap-2 items-center">
       <Image src={icon} alt={iconAlt} width={24} height={24} />
-      <span className="featureText text-[#95A2A6]">{title}</span>
+      <span className="featureText text-text-600">{title}</span>
     </div>
   );
 };

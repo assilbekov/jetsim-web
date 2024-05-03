@@ -15,8 +15,8 @@ export const Hero = () => {
       />
       <div className="pt-4 pl-12 pr-16 flex flex-col gap-8">
         <div className="flex flex-col gap-4">
-          <h3 className="subheader">{t("subheader")}</h3>
-          <h1 className="header">{t("header")}</h1>
+          <h3 className="subheader text-text-100">{t("subheader")}</h3>
+          <h1 className="header text-text-100">{t("header")}</h1>
         </div>
         <div>INPUT</div>
         <div className="flex gap-6 m-auto">
