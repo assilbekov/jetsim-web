@@ -1,6 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import { useState } from "react";
 
 export const Search = () => {
@@ -19,9 +20,27 @@ export const Search = () => {
   return (
     <div>
       <div className="relative">
-        <label htmlFor="search">Search</label>
+        <label
+          className="md:py-4 md:px-6 px-4 py-3 bg-secondary-500 rounded-[32px] absolute right-3 top-[50%] translate-y-[-50%]"
+          htmlFor="search"
+        >
+          <Image
+            src="/airplane.svg"
+            width={24}
+            height={24}
+            alt="airplane icon label"
+            className="w-5 h-5 md:w-6 md:h-6"
+          />
+        </label>
+        <Image
+          src="/pin.svg"
+          width={24}
+          height={24}
+          alt="pin alt"
+          className="absolute left-9 top-[49%] translate-y-[-50%] w-5 h-5 md:w-6 md:h-6"
+        />
         <input
-          className="py-7 pl-[76px] w-full text-xl font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600"
+          className="py-[26px] pl-[76px] pr-[90px] w-full text-xl font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600 leading-6"
           type="text"
           value={query}
           id="search"
