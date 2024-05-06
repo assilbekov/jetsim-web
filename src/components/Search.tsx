@@ -4,6 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useState } from "react";
 
+// TODO: add variables for shadow, border
+// TODO: use data type for queryInfo
 export const Search = () => {
   const [query, setQuery] = useState("");
   const queryInfo = useQuery({
@@ -50,9 +52,24 @@ export const Search = () => {
           placeholder="Where do you go? Text"
         />
       </div>
-      <ul>
+      <ul className="p-[14px] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-3xl border-2 border-[#EBEFF0]">
         {queryInfo.data?.map((location: any) => (
-          <li key={location.title}>{location.title}</li>
+          <li
+            key={location.title}
+            className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-2xl"
+          >
+            <Image
+              src="/timer.svg"
+              width={24}
+              height={24}
+              alt="airplane icon label"
+              className="w-5 h-5 md:w-6 md:h-6"
+            />
+            <div className="flex flex-col gap-1">
+              <p className="text-xl leading-6 font-medium">{location.title}</p>
+              <p className="text-base leading-5 text-text-600">from $2/day</p>
+            </div>
+          </li>
         ))}
       </ul>
     </div>
