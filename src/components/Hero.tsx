@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Feature } from "./Feature";
+import { Search } from "./Search";
 
 export const Hero = () => {
   const t = useTranslations("MainPage");
@@ -18,7 +19,9 @@ export const Hero = () => {
           <h3 className="subheader text-text-100">{t("subheader")}</h3>
           <h1 className="header text-text-100">{t("header")}</h1>
         </div>
-        <div>INPUT</div>
+        <div>
+          <Search />
+        </div>
         <div className="flex gap-6 m-auto">
           <Feature
             icon="/timer.svg"
