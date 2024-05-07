@@ -64,13 +64,14 @@ export const Search = () => {
               onClick={() => handleElementClick(location)}
               className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-2xl"
             >
-              <Image
-                src="/timer.svg"
-                width={24}
-                height={24}
-                alt="airplane icon label"
-                className="w-5 h-5 md:w-6 md:h-6"
-              />
+              <div className="w-10 h-10 flex items-center rounded-full">
+                <Image
+                  src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${location.countryCode}.svg`}
+                  width={40}
+                  height={40}
+                  alt={`flag of ${location.countryCode}`}
+                />
+              </div>
               <div className="flex flex-col gap-1">
                 <p className="text-xl leading-6 font-medium">
                   {location.title}
