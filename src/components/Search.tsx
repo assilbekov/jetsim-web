@@ -81,7 +81,9 @@ export const Search = () => {
           ))}
         </ul>
       )}
-      <div className="z-10 fixed inset-0" onClick={() => setOpen(false)} />
+      {open && (
+        <div className="z-10 fixed inset-0" onClick={() => setOpen(false)} />
+      )}
     </div>
   );
 };
