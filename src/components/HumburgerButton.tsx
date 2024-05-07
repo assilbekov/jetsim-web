@@ -7,7 +7,7 @@ export const HumburgerButton = () => {
   const handleButtonClick = () => {
     const button = document.getElementById("mobile-nav-toggle");
     const navigation = document.getElementById("primary-navigation");
-    const navIcon = document.getElementById("nav-icon4");
+    const navIcon = document.getElementById("humburger-icon");
 
     if (button && navigation && navIcon) {
       const expanded = button.getAttribute("aria-expanded") === "true";
