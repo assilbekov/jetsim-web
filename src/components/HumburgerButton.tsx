@@ -25,7 +25,7 @@ export const HumburgerButton = () => {
       id="mobile-nav-toggle"
       onClick={handleButtonClick}
     >
-      <div id="nav-icon4">
+      <div id="humburger-icon">
         <span></span>
         <span></span>
         <span></span>
