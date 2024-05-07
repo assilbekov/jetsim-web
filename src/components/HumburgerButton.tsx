@@ -1,17 +1,19 @@
 "use client";
 
-import Image from "next/image";
+import "./HumburgerButton.css";
 
 export const HumburgerButton = () => {
   // TODO: Refactor to use refs.
   const handleButtonClick = () => {
     const button = document.getElementById("mobile-nav-toggle");
     const navigation = document.getElementById("primary-navigation");
+    const navIcon = document.getElementById("nav-icon4");
 
-    if (button && navigation) {
+    if (button && navigation && navIcon) {
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!expanded));
       navigation.setAttribute("data-visible", String(!expanded));
+      navIcon?.classList.toggle("open");
     }
   };
 
@@ -23,9 +25,11 @@ export const HumburgerButton = () => {
       id="mobile-nav-toggle"
       onClick={handleButtonClick}
     >
-      <span className="sr-only">
-        <Image src="/burger.svg" alt="humburger button" width={52} height={44} />
-      </span>
+      <div id="nav-icon4">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </button>
   );
 };
