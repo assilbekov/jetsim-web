@@ -4,6 +4,7 @@ import Link from "next/link";
 import { HumburgerButton } from "./HumburgerButton";
 
 import "./navbar.css";
+import { LoginLink } from "./LoginLink";
 
 export const Navbar = () => {
   const t = useTranslations("MainPage");
@@ -23,9 +24,7 @@ export const Navbar = () => {
         <Link href="#">{t("support")}</Link>
         <Link href="#">{t("faq")}</Link>
       </nav>
-      <div>
-        <Link href="#">{t("login")}</Link>
-      </div>
+      <LoginLink />
     </header>
   );
 };

@@ -7,7 +7,7 @@
   .mobile-nav-toggle {
     display: flex;
     position: fixed;
-    top: 2rem;
+    top: 1rem;
     right: 2rem;
     background-repeat: no-repeat;
     z-index: 9999;
