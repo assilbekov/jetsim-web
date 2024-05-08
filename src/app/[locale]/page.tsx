@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Recommendations } from "@/components/Recommendations";
+import { WhyBlock } from "@/components/WhyBlock";
 import { useTranslations } from "next-intl";
 
 export default function Index() {
@@ -12,6 +13,7 @@ export default function Index() {
         <Hero />
       </div>
       <Recommendations />
+      <WhyBlock />
     </main>
   );
 }
