@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
+//import { useTranslations } from "next-intl";
 import { LandingContainer } from "./LandingContainer";
 
 export const LandingSupport = () => {
-  const t = useTranslations("MainPage");
+  //const t = useTranslations("MainPage");
 
   return (
     <LandingContainer>
