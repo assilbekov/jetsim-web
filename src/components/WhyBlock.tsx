@@ -31,9 +31,11 @@ const FeatureBlock = ({
 export const WhyBlock = () => {
   const t = useTranslations("MainPage");
   return (
-    <div>
+    <div className="flex flex-col gap-12 bg-[#F7F9FA] p-14">
       <div>
-        <p>{t("why_jetsim")}</p>
+        <p className="text-text-600 text-2xl font-medium mb-[10px]">
+          {t("why_jetsim")}
+        </p>
         <Header variant={HeadersVariant.H2}>
           {t("internet_everywhere_with")}
         </Header>
@@ -64,7 +66,46 @@ export const WhyBlock = () => {
           description={t("just_buy_and_start_using")}
         />
       </div>
-      <div>Secure Payment Methods</div>
+      <div className="flex flex-col gap-14">
+        <div className="h-0.5 w-full bg-[#D9D9D9]" />
+        <div className="flex justify-between items-center h-[42px]">
+          <p className="text-text-600 text-2xl font-medium">
+            {t("secure_payment_methods")}
+          </p>
+          <div className="flex gap-12">
+            <Image
+              src="/paypal-pay.svg"
+              alt="paypal pay icon"
+              width={146}
+              height={36}
+            />
+            <Image
+              src="/apple-pay.svg"
+              alt="apple pay icon"
+              width={90}
+              height={42}
+            />
+            <Image
+              src="/google-pay.svg"
+              alt="google pay icon"
+              width={75}
+              height={31}
+            />
+            <Image
+              src="/mastercard-pay.svg"
+              alt="mastercard pay icon"
+              width={64}
+              height={40}
+            />
+            <Image
+              src="/visa-pay.svg"
+              alt="visa pay icon"
+              width={83}
+              height={28}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
