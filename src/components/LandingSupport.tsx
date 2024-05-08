@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { LandingContainer } from "./LandingContainer";
-import Image from "next/image";
 
 export const LandingSupport = () => {
   const t = useTranslations("MainPage");
