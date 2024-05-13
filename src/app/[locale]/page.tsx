@@ -6,6 +6,7 @@ import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { NoPlasticWaste } from "@/components/NoPlasticWaste";
 import { Recommendations } from "@/components/Recommendations";
+import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { useTranslations } from "next-intl";
 
@@ -19,6 +20,7 @@ export default function Index() {
           <Hero />
         </div>
       </LandingContainer>
+      <SetupJetSim />
       <Recommendations />
       <WhyBlock />
       <LandingSupport />
