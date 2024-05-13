@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { Card } from "./Card";
+import { LandingContainer } from "./LandingContainer";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -25,39 +27,43 @@ const LinksBlock = ({ children }: { children: React.ReactNode }) => {
 
 export const LandingFooter = () => {
   return (
-    <div className="flex gap-8">
-      <div className="w-1/2">
-        <Image src="/logo.svg" alt="logo image" width={155} height={36} />
-      </div>
-      <div className="flex gap-8">
-        <LinksBlock>
-          <Title>Top destinations</Title>
-          <ListBlock>
-            <ListElement>Europe</ListElement>
-            <ListElement>USA</ListElement>
-            <ListElement>Turkey</ListElement>
-            <ListElement>Spain</ListElement>
-            <ListElement>France</ListElement>
-          </ListBlock>
-        </LinksBlock>
-        <LinksBlock>
-          <Title>Legal</Title>
-          <ListBlock>
-            <ListElement>Privacy policy</ListElement>
-            <ListElement>Terms of Service</ListElement>
-            <ListElement>COF Agreement</ListElement>
-          </ListBlock>
-        </LinksBlock>
-        <LinksBlock>
-          <Title>More</Title>
-          <ListBlock>
-            <ListElement>Blog</ListElement>
-            <ListElement>About us</ListElement>
-            <ListElement>Contacts</ListElement>
-            <ListElement>Refund Policy</ListElement>
-          </ListBlock>
-        </LinksBlock>
-      </div>
-    </div>
+    <LandingContainer>
+      <Card>
+        <div className="flex gap-8">
+          <div className="w-1/2">
+            <Image src="/logo.svg" alt="logo image" width={155} height={36} />
+          </div>
+          <div className="flex gap-8">
+            <LinksBlock>
+              <Title>Top destinations</Title>
+              <ListBlock>
+                <ListElement>Europe</ListElement>
+                <ListElement>USA</ListElement>
+                <ListElement>Turkey</ListElement>
+                <ListElement>Spain</ListElement>
+                <ListElement>France</ListElement>
+              </ListBlock>
+            </LinksBlock>
+            <LinksBlock>
+              <Title>Legal</Title>
+              <ListBlock>
+                <ListElement>Privacy policy</ListElement>
+                <ListElement>Terms of Service</ListElement>
+                <ListElement>COF Agreement</ListElement>
+              </ListBlock>
+            </LinksBlock>
+            <LinksBlock>
+              <Title>More</Title>
+              <ListBlock>
+                <ListElement>Blog</ListElement>
+                <ListElement>About us</ListElement>
+                <ListElement>Contacts</ListElement>
+                <ListElement>Refund Policy</ListElement>
+              </ListBlock>
+            </LinksBlock>
+          </div>
+        </div>
+      </Card>
+    </LandingContainer>
   );
 };
