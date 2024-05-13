@@ -1,3 +1,4 @@
+import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
@@ -20,6 +21,7 @@ export default function Index() {
       <Recommendations />
       <WhyBlock />
       <LandingSupport />
+      <FAQ />
       <LandingFooter />
     </main>
   );
