@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 import { Header, HeadersVariant } from "./Header";
+import { LandingContainer } from "./LandingContainer";
+import { Card } from "./Card";
 
 type ExpandingProps = {
   title: React.ReactNode;
@@ -44,24 +46,26 @@ const Expanding = ({ title, description }: ExpandingProps) => {
 
 export const FAQ = () => {
   return (
-    <div>
-      <Header variant={HeadersVariant.H2}>Frequently Asked Questions</Header>
-      <div className="mt-8 flex gap-4 flex-col flex-wrap justify-start box-border">
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-        <Expanding title="" description="" />
-      </div>
-    </div>
+    <LandingContainer>
+      <Card>
+        <Header variant={HeadersVariant.H2}>Frequently Asked Questions</Header>
+        <div className="mt-8 flex gap-4 flex-col flex-wrap justify-start box-border">
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+          <Expanding title="" description="" />
+        </div>
+      </Card>
+    </LandingContainer>
   );
 };
