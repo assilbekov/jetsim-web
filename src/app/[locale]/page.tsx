@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { LandingContainer } from "@/components/LandingContainer";
+import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { Recommendations } from "@/components/Recommendations";
@@ -19,6 +20,7 @@ export default function Index() {
       <Recommendations />
       <WhyBlock />
       <LandingSupport />
+      <LandingFooter />
     </main>
   );
 }
