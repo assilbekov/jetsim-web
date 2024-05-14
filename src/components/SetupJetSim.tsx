@@ -20,6 +20,19 @@ const SelectDataPlan = ({ selected, label }: SelectDataPlanProps) => {
   );
 };
 
+const InstructionStep = ({ step }: { step: string }) => {
+  return (
+    <div className="flex gap-4 items-center">
+      <div className="flex items-center justify-center rounded-full min-w-6 h-6 border-2 border-[#E6F0F2]">
+        <p className="font-base leading-4 font-medium">
+          {step}
+        </p>
+      </div>
+      <div className="w-full h-3 rounded-full bg-[#E6F0F2]" />
+    </div>
+  );
+};
+
 type StepProps = {
   step: React.ReactNode;
   title: React.ReactNode;
@@ -48,6 +61,28 @@ export const SetupJetSim = () => {
           Set up your JetSim eSIM in 1 minute
         </Header>
         <div className="flex gap-8">
+          <Step
+            step="01"
+            title="Choose destination and select data plan"
+            content={
+              <>
+                <SelectDataPlan label="5 gb" selected />
+                <SelectDataPlan label="15 gb" selected={false} />
+                <SelectDataPlan label="30 gb" selected={false} />
+              </>
+            }
+          />
+          <Step
+            step="02"
+            title="Follow the instruction and install eSIM"
+            content={
+              <>
+                <InstructionStep step="1" />
+                <InstructionStep step="2" />
+                <InstructionStep step="3" />
+              </>
+            }
+          />
           <Step
             step="01"
             title="Choose destination and select data plan"
