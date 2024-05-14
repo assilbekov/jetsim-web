@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./accordion.css";
+import "./accordion-panel.css";
 
 type AccordionPanelProps = {
   title: React.ReactNode;
