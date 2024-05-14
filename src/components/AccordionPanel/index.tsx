@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import "./accordion-panel.css";
+import { useRef } from "react";
 
 type AccordionPanelProps = {
   title: React.ReactNode;
@@ -12,10 +15,13 @@ export const AccordionPanel = ({
   children,
   index,
 }: AccordionPanelProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const panelToggle = () => {
-    const panel = document.getElementById(`accordion-panel-${index}`);
-    const panelContent = panel?.querySelector(".accordion-content");
-    const chevron = panel?.querySelector("img");
+    if (!ref.current) return;
+
+    const panelContent = ref.current?.querySelector(".accordion-content");
+    const chevron = ref.current?.querySelector("img");
     const isPanelOpen = panelContent?.getAttribute("aria-hidden") === "false";
 
     panelContent?.setAttribute("aria-hidden", String(isPanelOpen));
@@ -26,6 +32,7 @@ export const AccordionPanel = ({
 
   return (
     <div
+      ref={ref}
       className="accordion-panel p-8 bg-[#F8F9FB] rounded-xl"
       id={`accordion-panel-${index}`}
       onClick={panelToggle}
