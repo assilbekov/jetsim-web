@@ -143,7 +143,7 @@ export const SetupJetSim = () => {
             </Header>
             <div>
               <p className="text-base font-medium leading-[22px] text-[#95A2A6]">
-                Most current phones, tablets, and watches support eSIM, it's
+                Most current phones, tablets, and watches support eSIM, its
                 possible your device only supports physical SIM cards
               </p>
               <Link
