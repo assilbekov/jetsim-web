@@ -1,0 +1,23 @@
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 500ms;
+}
+
+.accordion-content[aria-hidden="false"] {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content > div {
+  overflow: hidden;
+}
+
+/* other styles */
+
+.accordion-panel .chevron {
+  transition: transform 500ms;
+}
+
+.accordion-panel .chevron[aria-expanded="true"] {
+  transform: rotate(180deg);
+}
