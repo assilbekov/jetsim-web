@@ -27,13 +27,13 @@ const LinksBlock = ({ children }: { children: React.ReactNode }) => {
 
 export const LandingFooter = () => {
   return (
-    <LandingContainer>
+    <LandingContainer className="border-t border-[#E6EFF2] sm:border-none sm:pt-0 pt-8">
       <Card>
-        <div className="flex gap-8">
+        <div className="flex gap-8 flex-col md:flex-row">
           <div className="w-1/2">
             <Image src="/logo.svg" alt="logo image" width={155} height={36} />
           </div>
-          <div className="flex gap-8">
+          <div className="flex gap-8 flex-col sm:flex-row">
             <LinksBlock>
               <Title>Top destinations</Title>
               <ListBlock>

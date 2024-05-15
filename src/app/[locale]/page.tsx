@@ -13,7 +13,7 @@ import { useTranslations } from "next-intl";
 export default function Index() {
   const t = useTranslations("Index");
   return (
-    <main className="flex flex-col gap-20 xs:pb-6 pb-4 bg-[#F8F9FB]">
+    <main className="flex flex-col gap-20 xs:pb-6 pb-4 sm:bg-[#F8F9FB] bg-white-900">
       <LandingContainer className="bg-text-900">
         <div className="flex flex-col gap-8 mt-4">
           <Navbar />
