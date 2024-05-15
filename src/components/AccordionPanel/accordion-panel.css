@@ -18,6 +18,10 @@
   transition: transform 500ms;
 }
 
-.accordion-panel .chevron[aria-expanded="true"] {
+.accordion-panel .chevron {
   transform: rotate(180deg);
+}
+
+.accordion-panel .chevron[aria-expanded="true"] {
+  transform: rotate(0);
 }
