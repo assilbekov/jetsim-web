@@ -48,7 +48,7 @@ export const WhyBlock = () => {
               {t("internet_everywhere_with")}
             </Header>
           </div>
-          <div className="flex justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:justify-between gap-8">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"

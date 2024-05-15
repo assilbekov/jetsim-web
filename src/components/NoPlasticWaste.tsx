@@ -28,7 +28,7 @@ export const NoPlasticWaste = () => {
           <h3 className="text-text-900 text-[34px] font-medium leading-[38px] text-center mt-2">
             Join us in our mission to save the planet
           </h3>
-          <div className="flex gap-4 justify-center mt-8">
+          <div className="flex flex-col md:flex-row gap-4 md:justify-center mt-8">
             <Chip label="No plastic SIM cards" image="/no-sim.svg" />
             <Chip label="No packaging" image="/delete.svg" />
             <Chip label="No transport fees" image="/no_transfer.svg" />

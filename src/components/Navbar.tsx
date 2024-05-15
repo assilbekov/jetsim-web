@@ -9,7 +9,7 @@ import { LoginLink } from "./LoginLink";
 export const Navbar = () => {
   const t = useTranslations("MainPage");
   return (
-    <header className="flex justify-between">
+    <header className="flex justify-between items-center h-[54px]">
       <div>
         <Image src="/logo.svg" alt="logo image" width={155} height={36} />
       </div>
