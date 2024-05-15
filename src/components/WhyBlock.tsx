@@ -80,7 +80,7 @@ export const WhyBlock = () => {
               <p className="text-text-600 text-2xl leading-[30px] font-medium">
                 {t("secure_payment_methods")}
               </p>
-              <div className="flex gap-12">
+              <div className="flex gap-4 md:gap-12 flex-wrap">
                 <Image
                   src="/paypal-pay.svg"
                   alt="paypal pay icon"

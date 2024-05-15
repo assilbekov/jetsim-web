@@ -99,7 +99,7 @@ export const SetupJetSim = () => {
         <Header variant={HeadersVariant.H2}>
           Set up your JetSim eSIM in 1 minute
         </Header>
-        <div className="flex gap-8">
+        <div className="flex flex-col md:flex-row gap-8">
           <Step
             step="01"
             title="Choose destination and select data plan"
