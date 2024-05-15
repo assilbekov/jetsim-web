@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Header, HeadersVariant } from "./Header";
 import Image from "next/image";
 import { LandingContainer } from "./LandingContainer";
+import { Card } from "./Card";
 
 type FeatureBlockProps = {
   iconSrc: string;
@@ -17,12 +18,16 @@ const FeatureBlock = ({
   description,
 }: FeatureBlockProps) => {
   return (
-    <div>
-      <Image src={iconSrc} width={48} height={48} alt={iconAlt} />
-      <h6 className="text-text-100 text-2xl leading-10 tracking-[0.48px] font-medium mt-4">
-        {title}
-      </h6>
-      <p className="mt-0.5 text-text-100 text-xl leading-6 font-medium">
+    <div className="flex-1">
+      <Image
+        src={iconSrc}
+        width={48}
+        height={48}
+        alt={iconAlt}
+        className="mb-4"
+      />
+      <Header variant={HeadersVariant.SUBHEADER}>{title}</Header>
+      <p className="mt-0.5 text-text-600 text-xl leading-[26px] font-medium">
         {description}
       </p>
     </div>
@@ -32,18 +37,18 @@ const FeatureBlock = ({
 export const WhyBlock = () => {
   const t = useTranslations("MainPage");
   return (
-    <div className="bg-[#F7F9FA]">
-      <LandingContainer>
-        <div className="flex flex-col gap-12 p-14">
+    <LandingContainer>
+      <Card>
+        <div className="flex flex-col gap-10">
           <div>
-            <p className="text-text-600 text-2xl font-medium mb-[10px]">
+            <p className="text-text-600 text-xl leading-[26px] font-medium mb-[10px]">
               {t("why_jetsim")}
             </p>
             <Header variant={HeadersVariant.H2}>
               {t("internet_everywhere_with")}
             </Header>
           </div>
-          <div className="flex gap-32">
+          <div className="flex justify-between gap-8">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
@@ -72,7 +77,7 @@ export const WhyBlock = () => {
           <div className="flex flex-col gap-14">
             <div className="h-0.5 w-full bg-[#D9D9D9]" />
             <div className="flex justify-between items-center h-[42px]">
-              <p className="text-text-600 text-2xl font-medium">
+              <p className="text-text-600 text-2xl leading-[30px] font-medium">
                 {t("secure_payment_methods")}
               </p>
               <div className="flex gap-12">
@@ -110,7 +115,7 @@ export const WhyBlock = () => {
             </div>
           </div>
         </div>
-      </LandingContainer>
-    </div>
+      </Card>
+    </LandingContainer>
   );
 };
