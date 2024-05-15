@@ -12,17 +12,21 @@ export const Hero = () => {
         alt="hero image"
         width={556}
         height={594}
-        className="w-[42%] h-auto min-w-[556px] min-h-[42%]"
+        className="w-[42%] h-auto min-w-[556px] min-h-[42%] hidden md:block"
       />
-      <div className="pt-4 pl-12 pr-16 flex flex-col gap-8">
-        <div className="flex flex-col gap-4">
-          <h3 className="subheader text-text-100">{t("subheader")}</h3>
-          <h1 className="header text-text-100">{t("header")}</h1>
+      <div className="py-4 gap-4 md:pt-4 md:pl-12 md:pr-16 flex flex-col md:gap-8">
+        <div className="flex flex-col gap-3 md:gap-4">
+          <h3 className="text-base leading-[22px] text-text-600 font-medium">
+            {t("subheader")}
+          </h3>
+          <h1 className="text-2xl leading-[30px] font-medium text-text-100">
+            {t("header")}
+          </h1>
         </div>
         <div>
           <Search />
         </div>
-        <div className="flex gap-6 m-auto">
+        <div className="flex flex-col md:flex-row gap-2 md:gap-6 md:m-auto">
           <Feature
             icon="/timer.svg"
             iconAlt="timer icon"
