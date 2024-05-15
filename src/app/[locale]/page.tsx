@@ -20,10 +20,10 @@ export default function Index() {
           <Hero />
         </div>
       </LandingContainer>
-      <SetupJetSim />
       <Recommendations />
-      <WhyBlock />
+      <SetupJetSim />
       <LandingSupport />
+      <WhyBlock />
       <NoPlasticWaste />
       <FAQ />
       <LandingFooter />
