@@ -12,7 +12,7 @@ export const LandingContainer = ({
   return (
     <div
       className={clsx(
-        "xl:max-w-[1440px] lg:max-w-[1200px] w-screen m-auto xs:px-8 px-4",
+        "xl:max-w-[1440px] lg:max-w-[1200px] w-screen m-auto",
         className || ""
       )}
     >
