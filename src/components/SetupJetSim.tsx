@@ -94,47 +94,49 @@ const Step = ({ step, title, content }: StepProps) => {
 
 export const SetupJetSim = () => {
   return (
-    <LandingContainer>
-      <Card className="flex flex-col gap-8">
-        <Header variant={HeadersVariant.H2}>
-          Set up your JetSim eSIM in 1 minute
-        </Header>
-        <div className="flex flex-col md:flex-row gap-8">
-          <Step
-            step="01"
-            title="Choose destination and select data plan"
-            content={
-              <StepContent>
-                <SelectDataPlan label="5 gb" selected />
-                <SelectDataPlan label="15 gb" selected={false} />
-                <SelectDataPlan label="30 gb" selected={false} />
-              </StepContent>
-            }
-          />
-          <Step
-            step="02"
-            title="Follow the instruction and install eSIM"
-            content={
-              <StepContent>
-                <InstructionStep step="1" />
-                <InstructionStep step="2" />
-                <InstructionStep step="3" />
-              </StepContent>
-            }
-          />
-          <Step
-            step="03"
-            title="Activate your data roaming on arrival"
-            content={
-              <div className="flex flex-col gap-4 p-6 pb-1 bg-text-900 rounded-lg">
-                <DataRoamingActive />
-                <div className="h-0.5 w-full bg-[#E6F0F2]" />
-                <DataRoaming />
-                <div className="h-0.5 w-full bg-[#E6F0F2]" />
-                <DataRoaming />
-              </div>
-            }
-          />
+    <LandingContainer className="border-y-2 border-[#E9F0F2] xxs:border-y-0">
+      <Card className="flex flex-col gap-5 md:gap-8">
+        <div className="flex flex-col gap-4 xxs:gap-5">
+          <Header variant={HeadersVariant.H2}>
+            Set up your JetSim eSIM in 1 minute
+          </Header>
+          <div className="flex flex-col md:flex-row gap-5 md:gap-8">
+            <Step
+              step="01"
+              title="Choose destination and select data plan"
+              content={
+                <StepContent>
+                  <SelectDataPlan label="5 gb" selected />
+                  <SelectDataPlan label="15 gb" selected={false} />
+                  <SelectDataPlan label="30 gb" selected={false} />
+                </StepContent>
+              }
+            />
+            <Step
+              step="02"
+              title="Follow the instruction and install eSIM"
+              content={
+                <StepContent>
+                  <InstructionStep step="1" />
+                  <InstructionStep step="2" />
+                  <InstructionStep step="3" />
+                </StepContent>
+              }
+            />
+            <Step
+              step="03"
+              title="Activate your data roaming on arrival"
+              content={
+                <div className="flex flex-col gap-4 p-6 pb-1 bg-text-900 rounded-lg">
+                  <DataRoamingActive />
+                  <div className="h-0.5 w-full bg-[#E6F0F2]" />
+                  <DataRoaming />
+                  <div className="h-0.5 w-full bg-[#E6F0F2]" />
+                  <DataRoaming />
+                </div>
+              }
+            />
+          </div>
         </div>
         <div className="bg-[#F8F9FB] py-6 px-8 rounded-xl relative overflow-visible">
           <div className="flex gap-8 w-3/4">

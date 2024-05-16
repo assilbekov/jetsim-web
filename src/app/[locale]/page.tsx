@@ -21,7 +21,7 @@ export default function Index() {
         </div>
       </LandingContainer>
       <div className="w-full h-4 bg-[#F8F9FB]" />
-      <div className="flex flex-col gap-20">
+      <div className="flex flex-col">
         <Recommendations />
         <SetupJetSim />
         <LandingSupport />
