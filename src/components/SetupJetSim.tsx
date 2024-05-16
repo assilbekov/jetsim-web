@@ -3,6 +3,7 @@ import { Card } from "./Card";
 import { Header, HeadersVariant } from "./Header";
 import { LandingContainer } from "./LandingContainer";
 import Link from "next/link";
+import { Typography, TypographyVariants } from "./Typography";
 
 type SelectDataPlanProps = {
   selected: boolean;
@@ -138,11 +139,11 @@ export const SetupJetSim = () => {
             />
           </div>
         </div>
-        <div className="bg-[#F8F9FB] py-6 px-8 rounded-xl relative overflow-visible">
-          <div className="flex gap-8 w-3/4">
-            <Header variant={HeadersVariant.SUBHEADER}>
+        <div className="bg-[#F8F9FB] p-4 md:py-6 md:px-8 rounded-xl relative overflow-visible">
+          <div className="flex flex-col gap-4 md:gap-8 w-full md:w-3/4">
+            <h3 className="text-2xl font-medium leading-[30px] text-text-100">
               Ensure your phone is compatible with eSIM technology
-            </Header>
+            </h3>
             <div>
               <p className="text-base font-medium leading-[22px] text-[#95A2A6]">
                 Most current phones, tablets, and watches support eSIM, its
@@ -150,7 +151,7 @@ export const SetupJetSim = () => {
               </p>
               <Link
                 href="#"
-                className="flex gap-1 mt-4 text-secondary-500 text-base font-medium leading-[22px]"
+                className="flex gap-1 mt-3 md:mt-4 text-secondary-500 text-base font-medium leading-[22px]"
               >
                 Check compatibility
                 <Image
@@ -162,7 +163,7 @@ export const SetupJetSim = () => {
               </Link>
             </div>
           </div>
-          <div className="bg-[url('/setup-esim.png')] bg-contain bg-no-repeat bg-right-bottom h-[110%] w-[23%] absolute right-[5%] bottom-0" />
+          <div className="bg-[url('/setup-esim.png')] bg-contain bg-no-repeat bg-right-bottom h-[110%] w-[23%] absolute right-[5%] bottom-0 hidden md:block" />
         </div>
       </Card>
     </LandingContainer>
