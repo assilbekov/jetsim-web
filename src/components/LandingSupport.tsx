@@ -3,8 +3,8 @@ import { LandingContainer } from "./LandingContainer";
 export const LandingSupport = () => {
   return (
     <LandingContainer>
-      <div className="w-full h-[208px] md:h-[444px] relative bg-[url('/support-background.png')] bg-[bottom_30%_right_55%] bg-cover rounded-xl">
-        <div className="w-full h-full bg-gradient-to-br from-[rgba(55,18,0,0.2)] to-[rgba(55,18,0,0.00)] rounded-xl">
+      <div className="w-full h-[208px] md:h-[444px] relative bg-[url('/support-background.png')] bg-[bottom_30%_right_55%] bg-cover rounded-none md:rounded-xl">
+        <div className="w-full h-full bg-gradient-to-br from-[rgba(55,18,0,0.2)] to-[rgba(55,18,0,0.00)] rounded-none md:rounded-xl">
           <div className="flex flex-col justify-between h-full w-full md:w-1/2 p-6 md:pt-12 md:pb-14 md:pl-14">
             <div className="flex flex-col gap-2 md:gap-4">
               <p className="text-base leading-[22px] text-center md:text-2xl md:leading-[28px] text-text-900 font-medium">

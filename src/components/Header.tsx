@@ -17,7 +17,7 @@ export const Header = ({ children, variant }: HeaderProps) => {
       case HeadersVariant.H2:
         return "text-[24px] leading-[30px] md:text-[34px] font-medium md:leading-[38px] text-text-100";
       case HeadersVariant.SUBHEADER:
-        return "text-[24px] font-medium leading-[28px] text-text-100";
+        return "text-[16px] leading-[22px] md:text-[24px] md:leading:[28px] font-medium text-text-100";
     }
   };
 
