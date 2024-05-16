@@ -23,8 +23,8 @@ export const Navbar = () => {
         <Link href="#">{t("how_to")}</Link>
         <Link href="#">{t("support")}</Link>
         <Link href="#">{t("faq")}</Link>
+        <LoginLink />
       </nav>
-      <LoginLink />
     </header>
   );
 };

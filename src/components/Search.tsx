@@ -26,7 +26,7 @@ export const Search = () => {
     <div className="relative">
       <div className="relative z-50">
         <label
-          className="md:py-4 md:px-6 px-4 py-3 bg-secondary-500 rounded-[32px] absolute right-3 top-[50%] translate-y-[-50%]"
+          className="flex items-center justify-center h-[54px] w-[84px] md:py-4 md:px-6 px-4 py-3 bg-secondary-500 rounded-[32px] absolute right-2 top-[50%] translate-y-[-50%]"
           htmlFor="search"
         >
           <Image
@@ -42,10 +42,10 @@ export const Search = () => {
           width={24}
           height={24}
           alt="pin alt"
-          className="absolute left-6 md:left-9 top-[49%] translate-y-[-50%] w-5 h-5 md:w-6 md:h-6"
+          className="absolute hidden xxs:block left-6 md:left-9 top-[49%] translate-y-[-50%] w-5 h-5 md:w-6 md:h-6"
         />
         <input
-          className="py-[18px] pl-[52px] pr-[76px] md:py-[26px] md:pl-[76px] md:pr-[90px] w-full text-base md:text-xl leading-5 md:leading-6 font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600"
+          className="py-[24px] pl-[24px] xxs:pl-[56px] pr-[76px] md:py-[26px] md:pl-[76px] md:pr-[90px] w-full text-base md:text-xl leading-5 md:leading-6 font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600"
           type="text"
           value={query}
           id="search"
@@ -53,7 +53,7 @@ export const Search = () => {
             setQuery(e.target.value);
           }}
           onFocus={() => setOpen(true)}
-          placeholder="Where do you go? Text"
+          placeholder="Where do you go?"
         />
       </div>
       {open && !!queryInfo.data && (

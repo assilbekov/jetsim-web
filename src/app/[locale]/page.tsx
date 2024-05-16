@@ -13,20 +13,23 @@ import { useTranslations } from "next-intl";
 export default function Index() {
   const t = useTranslations("Index");
   return (
-    <main className="flex flex-col gap-20 xs:pb-6 pb-4 sm:bg-[#F8F9FB] bg-white-900">
-      <LandingContainer className="bg-text-900">
-        <div className="flex flex-col gap-8 mt-2 md:mt-4">
+    <main className="xs:pb-6 pb-4 sm:bg-[#F8F9FB] bg-white-900 overflow-hidden">
+      <LandingContainer className="bg-text-900 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
+        <div className="flex flex-col gap-6 md:gap-8 mt-2 md:mt-4">
           <Navbar />
           <Hero />
         </div>
       </LandingContainer>
-      <Recommendations />
-      <SetupJetSim />
-      <LandingSupport />
-      <WhyBlock />
-      <NoPlasticWaste />
-      <FAQ />
-      <LandingFooter />
+      <div className="w-full h-4 bg-[#F8F9FB]" />
+      <div className="flex flex-col gap-20">
+        <Recommendations />
+        <SetupJetSim />
+        <LandingSupport />
+        <WhyBlock />
+        <NoPlasticWaste />
+        <FAQ />
+        <LandingFooter />
+      </div>
     </main>
   );
 }
