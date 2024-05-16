@@ -75,7 +75,7 @@ type StepProps = {
 
 const StepContent = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col gap-6 p-6 bg-text-900 rounded-lg">
+    <div className="flex flex-col gap-6 p-4 md:p-6 bg-text-900 rounded-lg">
       {children}
     </div>
   );
@@ -83,11 +83,13 @@ const StepContent = ({ children }: { children: React.ReactNode }) => {
 
 const Step = ({ step, title, content }: StepProps) => {
   return (
-    <div className="flex flex-col gap-6 p-8 rounded-xl bg-[#F8F9FB]">
-      <h3 className="text-[24px] font-medium leading-[28px] text-primary-500">
+    <div className="flex flex-col gap-3 md:gap-6 p-4 md:p-8 rounded-xl bg-[#F8F9FB]">
+      <p className="font-base md:text-[24px] font-medium leading-[22px] md:leading-[28px] text-primary-500">
         {step}
+      </p>
+      <h3 className="font-base md:text-[24px] font-medium leading-[22px] md:leading-[28px] text-text-100">
+        {title}
       </h3>
-      <Header variant={HeadersVariant.SUBHEADER}>{title}</Header>
       {content}
     </div>
   );
@@ -95,7 +97,7 @@ const Step = ({ step, title, content }: StepProps) => {
 
 export const SetupJetSim = () => {
   return (
-    <LandingContainer className="border-y-2 border-[#E9F0F2] xxs:border-y-0">
+    <LandingContainer className="border-t-2 border-[#E9F0F2] xxs:border-t-0">
       <Card className="flex flex-col gap-5 md:gap-8">
         <div className="flex flex-col gap-4 xxs:gap-5">
           <Header variant={HeadersVariant.H2}>
@@ -128,7 +130,7 @@ export const SetupJetSim = () => {
               step="03"
               title="Activate your data roaming on arrival"
               content={
-                <div className="flex flex-col gap-4 p-6 pb-1 bg-text-900 rounded-lg">
+                <div className="flex flex-col gap-4 p-4 md:p-6 pb-1 bg-text-900 rounded-lg">
                   <DataRoamingActive />
                   <div className="h-0.5 w-full bg-[#E6F0F2]" />
                   <DataRoaming />
