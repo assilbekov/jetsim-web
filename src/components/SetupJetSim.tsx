@@ -75,7 +75,7 @@ type StepProps = {
 
 const StepContent = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col gap-6 p-4 md:p-6 bg-text-900 rounded-lg">
+    <div className="flex flex-col sm:mt-auto gap-6 p-4 md:p-6 bg-text-900 rounded-lg">
       {children}
     </div>
   );
@@ -103,7 +103,7 @@ export const SetupJetSim = () => {
           <Header variant={HeadersVariant.H2}>
             Set up your JetSim eSIM in 1 minute
           </Header>
-          <div className="flex flex-col md:flex-row gap-5 md:gap-8">
+          <div className="flex flex-col sm:flex-row gap-5 md:gap-8">
             <Step
               step="01"
               title="Choose destination and select data plan"
