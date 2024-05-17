@@ -33,12 +33,14 @@ export const AccordionPanel = ({
   return (
     <div
       ref={ref}
-      className="accordion-panel p-8 bg-[#F8F9FB] rounded-xl"
+      className="accordion-panel p-6 md:p-8 bg-[#F8F9FB] rounded-xl"
       id={`accordion-panel-${index}`}
       onClick={panelToggle}
     >
       <div id={panelTitleId} className="flex gap-4 cursor-pointer">
-        <h3 className="w-full text-xl leading-[26px] font-medium">{title}</h3>
+        <h3 className="text-base leading-[22px] w-full md:text-xl md:leading-[26px] font-medium">
+          {title}
+        </h3>
         <Image
           src="/chevron-up.svg"
           alt="chevron up"

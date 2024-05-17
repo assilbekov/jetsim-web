@@ -66,17 +66,17 @@ export const FAQ = () => {
   const faqRight = faq.slice(Math.ceil(faq.length / 2));
   return (
     <LandingContainer>
-      <Card>
+      <Card size="md">
         <Header variant={HeadersVariant.H2}>Frequently Asked Questions</Header>
-        <div className="flex gap-4">
-          <div className="mt-8 flex gap-4 flex-col flex-wrap justify-start box-border">
+        <div className="flex flex-col md:flex-row gap-4 mt-4">
+          <div className="flex gap-4 flex-col flex-wrap justify-start box-border">
             {faqLeft.map((item, index) => (
               <AccordionPanel key={item.title} title={item.title} index={index}>
                 {item.description}
               </AccordionPanel>
             ))}
           </div>
-          <div className="mt-8 flex gap-4 flex-col flex-wrap justify-start box-border">
+          <div className="flex gap-4 flex-col flex-wrap justify-start box-border">
             {faqRight.map((item, index) => (
               <AccordionPanel key={item.title} title={item.title} index={index}>
                 {item.description}
