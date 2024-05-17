@@ -141,7 +141,7 @@ export const SetupJetSim = () => {
             />
           </div>
         </div>
-        <div className="bg-[#F8F9FB] p-4 md:py-6 md:px-8 rounded-xl relative overflow-visible">
+        <div className="bg-[#F8F9FB] p-4 xxs:p-6 md:px-8 rounded-xl relative overflow-visible">
           <div className="flex flex-col gap-4 md:gap-8 w-full md:w-3/4">
             <h3 className="text-2xl font-medium leading-[30px] text-text-100">
               Ensure your phone is compatible with eSIM technology
