@@ -27,8 +27,8 @@ const LinksBlock = ({ children }: { children: React.ReactNode }) => {
 
 export const LandingFooter = () => {
   return (
-    <LandingContainer className="border-t border-[#E6EFF2]">
-      <Card size="lg">
+    <LandingContainer className="border-t border-[#E6EFF2] sm:border-none">
+      <Card size="lg" className="sm:py-8">
         <div className="flex gap-8 flex-col md:flex-row">
           <div className="w-1/2">
             <Image src="/logo.svg" alt="logo image" width={155} height={36} />

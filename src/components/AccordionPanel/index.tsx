@@ -58,7 +58,7 @@ export const AccordionPanel = ({
         id={`panel-${index}-content`}
       >
         <div>
-          <p className="pt-4 pr-10 font-medium text-base leading-[22px] text-text-600">
+          <p className="pt-3 md:pt-4 pr-10 font-medium text-base leading-[22px] text-text-600">
             {children}
           </p>
         </div>
