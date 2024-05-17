@@ -38,7 +38,7 @@ export const WhyBlock = () => {
   const t = useTranslations("MainPage");
   return (
     <LandingContainer>
-      <Card size="md" className="xxs:p-8">
+      <Card size="md" className="xxs:p-8 xs:p-6">
         <div className="flex flex-col gap-6 md:gap-10">
           <div>
             <p className="text-base leading-[22px] mb-1 md:text-xl md:leading-[26px] md:mb-[10px] text-text-600 font-medium">
@@ -76,11 +76,11 @@ export const WhyBlock = () => {
           </div>
           <div className="flex flex-col gap-6 md:gap-14">
             <div className="h-0.5 w-full bg-[#D9D9D9]" />
-            <div className="h-[94px] md:h-[42px] flex flex-col gap-4 justify-between items-center">
+            <div className="flex flex-col gap-4 justify-between items-center">
               <p className="text-base leading-[22px] w-full md:text-2xl md:leading-[30px] text-text-600 font-medium">
                 {t("secure_payment_methods")}
               </p>
-              <div className="flex gap-4 md:gap-12 flex-wrap">
+              <div className="flex gap-4 md:gap-12 flex-wrap w-full items-center">
                 <Image
                   src="/paypal-pay.svg"
                   alt="paypal pay icon"
