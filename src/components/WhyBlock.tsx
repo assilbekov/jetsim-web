@@ -76,45 +76,45 @@ export const WhyBlock = () => {
           </div>
           <div className="flex flex-col gap-6 md:gap-12">
             <div className="h-0.5 w-full bg-[#D9D9D9]" />
-            <div className="flex flex-col gap-4 md:gap-6 justify-between items-center">
+            <div className="flex flex-col lg:flex-row gap-4 md:gap-6 justify-between items-center">
               <p className="text-base leading-[22px] w-full md:text-2xl md:leading-[30px] text-text-600 font-medium">
                 {t("secure_payment_methods")}
               </p>
-              <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between flex-wrap w-full items-center">
+              <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between lg:min-w-[646px] flex-wrap w-full items-center">
                 <Image
                   src="/paypal-pay.svg"
                   alt="paypal pay icon"
                   width={146}
                   height={36}
-                  className="w-[83.2px] h-[20.6px]"
+                  className="w-[83.2px] h-[20.6px] sm:w-[111px] sm:h-[27.43px] md:w-[145.636px] md:h-[36px]"
                 />
                 <Image
                   src="/apple-pay.svg"
                   alt="apple pay icon"
                   width={90}
                   height={42}
-                  className="w-[51px] h-[24px]"
+                  className="w-[51px] h-[24px] sm:w-[68px] sm:h-[32px] md:w-[89.25px] md:h-[42px]"
                 />
                 <Image
                   src="/google-pay.svg"
                   alt="google pay icon"
                   width={75}
                   height={31}
-                  className="w-[41.3px] h-[17.6px]"
+                  className="w-[41.3px] h-[17.6px] sm:w-[55.1px] sm:h-[23px] md:w-[72.27px] md:h-[30px]"
                 />
                 <Image
                   src="/mastercard-pay.svg"
                   alt="mastercard pay icon"
                   width={64}
                   height={40}
-                  className="w-[36.6px] h-[22.86px]"
+                  className="w-[36.6px] h-[22.86px] sm:w-[48.76px] sm:h-[30.476px] md:w-[64px] md:h-[40px]"
                 />
                 <Image
                   src="/visa-pay.svg"
                   alt="visa pay icon"
                   width={83}
                   height={28}
-                  className="w-[47.2px] h-[16px]"
+                  className="w-[47.2px] h-[16px] sm:w-[63px] sm:h-[21.3px] md:w-[82.6px] md:h-[28px]"
                 />
               </div>
             </div>
