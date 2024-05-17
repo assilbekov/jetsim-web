@@ -38,7 +38,7 @@ export const WhyBlock = () => {
   const t = useTranslations("MainPage");
   return (
     <LandingContainer>
-      <Card size="md" className="xxs:p-8 xs:p-6">
+      <Card size="md" className="xxs:p-8 xs:p-6 md:p-8">
         <div className="flex flex-col gap-6 md:gap-10">
           <div>
             <p className="text-base leading-[22px] mb-1 md:text-xl md:leading-[26px] md:mb-[10px] text-text-600 font-medium">
@@ -48,7 +48,7 @@ export const WhyBlock = () => {
               {t("internet_everywhere_with")}
             </Header>
           </div>
-          <div className="grid grid-cols-1 xxs:grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:flex-row md:justify-between">
+          <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
@@ -74,13 +74,13 @@ export const WhyBlock = () => {
               description={t("just_buy_and_start_using")}
             />
           </div>
-          <div className="flex flex-col gap-6 md:gap-14">
+          <div className="flex flex-col gap-6 md:gap-12">
             <div className="h-0.5 w-full bg-[#D9D9D9]" />
-            <div className="flex flex-col gap-4 justify-between items-center">
+            <div className="flex flex-col gap-4 md:gap-6 justify-between items-center">
               <p className="text-base leading-[22px] w-full md:text-2xl md:leading-[30px] text-text-600 font-medium">
                 {t("secure_payment_methods")}
               </p>
-              <div className="flex gap-4 sm:gap-5 md:gap-12 flex-wrap w-full items-center">
+              <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between flex-wrap w-full items-center">
                 <Image
                   src="/paypal-pay.svg"
                   alt="paypal pay icon"
