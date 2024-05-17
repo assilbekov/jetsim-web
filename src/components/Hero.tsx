@@ -6,7 +6,7 @@ import { Search } from "./Search";
 export const Hero = () => {
   const t = useTranslations("MainPage");
   return (
-    <div className="flex items-center">
+    <div className="flex items-center sm:mx-auto">
       <Image
         src="/hero_2x.png"
         alt="hero image"
@@ -14,19 +14,19 @@ export const Hero = () => {
         height={594}
         className="w-[42%] h-auto min-w-[556px] min-h-[42%] hidden md:block"
       />
-      <div className="py-4 xxs:pb-8 gap-4 xxs:gap-5 md:pt-4 md:pl-12 md:pr-16 flex flex-col md:gap-8">
+      <div className="py-4 xxs:pb-8 gap-4 xxs:gap-5 sm:gap-6 md:pt-4 md:pl-12 md:pr-16 flex flex-col md:gap-8">
         <div className="flex flex-col gap-3 md:gap-4">
-          <h3 className="text-base leading-[22px] text-text-600 font-medium">
+          <h3 className="sm:text-center text-base leading-[22px] text-text-600 font-medium">
             {t("subheader")}
           </h3>
-          <h1 className="text-2xl leading-[30px] font-medium text-text-100">
+          <h1 className="sm:text-center xxs:text-3xl xxs:leading-[38px] text-2xl leading-[30px] font-medium text-text-100">
             {t("header")}
           </h1>
         </div>
         <div>
           <Search />
         </div>
-        <div className="flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 md:gap-6 md:m-auto">
+        <div className="sm:justify-center flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 md:gap-6 md:m-auto">
           <Feature
             icon="/timer.svg"
             iconAlt="timer icon"
