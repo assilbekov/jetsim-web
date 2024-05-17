@@ -206,7 +206,7 @@ export const Recommendations = () => {
         <Header variant={HeadersVariant.H2}>
           {t("where_do_you_want_to_go")}
         </Header>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 md:mt-6 lg-mt-8">
           {mockCountries.slice(0, 11).map((country, index) => (
             <CountryCard
               key={country.title}

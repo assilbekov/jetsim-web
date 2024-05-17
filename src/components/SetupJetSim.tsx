@@ -98,8 +98,8 @@ const Step = ({ step, title, content }: StepProps) => {
 export const SetupJetSim = () => {
   return (
     <LandingContainer className="border-t-2 border-[#E9F0F2] xxs:border-t-0">
-      <Card className="flex flex-col gap-5 md:gap-8">
-        <div className="flex flex-col gap-4 xxs:gap-5">
+      <Card className="flex flex-col gap-5 md:gap-6 lg:gap-8">
+        <div className="flex flex-col gap-4 xxs:gap-5 sm:gap-6 lg:gap-8">
           <Header variant={HeadersVariant.H2}>
             Set up your JetSim eSIM in 1 minute
           </Header>
@@ -142,7 +142,7 @@ export const SetupJetSim = () => {
           </div>
         </div>
         <div className="bg-[#F8F9FB] p-4 xxs:p-6 md:px-8 rounded-xl relative overflow-visible">
-          <div className="flex flex-col gap-4 md:gap-8 w-full md:w-3/4">
+          <div className="flex flex-col gap-4 md:gap-4 lg:gap-8 w-full md:w-[60%] lg:w-3/4">
             <h3 className="text-2xl font-medium leading-[30px] text-text-100">
               Ensure your phone is compatible with eSIM technology
             </h3>
@@ -165,7 +165,7 @@ export const SetupJetSim = () => {
               </Link>
             </div>
           </div>
-          <div className="bg-[url('/setup-esim.png')] bg-contain bg-no-repeat bg-right-bottom h-[110%] w-[23%] absolute right-[5%] bottom-0 hidden md:block" />
+          <div className="bg-[url('/setup-esim.png')] bg-contain bg-no-repeat bg-right-bottom h-[110%] w-[32%] lg:w-[23%] absolute right-[5%] bottom-0 hidden md:block" />
         </div>
       </Card>
     </LandingContainer>

@@ -20,7 +20,7 @@ export const LandingSupport = () => {
               </button>
             </div>
           </div>
-          <div className="hidden sm:block bg-[url('/support-person.png')] bg-cover sm:h-[252px] sm:w-[181px] md:h-[478px] md:w-[340px] absolute right-[12%] md:right-[10%] bottom-0" />
+          <div className="hidden sm:block bg-[url('/support-person.png')] bg-cover sm:h-[252px] sm:w-[181px] md:h-[290px] md:w-[207px] lg:h-[478px] lg:w-[340px] absolute right-[12%] md:right-[10%] bottom-0" />
         </div>
       </div>
     </LandingContainer>
