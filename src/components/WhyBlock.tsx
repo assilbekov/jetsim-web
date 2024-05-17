@@ -48,7 +48,7 @@ export const WhyBlock = () => {
               {t("internet_everywhere_with")}
             </Header>
           </div>
-          <div className="grid grid-cols-1 xxs:grid-cols-2 gap-4 md:gap-8 md:flex-row md:justify-between">
+          <div className="grid grid-cols-1 xxs:grid-cols-2 gap-4 sm:gap-6 md:gap-8 md:flex-row md:justify-between">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
@@ -80,7 +80,7 @@ export const WhyBlock = () => {
               <p className="text-base leading-[22px] w-full md:text-2xl md:leading-[30px] text-text-600 font-medium">
                 {t("secure_payment_methods")}
               </p>
-              <div className="flex gap-4 md:gap-12 flex-wrap w-full items-center">
+              <div className="flex gap-4 sm:gap-5 md:gap-12 flex-wrap w-full items-center">
                 <Image
                   src="/paypal-pay.svg"
                   alt="paypal pay icon"
