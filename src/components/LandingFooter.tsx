@@ -4,7 +4,7 @@ import { LandingContainer } from "./LandingContainer";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h5 className="text-text-100 text-xl leading-6 font-medium">{children}</h5>
+    <h5 className="text-text-100 text-xl leading-[26px] font-medium">{children}</h5>
   );
 };
 
@@ -27,8 +27,8 @@ const LinksBlock = ({ children }: { children: React.ReactNode }) => {
 
 export const LandingFooter = () => {
   return (
-    <LandingContainer className="border-t border-[#E6EFF2] sm:border-none sm:pt-0 pt-8">
-      <Card>
+    <LandingContainer className="border-t border-[#E6EFF2]">
+      <Card size="lg">
         <div className="flex gap-8 flex-col md:flex-row">
           <div className="w-1/2">
             <Image src="/logo.svg" alt="logo image" width={155} height={36} />
