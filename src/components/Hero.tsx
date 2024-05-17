@@ -6,7 +6,7 @@ import { Search } from "./Search";
 export const Hero = () => {
   const t = useTranslations("MainPage");
   return (
-    <div className="flex items-center sm:mx-auto xxs:pb-4 md:pb-10 ">
+    <div className="flex items-center sm:mx-auto xxs:pb-4 md:pb-10 md:px-8">
       <Image
         src="/hero_2x.png"
         alt="hero image"
@@ -26,7 +26,7 @@ export const Hero = () => {
         <div>
           <Search />
         </div>
-        <div className="sm:justify-center flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 md:gap-6 md:m-auto">
+        <div className="sm:justify-center flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 lg:gap-6 md:m-auto">
           <Feature
             icon="/timer.svg"
             iconAlt="timer icon"
