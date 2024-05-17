@@ -16,7 +16,7 @@ export const Card = ({ children, className, size = "sm" }: CardProps) => {
       case "md":
         return "p-6 sm:p-8 md:p-12";
       case "lg":
-        return "py-8 px-6 sm:py-12 sm:px-8 md:py-16 md:px-12";
+        return "py-8 px-6 xxs:px-8 sm:py-12 sm:px-8 md:py-16 md:px-12";
     }
   };
 

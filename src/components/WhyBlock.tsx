@@ -38,7 +38,7 @@ export const WhyBlock = () => {
   const t = useTranslations("MainPage");
   return (
     <LandingContainer>
-      <Card size="md">
+      <Card size="md" className="xxs:p-8">
         <div className="flex flex-col gap-6 md:gap-10">
           <div>
             <p className="text-base leading-[22px] mb-1 md:text-xl md:leading-[26px] md:mb-[10px] text-text-600 font-medium">
@@ -48,7 +48,7 @@ export const WhyBlock = () => {
               {t("internet_everywhere_with")}
             </Header>
           </div>
-          <div className="gap-4 md:gap-8 flex flex-col md:flex-row md:justify-between">
+          <div className="grid grid-cols-1 xxs:grid-cols-2 gap-4 md:gap-8 md:flex-row md:justify-between">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
