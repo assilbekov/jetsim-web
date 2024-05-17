@@ -21,7 +21,7 @@ export const HumburgerButton = () => {
     <button
       aria-controls="primary-navigation"
       aria-expanded="false"
-      className="mobile-nav-toggle w-[68px] h-[54px] rounded-[44px] justify-center items-center border-2 bg-text-900 border-[#EBEFF0]"
+      className="mobile-nav-toggle w-[68px] h-[54px] rounded-[44px] justify-center items-center border-2 bg-text-900 border-[#EBEFF0] xxs:top-4 xxs:right-6 top-2 right-4"
       id="mobile-nav-toggle"
       onClick={handleButtonClick}
     >

@@ -14,8 +14,8 @@ export default function Index() {
   const t = useTranslations("Index");
   return (
     <main className="sm:bg-[#F8F9FB] bg-white-900 overflow-hidden">
-      <LandingContainer className="bg-text-900 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] px-4">
-        <div className="flex flex-col gap-6 md:gap-8 mt-2 md:mt-4">
+      <LandingContainer className="bg-text-900 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] px-4 xxs:px-6">
+        <div className="flex flex-col gap-6 mt-2 md:gap-8 xxs:mt-4">
           <Navbar />
           <Hero />
         </div>
