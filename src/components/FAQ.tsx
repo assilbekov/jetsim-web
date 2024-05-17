@@ -68,7 +68,7 @@ export const FAQ = () => {
     <LandingContainer>
       <Card size="md">
         <Header variant={HeadersVariant.H2}>Frequently Asked Questions</Header>
-        <div className="flex flex-col md:flex-row gap-4 mt-4 md:mt-6">
+        <div className="flex flex-col md:flex-row gap-4 mt-4 md:mt-6 lg:mt-8">
           <div className="flex gap-4 flex-col flex-wrap justify-start box-border">
             {faqLeft.map((item, index) => (
               <AccordionPanel key={item.title} title={item.title} index={index}>

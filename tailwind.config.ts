@@ -29,7 +29,7 @@ const config: Config = {
       xl: "1440px",
       // => @media (min-width: 1440px) { ... }
 
-      "2xl": "1920px",
+      xxl: "1920px",
       // => @media (min-width: 1920px) { ... }
     },
     extend: {
