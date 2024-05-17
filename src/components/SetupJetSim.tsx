@@ -83,7 +83,7 @@ const StepContent = ({ children }: { children: React.ReactNode }) => {
 
 const Step = ({ step, title, content }: StepProps) => {
   return (
-    <div className="flex flex-col gap-3 md:gap-6 p-4 md:p-8 rounded-xl bg-[#F8F9FB]">
+    <div className="flex flex-col gap-3 xs:gap-4 p-4 xs:py-5 xs:px-6 md:gap-6 md:p-8 rounded-xl bg-[#F8F9FB]">
       <p className="font-base md:text-[24px] font-medium leading-[22px] md:leading-[28px] text-primary-500">
         {step}
       </p>
@@ -153,7 +153,7 @@ export const SetupJetSim = () => {
               </p>
               <Link
                 href="#"
-                className="flex gap-1 mt-3 md:mt-4 text-secondary-500 text-base font-medium leading-[22px]"
+                className="flex gap-1 mt-3 xxs:mt-4 text-secondary-500 text-base font-medium leading-[22px]"
               >
                 Check compatibility
                 <Image
