@@ -15,7 +15,7 @@ export default function Index() {
   return (
     <main className="sm:bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <LandingContainer className="bg-text-900 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] px-4 xxs:px-6">
-        <div className="flex flex-col gap-6 pt-2 md:gap-8 xxs:pt-4">
+        <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
           <Navbar />
           <Hero />
         </div>
