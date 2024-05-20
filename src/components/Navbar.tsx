@@ -9,7 +9,7 @@ import { LoginLink } from "./LoginLink";
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
     {...props}
-    className="text-xl font-medium leading-[26px] text-text-600"
+    className="text-xl font-medium leading-[26px] text-text-600 hover:text-[#333D40] transition duration-200 ease-in-out"
   />
 );
 

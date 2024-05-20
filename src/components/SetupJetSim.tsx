@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card } from "./Card";
 import { Header, HeadersVariant } from "./Header";
 import { LandingContainer } from "./LandingContainer";
@@ -153,15 +152,24 @@ export const SetupJetSim = () => {
               </p>
               <Link
                 href="#"
-                className="flex gap-1 mt-3 xxs:mt-4 text-secondary-500 text-base font-medium leading-[22px]"
+                className="flex group gap-1 mt-3 xxs:mt-4 text-secondary-500 hover:text-secondary-300 text-base font-medium leading-[22px] transition duration-200 ease-in-out"
               >
                 Check compatibility
-                <Image
-                  src="/arrow-right.svg"
-                  alt="arrow right"
+                <svg
                   width={20}
                   height={20}
-                />
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="arrow right">
+                    <path
+                      id="background"
+                      d="M13.625 10.75H4.5V9.25H13.625L9.4375 5.0625L10.5 4L16.5 10L10.5 16L9.4375 14.9375L13.625 10.75Z"
+                      className="fill-secondary-500 group-hover:fill-secondary-300 transition duration-200 ease-in-out"
+                    />
+                  </g>
+                </svg>
               </Link>
             </div>
           </div>

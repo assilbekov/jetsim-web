@@ -35,3 +35,15 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 # jetsim-web
+
+
+
+
+## Tasks
+- Fix animations for locations cards.
+- Locations cards hover/active states.
+- Setup link 
+- Add shadows to the hero block 
+- Send message add active/hover states
+- support, reach out, send message blocks check typo sizes
+- check font families for typography

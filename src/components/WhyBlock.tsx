@@ -27,7 +27,7 @@ const FeatureBlock = ({
         className="mb-[6px] w-7 h-7 md:w-12 md:h-12 md:mb-4"
       />
       <Header variant={HeadersVariant.SUBHEADER}>{title}</Header>
-      <p className="text-base leading-[22px] md:text-xl md:leading-[26px] mt-0.5 text-text-600 font-medium">
+      <p className="text-base leading-[22px] md:text-xl md:leading-[26px] mt-0.5 md:mt-1 text-text-600 font-medium">
         {description}
       </p>
     </div>
@@ -75,7 +75,7 @@ export const WhyBlock = () => {
             />
           </div>
           <div className="flex flex-col gap-6 md:gap-12">
-            <div className="h-0.5 w-full bg-[#D9D9D9]" />
+            <div className="h-0.5 w-full bg-[#E9F0F2]" />
             <div className="flex flex-col lg:flex-row gap-4 md:gap-6 justify-between items-center">
               <p className="text-base leading-[22px] w-full md:text-2xl md:leading-[30px] text-text-600 font-medium">
                 {t("secure_payment_methods")}

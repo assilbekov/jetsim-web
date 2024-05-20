@@ -141,11 +141,11 @@ const CountryCard = ({ country, className }: CountryCardProps) => {
     <div
       key={country.title}
       className={clsx(
-        "flex gap-4 px-5 py-[14px] items-center border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl",
+        "flex gap-4 px-5 py-[14px] items-center border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] active:bg-[#C3D4D9] rounded-xl cursor-pointer active:border-[#C3D4D9] transition duration-200 ease-in-out",
         className ?? ""
       )}
     >
-      <div className="w-[34px] h-[34px] flex items-center rounded-full">
+      <div className="w-[34px] h-[34px] md:w-10 md:h-10 flex items-center rounded-full">
         <Image
           src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${country.countryCode}.svg`}
           width={40}

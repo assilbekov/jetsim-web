@@ -26,7 +26,7 @@ export const Search = () => {
     <div className="relative">
       <div className="relative z-50">
         <label
-          className="flex items-center justify-center h-[54px] w-[84px] md:py-4 md:px-6 px-4 py-3 bg-secondary-500 rounded-[32px] absolute right-2 top-[50%] translate-y-[-50%]"
+          className="flex items-center justify-center h-[54px] w-[84px] md:py-4 md:px-6 px-4 py-3 bg-secondary-500 rounded-[32px] absolute right-2 md:right-4 top-[50%] translate-y-[-50%] hover:bg-secondary-700 active:bg-[#620] cursor-pointer transition duration-150 ease-in-out"
           htmlFor="search"
         >
           <Image
@@ -62,7 +62,7 @@ export const Search = () => {
             <li
               key={location.title}
               onClick={() => handleElementClick(location)}
-              className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-2xl"
+              className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer"
             >
               <div className="w-10 h-10 flex items-center rounded-full">
                 <Image
