@@ -1,4 +1,4 @@
-import { simServiceURL } from "@/config";
+import { geoServiceURL } from "@/config";
 import { Location } from "@/models/Location";
 
 export const fetchLocations = async (query: string): Promise<Location[]> => {
@@ -6,7 +6,7 @@ export const fetchLocations = async (query: string): Promise<Location[]> => {
     return [];
   }
 
-  const res = await fetch(`${simServiceURL}locations?query=${query}`);
+  const res = await fetch(`${geoServiceURL}places/suggest?query=${query}`);
   const json = await res.json();
   return json;
 };
