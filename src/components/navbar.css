@@ -11,7 +11,7 @@
     z-index: 1000;
 
     flex-direction: column;
-    padding: 100px 2rem;
+    padding: 100px 24px;
 
     /** Move 100% width of the page */
     transform: translateX(100%);
