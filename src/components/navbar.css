@@ -5,7 +5,7 @@
 /** if backdrop-filter is supported (it's not in firefox) */
 @supports (backdrop-filter: blur(10px)) {
   .primary-navigation {
-    background: hsl(0 0% 100% / 0.1);
+    background: #fff;
     backdrop-filter: blur(10px);
   }
 }
@@ -15,7 +15,7 @@
     gap: 2em;
 
     position: fixed;
-    inset: 0 0 0 30px;
+    inset: 0 0 0 0px;
     z-index: 1000;
 
     flex-direction: column;

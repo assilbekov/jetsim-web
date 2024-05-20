@@ -6,7 +6,6 @@
 @media (max-width: 979px) {
   .mobile-nav-toggle {
     display: flex;
-    position: fixed;
     background-repeat: no-repeat;
     z-index: 9999;
     aspect-ratio: 1;

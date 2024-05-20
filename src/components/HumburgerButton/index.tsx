@@ -8,12 +8,14 @@ export const HumburgerButton = () => {
     const button = document.getElementById("mobile-nav-toggle");
     const navigation = document.getElementById("primary-navigation");
     const navIcon = document.getElementById("humburger-icon");
+    const body = document.body;
 
     if (button && navigation && navIcon) {
       const expanded = button.getAttribute("aria-expanded") === "true";
       button.setAttribute("aria-expanded", String(!expanded));
       navigation.setAttribute("data-visible", String(!expanded));
       navIcon?.classList.toggle("open");
+      body.classList.toggle("overflow-hidden");
     }
   };
 
