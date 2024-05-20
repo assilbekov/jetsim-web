@@ -19,7 +19,7 @@ export const Navbar = () => {
         data-visible="false"
         className="primary-navigation flex gap-10 text-text-600 md:w-2/3 md:justify-between"
       >
-        <div className="flex gap-8 items-center">
+        <div className="flex flex-col md:flex-row gap-8 items-center">
           <Link href="#">{t("check_compatability")}</Link>
           <Link href="#">{t("how_to")}</Link>
           <Link href="#">{t("support")}</Link>
