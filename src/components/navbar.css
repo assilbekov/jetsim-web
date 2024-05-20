@@ -1,13 +1,5 @@
 .primary-navigation {
-  background: hsl(0 0% 0% / 0.75);
-}
-
-/** if backdrop-filter is supported (it's not in firefox) */
-@supports (backdrop-filter: blur(10px)) {
-  .primary-navigation {
-    background: #fff;
-    backdrop-filter: blur(10px);
-  }
+  background: #fff;
 }
 
 @media (max-width: 979px) {
@@ -19,7 +11,7 @@
     z-index: 1000;
 
     flex-direction: column;
-    padding: min(20vh, 10rem) 2rem;
+    padding: 100px 2rem;
 
     /** Move 100% width of the page */
     transform: translateX(100%);
