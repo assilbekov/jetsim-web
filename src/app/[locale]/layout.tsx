@@ -1,12 +1,20 @@
 import { AuthProvider } from "@/contexts/AuthContext";
 import "./globals.css";
 import { QueryContext } from "@/contexts/QueryContext";
-import { Inter_Tight } from 'next/font/google'
- 
+import { Inter_Tight, Inter } from "next/font/google";
+import { clsx } from "@/utils";
+
 const interTight = Inter_Tight({
-  subsets: ['latin'],
-  display: 'swap',
-})
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter-tight",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export default function LocaleLayout({
   children,
@@ -16,7 +24,7 @@ export default function LocaleLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={locale} className={interTight.className}>
+    <html lang={locale} className={clsx(interTight.variable, inter.variable)}>
       <body>
         <QueryContext>
           <AuthProvider>{children}</AuthProvider>
