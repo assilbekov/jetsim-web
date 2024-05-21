@@ -3,6 +3,12 @@ import { Header, HeadersVariant } from "./Header";
 import Image from "next/image";
 import { LandingContainer } from "./LandingContainer";
 import { Card } from "./Card";
+import { clsx } from "@/utils";
+import {
+  Typography,
+  TypographyVariants,
+  matchTypographyMediaQuery,
+} from "./Typography";
 
 type FeatureBlockProps = {
   iconSrc: string;
@@ -26,8 +32,23 @@ const FeatureBlock = ({
         alt={iconAlt}
         className="mb-[6px] w-7 h-7 md:w-12 md:h-12 md:mb-4"
       />
-      <Header variant={HeadersVariant.SUBHEADER}>{title}</Header>
-      <p className="text-base leading-[22px] md:text-xl md:leading-[26px] mt-0.5 md:mt-1 text-text-600 font-medium">
+      <h3
+        className={matchTypographyMediaQuery({
+          default: TypographyVariants.Caption,
+          md: TypographyVariants.Subheader,
+        })}
+      >
+        {title}
+      </h3>
+      <p
+        className={clsx(
+          "mt-0.5 md:mt-1 text-text-600",
+          matchTypographyMediaQuery({
+            default: TypographyVariants.Caption,
+            md: TypographyVariants.Body,
+          })
+        )}
+      >
         {description}
       </p>
     </div>
@@ -41,12 +62,20 @@ export const WhyBlock = () => {
       <Card size="md" className="xxs:p-8 xs:p-6 md:p-8">
         <div className="flex flex-col gap-6 md:gap-10">
           <div>
-            <p className="text-base leading-[22px] mb-1 md:text-xl md:leading-[26px] md:mb-[10px] text-text-600 font-medium">
+            <p
+              className={clsx(
+                "mb-1 md:mb-[10px] text-text-600",
+                matchTypographyMediaQuery({
+                  default: TypographyVariants.Caption,
+                  md: TypographyVariants.Body,
+                })
+              )}
+            >
               {t("why_jetsim")}
             </p>
-            <Header variant={HeadersVariant.H2}>
+            <Typography variant={TypographyVariants.H2}>
               {t("internet_everywhere_with")}
-            </Header>
+            </Typography>
           </div>
           <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <FeatureBlock
@@ -77,7 +106,15 @@ export const WhyBlock = () => {
           <div className="flex flex-col gap-6 md:gap-12">
             <div className="h-0.5 w-full bg-[#E9F0F2]" />
             <div className="flex flex-col lg:flex-row gap-4 md:gap-6 justify-between items-center">
-              <p className="text-base leading-[22px] w-full md:text-2xl md:leading-[30px] text-text-600 font-medium">
+              <p
+                className={clsx(
+                  "w-full text-text-600",
+                  matchTypographyMediaQuery({
+                    default: TypographyVariants.Caption,
+                    md: TypographyVariants.Subheader,
+                  })
+                )}
+              >
                 {t("secure_payment_methods")}
               </p>
               <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between lg:min-w-[646px] flex-wrap w-full items-center">
