@@ -18,7 +18,7 @@ export const Hero = () => {
         alt="hero image"
         width={556}
         height={594}
-        className="w-[368px] lg:w-[455px] xl:w-[581px] h-auto hidden md:block"
+        className="min-w-[368px] lg:min-w-[455px] xl:min-w-[581px] h-auto hidden md:block"
       />
       <div className="py-4 gap-4 xxs:gap-5 sm:gap-6 md:pt-4 md:pl-12 md:pr-16 flex flex-col lg:gap-8">
         <div className="flex flex-col gap-3 lg:gap-4">
