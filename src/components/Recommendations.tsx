@@ -1,10 +1,15 @@
 import { useTranslations } from "next-intl";
-import { Header, HeadersVariant } from "./Header";
 import { LandingContainer } from "./LandingContainer";
 import { Location } from "@/models/Location";
 import Image from "next/image";
 import { Card } from "./Card";
 import { clsx } from "@/utils";
+import {
+  Typography,
+  TypographyVariants,
+  getTypographyClass,
+  matchTypographyMediaQuery,
+} from "./Typography";
 
 const mockCountries: Location[] = [
   {
@@ -154,8 +159,20 @@ const CountryCard = ({ country, className }: CountryCardProps) => {
         />
       </div>
       <div className="flex flex-col gap-0.5">
-        <p className="text-base leading-[22px] font-medium">{country.title}</p>
-        <p className="text-base leading-[22px] font-medium text-text-600">
+        <p
+          className={matchTypographyMediaQuery({
+            default: TypographyVariants.Caption,
+            md: TypographyVariants.Body,
+          })}
+        >
+          {country.title}
+        </p>
+        <p
+          className={clsx(
+            "text-text-600",
+            getTypographyClass(TypographyVariants.Caption)
+          )}
+        >
           from $2/day
         </p>
       </div>
@@ -185,8 +202,20 @@ const ViewAllCard = () => {
   return (
     <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
       <div className="flex flex-col gap-0.5">
-        <p className="text-base leading-[22px] font-medium">View all</p>
-        <p className="text-base leading-[22px] font-medium text-text-600">
+        <p
+          className={matchTypographyMediaQuery({
+            default: TypographyVariants.Caption,
+            md: TypographyVariants.Body,
+          })}
+        >
+          View all
+        </p>
+        <p
+          className={clsx(
+            "text-text-600",
+            getTypographyClass(TypographyVariants.Caption)
+          )}
+        >
           {ALL_COUNTRIES_NUMBER} countries
         </p>
       </div>
@@ -203,9 +232,9 @@ export const Recommendations = () => {
   return (
     <LandingContainer>
       <Card>
-        <Header variant={HeadersVariant.H2}>
+        <Typography variant={TypographyVariants.H2}>
           {t("where_do_you_want_to_go")}
-        </Header>
+        </Typography>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 md:mt-6 lg-mt-8">
           {mockCountries.slice(0, 11).map((country, index) => (
             <CountryCard
