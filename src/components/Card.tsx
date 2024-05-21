@@ -12,9 +12,9 @@ export const Card = ({ children, className, size = "sm" }: CardProps) => {
   const getSizePadding = (size: Size) => {
     switch (size) {
       case "sm":
-        return "p-4 xxs:p-6 sm:p-8 md:p-8 lg:p-12";
+        return "p-4 xxs:p-6 sm:p-8 md:p-8 lg:px-12 lg:py-10";
       case "md":
-        return "p-6 sm:p-8 md:p-12 lg:p-12";
+        return "p-6 sm:p-8 md:p-12 lg:px-12 lg:py-10";
       case "lg":
         return "py-8 px-6 xxs:px-8 sm:py-12 sm:px-8 md:py-16 md:px-12 lg:p-12";
     }
