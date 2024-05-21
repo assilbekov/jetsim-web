@@ -1,7 +1,13 @@
+import { clsx } from "@/utils";
 import { Card } from "./Card";
-import { Header, HeadersVariant } from "./Header";
 import { LandingContainer } from "./LandingContainer";
 import Link from "next/link";
+import {
+  Typography,
+  TypographyVariants,
+  getTypographyClass,
+  matchTypographyMediaQuery,
+} from "./Typography";
 
 type SelectDataPlanProps = {
   selected: boolean;
@@ -14,7 +20,7 @@ const SelectDataPlan = ({ selected, label }: SelectDataPlanProps) => {
       <div className="flex items-center justify-center rounded-full w-6 h-6 border-2 border-[#E6F0F2]">
         {selected && <div className="bg-secondary-500 w-2 h-2 rounded-full" />}
       </div>
-      <p>{label}</p>
+      <p className={getTypographyClass(TypographyVariants.Caption)}>{label}</p>
     </div>
   );
 };
@@ -23,7 +29,7 @@ const InstructionStep = ({ step }: { step: string }) => {
   return (
     <div className="flex gap-4 items-center">
       <div className="flex items-center justify-center rounded-full min-w-6 h-6 border-2 border-[#E6F0F2]">
-        <p className="font-base leading-4 font-medium">{step}</p>
+        <p className={getTypographyClass(TypographyVariants.Caption)}>{step}</p>
       </div>
       <div className="w-full h-3 rounded-full bg-[#E6F0F2]" />
     </div>
@@ -57,7 +63,7 @@ const DataRoaming = () => {
 const DataRoamingActive = () => {
   return (
     <div className="flex gap-4 items-center justify-between">
-      <p className="font-base font-medium text-text-100 leading-[22px]">
+      <p className={getTypographyClass(TypographyVariants.Caption)}>
         Data roaming
       </p>
       <DisabledToggle checked />
@@ -82,10 +88,24 @@ const StepContent = ({ children }: { children: React.ReactNode }) => {
 const Step = ({ step, title, content }: StepProps) => {
   return (
     <div className="flex flex-col gap-3 xs:gap-4 p-4 xs:py-5 xs:px-6 md:gap-6 md:p-8 rounded-xl bg-[#F8F9FB]">
-      <p className="font-base md:text-[24px] font-medium leading-[22px] md:leading-[28px] text-primary-500">
+      <p
+        className={clsx(
+          "text-primary-500",
+          matchTypographyMediaQuery({
+            default: TypographyVariants.Caption,
+            md: TypographyVariants.Subheader,
+          }),
+          "xs:text-xl xs:leading-[26px]"
+        )}
+      >
         {step}
       </p>
-      <h3 className="font-base md:text-[24px] font-medium leading-[22px] md:leading-[28px] text-text-100">
+      <h3
+        className={matchTypographyMediaQuery({
+          default: TypographyVariants.Caption,
+          md: TypographyVariants.Subheader,
+        })}
+      >
         {title}
       </h3>
       {content}
@@ -98,9 +118,9 @@ export const SetupJetSim = () => {
     <LandingContainer className="border-t-2 border-[#E9F0F2] xxs:border-t-0">
       <Card className="flex flex-col gap-5 md:gap-6 lg:gap-8">
         <div className="flex flex-col gap-4 xxs:gap-5 sm:gap-6 lg:gap-8">
-          <Header variant={HeadersVariant.H2}>
+          <Typography variant={TypographyVariants.H2}>
             Set up your JetSim eSIM in 1 minute
-          </Header>
+          </Typography>
           <div className="flex flex-col sm:flex-row gap-5 md:gap-8">
             <Step
               step="01"
@@ -140,18 +160,26 @@ export const SetupJetSim = () => {
           </div>
         </div>
         <div className="bg-[#F8F9FB] p-4 xxs:p-6 md:px-8 rounded-xl relative overflow-visible">
-          <div className="flex flex-col gap-4 md:gap-4 lg:gap-8 w-full md:w-[60%] lg:w-3/4">
-            <h3 className="text-2xl font-medium leading-[30px] text-text-100">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-4 lg:gap-8 w-full md:w-[60%] lg:w-3/4">
+            <h3 className={getTypographyClass(TypographyVariants.Subheader)}>
               Ensure your phone is compatible with eSIM technology
             </h3>
             <div>
-              <p className="text-base font-medium leading-[22px] text-[#95A2A6]">
+              <p
+                className={clsx(
+                  "text-text-600",
+                  getTypographyClass(TypographyVariants.Caption)
+                )}
+              >
                 Most current phones, tablets, and watches support eSIM, its
                 possible your device only supports physical SIM cards
               </p>
               <Link
                 href="#"
-                className="flex group gap-1 mt-3 xxs:mt-4 text-secondary-500 hover:text-secondary-300 text-base font-medium leading-[22px] transition duration-200 ease-in-out"
+                className={clsx(
+                  "flex group gap-1 mt-3 xxs:mt-4 text-secondary-500 hover:text-secondary-300 transition duration-200 ease-in-out",
+                  getTypographyClass(TypographyVariants.Caption)
+                )}
               >
                 Check compatibility
                 <svg
