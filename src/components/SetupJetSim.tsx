@@ -2,7 +2,6 @@ import { Card } from "./Card";
 import { Header, HeadersVariant } from "./Header";
 import { LandingContainer } from "./LandingContainer";
 import Link from "next/link";
-import { Typography, TypographyVariants } from "./Typography";
 
 type SelectDataPlanProps = {
   selected: boolean;

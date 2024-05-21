@@ -2,6 +2,12 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Feature } from "./Feature";
 import { Search } from "./Search";
+import {
+  Typography,
+  TypographyVariants,
+  matchTypographyMediaQuery,
+} from "./Typography";
+import { clsx } from "@/utils";
 
 export const Hero = () => {
   const t = useTranslations("MainPage");
@@ -16,12 +22,24 @@ export const Hero = () => {
       />
       <div className="py-4 gap-4 xxs:gap-5 sm:gap-6 md:pt-4 md:pl-12 md:pr-16 flex flex-col lg:gap-8">
         <div className="flex flex-col gap-3 lg:gap-4">
-          <h3 className="sm:text-center text-base lg:text-xl leading-[22px] lg:leading-[26px] text-text-600 font-medium">
+          <h3
+            className={clsx(
+              "text-text-600",
+              matchTypographyMediaQuery({
+                default: TypographyVariants.Caption,
+                lg: TypographyVariants.Body,
+              }),
+              "sm:text-center"
+            )}
+          >
             {t("subheader")}
           </h3>
-          <h1 className="sm:text-center xxs:text-3xl xxs:leading-[38px] text-2xl md:text-3xl md:leading-[38px] lg:text-[54px] lg:leading-[64px] leading-[30px] font-medium text-text-100">
+          <Typography
+            variant={TypographyVariants.H1}
+            className="sm:text-center"
+          >
             {t("header")}
-          </h1>
+          </Typography>
         </div>
         <div>
           <Search />
