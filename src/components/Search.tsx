@@ -62,7 +62,7 @@ export const Search = () => {
             <li
               key={location.title}
               onClick={() => handleElementClick(location)}
-              className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer"
+              className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"
             >
               <div className="w-10 h-10 flex items-center rounded-full">
                 <Image
