@@ -5,11 +5,16 @@ import { HumburgerButton } from "./HumburgerButton";
 
 import "./navbar.css";
 import { LoginLink } from "./LoginLink";
+import { clsx } from "@/utils";
+import { TypographyVariants, getTypographyClass } from "./Typography";
 
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
     {...props}
-    className="text-xl font-medium leading-[26px] text-text-600 hover:text-[#333D40] transition duration-200 ease-in-out"
+    className={clsx(
+      "text-text-600 hover:text-[#333D40] transition duration-200 ease-in-out",
+      getTypographyClass(TypographyVariants.Body)
+    )}
   />
 );
 
