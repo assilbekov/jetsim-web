@@ -3,6 +3,12 @@
 import Image from "next/image";
 import "./accordion-panel.css";
 import { useRef } from "react";
+import { clsx } from "@/utils";
+import {
+  TypographyVariants,
+  getTypographyClass,
+  matchTypographyMediaQuery,
+} from "../Typography";
 
 type AccordionPanelProps = {
   title: React.ReactNode;
@@ -38,7 +44,15 @@ export const AccordionPanel = ({
       onClick={panelToggle}
     >
       <div id={panelTitleId} className="flex gap-4 cursor-pointer">
-        <h3 className="text-base leading-[22px] w-full md:text-xl md:leading-[26px] font-medium">
+        <h3
+          className={clsx(
+            "w-full",
+            matchTypographyMediaQuery({
+              default: TypographyVariants.Caption,
+              md: TypographyVariants.Body,
+            })
+          )}
+        >
           {title}
         </h3>
         <Image
@@ -58,7 +72,12 @@ export const AccordionPanel = ({
         id={`panel-${index}-content`}
       >
         <div>
-          <p className="pt-3 md:pt-4 pr-10 font-medium text-base leading-[22px] text-text-600">
+          <p
+            className={clsx(
+              "pt-3 md:pt-4 pr-10 text-text-600",
+              getTypographyClass(TypographyVariants.Caption)
+            )}
+          >
             {children}
           </p>
         </div>

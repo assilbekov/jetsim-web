@@ -7,9 +7,7 @@ import { TypographyVariants, getTypographyClass } from "./Typography";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h5 className="text-text-100 text-xl leading-[26px] font-medium">
-      {children}
-    </h5>
+    <h5 className={getTypographyClass(TypographyVariants.Body)}>{children}</h5>
   );
 };
 

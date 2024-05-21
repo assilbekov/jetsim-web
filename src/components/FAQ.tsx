@@ -1,7 +1,7 @@
-import { Header, HeadersVariant } from "./Header";
 import { LandingContainer } from "./LandingContainer";
 import { Card } from "./Card";
 import { AccordionPanel } from "./AccordionPanel";
+import { Typography, TypographyVariants } from "./Typography";
 
 export const FAQ = () => {
   const faq = [
@@ -67,7 +67,9 @@ export const FAQ = () => {
   return (
     <LandingContainer>
       <Card size="md">
-        <Header variant={HeadersVariant.H2}>Frequently Asked Questions</Header>
+        <Typography variant={TypographyVariants.H2}>
+          Frequently Asked Questions
+        </Typography>
         <div className="flex flex-col md:flex-row gap-4 mt-4 md:mt-6 lg:mt-8">
           <div className="flex gap-4 flex-col flex-wrap justify-start box-border">
             {faqLeft.map((item, index) => (
