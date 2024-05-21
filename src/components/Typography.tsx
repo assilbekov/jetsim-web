@@ -8,7 +8,7 @@ export enum TypographyVariants {
   Caption = "caption",
 }
 
-const getTypographyClass = (variant: TypographyVariants) => {
+export const getTypographyClass = (variant: TypographyVariants) => {
   switch (variant) {
     case TypographyVariants.H1:
       return "font-interTight text-[56px] leading-[64px] font-medium tracking-[1.12px]";

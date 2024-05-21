@@ -15,7 +15,7 @@ export const LandingSupport = () => {
               </h3>
             </div>
             <div className="text-center sm:text-start">
-              <button className="text-base leading-[22px] md:text-xl md:leading-7 py-4 px-8 md:px-6 bg-secondary-500 rounded-full text-text-900 font-medium">
+              <button className="text-base leading-[22px] md:text-xl md:leading-7 py-4 px-8 md:px-6 bg-secondary-500 active:bg-secondary-300 hover:bg-secondary-700 rounded-full text-text-900 font-medium transition duration-200 ease-in-out">
                 Send a message
               </button>
             </div>

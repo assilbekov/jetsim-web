@@ -1,18 +1,28 @@
 import Image from "next/image";
 import { Card } from "./Card";
 import { LandingContainer } from "./LandingContainer";
+import Link from "next/link";
+import { clsx } from "@/utils";
+import { TypographyVariants, getTypographyClass } from "./Typography";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h5 className="text-text-100 text-xl leading-[26px] font-medium">{children}</h5>
+    <h5 className="text-text-100 text-xl leading-[26px] font-medium">
+      {children}
+    </h5>
   );
 };
 
 // TOOD: Make list element a link
 const ListElement = ({ children }: { children: React.ReactNode }) => {
   return (
-    <li className="text-text-600 text-base leading-[22px] font-medium">
-      {children}
+    <li
+      className={clsx(
+        "text-text-600 hover:text-text-300 transition duration-200 ease-in-out",
+        getTypographyClass(TypographyVariants.Caption)
+      )}
+    >
+      <Link href="#">{children}</Link>
     </li>
   );
 };

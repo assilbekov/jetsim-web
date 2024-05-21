@@ -183,7 +183,7 @@ const ArrowRightIcon = () => (
 
 const ViewAllCard = () => {
   return (
-    <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl">
+    <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
       <div className="flex flex-col gap-0.5">
         <p className="text-base leading-[22px] font-medium">View all</p>
         <p className="text-base leading-[22px] font-medium text-text-600">
