@@ -1,4 +1,5 @@
 import { FAQ } from "@/components/FAQ";
+import { FeatureAndTechDetails } from "@/components/FeaturesAndTechDetails";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
@@ -19,6 +20,7 @@ export default function Index() {
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
+        <FeatureAndTechDetails />
         <WhyBlock />
         <SetupJetSim />
         <LandingSupport />
