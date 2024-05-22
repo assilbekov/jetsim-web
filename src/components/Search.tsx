@@ -4,6 +4,7 @@ import { fetchLocations, fetchTopCountries } from "@/api/locations";
 import { Location } from "@/models/Location";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 // TODO: add variables for shadow, border
@@ -79,26 +80,29 @@ export const Search = () => {
             ? queryInfo.data
             : topCountriesInfo.data.data.slice(0, 4)
           ).map((location) => (
-            <li
-              key={location.title}
-              onClick={() => handleElementClick(location)}
-              className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"
-            >
-              <div className="w-10 h-10 flex items-center rounded-full">
-                <Image
-                  src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${location.countryCode}.svg`}
-                  width={40}
-                  height={40}
-                  alt={`flag of ${location.countryCode}`}
-                />
-              </div>
-              <div className="flex flex-col gap-1">
-                <p className="text-xl leading-6 font-medium">
-                  {location.title}
-                </p>
-                <p className="text-base leading-5 text-text-600">from $2/day</p>
-              </div>
-            </li>
+            <Link key={location.title} href={`/en/places/${location.placeID}`}>
+              <li
+                onClick={() => handleElementClick(location)}
+                className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"
+              >
+                <div className="w-10 h-10 flex items-center rounded-full">
+                  <Image
+                    src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${location.countryCode}.svg`}
+                    width={40}
+                    height={40}
+                    alt={`flag of ${location.countryCode}`}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <p className="text-xl leading-6 font-medium">
+                    {location.title}
+                  </p>
+                  <p className="text-base leading-5 text-text-600">
+                    from $2/day
+                  </p>
+                </div>
+              </li>
+            </Link>
           ))}
         </ul>
       )}
