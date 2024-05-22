@@ -4,25 +4,36 @@ import { fetchLocations, fetchTopCountries } from "@/api/locations";
 import { Location } from "@/models/Location";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
 export const Search = () => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const queryInfo = useQuery({
-    queryKey: ["search", query],
+    queryKey: ["search", debouncedQuery],
     queryFn: async () => {
-      return fetchLocations(query);
+      return fetchLocations(debouncedQuery);
     },
+    staleTime: 1000 * 60 * 60,
   });
   const topCountriesInfo = useQuery({
     queryKey: ["topCountries"],
     queryFn: async () => {
       return fetchTopCountries(11);
     },
+    staleTime: 1000 * 60 * 60,
   });
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedQuery(query);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [query]);
 
   const handleElementClick = (location: Location) => {
     setOpen(false);
