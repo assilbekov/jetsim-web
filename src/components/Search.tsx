@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchLocations } from "@/api/locations";
+import { fetchLocations, fetchTopCountries } from "@/api/locations";
 import { Location } from "@/models/Location";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
@@ -15,6 +15,12 @@ export const Search = () => {
     queryKey: ["search", query],
     queryFn: async () => {
       return fetchLocations(query);
+    },
+  });
+  const topCountriesInfo = useQuery({
+    queryKey: ["topCountries"],
+    queryFn: async () => {
+      return fetchTopCountries(11);
     },
   });
 
@@ -56,9 +62,12 @@ export const Search = () => {
           placeholder="Where do you go?"
         />
       </div>
-      {open && !!queryInfo.data && (
+      {open && !!queryInfo.data && !!topCountriesInfo.data && (
         <ul className="p-[14px] my-4 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-3xl border-2 border-[#EBEFF0] z-50 absolute w-full bg-text-900">
-          {queryInfo.data.map((location) => (
+          {(queryInfo.data?.length
+            ? queryInfo.data
+            : topCountriesInfo.data.data.slice(0, 4)
+          ).map((location) => (
             <li
               key={location.title}
               onClick={() => handleElementClick(location)}
