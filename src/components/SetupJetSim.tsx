@@ -8,6 +8,7 @@ import {
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
+import { CheckCompatibilityLink } from "./CheckCompatibilityLink";
 
 type SelectDataPlanProps = {
   selected: boolean;
@@ -174,30 +175,10 @@ export const SetupJetSim = () => {
                 Most current phones, tablets, and watches support eSIM, its
                 possible your device only supports physical SIM cards
               </p>
-              <Link
-                href="#"
-                className={clsx(
-                  "flex group gap-1 mt-3 xxs:mt-4 text-secondary-500 hover:text-secondary-300 transition duration-200 ease-in-out",
-                  getTypographyClass(TypographyVariants.Caption)
-                )}
-              >
-                Check compatibility
-                <svg
-                  width={20}
-                  height={20}
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g id="arrow right">
-                    <path
-                      id="background"
-                      d="M13.625 10.75H4.5V9.25H13.625L9.4375 5.0625L10.5 4L16.5 10L10.5 16L9.4375 14.9375L13.625 10.75Z"
-                      className="fill-secondary-500 group-hover:fill-secondary-300 transition duration-200 ease-in-out"
-                    />
-                  </g>
-                </svg>
-              </Link>
+              <CheckCompatibilityLink
+                label="Check compatibility"
+                className="mt-3 xxs:mt-4"
+              />
             </div>
           </div>
           <div className="bg-[url('/setup-esim.png')] bg-contain bg-no-repeat bg-right-bottom h-[110%] w-[32%] lg:w-[23%] absolute right-[5%] bottom-0 hidden md:block" />
