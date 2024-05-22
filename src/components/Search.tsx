@@ -30,7 +30,7 @@ export const Search = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDebouncedQuery(query);
-    }, 300);
+    }, 500);
 
     return () => clearTimeout(timeout);
   }, [query]);

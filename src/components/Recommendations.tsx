@@ -10,129 +10,7 @@ import {
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
-
-const mockCountries: Location[] = [
-  {
-    title: "United States",
-    coordinate: {
-      lat: 37.09024,
-      lng: -95.712891,
-    },
-    countryCode: "US",
-    bestCost: null,
-    placeID: "united-states",
-  },
-  {
-    title: "Australia",
-    coordinate: {
-      lat: -25.274398,
-      lng: 133.775136,
-    },
-    countryCode: "AU",
-    bestCost: null,
-    placeID: "australia",
-  },
-  {
-    title: "Brazil",
-    coordinate: {
-      lat: -14.235004,
-      lng: -51.92528,
-    },
-    countryCode: "BR",
-    bestCost: null,
-    placeID: "brazil",
-  },
-  {
-    title: "Canada",
-    coordinate: {
-      lat: 56.130366,
-      lng: -106.346771,
-    },
-    countryCode: "CA",
-    bestCost: null,
-    placeID: "canada",
-  },
-  {
-    title: "China",
-    coordinate: {
-      lat: 35.86166,
-      lng: 104.195397,
-    },
-    countryCode: "CN",
-    bestCost: null,
-    placeID: "china",
-  },
-  {
-    title: "France",
-    coordinate: {
-      lat: 46.603354,
-      lng: 1.888334,
-    },
-    countryCode: "FR",
-    bestCost: null,
-    placeID: "france",
-  },
-  {
-    title: "Germany",
-    coordinate: {
-      lat: 51.16569,
-      lng: 10.451526,
-    },
-    countryCode: "DE",
-    bestCost: null,
-    placeID: "germany",
-  },
-  {
-    title: "India",
-    coordinate: {
-      lat: 20.593684,
-      lng: 78.96288,
-    },
-    countryCode: "IN",
-    bestCost: null,
-    placeID: "india",
-  },
-  {
-    title: "Italy",
-    coordinate: {
-      lat: 41.87194,
-      lng: 12.56738,
-    },
-    countryCode: "IT",
-    bestCost: null,
-    placeID: "italy",
-  },
-  {
-    title: "Japan",
-    coordinate: {
-      lat: 36.204824,
-      lng: 138.252924,
-    },
-    countryCode: "JP",
-    bestCost: null,
-    placeID: "japan",
-  },
-  {
-    title: "Mexico",
-    coordinate: {
-      lat: 23.634501,
-      lng: -102.552784,
-    },
-    countryCode: "MX",
-    bestCost: null,
-    placeID: "mexico",
-  },
-  {
-    title: "Russia",
-    coordinate: {
-      lat: 61.52401,
-      lng: 105.318756,
-    },
-    countryCode: "RU",
-    bestCost: null,
-    placeID: "russia",
-  },
-];
+import { fetchTopCountries } from "@/api/locations";
 
 const ALL_COUNTRIES_NUMBER = 150;
 
@@ -226,8 +104,9 @@ const ViewAllCard = () => {
   );
 };
 
-export const Recommendations = () => {
+export const Recommendations = async () => {
   const t = useTranslations("MainPage");
+  const topCountries = await fetchTopCountries(11);
 
   return (
     <LandingContainer>
@@ -236,7 +115,7 @@ export const Recommendations = () => {
           {t("where_do_you_want_to_go")}
         </Typography>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 md:mt-6 lg-mt-8">
-          {mockCountries.slice(0, 11).map((country, index) => (
+          {topCountries.data.slice(0, 11).map((country, index) => (
             <CountryCard
               key={country.title}
               country={country}
