@@ -8,7 +8,7 @@ import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { useTranslations } from "next-intl";
 
-export default function Index() {
+export default function Index({ params }: { params: { placeId: string } }) {
   const t = useTranslations("Index");
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
@@ -19,6 +19,7 @@ export default function Index() {
           </div>
         </LandingContainer>
       </div>
+      {JSON.stringify(params)}
       <div className="flex flex-col sm:gap-4 md:gap-6">
         <FeatureAndTechDetails />
         <WhyBlock />
