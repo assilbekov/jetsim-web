@@ -1,7 +1,6 @@
 import { clsx } from "@/utils";
 import { Card } from "./Card";
 import { LandingContainer } from "./LandingContainer";
-import Link from "next/link";
 import {
   Typography,
   TypographyVariants,
