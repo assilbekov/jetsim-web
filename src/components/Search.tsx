@@ -87,7 +87,7 @@ export const Search = () => {
               >
                 <div className="w-10 h-10 flex items-center rounded-full">
                   <Image
-                    src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${location.countryCode}.svg`}
+                    src={`https://hatscripts.github.io/circle-flags/flags/${location.countryCode.toLowerCase()}.svg`}
                     width={40}
                     height={40}
                     alt={`flag of ${location.countryCode}`}

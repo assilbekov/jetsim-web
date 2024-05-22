@@ -33,7 +33,7 @@ const CountryCard = ({ country, className }: CountryCardProps) => {
       >
         <div className="w-[34px] h-[34px] md:w-10 md:h-10 flex items-center rounded-full">
           <Image
-            src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${country.countryCode}.svg`}
+            src={`https://hatscripts.github.io/circle-flags/flags/${country.countryCode.toLowerCase()}.svg`}
             width={40}
             height={40}
             alt={`flag of ${country.countryCode}`}
