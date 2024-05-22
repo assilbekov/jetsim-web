@@ -23,14 +23,12 @@ type CountryCardProps = {
 // Fix navigation issue.
 const CountryCard = ({ country, className }: CountryCardProps) => {
   return (
-    <Link href={`/en/places/${country.placeID}`}>
-      <div
-        key={country.title}
-        className={clsx(
-          "flex gap-4 px-5 py-[14px] items-center border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] active:bg-[#C3D4D9] rounded-xl cursor-pointer active:border-[#C3D4D9] transition duration-200 ease-in-out",
-          className ?? ""
-        )}
-      >
+    <Link
+      key={country.title}
+      className={className}
+      href={`/en/places/${country.placeID}`}
+    >
+      <div className="flex gap-4 px-5 py-[14px] items-center border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] active:bg-[#C3D4D9] rounded-xl cursor-pointer active:border-[#C3D4D9] transition duration-200 ease-in-out">
         <div className="w-[34px] h-[34px] md:w-10 md:h-10 flex items-center rounded-full">
           <Image
             src={`https://hatscripts.github.io/circle-flags/flags/${country.countryCode.toLowerCase()}.svg`}
@@ -128,10 +126,10 @@ export const Recommendations = async () => {
                   case index >= 0 && index < 4:
                     return "";
                   case index >= 4 && index < 7:
-                    return "hidden sm:flex";
+                    return "hidden sm:block";
                   case index >= 7:
                   default:
-                    return "hidden lg:flex";
+                    return "hidden lg:block";
                 }
               })()}
             />
