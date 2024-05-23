@@ -4,6 +4,7 @@ import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
+import { PlacePackagesCard } from "@/components/PlacePackagesCard";
 import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { useTranslations } from "next-intl";
@@ -19,8 +20,8 @@ export default function Index({ params }: { params: { placeId: string } }) {
           </div>
         </LandingContainer>
       </div>
-      {JSON.stringify(params)}
       <div className="flex flex-col sm:gap-4 md:gap-6">
+        <PlacePackagesCard placeId={params.placeId} />
         <FeatureAndTechDetails />
         <WhyBlock />
         <SetupJetSim />

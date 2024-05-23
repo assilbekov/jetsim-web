@@ -10,3 +10,8 @@ export type Location = {
   bestCost: number | null;
   placeID: string;
 };
+
+export type LocationCover = {
+  id: string;
+  url: string;
+};

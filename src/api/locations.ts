@@ -1,5 +1,5 @@
 import { geoServiceURL } from "@/config";
-import { Location } from "@/models/Location";
+import { Location, LocationCover } from "@/models/Location";
 
 export const fetchLocations = async (query: string): Promise<Location[]> => {
   if (!query) {
@@ -17,6 +17,20 @@ export const fetchTopCountries = async (
   const res = await fetch(
     `${geoServiceURL}places/lists/q/top-countries??limit=${limit}`
   );
+  const json = await res.json();
+  return json;
+};
+
+export const fetchLocation = async (placeId: string): Promise<Location> => {
+  const res = await fetch(`${geoServiceURL}places/${placeId}`);
+  const json = await res.json();
+  return json;
+};
+
+export const fetchLocationCover = async (
+  placeId: string
+): Promise<LocationCover> => {
+  const res = await fetch(`${geoServiceURL}places/${placeId}/cover`);
   const json = await res.json();
   return json;
 };
