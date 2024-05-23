@@ -11,9 +11,36 @@ import {
   matchTypographyMediaQuery,
 } from "./Typography";
 import { clsx } from "@/utils";
+import { ButtonHTMLAttributes, useState } from "react";
 
 type PlacePackagesCardProps = {
   placeId: string;
+};
+
+type TagButtonsProps = {
+  active: boolean;
+  className?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+const TagButtons = ({
+  children,
+  className,
+  active,
+  ...restProps
+}: TagButtonsProps) => {
+  return (
+    <button
+      {...restProps}
+      aria-pressed={active}
+      className={clsx(
+        "py-3 px-[22px] rounded-[32px] text-text-600 aria-pressed:text-text-100 hover:bg-[#E9F0F2] aria-pressed:bg-[#E9F0F2] transition duration-200 ease-in-out",
+        getTypographyClass(TypographyVariants.Caption),
+        className ?? ""
+      )}
+    >
+      {children}
+    </button>
+  );
 };
 
 export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
@@ -25,6 +52,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     queryKey: ["place-packages-cover", placeId],
     queryFn: async () => fetchLocationCover(placeId),
   });
+  const [tags, setTags] = useState<"standard" | "unlimited">("standard");
 
   return (
     <LandingContainer>
@@ -58,6 +86,20 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           >
             Unlimited and standard plans for travellers and remote workers
           </p>
+        </div>
+        <div>
+          <TagButtons
+            active={tags === "standard"}
+            onClick={() => setTags("standard")}
+          >
+            Standard
+          </TagButtons>
+          <TagButtons
+            active={tags === "unlimited"}
+            onClick={() => setTags("unlimited")}
+          >
+            Unlimited
+          </TagButtons>
         </div>
         <button
           className={clsx(
