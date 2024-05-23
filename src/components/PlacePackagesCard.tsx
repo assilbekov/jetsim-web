@@ -50,19 +50,23 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
               className="w-7 h-7 xxs:w-9 xxs:h-9"
             />
           </div>
-          <p className={clsx(
-            getTypographyClass(TypographyVariants.Caption),
-            "text-text-600"
-          )}>
+          <p
+            className={clsx(
+              getTypographyClass(TypographyVariants.Caption),
+              "text-text-600"
+            )}
+          >
             Unlimited and standard plans for travellers and remote workers
           </p>
         </div>
-        <button className={
-          clsx(
-            "w-full py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900",
-            getTypographyClass(TypographyVariants.Caption),
-          )
-        }>Go to checkout</button>
+        <button
+          className={clsx(
+            "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 hover:bg-secondary-300 active:bg-secondary-700 transition duration-200 ease-in-out",
+            getTypographyClass(TypographyVariants.Caption)
+          )}
+        >
+          Go to checkout
+        </button>
       </Card>
     </LandingContainer>
   );
