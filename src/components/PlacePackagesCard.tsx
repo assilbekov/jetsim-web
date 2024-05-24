@@ -14,6 +14,7 @@ import { clsx } from "@/utils";
 import { ButtonHTMLAttributes, useState } from "react";
 import { Package } from "@/models/Package";
 import { Checkbox } from "./Checkbox";
+import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -148,6 +149,14 @@ const BoldText = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const TextContainer = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="flex flex-col gap-0.5 xxs:gap-1 xxs:min-w-[104px]">
+      {children}
+    </div>
+  );
+};
+
 const SecondaryText = ({ children }: { children: React.ReactNode }) => {
   return (
     <p className="font-inter font-medium text-text-600 leading-[18px] text-sm">
@@ -163,33 +172,35 @@ type PackageOptionProps = {
 
 const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
   const [s, setS] = useState(false);
-  console.log({ s, packageEntity, selected });
+  console.log({ s, packageEntity });
   return (
     <label
-      aria-selected={selected}
+      aria-selected={s}
       className="block py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer"
       htmlFor={packageEntity.id}
     >
-      <div>
-        <div>
-          <div>
+      <div className="flex gap-6">
+        <div className="flex gap-6 w-full">
+          <TextContainer>
             <BoldText>
               {packageEntity.traffic.unit.count}{" "}
               {packageEntity.traffic.unit.label}
             </BoldText>
             <SecondaryText>
+              {convertCurrencyCodeToSymbol(packageEntity.cost.currency)}
               {packageEntity.traffic.unit.costPerUnit.price} /{" "}
               {packageEntity.traffic.unit.label}
             </SecondaryText>
-          </div>
-          <div>
+          </TextContainer>
+          <TextContainer>
             <BoldText>
-              {packageEntity.cost.price} {packageEntity.cost.currency}
+              {convertCurrencyCodeToSymbol(packageEntity.cost.currency)}
+              {packageEntity.cost.price}
             </BoldText>
             <SecondaryText>{packageEntity.days} days</SecondaryText>
-          </div>
+          </TextContainer>
         </div>
-        <div>
+        <div className="flex gap-3">
           {packageEntity.bestChoice && <div>Best</div>}{" "}
           <Checkbox
             id={packageEntity.id}
@@ -198,7 +209,7 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
           />
         </div>
       </div>
-      {selected && (
+      {s && (
         <>
           <div className="w-full h-0.5 bg-[#E9F0F2]" />
           <div>
