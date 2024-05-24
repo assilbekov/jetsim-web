@@ -174,7 +174,7 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
         <div>
           {packageEntity.bestChoice && <div>Best</div>}{" "}
           <input placeholder="checkbox" />
-          <Checkbox id={packageEntity.id} />
+          <Checkbox id={packageEntity.id} checked={selected} />
         </div>
       </div>
       {selected && (

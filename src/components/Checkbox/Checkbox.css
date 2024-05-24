@@ -16,12 +16,12 @@
 }
 .checkbox-wrapper-46 .cbx span:first-child {
   position: relative;
-  width: 18px;
-  height: 18px;
-  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
   transform: scale(1);
   vertical-align: middle;
-  border: 1px solid #9098a9;
+  border: 2px solid #c3d4d9;
   transition: all 0.2s ease;
 }
 .checkbox-wrapper-46 .cbx span:first-child svg {
@@ -33,8 +33,8 @@
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 16px;
-  stroke-dashoffset: 16px;
+  stroke-dasharray: 21px;
+  stroke-dashoffset: 21px;
   transition: all 0.3s ease;
   transition-delay: 0.1s;
   transform: translate3d(0, 0, 0);
@@ -43,7 +43,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background: #506eec;
+  background: #f25100;
   display: block;
   transform: scale(0);
   opacity: 1;
@@ -53,12 +53,12 @@
   padding-left: 8px;
 }
 .checkbox-wrapper-46 .cbx:hover span:first-child {
-  border-color: #506eec;
+  border-color: #f25100;
 }
 
 .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child {
-  background: #506eec;
-  border-color: #506eec;
+  background: #f25100;
+  border-color: #f25100;
   animation: wave-46 0.4s ease;
 }
 .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child svg {
@@ -67,7 +67,7 @@
 .checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child:before {
   transform: scale(3.5);
   opacity: 0;
-  transition: all 0.6s ease;
+  transition: all 0.4s ease;
 }
 
 @keyframes wave-46 {
