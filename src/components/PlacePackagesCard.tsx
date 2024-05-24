@@ -165,6 +165,25 @@ const SecondaryText = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+type BrowsingFeatureProps = {
+  label: React.ReactNode;
+  imageSrc: string;
+  imageAlt: string;
+};
+
+const BrowsingFeature = ({
+  label,
+  imageAlt,
+  imageSrc,
+}: BrowsingFeatureProps) => {
+  return (
+    <div className="flex gap-1 items-center">
+      <Image src={imageSrc} alt={imageAlt} width={20} height={20} />
+      <p className=" font-inter">{label}</p>
+    </div>
+  );
+};
+
 type PackageOptionProps = {
   packageEntity: Package;
   selected: boolean;
@@ -176,7 +195,7 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
   return (
     <label
       aria-selected={s}
-      className="block py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer transition duration-200 ease-in-out"
+      className="flex flex-col gap-3 py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer transition duration-200 ease-in-out"
       htmlFor={packageEntity.id}
     >
       <div className="flex gap-6">
@@ -212,9 +231,32 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
       {s && (
         <>
           <div className="w-full h-0.5 bg-[#E9F0F2]" />
-          <div>
-            <div>grid options</div>
-            <div>icon</div>
+          <div className="flex gap-3 items-start">
+            <div className="grid gap-x-3 gap-y-2 grid-cols-2">
+              <BrowsingFeature
+                imageAlt="browsing icon"
+                imageSrc="/icons/browse.svg"
+                label="60h browsing"
+              />
+              <BrowsingFeature
+                imageAlt="music icon"
+                imageSrc="/icons/music.svg"
+                label="30h music"
+              />
+              <BrowsingFeature
+                imageAlt="video icon"
+                imageSrc="/icons/video.svg"
+                label="20h video"
+              />
+            </div>
+            <div className="flex justify-center items-center min-w-6 min-h-6">
+              <Image
+                src="/icons/gray/info.svg"
+                alt="info icon"
+                width={16}
+                height={16}
+              />
+            </div>
           </div>
         </>
       )}
@@ -266,7 +308,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             Unlimited and standard plans for travellers and remote workers
           </p>
         </div>
-        <div>
+        <div className="flex flex-col gap-2 xxs:gap-3">
           {mockPackages.map((packageEntity, index) => (
             <PackageOption
               packageEntity={packageEntity}
