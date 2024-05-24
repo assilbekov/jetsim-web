@@ -6,7 +6,7 @@ export const Checkbox = ({
   ...restProps
 }: React.InputHTMLAttributes<HTMLInputElement>) => {
   return (
-    <div className="checkbox-wrapper-46">
+    <div className="checkbox-wrapper-46 relative">
       <input
         className="inp-cbx"
         id={id}
@@ -20,7 +20,7 @@ export const Checkbox = ({
             <polyline points="1.5 8 7 13 15 1"></polyline>
           </svg>
         </span>
-        <span></span>
+        <span className="w-0 h-0 absolute" />
       </label>
     </div>
   );
