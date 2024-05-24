@@ -146,6 +146,8 @@ type PackageOptionProps = {
 };
 
 const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
+  const [s, setS] = useState(false);
+  console.log({ s, packageEntity, selected });
   return (
     <label
       aria-selected={selected}
@@ -173,8 +175,11 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
         </div>
         <div>
           {packageEntity.bestChoice && <div>Best</div>}{" "}
-          <input placeholder="checkbox" />
-          <Checkbox id={packageEntity.id} checked={selected} />
+          <Checkbox
+            id={packageEntity.id}
+            checked={s}
+            onChange={() => setS(!s)}
+          />
         </div>
       </div>
       {selected && (
