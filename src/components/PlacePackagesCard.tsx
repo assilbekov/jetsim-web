@@ -176,7 +176,7 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
   return (
     <label
       aria-selected={s}
-      className="block py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer"
+      className="block py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer transition duration-200 ease-in-out"
       htmlFor={packageEntity.id}
     >
       <div className="flex gap-6">
