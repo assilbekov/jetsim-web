@@ -22,9 +22,9 @@ export const Navbar = () => {
   const t = useTranslations("MainPage");
   return (
     <header className="flex justify-between items-center h-[54px]">
-      <div className="z-[1001]">
+      <Link className="z-[1001]" href="/">
         <Image src="/logo.svg" alt="logo image" width={155} height={36} />
-      </div>
+      </Link>
       <HumburgerButton />
       <nav
         id="primary-navigation"
