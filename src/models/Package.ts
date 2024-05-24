@@ -3,6 +3,7 @@ export interface Package {
   name: string;
   cost: PackageCost;
   days: number;
+  bestChoice: boolean;
   traffic: PackageTraffic;
 }
 

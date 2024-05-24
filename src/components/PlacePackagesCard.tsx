@@ -12,10 +12,107 @@ import {
 } from "./Typography";
 import { clsx } from "@/utils";
 import { ButtonHTMLAttributes, useState } from "react";
+import { Package } from "@/models/Package";
+import { Checkbox } from "./Checkbox";
 
 type PlacePackagesCardProps = {
   placeId: string;
 };
+
+const mockPackages: Package[] = [
+  {
+    id: "1",
+    name: "Standard",
+    cost: {
+      price: 10,
+      currency: "USD",
+    },
+    bestChoice: false,
+    days: 30,
+    traffic: {
+      browsingSec: 100000,
+      videoSec: 100000,
+      musicSec: 100000,
+      unit: {
+        label: "GB",
+        count: 1,
+        costPerUnit: {
+          price: 10,
+          currency: "USD",
+        },
+      },
+    },
+  },
+  {
+    id: "2",
+    name: "Unlimited",
+    cost: {
+      price: 20,
+      currency: "USD",
+    },
+    bestChoice: false,
+    days: 30,
+    traffic: {
+      browsingSec: 100000,
+      videoSec: 100000,
+      musicSec: 100000,
+      unit: {
+        label: "GB",
+        count: 1,
+        costPerUnit: {
+          price: 20,
+          currency: "USD",
+        },
+      },
+    },
+  },
+  {
+    id: "3",
+    name: "Premium",
+    cost: {
+      price: 30,
+      currency: "USD",
+    },
+    bestChoice: true,
+    days: 30,
+    traffic: {
+      browsingSec: 200000,
+      videoSec: 200000,
+      musicSec: 200000,
+      unit: {
+        label: "GB",
+        count: 2,
+        costPerUnit: {
+          price: 15,
+          currency: "USD",
+        },
+      },
+    },
+  },
+  {
+    id: "4",
+    name: "Business",
+    cost: {
+      price: 50,
+      currency: "USD",
+    },
+    bestChoice: false,
+    days: 30,
+    traffic: {
+      browsingSec: 300000,
+      videoSec: 300000,
+      musicSec: 300000,
+      unit: {
+        label: "GB",
+        count: 3,
+        costPerUnit: {
+          price: 10,
+          currency: "USD",
+        },
+      },
+    },
+  },
+];
 
 type TagButtonsProps = {
   active: boolean;
@@ -40,6 +137,56 @@ const TagButtons = ({
     >
       {children}
     </button>
+  );
+};
+
+type PackageOptionProps = {
+  packageEntity: Package;
+  selected: boolean;
+};
+
+const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
+  return (
+    <label
+      aria-selected={selected}
+      className="block py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer"
+      htmlFor={packageEntity.id}
+    >
+      <div>
+        <div>
+          <div>
+            <p>
+              {packageEntity.traffic.unit.count}{" "}
+              {packageEntity.traffic.unit.label}
+            </p>
+            <p>
+              {packageEntity.traffic.unit.costPerUnit.price} /{" "}
+              {packageEntity.traffic.unit.label}
+            </p>
+          </div>
+          <div>
+            <p>
+              {packageEntity.cost.price} {packageEntity.cost.currency}
+            </p>
+            <p>{packageEntity.days} days</p>
+          </div>
+        </div>
+        <div>
+          {packageEntity.bestChoice && <div>Best</div>}{" "}
+          <input placeholder="checkbox" />
+          <Checkbox id={packageEntity.id} />
+        </div>
+      </div>
+      {selected && (
+        <>
+          <div className="w-full h-0.5 bg-[#E9F0F2]" />
+          <div>
+            <div>grid options</div>
+            <div>icon</div>
+          </div>
+        </>
+      )}
+    </label>
   );
 };
 
@@ -86,6 +233,14 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           >
             Unlimited and standard plans for travellers and remote workers
           </p>
+        </div>
+        <div>
+          {mockPackages.map((packageEntity, index) => (
+            <PackageOption
+              packageEntity={packageEntity}
+              selected={index === 2}
+            />
+          ))}
         </div>
         <div>
           <TagButtons
