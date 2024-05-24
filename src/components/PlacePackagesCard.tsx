@@ -140,6 +140,22 @@ const TagButtons = ({
   );
 };
 
+const BoldText = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <p className="font-inter font-bold text-text-100 leading-tight text-base xxs:text-2xl">
+      {children}
+    </p>
+  );
+};
+
+const SecondaryText = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <p className="font-inter font-medium text-text-600 leading-[18px] text-sm">
+      {children}
+    </p>
+  );
+};
+
 type PackageOptionProps = {
   packageEntity: Package;
   selected: boolean;
@@ -157,20 +173,20 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
       <div>
         <div>
           <div>
-            <p>
+            <BoldText>
               {packageEntity.traffic.unit.count}{" "}
               {packageEntity.traffic.unit.label}
-            </p>
-            <p>
+            </BoldText>
+            <SecondaryText>
               {packageEntity.traffic.unit.costPerUnit.price} /{" "}
               {packageEntity.traffic.unit.label}
-            </p>
+            </SecondaryText>
           </div>
           <div>
-            <p>
+            <BoldText>
               {packageEntity.cost.price} {packageEntity.cost.currency}
-            </p>
-            <p>{packageEntity.days} days</p>
+            </BoldText>
+            <SecondaryText>{packageEntity.days} days</SecondaryText>
           </div>
         </div>
         <div>
