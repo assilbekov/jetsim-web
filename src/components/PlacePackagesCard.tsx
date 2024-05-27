@@ -12,13 +12,15 @@ import {
 } from "./Typography";
 import { clsx } from "@/utils";
 import { ButtonHTMLAttributes, useState } from "react";
-import { Package } from "@/models/Package";
+import { Package, PackageTagEnum } from "@/models/Package";
 import { Checkbox } from "./Checkbox";
 import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
-import { useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { fetchPackages } from "@/api/packages";
 
 type PlacePackagesCardProps = {
   placeId: string;
+  locale: string;
 };
 
 const mockPackages: Package[] = [
@@ -286,30 +288,50 @@ const PackageOption = ({
 };
 
 export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [tags, setTags] = useState<"standard" | "unlimited">("unlimited");
-  const [selectedPackage, setSelectedPackage] = useState("");
 
-  const _tags = searchParams.get("tags") === "standard" ? "standard" : "unlimited";
-  const _selectedPackage = searchParams.get("selectedPackage") ?? "";
+  const tags: PackageTagEnum =
+    searchParams.get("tags") === PackageTagEnum.STANDARD
+      ? PackageTagEnum.STANDARD
+      : PackageTagEnum.UNLIMITED;
+  const selectedPackage = searchParams.get("selectedPackage") ?? "";
 
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
-    queryFn: async () => fetchLocation(placeId),
+    queryFn: async () => {
+      const locs = await fetchLocation(placeId);
+      return locs;
+    },
+  });
+  const packagesUnlimitedQuery = useQuery({
+    queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
+    queryFn: async () => fetchPackages(placeId, PackageTagEnum.STANDARD),
+  });
+  const packagesStandardQuery = useQuery({
+    queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
+    queryFn: async () => fetchPackages(placeId, PackageTagEnum.UNLIMITED),
   });
   const locationCoverQuery = useQuery({
     queryKey: ["place-packages-cover", placeId],
     queryFn: async () => fetchLocationCover(placeId),
   });
 
-  console.log({
-    tags,
-    selectedPackage,
-    _tags,
-    _selectedPackage,
-    locationQuery,
-    locationCoverQuery,
-  })
+  const handleTagChange = (tag: PackageTagEnum) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("tags", tag);
+    params.delete("selectedPackage");
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const handlePackageChange = (_selectedPackage: Package) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("selectedPackage", _selectedPackage.id);
+
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <LandingContainer>
@@ -346,25 +368,25 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         </div>
         <div>
           <TagButtons
-            active={tags === "standard"}
-            onClick={() => setTags("standard")}
+            active={tags === PackageTagEnum.STANDARD}
+            onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
           >
             Standard
           </TagButtons>
           <TagButtons
-            active={tags === "unlimited"}
-            onClick={() => setTags("unlimited")}
+            active={tags === PackageTagEnum.UNLIMITED}
+            onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
           >
             Unlimited
           </TagButtons>
         </div>
         <div className="flex flex-col gap-2 xxs:gap-3">
-          {mockPackages.map((packageEntity, index) => (
+          {mockPackages.map((packageEntity) => (
             <PackageOption
               key={packageEntity.id}
               packageEntity={packageEntity}
               selected={selectedPackage === packageEntity.id}
-              onSelect={(packageEntity) => setSelectedPackage(packageEntity.id)}
+              onSelect={handlePackageChange}
             />
           ))}
         </div>

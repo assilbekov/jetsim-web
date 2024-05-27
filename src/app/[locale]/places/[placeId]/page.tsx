@@ -9,7 +9,11 @@ import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { useTranslations } from "next-intl";
 
-export default function Index({ params }: { params: { placeId: string } }) {
+export default function Index({
+  params,
+}: {
+  params: { placeId: string; locale: string };
+}) {
   const t = useTranslations("Index");
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
@@ -21,7 +25,7 @@ export default function Index({ params }: { params: { placeId: string } }) {
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
-        <PlacePackagesCard placeId={params.placeId} />
+        <PlacePackagesCard placeId={params.placeId} locale={params.locale} />
         <FeatureAndTechDetails />
         <WhyBlock showSecurePaymentMethods={false} />
         <SetupJetSim />
