@@ -325,15 +325,6 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             Unlimited and standard plans for travellers and remote workers
           </p>
         </div>
-        <div className="flex flex-col gap-2 xxs:gap-3">
-          {mockPackages.map((packageEntity, index) => (
-            <PackageOption
-              key={packageEntity.id}
-              packageEntity={packageEntity}
-              selected={index === 2}
-            />
-          ))}
-        </div>
         <div>
           <TagButtons
             active={tags === "standard"}
@@ -347,6 +338,15 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           >
             Unlimited
           </TagButtons>
+        </div>
+        <div className="flex flex-col gap-2 xxs:gap-3">
+          {mockPackages.map((packageEntity, index) => (
+            <PackageOption
+              key={packageEntity.id}
+              packageEntity={packageEntity}
+              selected={index === 2}
+            />
+          ))}
         </div>
         <div className="flex justify-between items-center w-full max-w-[397px] m-auto">
           <Image
