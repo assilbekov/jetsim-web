@@ -292,12 +292,6 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const tags: PackageTagEnum =
-    searchParams.get("tags") === PackageTagEnum.STANDARD
-      ? PackageTagEnum.STANDARD
-      : PackageTagEnum.UNLIMITED;
-  const selectedPackage = searchParams.get("selectedPackage") ?? "";
-
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
     queryFn: async () => {
@@ -305,6 +299,11 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
       return locs;
     },
   });
+  const locationCoverQuery = useQuery({
+    queryKey: ["place-packages-cover", placeId],
+    queryFn: async () => fetchLocationCover(placeId),
+  });
+
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => fetchPackages(placeId, PackageTagEnum.STANDARD),
@@ -313,10 +312,12 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => fetchPackages(placeId, PackageTagEnum.UNLIMITED),
   });
-  const locationCoverQuery = useQuery({
-    queryKey: ["place-packages-cover", placeId],
-    queryFn: async () => fetchLocationCover(placeId),
-  });
+
+  const tags: PackageTagEnum =
+    searchParams.get("tags") === PackageTagEnum.STANDARD
+      ? PackageTagEnum.STANDARD
+      : PackageTagEnum.UNLIMITED;
+  const selectedPackage = searchParams.get("selectedPackage") ?? "";
 
   const handleTagChange = (tag: PackageTagEnum) => {
     const params = new URLSearchParams(searchParams.toString());
