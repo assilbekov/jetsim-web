@@ -15,6 +15,7 @@ import { ButtonHTMLAttributes, useState } from "react";
 import { Package } from "@/models/Package";
 import { Checkbox } from "./Checkbox";
 import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
+import { useSearchParams } from "next/navigation";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -198,14 +199,17 @@ const BrowsingFeature = ({
 type PackageOptionProps = {
   packageEntity: Package;
   selected: boolean;
+  onSelect: (packageEntity: Package) => void;
 };
 
-const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
-  const [s, setS] = useState(false);
-  console.log({ s, packageEntity });
+const PackageOption = ({
+  packageEntity,
+  onSelect,
+  selected,
+}: PackageOptionProps) => {
   return (
     <label
-      aria-selected={s}
+      aria-selected={selected}
       className="flex flex-col gap-3 py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer transition duration-200 ease-in-out"
       htmlFor={packageEntity.id}
     >
@@ -240,12 +244,12 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
           )}{" "}
           <Checkbox
             id={packageEntity.id}
-            checked={s}
-            onChange={() => setS(!s)}
+            checked={selected}
+            onChange={() => onSelect(packageEntity)}
           />
         </div>
       </div>
-      {s && (
+      {selected && (
         <>
           <div className="w-full h-0.5 bg-[#E9F0F2]" />
           <div className="flex gap-3 items-start">
@@ -282,6 +286,13 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
 };
 
 export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
+  const searchParams = useSearchParams();
+  const [tags, setTags] = useState<"standard" | "unlimited">("unlimited");
+  const [selectedPackage, setSelectedPackage] = useState("");
+
+  const _tags = searchParams.get("tags") === "standard" ? "standard" : "unlimited";
+  const _selectedPackage = searchParams.get("selectedPackage") ?? "";
+
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
     queryFn: async () => fetchLocation(placeId),
@@ -290,7 +301,15 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     queryKey: ["place-packages-cover", placeId],
     queryFn: async () => fetchLocationCover(placeId),
   });
-  const [tags, setTags] = useState<"standard" | "unlimited">("standard");
+
+  console.log({
+    tags,
+    selectedPackage,
+    _tags,
+    _selectedPackage,
+    locationQuery,
+    locationCoverQuery,
+  })
 
   return (
     <LandingContainer>
@@ -344,7 +363,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             <PackageOption
               key={packageEntity.id}
               packageEntity={packageEntity}
-              selected={index === 2}
+              selected={selectedPackage === packageEntity.id}
+              onSelect={(packageEntity) => setSelectedPackage(packageEntity.id)}
             />
           ))}
         </div>
