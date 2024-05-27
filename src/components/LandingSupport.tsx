@@ -11,7 +11,7 @@ export const LandingSupport = () => {
     <LandingContainer>
       <div className="w-full h-[208px] sm:h-[272px] md:h-[276px] lg:h-[340px] xxl:h-[416px] relative bg-[url('/support-background.png')] bg-[bottom_30%_right_55%] bg-cover rounded-none sm:rounded-3xl md:rounded-xl">
         <div className="w-full h-full bg-gradient-to-br from-[rgba(55,18,0,0.2)] to-[rgba(55,18,0,0.00)] rounded-none sm:rounded-3xl md:rounded-xl">
-          <div className="flex flex-col justify-between h-full w-full sm:w-1/2 p-6 sm:p-8 sm:pr-0 md:py-6 lg:pt-12 md:pl-14 lg:pl-12 lg:pb-12">
+          <div className="flex flex-col justify-between h-full w-full sm:w-1/2 py-6 px-4 sm:p-8 sm:pr-0 md:py-6 lg:pt-12 md:pl-14 lg:pl-12 lg:pb-12">
             <div className="flex flex-col gap-2">
               <p
                 className={clsx(
