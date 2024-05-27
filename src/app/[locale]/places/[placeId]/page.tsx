@@ -23,7 +23,7 @@ export default function Index({ params }: { params: { placeId: string } }) {
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <PlacePackagesCard placeId={params.placeId} />
         <FeatureAndTechDetails />
-        <WhyBlock />
+        <WhyBlock showSecurePaymentMethods={false} />
         <SetupJetSim />
         <LandingSupport />
         <FAQ />
