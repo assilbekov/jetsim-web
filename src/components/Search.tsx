@@ -85,7 +85,7 @@ export const Search = () => {
                 onClick={() => handleElementClick(location)}
                 className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"
               >
-                <div className="w-10 h-10 flex items-center rounded-full">
+                <div className="min-w-10 min-h-10 flex items-center rounded-full">
                   <Image
                     src={`https://hatscripts.github.io/circle-flags/flags/${location.countryCode.toLowerCase()}.svg`}
                     width={40}
