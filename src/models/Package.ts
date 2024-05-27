@@ -29,3 +29,8 @@ export interface CostPerUnit {
   price: number;
   currency: string;
 }
+
+export enum PackageTagEnum {
+  STANDARD = "standard",
+  UNLIMITED = "unlimited",
+}
