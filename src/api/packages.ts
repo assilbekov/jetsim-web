@@ -1,10 +1,10 @@
 import { simServiceURL } from "@/config";
-import { Package, PackageTagEnum } from "@/models/Package";
+import { Package, PackageResponse, PackageTagEnum } from "@/models/Package";
 
 export const fetchPackages = async (
   placeId: string,
   tags: PackageTagEnum
-): Promise<Package> => {
+): Promise<PackageResponse> => {
   const res = await fetch(
     `${simServiceURL}packages?placeID=${placeId}&tags=${tags}`
   );

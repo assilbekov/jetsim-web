@@ -306,18 +306,31 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
 
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
-    queryFn: async () => fetchPackages(placeId, PackageTagEnum.STANDARD),
+    queryFn: async () => {
+      await fetchPackages(placeId, PackageTagEnum.STANDARD);
+      return { data: mockPackages };
+    },
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => fetchPackages(placeId, PackageTagEnum.UNLIMITED),
   });
 
+  const packagesList =
+    (searchParams.get("tags") === PackageTagEnum.STANDARD
+      ? packagesStandardQuery.data?.data
+      : packagesUnlimitedQuery.data?.data) ?? [];
+
   const tags: PackageTagEnum =
     searchParams.get("tags") === PackageTagEnum.STANDARD
       ? PackageTagEnum.STANDARD
       : PackageTagEnum.UNLIMITED;
-  const selectedPackage = searchParams.get("selectedPackage") ?? "";
+  const selectedPackage =
+    searchParams.get("selectedPackage") ??
+    (tags === PackageTagEnum.STANDARD
+      ? packagesStandardQuery.data?.data?.find((p) => p.bestChoice)?.id
+      : packagesUnlimitedQuery.data?.data?.find((p) => p.bestChoice)?.id) ??
+    "";
 
   const handleTagChange = (tag: PackageTagEnum) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -382,7 +395,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           </TagButtons>
         </div>
         <div className="flex flex-col gap-2 xxs:gap-3">
-          {mockPackages.map((packageEntity) => (
+          {packagesList.map((packageEntity) => (
             <PackageOption
               key={packageEntity.id}
               packageEntity={packageEntity}

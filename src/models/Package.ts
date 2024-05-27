@@ -1,3 +1,7 @@
+export interface PackageResponse {
+  data: Package[];
+}
+
 export interface Package {
   id: string;
   name: string;
