@@ -149,9 +149,20 @@ const BoldText = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const TextContainer = ({ children }: { children: React.ReactNode }) => {
+const TextContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <div className="flex flex-col gap-0.5 xxs:gap-1 xxs:min-w-[104px]">
+    <div
+      className={clsx(
+        "flex flex-col gap-0.5 xxs:gap-1 xxs:min-w-[75px]",
+        className ?? ""
+      )}
+    >
       {children}
     </div>
   );
@@ -211,7 +222,7 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
               {packageEntity.traffic.unit.label}
             </SecondaryText>
           </TextContainer>
-          <TextContainer>
+          <TextContainer className="xxs:min-w-20">
             <BoldText>
               {convertCurrencyCodeToSymbol(packageEntity.cost.currency)}
               {packageEntity.cost.price}
@@ -219,8 +230,14 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
             <SecondaryText>{packageEntity.days} days</SecondaryText>
           </TextContainer>
         </div>
-        <div className="flex gap-3">
-          {packageEntity.bestChoice && <div>Best</div>}{" "}
+        <div className="flex gap-3 items-start">
+          {packageEntity.bestChoice && (
+            <div className="flex justify-center items-center bg-[url('/best-rectangle.svg')] bg-cover bg-no-repeat w-[60px] h-[24px] overflow-visible mt-0.5">
+              <span className="text-text-900 text-sm leading-[18px] tracking-[0.56px] font-medium">
+                BEST
+              </span>
+            </div>
+          )}{" "}
           <Checkbox
             id={packageEntity.id}
             checked={s}
