@@ -179,7 +179,7 @@ const BrowsingFeature = ({
   return (
     <div className="flex gap-1 items-center">
       <Image src={imageSrc} alt={imageAlt} width={20} height={20} />
-      <p className=" font-inter">{label}</p>
+      <p className="font-inter text-sm leading-[18px] font-medium">{label}</p>
     </div>
   );
 };
@@ -232,7 +232,7 @@ const PackageOption = ({ packageEntity, selected }: PackageOptionProps) => {
         <>
           <div className="w-full h-0.5 bg-[#E9F0F2]" />
           <div className="flex gap-3 items-start">
-            <div className="grid gap-x-3 gap-y-2 grid-cols-2">
+            <div className="flex w-full flex-wrap gap-x-3 gap-y-2">
               <BrowsingFeature
                 imageAlt="browsing icon"
                 imageSrc="/icons/browse.svg"
@@ -369,7 +369,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         </div>
         <button
           className={clsx(
-            "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 hover:bg-secondary-300 active:bg-secondary-700 transition duration-200 ease-in-out",
+            "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
             getTypographyClass(TypographyVariants.Caption)
           )}
         >
