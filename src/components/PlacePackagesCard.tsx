@@ -311,6 +311,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         <div className="flex flex-col gap-2 xxs:gap-3">
           {mockPackages.map((packageEntity, index) => (
             <PackageOption
+              key={packageEntity.id}
               packageEntity={packageEntity}
               selected={index === 2}
             />
