@@ -40,8 +40,15 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   });
   const locationCoverQuery = useQuery({
     queryKey: ["place-packages-cover", placeId],
-    queryFn: async () => fetchLocationCover(placeId),
+    queryFn: async () => {
+      return {
+        id: placeId,
+        url: "https://s3-alpha-sig.figma.com/img/2b0b/98c4/ff1d0ead5be44799a58319a0839f91eb?Expires=1717977600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WK6-nX4RqtaQ51KNGNBT1UWlvMVwBCXoWEJshc9YMnUirvE42ak~WcIYf9~vr0rRXa7u1gqQTRJb657VrAMrPrKWYi2Wh0bu5BOMqgYCYYgm8M14dD0Jqqx2xGcWK8SWFdH8De5HVHY6c6-rubtXNtdkMmTd2XiU7QrWLIXeGocCu4bR9kDEVaWtLzuVki-HXAwJy2K-Tgbt3AI4jspjWsoFMUWMI5R1raNdARy2VwNE56dW29V~ZNGXEQX8WhtUVS0QByqqvWEX8qrafml747ukQlEePYflNA-bQBbVe0~-Zd7vNcgjiMesP-TROssqK~zGx8o4auhfj4LBC-NNLw__",
+      }
+      return await fetchLocationCover(placeId)
+    },
     staleTime: 1000 * 60 * 5,
+    retry: 1,
   });
 
   const packagesUnlimitedQuery = useQuery({
