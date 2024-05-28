@@ -29,7 +29,7 @@ export const Navbar = () => {
       <nav
         id="primary-navigation"
         data-visible="false"
-        className="primary-navigation flex gap-8 text-text-600 md:w-2/3 md:justify-between"
+        className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between"
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
           <StyledLink href="#">{t("check_compatability")}</StyledLink>

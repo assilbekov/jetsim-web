@@ -1,10 +1,12 @@
 .primary-navigation {
-  background: #fff;
+  background: transparent;
 }
 
 @media (max-width: 979px) {
   .primary-navigation {
     gap: 2em;
+
+    background: #fff;
 
     position: fixed;
     inset: 0 0 0 0px;
