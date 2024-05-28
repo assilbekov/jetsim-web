@@ -1,4 +1,5 @@
 import { clsx } from "@/utils";
+import "./Skeleton.css";
 
 type SkeletonProps = {
   className?: string;

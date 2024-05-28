@@ -11,13 +11,13 @@ import {
   matchTypographyMediaQuery,
 } from "../Typography";
 import { clsx } from "@/utils";
-import { ButtonHTMLAttributes } from "react";
 import { Package, PackageTagEnum } from "@/models/Package";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { fetchPackages } from "@/api/packages";
 import { mockPackages } from "./mockdata";
 import { PackageOption } from "./PackageOption";
 import { TagButton } from "./TagButton";
+import { Skeleton } from "../Skeleton";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -134,14 +134,18 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           </TagButton>
         </div>
         <div className="flex flex-col gap-2 xxs:gap-3">
-          {packagesList.map((packageEntity) => (
-            <PackageOption
-              key={packageEntity.id}
-              packageEntity={packageEntity}
-              selected={selectedPackage === packageEntity.id}
-              onSelect={handlePackageChange}
-            />
-          ))}
+          {packagesStandardQuery.isLoading && packagesUnlimitedQuery.isLoading
+            ? Array.from({ length: 4 }).map((_, i) => (
+                <Skeleton key={i} className="w-full h-20 rounded-xl" />
+              ))
+            : packagesList.map((packageEntity) => (
+                <PackageOption
+                  key={packageEntity.id}
+                  packageEntity={packageEntity}
+                  selected={selectedPackage === packageEntity.id}
+                  onSelect={handlePackageChange}
+                />
+              ))}
         </div>
         <div className="flex justify-between items-center w-full max-w-[397px] m-auto">
           <Image
