@@ -92,7 +92,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
 
   return (
     <LandingContainer className="md:flex">
-      <Card className="flex gap-4 flex-col pt-0 pb-6 md:w-[494px] z-[1]">
+      <Card className="flex gap-4 flex-col pt-0 pb-6 md:min-w-[494px] md:w-[494px] z-[1]">
         <div className="flex flex-col gap-1 xxs:gap-2">
           <div className="flex gap-1 xxs:gap-[10px] xs:gap-4 sm:gap-6 items-center">
             <h3
