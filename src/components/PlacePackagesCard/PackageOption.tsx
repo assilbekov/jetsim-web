@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Checkbox } from "../Checkbox";
 import { clsx } from "@/utils";
 import { BestBadge } from "./BestBadge";
+import { PlansHelperInfo } from "./PlansHelperInfo";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -127,14 +128,7 @@ export const PackageOption = ({
                 label="20h video"
               />
             </div>
-            <div className="flex justify-center items-center min-w-6 min-h-6">
-              <Image
-                src="/icons/gray/info.svg"
-                alt="info icon"
-                width={16}
-                height={16}
-              />
-            </div>
+            <PlansHelperInfo />
           </div>
         </>
       )}
