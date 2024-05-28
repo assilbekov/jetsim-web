@@ -3,6 +3,7 @@ import { Package } from "@/models/Package";
 import Image from "next/image";
 import { Checkbox } from "../Checkbox";
 import { clsx } from "@/utils";
+import { BestBadge } from "./BestBadge";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -97,13 +98,7 @@ export const PackageOption = ({
           </TextContainer>
         </div>
         <div className="flex gap-3 items-start">
-          {packageEntity.bestChoice && (
-            <div className="flex justify-center items-center bg-[url('/best-rectangle.svg')] bg-cover bg-no-repeat w-[60px] h-[24px] overflow-visible mt-0.5">
-              <span className="text-text-900 text-sm leading-[18px] tracking-[0.56px] font-medium">
-                BEST
-              </span>
-            </div>
-          )}{" "}
+          {packageEntity.bestChoice && <BestBadge />}
           <Checkbox
             id={packageEntity.id}
             checked={selected}
