@@ -51,7 +51,10 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
-    queryFn: async () => fetchPackages(placeId, PackageTagEnum.UNLIMITED),
+    queryFn: async () => {
+      await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
+      return { data: mockPackages };
+    },
     staleTime: 1000 * 60 * 5,
   });
 
@@ -141,6 +144,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             : packagesList.map((packageEntity) => (
                 <PackageOption
                   key={packageEntity.id}
+                  tag={tags}
                   packageEntity={packageEntity}
                   selected={selectedPackage === packageEntity.id}
                   onSelect={handlePackageChange}

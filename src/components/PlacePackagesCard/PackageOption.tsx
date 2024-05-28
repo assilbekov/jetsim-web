@@ -1,5 +1,5 @@
 import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
-import { Package } from "@/models/Package";
+import { Package, PackageTagEnum } from "@/models/Package";
 import Image from "next/image";
 import { Checkbox } from "../Checkbox";
 import { clsx } from "@/utils";
@@ -63,6 +63,7 @@ const BrowsingFeature = ({
 type PackageOptionProps = {
   packageEntity: Package;
   selected: boolean;
+  tag: PackageTagEnum;
   onSelect: (packageEntity: Package) => void;
 };
 
@@ -70,6 +71,7 @@ export const PackageOption = ({
   packageEntity,
   onSelect,
   selected,
+  tag,
 }: PackageOptionProps) => {
   return (
     <label
@@ -128,7 +130,7 @@ export const PackageOption = ({
                 label="20h video"
               />
             </div>
-            <PlansHelperInfo />
+            <PlansHelperInfo tag={tag} />
           </div>
         </>
       )}
