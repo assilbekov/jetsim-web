@@ -101,18 +101,27 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
                   default: TypographyVariants.Subheader,
                   xxs: TypographyVariants.H2,
                 }),
-                "w-full"
+                "w-full flex gap-2"
               )}
             >
-              eSIM for {locationQuery.data?.title}
+              eSIM for{" "}
+              {locationQuery.isFetched ? (
+                locationQuery.data?.title
+              ) : (
+                <Skeleton className="min-w-40 xxs:min-w-40 rounded-lg" />
+              )}
             </h3>
-            <Image
-              src={`https://hatscripts.github.io/circle-flags/flags/${locationQuery.data?.countryCode.toLowerCase()}.svg`}
-              width={36}
-              height={36}
-              alt={`flag of ${locationQuery.data?.countryCode}`}
-              className="w-7 h-7 xxs:w-9 xxs:h-9"
-            />
+            {!locationQuery.isFetched ? (
+              <Skeleton className="min-w-7 min-h-7 xxs:min-w-9 xxs:min-h-9 rounded-full" />
+            ) : (
+              <Image
+                src={`https://hatscripts.github.io/circle-flags/flags/${locationQuery.data?.countryCode.toLowerCase()}.svg`}
+                width={36}
+                height={36}
+                alt={`flag of ${locationQuery.data?.countryCode}`}
+                className="w-7 h-7 xxs:w-9 xxs:h-9"
+              />
+            )}
           </div>
           <p
             className={clsx(
