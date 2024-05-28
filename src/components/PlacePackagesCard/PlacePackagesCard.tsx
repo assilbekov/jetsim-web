@@ -40,6 +40,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const locationCoverQuery = useQuery({
     queryKey: ["place-packages-cover", placeId],
     queryFn: async () => fetchLocationCover(placeId),
+    staleTime: 1000 * 60 * 5,
   });
 
   const packagesUnlimitedQuery = useQuery({
