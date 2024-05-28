@@ -310,10 +310,12 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
       await fetchPackages(placeId, PackageTagEnum.STANDARD);
       return { data: mockPackages };
     },
+    staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => fetchPackages(placeId, PackageTagEnum.UNLIMITED),
+    staleTime: 1000 * 60 * 5,
   });
 
   const packagesList =
