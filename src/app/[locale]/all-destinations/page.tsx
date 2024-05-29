@@ -15,7 +15,7 @@ export default function Index() {
           </div>
         </LandingContainer>
       </div>
-      <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
+      <div className="flex flex-col bg-[#F8F9FB] sm:gap-[10px] md:gap-6 lg:gap-[10px]">
         <AllDestinations />
         <LandingFooter />
       </div>
