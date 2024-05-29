@@ -9,24 +9,26 @@ export const AllDestinations = () => {
   return (
     <LandingContainer>
       <Card className="xxxs:px-6 xxs:py-4 xs:py-6 lg:pt-12">
-        <h1
-          className={clsx(
-            getTypographyClass(TypographyVariants.H2),
-            "md:font-interTight md:text-[56px] md:leading-[64px] md:font-medium md:tracking-[1.12px] text-center"
-          )}
-        >
-          All destinations
-        </h1>
-        <h3
-          className={clsx(
-            getTypographyClass(TypographyVariants.Body),
-            "md:text-2xl md:leading-[30px] text-center mt-4 mb-6 md:m-9 text-text-600"
-          )}
-        >
-          Explore data plans across 150+ countries for seamless and secure
-          internet access on the go
-        </h3>
-        <Search />
+        <div className="xl:mx-[120px] xxl:mx-[220px]">
+          <h1
+            className={clsx(
+              getTypographyClass(TypographyVariants.H2),
+              "md:font-interTight md:text-[56px] md:leading-[64px] md:font-medium md:tracking-[1.12px] text-center"
+            )}
+          >
+            All destinations
+          </h1>
+          <h3
+            className={clsx(
+              getTypographyClass(TypographyVariants.Body),
+              "md:text-2xl md:leading-[30px] text-center mt-4 mb-6 md:m-9 text-text-600"
+            )}
+          >
+            Explore data plans across 150+ countries for seamless and secure
+            internet access on the go
+          </h3>
+          <Search />
+        </div>
         <AllDestinationsList />
       </Card>
     </LandingContainer>
