@@ -1,11 +1,7 @@
-import { FAQ } from "@/components/FAQ";
-import { FeatureAndTechDetails } from "@/components/FeaturesAndTechDetails";
+import { AllDestinationsBlock } from "@/components/AllDestinationsBlock";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
-import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
-import { SetupJetSim } from "@/components/SetupJetSim";
-import { WhyBlock } from "@/components/WhyBlock";
 import { useTranslations } from "next-intl";
 
 export default function Index() {
@@ -20,11 +16,7 @@ export default function Index() {
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
-        <FeatureAndTechDetails />
-        <WhyBlock showSecurePaymentMethods={false} />
-        <SetupJetSim />
-        <LandingSupport />
-        <FAQ />
+        <AllDestinationsBlock />
         <LandingFooter />
       </div>
     </main>
