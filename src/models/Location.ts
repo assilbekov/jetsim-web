@@ -15,3 +15,8 @@ export type LocationCover = {
   id: string;
   url: string;
 };
+
+export type DestinationsResponse = {
+  data: Location[];
+  total: number;
+};
