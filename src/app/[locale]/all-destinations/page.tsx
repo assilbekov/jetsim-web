@@ -1,4 +1,4 @@
-import { AllDestinationsBlock } from "@/components/AllDestinationsBlock";
+import { AllDestinations } from "@/components/AllDestinations";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
@@ -16,7 +16,7 @@ export default function Index() {
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
-        <AllDestinationsBlock />
+        <AllDestinations />
         <LandingFooter />
       </div>
     </main>
