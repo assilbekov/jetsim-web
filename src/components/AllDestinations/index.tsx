@@ -8,7 +8,7 @@ import { AllDestinationsList } from "./AllDestinationsList";
 export const AllDestinations = () => {
   return (
     <LandingContainer>
-      <Card>
+      <Card className="xxxs:px-6 xxs:py-4 xs:py-6 lg:pt-12">
         <h1
           className={clsx(
             getTypographyClass(TypographyVariants.H2),
