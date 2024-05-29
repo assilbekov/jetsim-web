@@ -80,29 +80,31 @@ const ArrowRightIcon = () => (
 
 const ViewAllCard = () => {
   return (
-    <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
-      <div className="flex flex-col gap-0.5">
-        <p
-          className={matchTypographyMediaQuery({
-            default: TypographyVariants.Caption,
-            md: TypographyVariants.Body,
-          })}
-        >
-          View all
-        </p>
-        <p
-          className={clsx(
-            "text-text-600",
-            getTypographyClass(TypographyVariants.Caption)
-          )}
-        >
-          {ALL_COUNTRIES_NUMBER} countries
-        </p>
+    <Link href="/en/all-destinations">
+      <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
+        <div className="flex flex-col gap-0.5">
+          <p
+            className={matchTypographyMediaQuery({
+              default: TypographyVariants.Caption,
+              md: TypographyVariants.Body,
+            })}
+          >
+            View all
+          </p>
+          <p
+            className={clsx(
+              "text-text-600",
+              getTypographyClass(TypographyVariants.Caption)
+            )}
+          >
+            {ALL_COUNTRIES_NUMBER} countries
+          </p>
+        </div>
+        <div className="w-[34px] h-[34px] flex items-center justify-end rounded-full">
+          <ArrowRightIcon />
+        </div>
       </div>
-      <div className="w-[34px] h-[34px] flex items-center justify-end rounded-full">
-        <ArrowRightIcon />
-      </div>
-    </div>
+    </Link>
   );
 };
 
