@@ -20,8 +20,8 @@ export const TermsTextBlock = ({
   infoBlocks,
 }: TermsTextBlockProps) => {
   return (
-    <LandingContainer>
-      <Card>
+    <LandingContainer className="w-auto">
+      <Card className="border border-[#E6EFF2] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-[20px]">
         <div className="flex flex-col gap-4 xs:gap-5 sm:gap-4 lg:gap-5">
           <h1
             className={clsx(
