@@ -83,11 +83,11 @@ export const LoginDialog = () => {
         />
         <div className="font-inter text-base leading-[22px] font-medium text-center text-gray-400 mt-5">
           <span>By continuing you agree to our </span>
-          <Link href="#">
+          <Link href="/en/terms-of-service">
             <span className="underline">Terms of Service</span>
           </Link>
           <span> and </span>
-          <Link href="#">
+          <Link href="/en/privacy-policy">
             <span className="underline">Privacy policy</span>
           </Link>
         </div>
