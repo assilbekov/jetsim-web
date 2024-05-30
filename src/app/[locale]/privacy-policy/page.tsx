@@ -17,7 +17,7 @@ export default function Index() {
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 sm:gap-[10px] md:gap-6 lg:gap-[10px] px-6">
         <TermsTextBlock
-          title="Terms of service"
+          title="Privacy policy"
           lastUpdated="2024-03-25"
           infoBlocks={[
             {
