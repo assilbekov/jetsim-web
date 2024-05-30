@@ -64,9 +64,13 @@ export const LoginDialog = () => {
             />
           </div>
         </div>
-        <div className="justify-center px-6 py-4 mt-6 whitespace-nowrap bg-white border-2 border-solid border-slate-200 leading-[137.5%] rounded-[32px]">
-          12345@gmail.com
-        </div>
+        <input
+          className={clsx(
+            getTypographyClass(TypographyVariants.Caption),
+            "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px]"
+          )}
+          placeholder="Enter email"
+        />
         <SecondaryButton>Continue with email</SecondaryButton>
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
           <div className="flex-1 shrink-0 self-stretch my-auto h-0.5 bg-slate-200" />
