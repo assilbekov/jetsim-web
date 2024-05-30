@@ -1,6 +1,7 @@
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import Image from "next/image";
+import Link from "next/link";
 
 type SocialLoginButtonProps = {
   icon: string;
@@ -45,8 +46,23 @@ export const LoginDialog = () => {
     <>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] flex flex-col px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl max-w-[480px] text-slate-950">
         <div className="flex gap-0.5 justify-center items-center px-px text-2xl">
-          <div className="flex-1">Log in or sign up</div>
-          <div></div>
+          <h5
+            className={clsx(
+              getTypographyClass(TypographyVariants.Subheader),
+              "w-full"
+            )}
+          >
+            Log in or sign up
+          </h5>
+          <div className="flex cursor-pointer justify-center relative items-center min-w-6 min-h-6 before:absolute before:top-1/2 before:left-1/2 before:w-10 before:h-10 before:-translate-x-1/2 before:-translate-y-1/2">
+            <Image
+              loading="lazy"
+              src="/icons/gray/close.svg"
+              alt="Close icon"
+              width={28}
+              height={28}
+            />
+          </div>
         </div>
         <div className="justify-center px-6 py-4 mt-6 whitespace-nowrap bg-white border-2 border-solid border-slate-200 leading-[137.5%] rounded-[32px]">
           12345@gmail.com
@@ -65,11 +81,15 @@ export const LoginDialog = () => {
           icon="/icons/social/apple.svg"
           label="Continue with Apple"
         />
-        <div className="mt-5 leading-6 text-center text-gray-400 underline">
-          <span className="text-gray-400">By continuing you agree to our </span>
-          <span className="text-gray-400 underline">Terms of Service</span>
-          <span className="text-gray-400"> and </span>
-          <span className="text-gray-400 underline">Privacy policy</span>
+        <div className="font-inter text-base leading-[22px] font-medium text-center text-gray-400 mt-5">
+          <span>By continuing you agree to our </span>
+          <Link href="#">
+            <span className="underline">Terms of Service</span>
+          </Link>
+          <span> and </span>
+          <Link href="#">
+            <span className="underline">Privacy policy</span>
+          </Link>
         </div>
       </div>
       <div className="fixed inset-0 w-screen h-screen bg-[#7C7D7E]/70 z-[9998]" />
