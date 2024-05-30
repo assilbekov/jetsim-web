@@ -33,10 +33,23 @@ const LinksBlock = ({ children }: { children: React.ReactNode }) => {
   return <div className="flex flex-col gap-4 w-48">{children}</div>;
 };
 
-export const LandingFooter = () => {
+type LandingFooterProps = {
+  containerClassName?: string;
+  cardClassName?: string;
+};
+
+export const LandingFooter = ({
+  cardClassName,
+  containerClassName,
+}: LandingFooterProps) => {
   return (
-    <LandingContainer className="border-t border-[#E6EFF2] sm:border-none">
-      <Card size="lg" className="sm:py-8">
+    <LandingContainer
+      className={clsx(
+        "border-t border-[#E6EFF2] sm:border-none",
+        containerClassName ?? ""
+      )}
+    >
+      <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
         <div className="flex gap-8 flex-col lg:flex-row">
           <div className="w-1/2">
             <Image src="/logo.svg" alt="logo image" width={155} height={36} />
