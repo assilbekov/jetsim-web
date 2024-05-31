@@ -4,7 +4,12 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { ChangeEmailButton } from "./ChangeEmailButton";
 import { SecondaryButton } from "./SecondaryButton";
-import { useMemo, useState } from "react";
+import {
+  DetailedHTMLProps,
+  InputHTMLAttributes,
+  useMemo,
+  useState,
+} from "react";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -13,6 +18,27 @@ const validateEmail = (email: string): boolean => {
       .match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       )
+  );
+};
+
+const StyledInput = ({
+  value,
+  onChange,
+  placeholder,
+}: DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>) => {
+  return (
+    <input
+      className={clsx(
+        getTypographyClass(TypographyVariants.Caption),
+        "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full"
+      )}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
   );
 };
 
@@ -64,19 +90,21 @@ export const EmailLogin = () => {
   return (
     <form className="w-full" onSubmit={handleSubmit}>
       <div className="relative">
-        <input
-          className={clsx(
-            getTypographyClass(TypographyVariants.Caption),
-            "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full"
-          )}
-          placeholder="Enter email"
-          value={step === LoginStep.Email ? email : code}
-          onChange={(e) =>
-            LoginStep.Email === step
-              ? setEmail(e.target.value)
-              : setCode(e.target.value)
-          }
-        />
+        {step === LoginStep.Email ? (
+          <StyledInput
+            key="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        ) : (
+          <StyledInput
+            key="code"
+            placeholder="Enter the verification code"
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+        )}
         {step === LoginStep.Code && (
           <div className="absolute bottom-0 right-0 flex gap-4 items-center">
             {isCodeValid && (
