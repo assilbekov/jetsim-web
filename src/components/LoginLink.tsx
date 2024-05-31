@@ -53,6 +53,9 @@ export const LoginLink = () => {
           className="w-full h-full flex justify-center items-center text-text-100 font-medium text-base leading-[22px]"
           onClick={(e) => {
             e.preventDefault();
+            if (isLoggedIn) {
+              return;
+            }
             setIsDialogOpen(true);
           }}
         >
