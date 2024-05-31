@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SecondaryButton } from "./SecondaryButton";
 import { SocialLoginButton } from "./SocialLoginButton";
-import { ChangeEmailButton } from "./ChangeEmailButton";
+import { EmailLogin } from "./EmailLogin";
 
 type LoginDialogProps = {
   onClose: () => void;
@@ -36,26 +36,7 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
             />
           </div>
         </div>
-        <div className="relative">
-          <input
-            className={clsx(
-              getTypographyClass(TypographyVariants.Caption),
-              "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full"
-            )}
-            placeholder="Enter email"
-          />
-          <div className="absolute bottom-0 right-0 flex gap-4 items-center">
-            <p
-              className={clsx(
-                getTypographyClass(TypographyVariants.Caption),
-                "text-[#F00]"
-              )}
-            >
-              Wrong code
-            </p>
-            <ChangeEmailButton />
-          </div>
-        </div>
+        <EmailLogin />
         <SecondaryButton disabled>Continue with email</SecondaryButton>
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
           <div className="flex-1 shrink-0 self-stretch my-auto h-0.5 bg-slate-200" />
