@@ -1,8 +1,7 @@
 import { clsx } from "@/utils";
-import { TypographyVariants, getTypographyClass } from "./Typography";
+import { TypographyVariants, getTypographyClass } from "../Typography";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 type SocialLoginButtonProps = {
   icon: string;
