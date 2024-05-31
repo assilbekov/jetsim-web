@@ -24,14 +24,11 @@ enum LoginStep {
 export const EmailLogin = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
+  const [isCodeValid, setIsCodeValid] = useState(false);
   const isEmailValid = useMemo(() => validateEmail(email), [email]);
   const [step, setStep] = useState<LoginStep>(LoginStep.Email);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!isEmailValid) return;
-
-    console.log("Submitted email:", email);
+  const handleEmailSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
     const response = await fetch("https://auth.jetsim.app/api/v1/email", {
       method: "POST",
       body: JSON.stringify({ email }),
@@ -39,8 +36,29 @@ export const EmailLogin = () => {
     if (response.ok) {
       setStep(LoginStep.Code);
     }
-    const data = await response.json();
-    console.log("Response:", data);
+  };
+
+  const handleCodeSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
+    const response = await fetch("https://auth.jetsim.app/api/v1/code", {
+      method: "POST",
+      body: JSON.stringify({ code }),
+    });
+    if (response.ok) {
+      console.log("Logged in!");
+      return;
+    }
+    setIsCodeValid(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!isEmailValid) return;
+
+    if (step === LoginStep.Email) {
+      await handleEmailSubmit(e);
+    } else {
+      await handleCodeSubmit(e);
+    }
   };
 
   return (
@@ -57,14 +75,16 @@ export const EmailLogin = () => {
         />
         {step === LoginStep.Code && (
           <div className="absolute bottom-0 right-0 flex gap-4 items-center">
-            <p
-              className={clsx(
-                getTypographyClass(TypographyVariants.Caption),
-                "text-[#F00]"
-              )}
-            >
-              Wrong code
-            </p>
+            {isCodeValid && (
+              <p
+                className={clsx(
+                  getTypographyClass(TypographyVariants.Caption),
+                  "text-[#F00]"
+                )}
+              >
+                Wrong code
+              </p>
+            )}
             <ChangeEmailButton />
           </div>
         )}
