@@ -70,8 +70,12 @@ export const EmailLogin = () => {
             "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full"
           )}
           placeholder="Enter email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={step === LoginStep.Email ? email : code}
+          onChange={(e) =>
+            LoginStep.Email === step
+              ? setEmail(e.target.value)
+              : setCode(e.target.value)
+          }
         />
         {step === LoginStep.Code && (
           <div className="absolute bottom-0 right-0 flex gap-4 items-center">
@@ -91,11 +95,11 @@ export const EmailLogin = () => {
       </div>
 
       <SecondaryButton
-        disabled={!isEmailValid}
+        disabled={step === LoginStep.Code ? !code : !isEmailValid}
         type="submit"
         className="w-full"
       >
-        Continue with email
+        Continue{step === LoginStep.Email ? " with code" : ""}
       </SecondaryButton>
     </form>
   );
