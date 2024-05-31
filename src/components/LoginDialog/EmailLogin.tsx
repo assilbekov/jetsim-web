@@ -16,13 +16,31 @@ const validateEmail = (email: string): boolean => {
   );
 };
 
+enum LoginStep {
+  Email,
+  Code,
+}
+
 export const EmailLogin = () => {
   const [email, setEmail] = useState("");
+  const [code, setCode] = useState("");
   const isEmailValid = useMemo(() => validateEmail(email), [email]);
+  const [step, setStep] = useState<LoginStep>(LoginStep.Email);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!isEmailValid) return;
+
     console.log("Submitted email:", email);
+    const response = await fetch("https://auth.jetsim.app/api/v1/email", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    });
+    if (response.ok) {
+      setStep(LoginStep.Code);
+    }
+    const data = await response.json();
+    console.log("Response:", data);
   };
 
   return (
@@ -37,17 +55,19 @@ export const EmailLogin = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <div className="absolute bottom-0 right-0 flex gap-4 items-center">
-          <p
-            className={clsx(
-              getTypographyClass(TypographyVariants.Caption),
-              "text-[#F00]"
-            )}
-          >
-            Wrong code
-          </p>
-          <ChangeEmailButton />
-        </div>
+        {step === LoginStep.Code && (
+          <div className="absolute bottom-0 right-0 flex gap-4 items-center">
+            <p
+              className={clsx(
+                getTypographyClass(TypographyVariants.Caption),
+                "text-[#F00]"
+              )}
+            >
+              Wrong code
+            </p>
+            <ChangeEmailButton />
+          </div>
+        )}
       </div>
 
       <SecondaryButton
