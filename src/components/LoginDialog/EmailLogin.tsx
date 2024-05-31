@@ -52,6 +52,7 @@ export const EmailLogin = () => {
   const [code, setCode] = useState("");
   const [isCodeValid, setIsCodeValid] = useState(false);
   const isEmailValid = useMemo(() => validateEmail(email), [email]);
+  const [isFormLoading, setIsFormLoading] = useState(false);
   const [step, setStep] = useState<LoginStep>(LoginStep.Email);
 
   const handleEmailSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
@@ -66,11 +67,14 @@ export const EmailLogin = () => {
   };
 
   const handleCodeSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
-    const response = await fetch("https://auth.jetsim.app/api/v1/check-code", {
-      method: "POST",
-      body: JSON.stringify({ code, email }),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://auth.jetsim.app/api/v1/email/check-code",
+      {
+        method: "POST",
+        body: JSON.stringify({ code, email }),
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     if (response.ok) {
       console.log("Logged in!");
       return;
@@ -81,12 +85,14 @@ export const EmailLogin = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isEmailValid) return;
+    setIsFormLoading(true);
 
     if (step === LoginStep.Email) {
       await handleEmailSubmit(e);
     } else {
       await handleCodeSubmit(e);
     }
+    setIsFormLoading(false);
   };
 
   return (
@@ -125,7 +131,9 @@ export const EmailLogin = () => {
       </div>
 
       <SecondaryButton
-        disabled={step === LoginStep.Code ? !code : !isEmailValid}
+        disabled={
+          isFormLoading || step === LoginStep.Code ? !code : !isEmailValid
+        }
         type="submit"
         className="w-full"
       >
