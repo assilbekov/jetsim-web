@@ -4,7 +4,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 export const SecondaryButton = ({
   children,
   ...props
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { disabled: boolean }) => {
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
     <button
       {...props}

@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { SocialLoginButton } from "./SocialLoginButton";
 import { EmailLogin } from "./EmailLogin";
+import { useRouter } from "next/navigation";
 
 type LoginDialogProps = {
   onClose: () => void;
 };
 
 export const LoginDialog = ({ onClose }: LoginDialogProps) => {
+  const router = useRouter();
   return (
     <>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] flex flex-col px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl max-w-[480px] text-slate-950">
@@ -44,6 +46,17 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
         <SocialLoginButton
           icon="/icons/social/google.svg"
           label="Continue with Google"
+          onClick={async () => {
+            const res = await fetch(
+              "https://auth.jetsim.app/api/v1/google/login-link?redirect=http://localhost:3000/auth/callback"
+            );
+            const json = await res.json();
+            console.log(json);
+            router.push(json.link);
+            // debugger
+            //window.location.href = json.link;
+          }}
+          className="w-full"
         />
         <SocialLoginButton
           icon="/icons/social/apple.svg"
