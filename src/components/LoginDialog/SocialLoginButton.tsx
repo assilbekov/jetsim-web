@@ -1,6 +1,7 @@
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { ButtonHTMLAttributes } from "react";
+import Image from "next/image";
 
 type SocialLoginButtonProps = {
   icon: string;
@@ -21,7 +22,14 @@ export const SocialLoginButton = ({
         className ?? ""
       )}
     >
-      <img loading="lazy" src={icon} className="shrink-0 w-6 aspect-square" />
+      <Image
+        loading="lazy"
+        src={icon}
+        width={24}
+        height={24}
+        alt={`${label} icon`}
+        className="shrink-0 w-6 aspect-square"
+      />
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Caption),
