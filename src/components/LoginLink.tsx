@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { LoginDialog } from "./LoginDialog";
 import { useState } from "react";
