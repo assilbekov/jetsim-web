@@ -2,6 +2,7 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 type SocialLoginButtonProps = {
   icon: string;
@@ -41,7 +42,11 @@ export const SecondaryButton = ({
   );
 };
 
-export const LoginDialog = () => {
+type LoginDialogProps = {
+  onClose: () => void;
+};
+
+export const LoginDialog = ({ onClose }: LoginDialogProps) => {
   return (
     <>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] flex flex-col px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl max-w-[480px] text-slate-950">
@@ -54,7 +59,10 @@ export const LoginDialog = () => {
           >
             Log in or sign up
           </h5>
-          <div className="flex cursor-pointer justify-center relative items-center min-w-6 min-h-6 before:absolute before:top-1/2 before:left-1/2 before:w-10 before:h-10 before:-translate-x-1/2 before:-translate-y-1/2">
+          <div
+            className="flex cursor-pointer justify-center relative items-center min-w-6 min-h-6 before:absolute before:top-1/2 before:left-1/2 before:w-10 before:h-10 before:-translate-x-1/2 before:-translate-y-1/2"
+            onClick={onClose}
+          >
             <Image
               loading="lazy"
               src="/icons/gray/close.svg"
@@ -96,7 +104,10 @@ export const LoginDialog = () => {
           </Link>
         </div>
       </div>
-      <div className="fixed inset-0 w-screen h-screen bg-[#7C7D7E]/70 z-[9998]" />
+      <div
+        className="fixed inset-0 w-screen h-screen bg-[#7C7D7E]/70 z-[9998]"
+        onClick={onClose}
+      />
     </>
   );
 };

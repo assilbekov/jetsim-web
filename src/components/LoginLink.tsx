@@ -1,9 +1,12 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { LoginDialog } from "./LoginDialog";
+import { useState } from "react";
 
 export const LoginLink = () => {
-  const t = useTranslations("MainPage");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <>
@@ -11,11 +14,15 @@ export const LoginLink = () => {
         <Link
           href="#"
           className="w-full h-full flex justify-center items-center text-text-100 font-medium text-base leading-[22px]"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsDialogOpen(true);
+          }}
         >
-          <span>{t("login")}</span>
+          <span>Login</span>
         </Link>
       </div>
-      <LoginDialog />
+      {isDialogOpen && <LoginDialog onClose={() => setIsDialogOpen(false)} />}
     </>
   );
 };
