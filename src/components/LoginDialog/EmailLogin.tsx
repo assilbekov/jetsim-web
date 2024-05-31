@@ -58,6 +58,7 @@ export const EmailLogin = () => {
     const response = await fetch("https://auth.jetsim.app/api/v1/email", {
       method: "POST",
       body: JSON.stringify({ email }),
+      headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
       setStep(LoginStep.Code);
@@ -65,9 +66,10 @@ export const EmailLogin = () => {
   };
 
   const handleCodeSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
-    const response = await fetch("https://auth.jetsim.app/api/v1/code", {
+    const response = await fetch("https://auth.jetsim.app/api/v1/check-code", {
       method: "POST",
-      body: JSON.stringify({ code }),
+      body: JSON.stringify({ code, email }),
+      headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
       console.log("Logged in!");
@@ -117,7 +119,7 @@ export const EmailLogin = () => {
                 Wrong code
               </p>
             )}
-            <ChangeEmailButton />
+            <ChangeEmailButton onClick={() => setStep(LoginStep.Email)} />
           </div>
         )}
       </div>
