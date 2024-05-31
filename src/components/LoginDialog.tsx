@@ -1,17 +1,51 @@
 import { clsx } from "@/utils";
-import { TypographyVariants, getTypographyClass } from "../Typography";
+import { TypographyVariants, getTypographyClass } from "./Typography";
 import Image from "next/image";
 import Link from "next/link";
-import { SocialLoginButton } from "./SocialLoginButton";
-import { EmailLogin } from "./EmailLogin";
-import { useRouter } from "next/navigation";
+
+type SocialLoginButtonProps = {
+  icon: string;
+  label: string;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export const SocialLoginButton = ({ icon, label }: SocialLoginButtonProps) => {
+  return (
+    <button className="flex gap-2 items-center cursor-pointer justify-center px-5 py-4 mt-3 border-2 border-solid border-slate-200 rounded-[32px] hover:bg-[#EDF1F2] active:bg-[#C3D4D9] active:border-[#C3D4D9] transition duration-100 ease-in-out">
+      <img loading="lazy" src={icon} className="shrink-0 w-6 aspect-square" />
+      <p
+        className={clsx(
+          getTypographyClass(TypographyVariants.Caption),
+          "flex-1 text-center"
+        )}
+      >
+        {label}
+      </p>
+    </button>
+  );
+};
+
+export const SecondaryButton = ({
+  children,
+  ...props
+}: React.HTMLAttributes<HTMLButtonElement>) => {
+  return (
+    <button
+      {...props}
+      className={clsx(
+        getTypographyClass(TypographyVariants.Caption),
+        "px-8 py-4 mt-4 text-white text-center bg-orange-600 cursor-pointer rounded-[32px] hover:bg-secondary-700 active:bg-secondary-300 transition duration-100 ease-in-out"
+      )}
+    >
+      {children}
+    </button>
+  );
+};
 
 type LoginDialogProps = {
   onClose: () => void;
 };
 
 export const LoginDialog = ({ onClose }: LoginDialogProps) => {
-  const router = useRouter();
   return (
     <>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] flex flex-col px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl max-w-[480px] text-slate-950">
@@ -37,7 +71,14 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
             />
           </div>
         </div>
-        <EmailLogin />
+        <input
+          className={clsx(
+            getTypographyClass(TypographyVariants.Caption),
+            "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px]"
+          )}
+          placeholder="Enter email"
+        />
+        <SecondaryButton>Continue with email</SecondaryButton>
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
           <div className="flex-1 shrink-0 self-stretch my-auto h-0.5 bg-slate-200" />
           <div className="self-stretch">or</div>
@@ -46,15 +87,6 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
         <SocialLoginButton
           icon="/icons/social/google.svg"
           label="Continue with Google"
-          onClick={async () => {
-            const res = await fetch(
-              "https://auth.jetsim.app/api/v1/google/login-link?redirect=http://localhost:3000/auth/callback"
-            );
-            localStorage.setItem("last_page", "http://localhost:3000/en");
-            const json = await res.json();
-            router.push(json.link);
-          }}
-          className="w-full"
         />
         <SocialLoginButton
           icon="/icons/social/apple.svg"
