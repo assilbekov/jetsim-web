@@ -36,11 +36,11 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
             />
           </div>
         </div>
-        <div>
+        <div className="relative">
           <input
             className={clsx(
               getTypographyClass(TypographyVariants.Caption),
-              "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px]"
+              "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full"
             )}
             placeholder="Enter email"
           />
