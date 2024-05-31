@@ -46,7 +46,7 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
           />
           <ChangeEmailButton />
         </div>
-        <SecondaryButton>Continue with email</SecondaryButton>
+        <SecondaryButton disabled>Continue with email</SecondaryButton>
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
           <div className="flex-1 shrink-0 self-stretch my-auto h-0.5 bg-slate-200" />
           <div className="self-stretch">or</div>
