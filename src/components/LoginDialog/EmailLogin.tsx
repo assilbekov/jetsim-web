@@ -19,8 +19,14 @@ const validateEmail = (email: string): boolean => {
 export const EmailLogin = () => {
   const [email, setEmail] = useState("");
   const isEmailValid = useMemo(() => validateEmail(email), [email]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Submitted email:", email);
+  };
+
   return (
-    <div className="w-full">
+    <form className="w-full" onSubmit={handleSubmit}>
       <div className="relative">
         <input
           className={clsx(
@@ -44,9 +50,13 @@ export const EmailLogin = () => {
         </div>
       </div>
 
-      <SecondaryButton disabled={!isEmailValid} className="w-full">
+      <SecondaryButton
+        disabled={!isEmailValid}
+        type="submit"
+        className="w-full"
+      >
         Continue with email
       </SecondaryButton>
-    </div>
+    </form>
   );
 };
