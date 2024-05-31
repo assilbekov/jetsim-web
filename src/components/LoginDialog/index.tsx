@@ -44,7 +44,17 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
             )}
             placeholder="Enter email"
           />
-          <ChangeEmailButton />
+          <div className="absolute bottom-0 right-0 flex gap-4 items-center">
+            <p
+              className={clsx(
+                getTypographyClass(TypographyVariants.Caption),
+                "text-[#F00]"
+              )}
+            >
+              Wrong code
+            </p>
+            <ChangeEmailButton />
+          </div>
         </div>
         <SecondaryButton disabled>Continue with email</SecondaryButton>
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
