@@ -2,7 +2,6 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import Image from "next/image";
 import Link from "next/link";
-import { SecondaryButton } from "./SecondaryButton";
 import { SocialLoginButton } from "./SocialLoginButton";
 import { EmailLogin } from "./EmailLogin";
 
@@ -37,7 +36,6 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
           </div>
         </div>
         <EmailLogin />
-        <SecondaryButton disabled>Continue with email</SecondaryButton>
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
           <div className="flex-1 shrink-0 self-stretch my-auto h-0.5 bg-slate-200" />
           <div className="self-stretch">or</div>
