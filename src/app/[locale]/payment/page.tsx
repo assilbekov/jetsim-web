@@ -28,7 +28,7 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/completion`,
+        return_url: `${window.location.origin}/en/payment/completion`,
       },
     });
 
@@ -47,36 +47,70 @@ const CheckoutForm = () => {
           {isProcessing ? "Processing..." : "Pay now"}
         </span>
       </button>
+      <div id="message">{message}</div>
     </form>
   );
 };
 
+export interface ClientOptionsResponse {
+  stripePublishableKey: string;
+}
+
+export interface CardResponse {
+  cardID: string;
+  paymentLink: string;
+  gatewayTransaction: GatewayTransaction;
+}
+
+export interface GatewayTransaction {
+  gatewayCode: string;
+  transactionID: string;
+  meta: Meta;
+}
+
+export interface Meta {
+  paymentIntentID: string;
+  paymentIntentSecret: string;
+}
+
 export default function Index() {
+  const packageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
+  //const accessToken = localStorage.getItem("accessToken");
+
   const [stripePromise, setStripePromise] = useState<
     Stripe | PromiseLike<Stripe | null> | null
   >(null);
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("https://js.stripe.com/v3/").then(async (r) => {
-      const { publishableKey } = await r.json();
-      setStripePromise(loadStripe(publishableKey));
-    });
+    fetch("https://payment.jetsim.app/public/gw/stripe/client-options").then(
+      async (r) => {
+        //const { publishableKey } = await r.json();
+        const res: ClientOptionsResponse = await r.json();
+        console.log({
+          res,
+          r,
+          message: "https://payment.jetsim.app/public/gw/stripe/client-options",
+        });
+        //setStripePromise(loadStripe(publishableKey));
+        setStripePromise(loadStripe(res.stripePublishableKey));
+      }
+    );
   }, []);
 
   useEffect(() => {
-    fetch("https://api.stripe.com/v1/payment_intents", {
+    fetch("https://sim.jetsim.app/api/v1/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-      body: JSON.stringify({
-        // Package_ID: "package_123",
-      }),
+      body: JSON.stringify({ packageID }),
     }).then(async (r) => {
-      const { client_secret } = await r.json();
-      setClientSecret(client_secret);
+      const res: CardResponse = await r.json();
+      console.log({ res, r, message: "https://sim.jetsim.app/api/v1/cards" });
+      //setClientSecret(client_secret);
+      setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
     });
   }, []);
 
