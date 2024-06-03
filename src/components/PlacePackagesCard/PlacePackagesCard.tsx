@@ -20,6 +20,7 @@ import { TagButton } from "./TagButton";
 import { Skeleton } from "../Skeleton";
 import "./styles.css";
 import { useState } from "react";
+import { BackgroundImage } from "./BackgroundImage";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -220,7 +221,10 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           Go to checkout
         </button>
       </Card>
-      <div className="country-image-clip bg-[url('/support-background.png')] w-full h-[796px] bg-cover hidden md:block" />
+      <BackgroundImage
+        url="/support-background.png"
+        alt={`${placeId} cover image`}
+      />
     </LandingContainer>
   );
 };
