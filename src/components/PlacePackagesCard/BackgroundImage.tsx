@@ -45,7 +45,14 @@ export const BackgroundImage = ({ url, alt }: BackgroundImageProps) => {
       <div className="absolute top-0 left-0">
         <LeftArch />
       </div>
-      <Image src={url} alt={alt} width={1200} height={796} className="w-full h-[796px] bg-cover hidden md:block pb-0.5 pr-0.5" />
+      <Image
+        src={url}
+        alt={alt}
+        width={1200}
+        height={796}
+        className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5"
+        style={{ objectFit: "cover" }}
+      />
       <div className="absolute top-0 right-0">
         <RightArch />
       </div>
