@@ -1,8 +1,12 @@
-import createNextIntlPlugin from 'next-intl/plugin';
- 
+import createNextIntlPlugin from "next-intl/plugin";
+
 const withNextIntl = createNextIntlPlugin();
- 
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
- 
+const nextConfig = {
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+};
+
 export default withNextIntl(nextConfig);

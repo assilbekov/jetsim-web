@@ -5,6 +5,7 @@ import {
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
+import Image from "next/image";
 
 export const LandingSupport = () => {
   return (
@@ -50,6 +51,7 @@ export const LandingSupport = () => {
             </div>
           </div>
           <div className="hidden sm:block bg-[url('/support-person.png')] bg-cover sm:h-[252px] sm:w-[181px] md:h-[290px] md:w-[207px] lg:h-[355px] lg:w-[255px] xxl:h-[434px] xxl:w-[308px] absolute right-[12%] bottom-0" />
+          {/* <Image src="/support-person.png" alt="support person image" style={{objectFit: "cover"}} width={255} height={434} className="hidden sm:block sm:h-[252px] sm:w-[181px] md:h-[290px] md:w-[207px] lg:h-[355px] lg:w-[255px] xxl:h-[434px] xxl:w-[308px] absolute right-[12%] bottom-0" /> */}
         </div>
       </div>
     </LandingContainer>
