@@ -19,7 +19,7 @@ import { PackageOption } from "./PackageOption";
 import { TagButton } from "./TagButton";
 import { Skeleton } from "../Skeleton";
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BackgroundImage } from "./BackgroundImage";
 
 type PlacePackagesCardProps = {
@@ -37,7 +37,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   });
   const [selectedTag, setSelectedTag] = useState<PackageTagEnum>(() => {
     return (
-      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.STANDARD
+      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.UNLIMITED
     );
   });
 
@@ -78,6 +78,16 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     },
     staleTime: 1000 * 60 * 5,
   });
+
+  useEffect(() => {
+    if (selectedPackageId) return;
+
+    setSelectedPackageId(
+      (selectedTag === PackageTagEnum.STANDARD
+        ? packagesStandardQuery.data?.data.find((p) => p.bestChoice)?.id
+        : packagesUnlimitedQuery.data?.data.find((p) => p.bestChoice)?.id) ?? ""
+    );
+  }, [packagesUnlimitedQuery.data, packagesStandardQuery.data, selectedTag]);
 
   const packagesList =
     (searchParams.get("tags") === PackageTagEnum.STANDARD
