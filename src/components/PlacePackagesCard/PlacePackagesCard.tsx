@@ -19,6 +19,7 @@ import { PackageOption } from "./PackageOption";
 import { TagButton } from "./TagButton";
 import { Skeleton } from "../Skeleton";
 import "./styles.css";
+import { useState } from "react";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -29,6 +30,15 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const [selectedPackageId, setSelectedPackageId] = useState<string>(() => {
+    return searchParams.get("selectedPackage") ?? "";
+  });
+  const [selectedTag, setSelectedTag] = useState<PackageTagEnum>(() => {
+    return (
+      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.STANDARD
+    );
+  });
 
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
@@ -44,8 +54,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
       return {
         id: placeId,
         url: "https://s3-alpha-sig.figma.com/img/2b0b/98c4/ff1d0ead5be44799a58319a0839f91eb?Expires=1717977600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WK6-nX4RqtaQ51KNGNBT1UWlvMVwBCXoWEJshc9YMnUirvE42ak~WcIYf9~vr0rRXa7u1gqQTRJb657VrAMrPrKWYi2Wh0bu5BOMqgYCYYgm8M14dD0Jqqx2xGcWK8SWFdH8De5HVHY6c6-rubtXNtdkMmTd2XiU7QrWLIXeGocCu4bR9kDEVaWtLzuVki-HXAwJy2K-Tgbt3AI4jspjWsoFMUWMI5R1raNdARy2VwNE56dW29V~ZNGXEQX8WhtUVS0QByqqvWEX8qrafml747ukQlEePYflNA-bQBbVe0~-Zd7vNcgjiMesP-TROssqK~zGx8o4auhfj4LBC-NNLw__",
-      }
-      return await fetchLocationCover(placeId)
+      };
+      return await fetchLocationCover(placeId);
     },
     staleTime: 1000 * 60 * 5,
     retry: 1,
@@ -73,18 +83,10 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
       ? packagesStandardQuery.data?.data
       : packagesUnlimitedQuery.data?.data) ?? [];
 
-  const tags: PackageTagEnum =
-    searchParams.get("tags") === PackageTagEnum.STANDARD
-      ? PackageTagEnum.STANDARD
-      : PackageTagEnum.UNLIMITED;
-  const selectedPackage =
-    searchParams.get("selectedPackage") ??
-    (tags === PackageTagEnum.STANDARD
-      ? packagesStandardQuery.data?.data?.find((p) => p.bestChoice)?.id
-      : packagesUnlimitedQuery.data?.data?.find((p) => p.bestChoice)?.id) ??
-    "";
-
   const handleTagChange = (tag: PackageTagEnum) => {
+    setSelectedTag(tag);
+    setSelectedPackageId("");
+
     const params = new URLSearchParams(searchParams.toString());
     params.set("tags", tag);
     params.delete("selectedPackage");
@@ -93,6 +95,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   };
 
   const handlePackageChange = (_selectedPackage: Package) => {
+    setSelectedPackageId(_selectedPackage.id);
+
     const params = new URLSearchParams(searchParams.toString());
     params.set("selectedPackage", _selectedPackage.id);
 
@@ -143,13 +147,13 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         </div>
         <div>
           <TagButton
-            active={tags === PackageTagEnum.STANDARD}
+            active={selectedTag === PackageTagEnum.STANDARD}
             onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
           >
             Standard
           </TagButton>
           <TagButton
-            active={tags === PackageTagEnum.UNLIMITED}
+            active={selectedTag === PackageTagEnum.UNLIMITED}
             onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
           >
             Unlimited
@@ -163,9 +167,9 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             : packagesList.map((packageEntity) => (
                 <PackageOption
                   key={packageEntity.id}
-                  tag={tags}
+                  tag={selectedTag}
                   packageEntity={packageEntity}
-                  selected={selectedPackage === packageEntity.id}
+                  selected={selectedPackageId === packageEntity.id}
                   onSelect={handlePackageChange}
                 />
               ))}
