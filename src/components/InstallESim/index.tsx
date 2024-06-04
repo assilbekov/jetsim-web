@@ -1,17 +1,26 @@
+"use client";
+
 import { Card } from "@/models/Card";
 import Image from "next/image";
 import * as React from "react";
 import { TagButton } from "../buttons/TagButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
-import { SecondaryButton } from "../buttons/SecondaryButton";
 import { CopyButton } from "../buttons/CopyButton";
+
+enum InstallMethod {
+  QR = "qr",
+  MANUAL = "manual",
+}
 
 type InstallESimProps = {
   card: Card;
 };
 
 export const InstallESim = ({ card }: InstallESimProps) => {
-  console.log({ card, del: card.lpaCode.split("$") });
+  const [installMethod, setInstallMethod] = React.useState<InstallMethod>(
+    InstallMethod.QR
+  );
+
   const [smdp, addr, lpaCode] = card.lpaCode.split("$");
   const smdpAddr = `${smdp}$${addr}`;
   const lpaActivationCode = `$${lpaCode}`;
@@ -37,8 +46,18 @@ export const InstallESim = ({ card }: InstallESimProps) => {
         </div>
       </div>
       <div className="flex gap-4 justify-center mt-6 leading-[137.5%] text-slate-950">
-        <TagButton active={false}>QR code install</TagButton>
-        <TagButton active>Manual install</TagButton>
+        <TagButton
+          active={installMethod === InstallMethod.QR}
+          onClick={() => setInstallMethod(InstallMethod.QR)}
+        >
+          QR code install
+        </TagButton>
+        <TagButton
+          active={installMethod === InstallMethod.MANUAL}
+          onClick={() => setInstallMethod(InstallMethod.MANUAL)}
+        >
+          Manual install
+        </TagButton>
       </div>
       <div className="flex flex-col p-6 mt-6 rounded-xl bg-slate-50 leading-[137.5%] text-slate-950">
         <div>SM-DP+ Address</div>
