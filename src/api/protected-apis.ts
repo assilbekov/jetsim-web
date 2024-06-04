@@ -10,6 +10,7 @@ export const fetchProtected: Fetch = async (input, init) => {
     ...init,
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      "Content-Type": "application/json",
       ...init?.headers,
     },
   });
@@ -36,6 +37,7 @@ export const fetchProtected: Fetch = async (input, init) => {
       ...init,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        "Content-Type": "application/json",
         ...init?.headers,
       },
     });
