@@ -1,5 +1,7 @@
 "use client";
 
+import { fetchCard } from "@/api/cards";
+import { InstallESim } from "@/components/InstallESim";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
@@ -17,8 +19,24 @@ interface Card {
   trafficRemainingBytes: number;
 }
 
-export default function Completion() {
+export default function Completion({
+  searchParams,
+}: {
+  searchParams: { packageID: string };
+}) {
+  const packageID = searchParams.packageID ?? "";
+  const [card, setCard] = useState<Card | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
+
+  useEffect(() => {
+    fetchCard(packageID)
+      .then((card) => {
+        setCard(card);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   useEffect(() => {
     fetch("https://sim.jetsim.app/api/v1/cards", {
@@ -35,6 +53,7 @@ export default function Completion() {
   return (
     <div>
       <h1>Thank you! 🎉</h1>
+      {card && <InstallESim card={card} />}
       {cards.map((card) => (
         <div key={card.id}>
           <h2>Card ID: {card.id}</h2>
