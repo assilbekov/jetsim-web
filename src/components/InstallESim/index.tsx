@@ -4,12 +4,18 @@ import * as React from "react";
 import { TagButton } from "../buttons/TagButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
+import { CopyButton } from "../buttons/CopyButton";
 
 type InstallESimProps = {
   card: Card;
 };
 
 export const InstallESim = ({ card }: InstallESimProps) => {
+  console.log({ card, del: card.lpaCode.split("$") });
+  const [smdp, addr, lpaCode] = card.lpaCode.split("$");
+  const smdpAddr = `${smdp}$${addr}`;
+  const lpaActivationCode = `$${lpaCode}`;
+
   return (
     <div className="flex flex-col justify-center self-stretch p-6 mx-auto w-full text-base font-medium bg-white max-w-[480px]">
       <div className="flex gap-3 p-4 bg-white rounded-xl border-2 border-solid border-slate-200">
@@ -31,36 +37,18 @@ export const InstallESim = ({ card }: InstallESimProps) => {
         </div>
       </div>
       <div className="flex gap-4 justify-center mt-6 leading-[137.5%] text-slate-950">
-        <TagButton active>QR code install</TagButton>
-        <TagButton active={false}>Manual install</TagButton>
+        <TagButton active={false}>QR code install</TagButton>
+        <TagButton active>Manual install</TagButton>
       </div>
       <div className="flex flex-col p-6 mt-6 rounded-xl bg-slate-50 leading-[137.5%] text-slate-950">
         <div>SM-DP+ Address</div>
-        <div className="mt-1 text-xl leading-7">LPA:1$consumer.rsp.global</div>
-        <SecondaryButton className="mt-4 w-full">
-          <div className="flex justify-center gap-2">
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/94e8a4203ef3620181c8062e68d328fc065e4a94bc077b825d8963814b366b52?apiKey=4d29b65bc77c4658ad8f90690919294c&"
-              className="shrink-0 self-start w-5 aspect-square"
-            />
-            <div>Copy</div>
-          </div>
-        </SecondaryButton>
+        <div className="mt-1 text-xl leading-7">{smdpAddr}</div>
+        <CopyButton className="mt-4 w-full" text={smdpAddr} />
       </div>
       <div className="flex flex-col justify-center p-6 mt-4 rounded-xl bg-slate-50 leading-[137.5%] text-slate-950">
         <div>Activation Code</div>
-        <div className="mt-1 text-xl leading-7">$TN202307101635430B87FF83</div>
-        <SecondaryButton className="mt-4 w-full">
-          <div className="flex gap-2 justify-center">
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/94e8a4203ef3620181c8062e68d328fc065e4a94bc077b825d8963814b366b52?apiKey=4d29b65bc77c4658ad8f90690919294c&"
-              className="shrink-0 self-start w-5 aspect-square"
-            />
-            <div>Copy</div>
-          </div>
-        </SecondaryButton>
+        <div className="mt-1 text-xl leading-7">{lpaActivationCode}</div>
+        <CopyButton className="mt-4 w-full" text={lpaActivationCode} />
       </div>
       <div className="mt-6 text-2xl text-center text-black">
         Use this codes to add eSIM
