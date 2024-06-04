@@ -8,7 +8,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { Stripe, loadStripe } from "@stripe/stripe-js";
-import { FormEvent, FormEventHandler, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
@@ -52,27 +52,6 @@ const CheckoutForm = () => {
     </form>
   );
 };
-
-export interface ClientOptionsResponse {
-  stripePublishableKey: string;
-}
-
-export interface CardResponse {
-  cardID: string;
-  paymentLink: string;
-  gatewayTransaction: GatewayTransaction;
-}
-
-export interface GatewayTransaction {
-  gatewayCode: string;
-  transactionID: string;
-  meta: Meta;
-}
-
-export interface Meta {
-  paymentIntentID: string;
-  paymentIntentSecret: string;
-}
 
 export default function Index() {
   const packageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
