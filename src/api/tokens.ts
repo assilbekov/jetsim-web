@@ -1,9 +1,5 @@
 import { authServiceURL, authRedirect } from "@/config";
-
-export type Tokens = {
-  accessToken: string;
-  refreshToken: string;
-};
+import { Tokens } from "@/models/Tokens";
 
 export const refreshToken = async (refreshToken: string): Promise<Tokens> => {
   const res = await fetch(`${authServiceURL}refresh`, {
