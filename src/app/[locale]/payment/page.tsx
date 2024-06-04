@@ -1,5 +1,6 @@
 "use client";
 
+import { createCard, fetchClientOptions } from "@/api/cards";
 import {
   Elements,
   PaymentElement,
@@ -83,33 +84,13 @@ export default function Index() {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("https://payment.jetsim.app/public/gw/stripe/client-options").then(
-      async (r) => {
-        //const { publishableKey } = await r.json();
-        const res: ClientOptionsResponse = await r.json();
-        console.log({
-          res,
-          r,
-          message: "https://payment.jetsim.app/public/gw/stripe/client-options",
-        });
-        //setStripePromise(loadStripe(publishableKey));
-        setStripePromise(loadStripe(res.stripePublishableKey));
-      }
-    );
+    fetchClientOptions().then((res) => {
+      setStripePromise(loadStripe(res.stripePublishableKey));
+    });
   }, []);
 
   useEffect(() => {
-    fetch("https://sim.jetsim.app/api/v1/cards", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ packageID }),
-    }).then(async (r) => {
-      const res: CardResponse = await r.json();
-      console.log({ res, r, message: "https://sim.jetsim.app/api/v1/cards" });
-      //setClientSecret(client_secret);
+    createCard(packageID).then((res) => {
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
     });
   }, []);

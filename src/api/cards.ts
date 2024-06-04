@@ -1,6 +1,11 @@
-import { Card, CardsResponse, CreateCardResponse } from "@/models/Card";
+import {
+  Card,
+  CardsResponse,
+  ClientOptionsResponse,
+  CreateCardResponse,
+} from "@/models/Card";
 import { fetchProtected } from "./protected-apis";
-import { simServiceURL } from "@/config";
+import { paymentServiceURL, simServiceURL } from "@/config";
 
 export const fetchCards = async (): Promise<CardsResponse> => {
   const res = await fetchProtected(`${simServiceURL}cards`);
@@ -19,5 +24,10 @@ export const createCard = async (
     method: "POST",
     body: JSON.stringify({ packageID }),
   });
+  return await res.json();
+};
+
+export const fetchClientOptions = async (): Promise<ClientOptionsResponse> => {
+  const res = await fetch(`${paymentServiceURL}client-options`);
   return await res.json();
 };
