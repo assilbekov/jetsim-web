@@ -7,6 +7,7 @@ import { TagButton } from "../buttons/TagButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { CopyButton } from "../buttons/CopyButton";
 import { ManualInstall } from "./ManualInstall";
+import { QRCodeInstall } from "./QRCodeInstall";
 
 enum InstallMethod {
   QR = "qr",
@@ -21,10 +22,6 @@ export const InstallESim = ({ card }: InstallESimProps) => {
   const [installMethod, setInstallMethod] = React.useState<InstallMethod>(
     InstallMethod.QR
   );
-
-  const [smdp, addr, lpaCode] = card.lpaCode.split("$");
-  const smdpAddr = `${smdp}$${addr}`;
-  const lpaActivationCode = `$${lpaCode}`;
 
   return (
     <div className="flex flex-col justify-center self-stretch p-6 mx-auto w-full text-base font-medium bg-white max-w-[480px]">
@@ -60,7 +57,11 @@ export const InstallESim = ({ card }: InstallESimProps) => {
           Manual install
         </TagButton>
       </div>
-      <ManualInstall card={card} />
+      {installMethod === InstallMethod.QR ? (
+        <QRCodeInstall card={card} />
+      ) : (
+        <ManualInstall card={card} />
+      )}
     </div>
   );
 };
