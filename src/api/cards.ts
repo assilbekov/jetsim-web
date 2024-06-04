@@ -5,7 +5,7 @@ import {
   CreateCardResponse,
 } from "@/models/Card";
 import { fetchProtected } from "./protected-apis";
-import { paymentServiceURL, simServiceURL } from "@/config";
+import { simServiceURL } from "@/config";
 
 export const fetchCards = async (): Promise<CardsResponse> => {
   const res = await fetchProtected(`${simServiceURL}cards`);
@@ -28,6 +28,8 @@ export const createCard = async (
 };
 
 export const fetchClientOptions = async (): Promise<ClientOptionsResponse> => {
-  const res = await fetch(`${paymentServiceURL}client-options`);
+  const res = await fetch(
+    "https://payment.jetsim.app/public/gw/stripe/client-options"
+  );
   return await res.json();
 };

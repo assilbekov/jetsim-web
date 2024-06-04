@@ -53,9 +53,12 @@ const CheckoutForm = () => {
   );
 };
 
-export default function Index() {
-  const packageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
-  //const accessToken = localStorage.getItem("accessToken");
+export default function Index({
+  searchParams,
+}: {
+  searchParams: { packageID: string };
+}) {
+  const packageID = searchParams.packageID ?? "";
 
   const [stripePromise, setStripePromise] = useState<
     Stripe | PromiseLike<Stripe | null> | null

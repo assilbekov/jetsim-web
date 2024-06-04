@@ -16,18 +16,16 @@ export const fetchProtected: Fetch = async (input, init) => {
   });
 
   if (res.status === 401) {
-    const newTokenRes = await fetch(
-      "https://sim.jetsim.app/api/v1/auth/token",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          refreshToken: localStorage.getItem("refreshToken"),
-        }),
-      }
-    );
+    const newTokenRes = await fetch("https://auth.jetsim.app/api/v1/renew", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("refreshToken")}`,
+      },
+      body: JSON.stringify({
+        refreshToken: localStorage.getItem("refreshToken"),
+      }),
+    });
     const { accessToken, refreshToken }: Tokens = await newTokenRes.json();
 
     localStorage.setItem("accessToken", accessToken);
