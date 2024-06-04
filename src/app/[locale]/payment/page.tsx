@@ -10,7 +10,7 @@ import {
 import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { FormEvent, useEffect, useState } from "react";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ packageID }: { packageID: string }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -29,7 +29,7 @@ const CheckoutForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/en/payment/completion`,
+        return_url: `${window.location.origin}/en/payment/completion?packageID=${packageID}`,
       },
     });
 
@@ -82,7 +82,7 @@ export default function Index({
       <h1>Payment Page</h1>
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm />
+          <CheckoutForm packageID={packageID} />
         </Elements>
       )}
     </div>
