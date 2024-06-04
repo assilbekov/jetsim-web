@@ -3,13 +3,13 @@
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { ChangeEmailButton } from "./ChangeEmailButton";
-import { SecondaryButton } from "./SecondaryButton";
 import {
   DetailedHTMLProps,
   InputHTMLAttributes,
   useMemo,
   useState,
 } from "react";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -130,7 +130,7 @@ export const EmailLogin = () => {
         )}
       </div>
 
-      <SecondaryButton
+      <PrimaryButton
         disabled={
           isFormLoading || step === LoginStep.Code ? !code : !isEmailValid
         }
@@ -138,7 +138,7 @@ export const EmailLogin = () => {
         className="w-full"
       >
         Continue{step === LoginStep.Email ? " with code" : ""}
-      </SecondaryButton>
+      </PrimaryButton>
     </form>
   );
 };

@@ -1,7 +1,7 @@
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 
-export const SecondaryButton = ({
+export const PrimaryButton = ({
   children,
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
