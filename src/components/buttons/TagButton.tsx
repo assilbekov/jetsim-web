@@ -2,17 +2,17 @@ import { clsx } from "@/utils";
 import { ButtonHTMLAttributes } from "react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 
-type SecondaryButtonProps = {
+type TagButtonProps = {
   active: boolean;
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const SecondaryButton = ({
+export const TagButton = ({
   children,
   className,
   active,
   ...restProps
-}: SecondaryButtonProps) => {
+}: TagButtonProps) => {
   return (
     <button
       {...restProps}
