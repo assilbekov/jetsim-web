@@ -22,14 +22,14 @@ interface Card {
 export default function Completion({
   searchParams,
 }: {
-  searchParams: { packageID: string };
+  searchParams: { cardID: string };
 }) {
-  const packageID = searchParams.packageID ?? "";
+  const cardID = searchParams.cardID ?? "";
   const [card, setCard] = useState<Card | null>(null);
   const [cards, setCards] = useState<Card[]>([]);
 
   useEffect(() => {
-    fetchCard(packageID)
+    fetchCard(cardID)
       .then((card) => {
         setCard(card);
       })

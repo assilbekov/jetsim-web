@@ -10,7 +10,13 @@ import {
 import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { FormEvent, useEffect, useState } from "react";
 
-const CheckoutForm = ({ packageID }: { packageID: string }) => {
+const CheckoutForm = ({
+  packageID,
+  cardID,
+}: {
+  packageID: string;
+  cardID: string;
+}) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -29,7 +35,7 @@ const CheckoutForm = ({ packageID }: { packageID: string }) => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/en/payment/completion?packageID=${packageID}`,
+        return_url: `${window.location.origin}/en/payment/completion?cardID=${cardID}`,
       },
     });
 
@@ -64,6 +70,7 @@ export default function Index({
     Stripe | PromiseLike<Stripe | null> | null
   >(null);
   const [clientSecret, setClientSecret] = useState("");
+  const [cardID, setCardID] = useState("");
 
   useEffect(() => {
     fetchClientOptions().then((res) => {
@@ -74,6 +81,7 @@ export default function Index({
   useEffect(() => {
     createCard(packageID).then((res) => {
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
+      setCardID(res.cardID);
     });
   }, []);
 
@@ -82,7 +90,7 @@ export default function Index({
       <h1>Payment Page</h1>
       {stripePromise && clientSecret && (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <CheckoutForm packageID={packageID} />
+          <CheckoutForm packageID={packageID} cardID={cardID} />
         </Elements>
       )}
     </div>
