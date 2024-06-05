@@ -1,6 +1,8 @@
 "use client";
 
 import { createCard, fetchClientOptions } from "@/api/cards";
+import { fetchPackage } from "@/api/packages";
+import { Package } from "@/models/Package";
 import {
   Elements,
   PaymentElement,
@@ -71,6 +73,7 @@ export default function Index({
   >(null);
   const [clientSecret, setClientSecret] = useState("");
   const [cardID, setCardID] = useState("");
+  const [packageData, setPackageData] = useState<Package | null>(null);
 
   useEffect(() => {
     fetchClientOptions().then((res) => {
@@ -83,15 +86,22 @@ export default function Index({
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
       setCardID(res.cardID);
     });
-  }, []);
+
+    fetchPackage(packageID).then((res) => {
+      setPackageData(res);
+    });
+  }, [packageID]);
 
   return (
     <div>
       <h1>Payment Page</h1>
-      {stripePromise && clientSecret && (
+      <p>{JSON.stringify(packageData)}</p>
+      {stripePromise && clientSecret ? (
         <Elements stripe={stripePromise} options={{ clientSecret }}>
           <CheckoutForm packageID={packageID} cardID={cardID} />
         </Elements>
+      ) : (
+        "Loading..."
       )}
     </div>
   );

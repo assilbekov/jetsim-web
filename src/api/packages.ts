@@ -11,3 +11,9 @@ export const fetchPackages = async (
   const json = await res.json();
   return json;
 };
+
+export const fetchPackage = async (packageID: string): Promise<Package> => {
+  const res = await fetch(`${simServiceURL}packages/${packageID}`);
+  const json = await res.json();
+  return json;
+};
