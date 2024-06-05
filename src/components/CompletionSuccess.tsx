@@ -13,6 +13,15 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
   useEffect(() => {
     fetchCard(cardID)
       .then((card) => {
+        if (!card.lpaCode) {
+          setTimeout(() => {
+            fetchCard(cardID).then((res) => {
+              setCard(res);
+            });
+          }, 3000);
+          return;
+        }
+
         setCard(card);
       })
       .catch((error) => {
