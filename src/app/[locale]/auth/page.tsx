@@ -3,8 +3,9 @@
 import { AuthContext } from "@/contexts/AuthContext";
 import { useContext } from "react";
 
-export default function Page() {
+export default function Page(params: any) {
   const { socialLogin } = useContext(AuthContext);
+  console.log(params);
   return (
     <div>
       <header>

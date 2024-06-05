@@ -21,6 +21,7 @@ import { Skeleton } from "../Skeleton";
 import "./styles.css";
 import { useEffect, useState } from "react";
 import { BackgroundImage } from "./BackgroundImage";
+import { LoginDialog } from "../LoginDialog";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -31,6 +32,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
 
   const [selectedPackageId, setSelectedPackageId] = useState<string>(() => {
     return searchParams.get("selectedPackage") ?? "";
@@ -112,6 +115,28 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     params.set("selectedPackage", _selectedPackage.id);
 
     router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const handleCheckout = () => {
+    console.log({
+      selectedPackageId,
+      selectedTag,
+      placeId,
+      pathname,
+      router,
+      searchParams,
+    });
+    const redirectUrl = `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
+      window.location.origin
+    }/en/payment${searchParams.toString()}`;
+    /* router.push(
+      `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
+        window.location.origin
+      }/en/payment${searchParams.toString()}`
+    ); */
+
+    setIsLoginDialogOpen(true);
+    localStorage.setItem("redirect_url", redirectUrl);
   };
 
   return (
@@ -227,6 +252,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
             getTypographyClass(TypographyVariants.Caption)
           )}
+          onClick={handleCheckout}
         >
           Go to checkout
         </button>
@@ -235,6 +261,9 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         url="/support-background.png"
         alt={`${placeId} cover image`}
       />
+      {isLoginDialogOpen && (
+        <LoginDialog onClose={() => setIsLoginDialogOpen(false)} />
+      )}
     </LandingContainer>
   );
 };

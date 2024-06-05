@@ -12,6 +12,8 @@ type LoginDialogProps = {
 
 export const LoginDialog = ({ onClose }: LoginDialogProps) => {
   const router = useRouter();
+  const redirectUrl = localStorage.getItem("redirect_url");
+  console.log({ redirectUrl })
   return (
     <>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] flex flex-col px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl max-w-[480px] text-slate-950">
