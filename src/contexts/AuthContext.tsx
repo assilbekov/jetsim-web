@@ -1,7 +1,8 @@
 "use client";
 
 import { getSocialAuthLink } from "@/api/auth";
-import { Tokens, getAuthSocialCallback, refreshToken } from "@/api/tokens";
+import { getAuthSocialCallback, refreshToken } from "@/api/tokens";
+import { Tokens } from "@/models/Tokens";
 import { useRouter } from "next/navigation";
 import { ReactNode, createContext, useEffect } from "react";
 

@@ -36,7 +36,7 @@ export default function Completion({
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [cardID]);
 
   useEffect(() => {
     fetch("https://sim.jetsim.app/api/v1/cards", {
