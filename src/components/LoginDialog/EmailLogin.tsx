@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { ChangeEmailButton } from "./ChangeEmailButton";
@@ -47,7 +48,13 @@ enum LoginStep {
   Code,
 }
 
-export const EmailLogin = () => {
+type EmailLoginProps = {
+  redirectUrl?: string;
+};
+
+export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [isCodeValid, setIsCodeValid] = useState(false);
@@ -76,7 +83,10 @@ export const EmailLogin = () => {
       }
     );
     if (response.ok) {
-      console.log("Logged in!");
+      if (redirectUrl) {
+        router.push(redirectUrl);
+      }
+
       return;
     }
     setIsCodeValid(false);

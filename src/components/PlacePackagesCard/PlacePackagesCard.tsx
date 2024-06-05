@@ -33,7 +33,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
+  const [loginRedirectUrl, setLoginRedirectUrl] = useState<string>("");
 
   const [selectedPackageId, setSelectedPackageId] = useState<string>(() => {
     return searchParams.get("selectedPackage") ?? "";
@@ -126,17 +126,17 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
       router,
       searchParams,
     });
-    const redirectUrl = `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
+    const mockPackageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
+    const redirectUrl = `${
       window.location.origin
-    }/en/payment${searchParams.toString()}`;
+    }/en/payment?packageID=${mockPackageID}&${searchParams.toString()}`;
     /* router.push(
       `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
         window.location.origin
       }/en/payment${searchParams.toString()}`
     ); */
 
-    setIsLoginDialogOpen(true);
-    localStorage.setItem("redirect_url", redirectUrl);
+    setLoginRedirectUrl(redirectUrl);
   };
 
   return (
@@ -261,8 +261,11 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         url="/support-background.png"
         alt={`${placeId} cover image`}
       />
-      {isLoginDialogOpen && (
-        <LoginDialog onClose={() => setIsLoginDialogOpen(false)} />
+      {loginRedirectUrl && (
+        <LoginDialog
+          onClose={() => setLoginRedirectUrl("")}
+          redirectUrl={loginRedirectUrl}
+        />
       )}
     </LandingContainer>
   );

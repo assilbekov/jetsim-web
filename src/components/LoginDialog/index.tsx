@@ -7,13 +7,12 @@ import { EmailLogin } from "./EmailLogin";
 import { useRouter } from "next/navigation";
 
 type LoginDialogProps = {
+  redirectUrl?: string;
   onClose: () => void;
 };
 
-export const LoginDialog = ({ onClose }: LoginDialogProps) => {
+export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
   const router = useRouter();
-  const redirectUrl = localStorage.getItem("redirect_url");
-  console.log({ redirectUrl })
   return (
     <>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[9999] flex flex-col px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl max-w-[480px] text-slate-950">
@@ -39,7 +38,7 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
             />
           </div>
         </div>
-        <EmailLogin />
+        <EmailLogin redirectUrl={redirectUrl} />
         <div className="flex gap-4 justify-center items-center mt-5 text-center text-gray-400 whitespace-nowrap leading-[137.5%]">
           <div className="flex-1 shrink-0 self-stretch my-auto h-0.5 bg-slate-200" />
           <div className="self-stretch">or</div>
@@ -52,7 +51,10 @@ export const LoginDialog = ({ onClose }: LoginDialogProps) => {
             const res = await fetch(
               "https://auth.jetsim.app/api/v1/google/login-link?redirect=http://localhost:3000/auth/callback"
             );
-            localStorage.setItem("last_page", "http://localhost:3000/en");
+            localStorage.setItem(
+              "last_page",
+              redirectUrl || window.location.origin
+            );
             const json = await res.json();
             router.push(json.link);
           }}
