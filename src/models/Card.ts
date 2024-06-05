@@ -1,6 +1,4 @@
-export type CardsResponse = {
-  data: Card[];
-};
+export type CardsResponse = Card[];
 
 export type Card = {
   id: string;

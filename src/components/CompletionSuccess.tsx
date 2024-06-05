@@ -22,7 +22,7 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
 
   useEffect(() => {
     fetchCards().then((res) => {
-      setCards(res.data);
+      setCards(res);
     });
   }, []);
 
@@ -30,7 +30,7 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
     <div>
       <h1>Thank you! 🎉</h1>
       {card && <InstallESim card={card} />}
-      {cards.map((card) => (
+      {cards?.map((card) => (
         <div key={card.id}>
           <h2>Card ID: {card.id}</h2>
           <h3>Status: {card.status}</h3>
