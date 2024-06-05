@@ -1,4 +1,5 @@
 import { authServiceURL, authRedirect } from "@/config";
+import { ApiResponse } from "@/models/ApiResponse";
 
 export type SocialAuthLinkResponse = {
   link: string;
@@ -10,6 +11,6 @@ export const getSocialAuthLink = async (
   const res = await fetch(
     `${authServiceURL}${provider}/login-link?redirect=${authRedirect}`
   );
-  const json = await res.json();
-  return json;
+  const json: ApiResponse<SocialAuthLinkResponse> = await res.json();
+  return json.payload;
 };
