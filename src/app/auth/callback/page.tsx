@@ -2,7 +2,6 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function CallbackPage() {
   const router = useRouter();
@@ -18,25 +17,9 @@ export default function CallbackPage() {
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-      return;
-
-      //const { accessToken, refreshToken } = json;
-      const simRes = await fetch(`https://sim.jetsim.app/api/v1/packages`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-      const simJson = await simRes.json();
-      console.log(simJson);
-      debugger;
     },
     staleTime: 1000,
   });
 
-  return (
-    <div>
-      <h1>Callback: {JSON.stringify({})}</h1>
-      <h1>Search param: {JSON.stringify({})}</h1>
-    </div>
-  );
+  return <div>Loading...</div>;
 }
