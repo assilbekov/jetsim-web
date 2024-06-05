@@ -57,6 +57,9 @@ const CheckoutForm = ({
         </span>
       </button>
       <div id="message">{message}</div>
+      <p>
+        packageID: {packageID}, cardID: {cardID}
+      </p>
     </form>
   );
 };
@@ -96,8 +99,13 @@ export default function Index({
     <div>
       <h1>Payment Page</h1>
       <p>{JSON.stringify(packageData)}</p>
+      <p>clientSecret: {JSON.stringify(clientSecret)}</p>
       {stripePromise && clientSecret ? (
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
+        <Elements
+          key={clientSecret}
+          stripe={stripePromise}
+          options={{ clientSecret }}
+        >
           <CheckoutForm packageID={packageID} cardID={cardID} />
         </Elements>
       ) : (
