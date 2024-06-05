@@ -9,7 +9,7 @@ export default function CallbackPage() {
     queryKey: ["callback"],
     queryFn: async () => {
       const res = await fetch(
-        `https://auth.jetsim.app/api/v1/google/callback${window.location.search}&redirect=http://localhost:3000/auth/callback`
+        `https://auth.jetsim.app/api/v1/google/callback${window.location.search}&redirect=${window.location.origin}/auth/callback`
       );
       const { accessToken, refreshToken } = await res.json();
       const lastPage = localStorage.getItem("last_page");
