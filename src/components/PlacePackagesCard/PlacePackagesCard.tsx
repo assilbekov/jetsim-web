@@ -98,6 +98,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
       : packagesUnlimitedQuery.data?.data) ?? [];
 
   const handleTagChange = (tag: PackageTagEnum) => {
+    if (tag === selectedTag) return;
+
     setSelectedTag(tag);
     setSelectedPackageId("");
 
@@ -109,6 +111,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   };
 
   const handlePackageChange = (_selectedPackage: Package) => {
+    if (_selectedPackage.id === selectedPackageId) return;
+
     setSelectedPackageId(_selectedPackage.id);
 
     const params = new URLSearchParams(searchParams.toString());
