@@ -49,7 +49,7 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
           label="Continue with Google"
           onClick={async () => {
             const res = await fetch(
-              "https://auth.jetsim.app/api/v1/google/login-link?redirect=http://localhost:3000/auth/callback"
+              `https://auth.jetsim.app/api/v1/google/login-link?redirect=${window.location.origin}/auth/callback`
             );
             localStorage.setItem(
               "last_page",
