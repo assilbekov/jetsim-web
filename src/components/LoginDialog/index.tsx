@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SocialLoginButton } from "./SocialLoginButton";
 import { EmailLogin } from "./EmailLogin";
 import { useRouter } from "next/navigation";
+import { ApiResponse } from "@/models/ApiResponse";
 
 type LoginDialogProps = {
   redirectUrl?: string;
@@ -55,8 +56,8 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
               "last_page",
               redirectUrl || window.location.origin
             );
-            const json = await res.json();
-            router.push(json.link);
+            const json: ApiResponse<{ link: string }> = await res.json();
+            router.push(json.payload.link);
           }}
           className="w-full"
         />

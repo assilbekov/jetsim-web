@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { LoginDialog } from "./LoginDialog";
 import { useEffect, useState } from "react";
+import { ApiResponse } from "@/models/ApiResponse";
+import { Tokens } from "@/models/Tokens";
 
 export const LoginLink = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -37,7 +39,9 @@ export const LoginLink = () => {
           setIsLoggedIn(true);
         }
 
-        const { accessToken, refreshToken } = await res.json();
+        const {
+          payload: { accessToken, refreshToken },
+        }: ApiResponse<Tokens> = await res.json();
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
         setIsLoggedIn(true);

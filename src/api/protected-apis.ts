@@ -1,3 +1,4 @@
+import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 
 type Fetch = (
@@ -26,7 +27,9 @@ export const fetchProtected: Fetch = async (input, init) => {
         refreshToken: localStorage.getItem("refreshToken"),
       }),
     });
-    const { accessToken, refreshToken }: Tokens = await newTokenRes.json();
+    const {
+      payload: { accessToken, refreshToken },
+    }: ApiResponse<Tokens> = await newTokenRes.json();
 
     localStorage.setItem("accessToken", accessToken);
     localStorage.setItem("refreshToken", refreshToken);
