@@ -1,3 +1,4 @@
+import { PlanningTripCard } from "./PlanningTripCard";
 import { ProfileCard } from "./ProfileCard";
 
 export const ProfileCards = () => {
@@ -6,6 +7,7 @@ export const ProfileCards = () => {
       {Array.from({ length: 3 }).map((_, index) => (
         <ProfileCard key={index} />
       ))}
+      <PlanningTripCard />
     </div>
   );
 };
