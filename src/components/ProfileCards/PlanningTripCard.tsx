@@ -2,7 +2,7 @@ import * as React from "react";
 
 export function PlanningTripCard() {
   return (
-    <div className="flex flex-col justify-between px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl border-2 border-solid border-slate-200 max-w-[708px] text-slate-950 max-md:px-5">
+    <div className="flex flex-col justify-between px-6 pt-5 pb-6 text-base font-medium bg-white rounded-3xl border-2 border-solid border-slate-200 text-slate-950 max-md:px-5">
       <div className="flex justify-center items-center px-16 py-8 max-md:px-5 max-md:max-w-full">
         <div className="flex flex-col max-w-full w-[261px]">
           <img

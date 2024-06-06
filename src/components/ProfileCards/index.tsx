@@ -2,8 +2,10 @@
 import { fetchLocation } from "@/api/locations";
 import { PlanningTripCard } from "./PlanningTripCard";
 import { ProfileCard } from "./ProfileCard";
-import { fetchCard, fetchCards } from "@/api/cards";
+import { fetchCards } from "@/api/cards";
 import { useQuery } from "@tanstack/react-query";
+import { LandingContainer } from "../LandingContainer";
+import { Card } from "../Card";
 
 export const ProfileCards = () => {
   const { data: cards } = useQuery({
@@ -37,16 +39,20 @@ export const ProfileCards = () => {
     });
 
   return (
-    <div>
-      {cardsWithLocation
-        ?.splice(0, 2)
-        .map(
-          ({ card, location }) =>
-            location && (
-              <ProfileCard key={card.id} card={card} location={location} />
-            )
-        )}
-      <PlanningTripCard />
-    </div>
+    <LandingContainer>
+      <Card>
+        <div className="grid gap-6">
+          {cardsWithLocation
+            ?.splice(0, 2)
+            .map(
+              ({ card, location }) =>
+                location && (
+                  <ProfileCard key={card.id} card={card} location={location} />
+                )
+            )}
+          <PlanningTripCard />
+        </div>
+      </Card>
+    </LandingContainer>
   );
 };

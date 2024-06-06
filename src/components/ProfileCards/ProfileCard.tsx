@@ -1,6 +1,7 @@
 import { Card } from "@/models/Card";
 import { Location } from "@/models/Location";
 import * as React from "react";
+import { CircledCountryImage } from "../CircledCountryImage";
 
 type ProfileCardProps = {
   card: Card;
@@ -10,20 +11,21 @@ type ProfileCardProps = {
 export function ProfileCard({ card, location }: ProfileCardProps) {
   console.log({ card, location });
   return (
-    <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-w-[588px] max-md:px-5">
+    <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-md:px-5">
       <div className="flex gap-4 font-medium max-md:flex-wrap">
         <div className="flex flex-col flex-1 max-md:max-w-full">
           <div className="text-2xl text-slate-950 max-md:max-w-full">
-            Turkey
+            {location.title}
           </div>
           <div className="mt-1 text-base leading-5 text-gray-400 max-md:max-w-full">
             Expires in 4 days
           </div>
         </div>
-        <img
+        <CircledCountryImage
+          countryCode={location.countryCode}
+          width={40}
+          height={40}
           loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/9b3fa2ceeaf60cb3c683d0f16de7db8e7b01612fe5477afbc942b840f808245a?apiKey=4d29b65bc77c4658ad8f90690919294c&"
-          className="shrink-0 my-auto w-10 aspect-square"
         />
       </div>
       <div className="flex gap-3 mt-20 text-2xl font-medium text-slate-950 max-md:flex-wrap max-md:mt-10">
