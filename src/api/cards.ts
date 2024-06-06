@@ -21,11 +21,12 @@ export const fetchCard = async (id: string): Promise<Card> => {
 };
 
 export const createCard = async (
-  packageID: string
+  packageID: string,
+  placeID: string
 ): Promise<CreateCardResponse> => {
   const res = await fetchProtected(`${simServiceURL}cards`, {
     method: "POST",
-    body: JSON.stringify({ packageID }),
+    body: JSON.stringify({ packageID, placeID }),
   });
   const json: ApiResponse<CreateCardResponse> = await res.json();
   return json.payload;

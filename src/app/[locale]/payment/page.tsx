@@ -67,8 +67,9 @@ const CheckoutForm = ({
 export default function Index({
   searchParams,
 }: {
-  searchParams: { packageID: string };
+  searchParams: { packageID: string; placeID: string };
 }) {
+  const placeID = searchParams.placeID ?? "";
   const packageID = searchParams.packageID ?? "";
 
   const [stripePromise, setStripePromise] = useState<
@@ -85,7 +86,11 @@ export default function Index({
   }, []);
 
   useEffect(() => {
-    createCard(packageID).then((res) => {
+    if (!packageID || !placeID) {
+      return;
+    }
+
+    createCard(packageID, placeID).then((res) => {
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
       setCardID(res.cardID);
     });
@@ -93,7 +98,7 @@ export default function Index({
     fetchPackage(packageID).then((res) => {
       setPackageData(res);
     });
-  }, [packageID]);
+  }, [packageID, placeID]);
 
   return (
     <div>
