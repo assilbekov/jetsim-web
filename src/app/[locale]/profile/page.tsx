@@ -3,6 +3,7 @@ import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
+import { ProfileCards } from "@/components/ProfileCards";
 import { Recommendations } from "@/components/Recommendations";
 import { useTranslations } from "next-intl";
 
@@ -22,6 +23,7 @@ export default function Index({
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
+        <ProfileCards />
         <LandingSupport />
         <Recommendations />
         <FAQ />
