@@ -129,7 +129,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     const mockPackageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
     const redirectUrl = `${
       window.location.origin
-    }/en/payment?packageID=${mockPackageID}&${searchParams.toString()}`;
+    }/en/payment?packageID=${mockPackageID}&placeID=${placeId}&${searchParams.toString()}`;
     /* router.push(
       `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
         window.location.origin
