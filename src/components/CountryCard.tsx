@@ -1,5 +1,4 @@
 import { Location } from "@/models/Location";
-import Image from "next/image";
 import Link from "next/link";
 import {
   TypographyVariants,
@@ -7,6 +6,7 @@ import {
   matchTypographyMediaQuery,
 } from "./Typography";
 import { clsx } from "@/utils";
+import { CircledCountryImage } from "./CircledCountryImage";
 
 type CountryCardProps = {
   country: Location;
@@ -23,11 +23,10 @@ export const CountryCard = ({ country, className }: CountryCardProps) => {
     >
       <div className="flex h-full gap-4 px-5 py-[14px] items-center border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] active:bg-[#C3D4D9] rounded-xl cursor-pointer active:border-[#C3D4D9] transition duration-200 ease-in-out">
         <div className="w-[34px] h-[34px] md:min-w-10 md:min-h-10 flex items-center rounded-full">
-          <Image
-            src={`https://hatscripts.github.io/circle-flags/flags/${country.countryCode.toLowerCase()}.svg`}
+          <CircledCountryImage
+            countryCode={country.countryCode}
             width={40}
             height={40}
-            alt={`flag of ${country.countryCode}`}
           />
         </div>
         <div className="flex flex-col gap-0.5">

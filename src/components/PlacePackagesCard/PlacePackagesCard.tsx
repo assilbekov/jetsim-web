@@ -22,6 +22,7 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 import { BackgroundImage } from "./BackgroundImage";
 import { LoginDialog } from "../LoginDialog";
+import { CircledCountryImage } from "../CircledCountryImage";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -163,11 +164,10 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             {!locationQuery.isFetched ? (
               <Skeleton className="min-w-7 min-h-7 xxs:min-w-9 xxs:min-h-9 rounded-full" />
             ) : (
-              <Image
-                src={`https://hatscripts.github.io/circle-flags/flags/${locationQuery.data?.countryCode.toLowerCase()}.svg`}
+              <CircledCountryImage
+                countryCode={locationQuery.data?.countryCode || ""}
                 width={36}
                 height={36}
-                alt={`flag of ${locationQuery.data?.countryCode}`}
                 className="w-7 h-7 xxs:w-9 xxs:h-9"
               />
             )}
