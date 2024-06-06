@@ -1,12 +1,14 @@
 import { Card } from "@/models/Card";
+import { Location } from "@/models/Location";
 import * as React from "react";
 
 type ProfileCardProps = {
   card: Card;
+  location: Location;
 };
 
-export function ProfileCard({ card }: ProfileCardProps) {
-  console.log({card})
+export function ProfileCard({ card, location }: ProfileCardProps) {
+  console.log({ card, location });
   return (
     <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-w-[588px] max-md:px-5">
       <div className="flex gap-4 font-medium max-md:flex-wrap">
