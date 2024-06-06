@@ -10,6 +10,26 @@ type ProfileCardProps = {
 
 export function ProfileCard({ card, location }: ProfileCardProps) {
   console.log({ card, location });
+
+  const getExpirationText = () => {
+    const expirationDate = new Date(card.expiresAt);
+    const currentDate = new Date();
+
+    const diffTime = Math.abs(expirationDate.getTime() - currentDate.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffMonths = Math.ceil(diffDays / 30);
+
+    if (expirationDate < currentDate) {
+      if (diffMonths > 1) {
+        return `Expired ${diffMonths} months ago`;
+      }
+
+      return `Expired ${diffDays} days ago`;
+    }
+
+    return `Expires in ${diffDays} days`;
+  };
+
   return (
     <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-md:px-5">
       <div className="flex gap-4 font-medium max-md:flex-wrap">
@@ -18,7 +38,7 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
             {location.title}
           </div>
           <div className="mt-1 text-base leading-5 text-gray-400 max-md:max-w-full">
-            Expires in 4 days
+            {getExpirationText()}
           </div>
         </div>
         <CircledCountryImage
