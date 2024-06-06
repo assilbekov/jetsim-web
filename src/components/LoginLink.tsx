@@ -5,8 +5,10 @@ import { LoginDialog } from "./LoginDialog";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
+import { useRouter } from "next/navigation";
 
 export const LoginLink = () => {
+  const router = useRouter();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -58,6 +60,7 @@ export const LoginLink = () => {
           onClick={(e) => {
             e.preventDefault();
             if (isLoggedIn) {
+              router.push("/en/profile");
               return;
             }
             setIsDialogOpen(true);
