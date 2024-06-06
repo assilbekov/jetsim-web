@@ -5,6 +5,7 @@ export enum TypographyVariants {
   H2 = "h2",
   Subheader = "subheader",
   Body = "body",
+  Body2 = "body2",
   Caption = "caption",
 }
 
@@ -18,6 +19,8 @@ export const getTypographyClass = (variant: TypographyVariants) => {
       return "font-inter text-2xl leading-[30px] font-medium";
     case TypographyVariants.Body:
       return "font-inter text-xl leading-[26px] font-medium";
+    case TypographyVariants.Body2:
+      return "font-inter text-[16px] leading-[19px] font-medium";
     case TypographyVariants.Caption:
       return "font-inter text-base leading-[22px] font-medium";
   }
