@@ -21,7 +21,10 @@ export const ProgressBar = ({ progress, className }: ProgressBarProps) => {
             : "0%";
 
         return (
-          <div className="flex-1 shrink-0 h-1.5 bg-[#E9F0F2] rounded-full dark:bg-gray-700">
+          <div
+            key={index}
+            className="flex-1 shrink-0 h-1.5 bg-[#E9F0F2] rounded-full dark:bg-gray-700"
+          >
             <div
               className="bg-primary-500 h-1.5 rounded-full"
               style={{
