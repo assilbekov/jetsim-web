@@ -120,7 +120,7 @@ export const ProfileCards = () => {
   return (
     <LandingContainer>
       <Card>
-        <div className="grid gap-6">
+        <div className="grid gap-6 md:grid-cols-3">
           {cardsWithLocation?.map(
             ({ card, location }) =>
               location && (

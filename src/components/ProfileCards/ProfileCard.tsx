@@ -70,8 +70,8 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
         <div className="flex-1 shrink-0 h-1.5 bg-sky-500 rounded-[100px]" />
         <div className="flex-1 shrink-0 h-1.5 bg-sky-500 rounded-[100px]" />
         <div className="flex-1 shrink-0 h-1.5 bg-sky-500 rounded-[100px]" />
-        <div className="flex-1 shrink-0 h-1.5 rounded-[100px]" />
-        <div className="flex-1 shrink-0 h-1.5 bg-slate-200 rounded-[100px]" />
+        <div className="flex-1 shrink-0 h-1.5 relative bg-[#E9F0F2] before:bg-sky-500 before:absolute top-0 left-0 before:w-[40%] before:h-full overflow-hidden rounded-[100px]" />
+        <div className="flex-1 shrink-0 h-1.5 bg-[#E9F0F2] rounded-[100px]" />
       </div>
       <div className="flex gap-4 justify-between items-center mt-6">
         <PrimaryButton className="w-full">Buy new plan</PrimaryButton>
