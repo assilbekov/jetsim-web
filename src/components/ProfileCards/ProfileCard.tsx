@@ -14,7 +14,11 @@ type ProfileCardProps = {
 };
 
 export function ProfileCard({ card, location }: ProfileCardProps) {
-  console.log({ card, location });
+  console.log({
+    card,
+    location,
+    progress: (card.trafficRemainingBytes * 100) / card.trafficTotalBytes,
+  });
 
   const getExpirationText = () => {
     const expirationDate = new Date(card.expiresAt);
@@ -67,7 +71,9 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
         <p>14,32 GB</p>
         <p className="text-text-600">16,00</p>
       </div>
-      <ProgressBar progress={32} />
+      <ProgressBar
+        progress={(card.trafficRemainingBytes * 100) / card.trafficTotalBytes}
+      />
       <div className="flex gap-4 justify-between items-center mt-6">
         <PrimaryButton className="w-full">Buy new plan</PrimaryButton>
         <SecondaryButton className="w-full py-[14px]">

@@ -13,7 +13,9 @@ export const ProgressBar = ({ progress, className }: ProgressBarProps) => {
 
         const width =
           ceiled === curIdx
-            ? `${((progress % 20) * 100) / 20}%`
+            ? `${
+                progress / 20 === ceiled ? 100 : ((progress % 20) * 100) / 20
+              }%`
             : ceiled > curIdx
             ? "100%"
             : "0%";

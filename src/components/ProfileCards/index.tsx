@@ -26,7 +26,7 @@ const mockCardsWithLocation = [
       activatedAt: "2024-06-06 21:08:01 +0000 UTC",
       expiresAt: "2024-06-16 21:08:01 +0000 UTC",
       trafficTotalBytes: 3221225472,
-      trafficRemainingBytes: 3221225472,
+      trafficRemainingBytes: 2221225472,
       package: {
         id: "d64f19c9-cf5d-57cb-9be6-7de56a8e706a",
       },
@@ -51,7 +51,7 @@ const mockCardsWithLocation = [
       activatedAt: "2024-06-06 21:08:01 +0000 UTC",
       expiresAt: "2024-06-12 21:08:01 +0000 UTC",
       trafficTotalBytes: 3221225472,
-      trafficRemainingBytes: 3221225472,
+      trafficRemainingBytes: 521225472,
       package: {
         id: "d64f19c9-cf5d-57cb-9be6-7de56a8e706a",
       },
@@ -75,8 +75,8 @@ const mockCardsWithLocation = [
       lpaCode: "LPA:1$smdp.io$K2-1VL1TC-RPOID9",
       activatedAt: "2024-06-06 21:08:01 +0000 UTC",
       expiresAt: "2022-03-13 21:08:01 +0000 UTC",
-      trafficTotalBytes: 3221225472,
-      trafficRemainingBytes: 3221225472,
+      trafficTotalBytes: 100,
+      trafficRemainingBytes: 80,
       package: {
         id: "d64f19c9-cf5d-57cb-9be6-7de56a8e706a",
       },
