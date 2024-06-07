@@ -6,6 +6,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { clsx } from "@/utils";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
+import { ProgressBar } from "./ProgressBar";
 
 type ProfileCardProps = {
   card: Card;
@@ -66,13 +67,7 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
         <p>14,32 GB</p>
         <p className="text-text-600">16,00</p>
       </div>
-      <div className="flex gap-3 mt-3 max-md:flex-wrap">
-        <div className="flex-1 shrink-0 h-1.5 bg-sky-500 rounded-[100px]" />
-        <div className="flex-1 shrink-0 h-1.5 bg-sky-500 rounded-[100px]" />
-        <div className="flex-1 shrink-0 h-1.5 bg-sky-500 rounded-[100px]" />
-        <div className="flex-1 shrink-0 h-1.5 relative bg-[#E9F0F2] before:bg-sky-500 before:absolute top-0 left-0 before:w-[40%] before:h-full overflow-hidden rounded-[100px]" />
-        <div className="flex-1 shrink-0 h-1.5 bg-[#E9F0F2] rounded-[100px]" />
-      </div>
+      <ProgressBar progress={32} />
       <div className="flex gap-4 justify-between items-center mt-6">
         <PrimaryButton className="w-full">Buy new plan</PrimaryButton>
         <SecondaryButton className="w-full py-[14px]">
