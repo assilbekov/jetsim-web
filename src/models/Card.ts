@@ -2,7 +2,7 @@ export type CardsResponse = Card[];
 
 export type Card = {
   id: string;
-  status: string;
+  status: CardStatus;
   placeID: string;
   package: Package;
   lpaCode: string;
@@ -15,6 +15,14 @@ export type Card = {
 type Package = {
   id: string;
 };
+
+export enum CardStatus {
+  Active = "active",
+  Inactive = "inactive",
+  Paid = "paid",
+  Pending = "pending",
+  Expired = "expired",
+}
 
 export interface ClientOptionsResponse {
   stripePublishableKey: string;

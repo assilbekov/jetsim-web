@@ -1,4 +1,4 @@
-import { Card } from "@/models/Card";
+import { Card, CardStatus } from "@/models/Card";
 import { Location } from "@/models/Location";
 import * as React from "react";
 import { CircledCountryImage } from "../CircledCountryImage";
@@ -6,7 +6,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { clsx } from "@/utils";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
-import { ProgressBar } from "./ProgressBar";
+import { ProgressBar, ProgressBarSignleLine } from "./ProgressBar";
 
 type ProfileCardProps = {
   card: Card;
@@ -14,12 +14,6 @@ type ProfileCardProps = {
 };
 
 export function ProfileCard({ card, location }: ProfileCardProps) {
-  console.log({
-    card,
-    location,
-    progress: (card.trafficRemainingBytes * 100) / card.trafficTotalBytes,
-  });
-
   const getExpirationText = () => {
     const expirationDate = new Date(card.expiresAt);
     const currentDate = new Date();
@@ -38,6 +32,18 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
 
     return `Expires in ${diffDays} days`;
   };
+
+  function formatBytes(bytes: number, decimals = 2) {
+    if (!+bytes) return "0 Bytes";
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+  }
 
   return (
     <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-md:px-5">
@@ -68,17 +74,69 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
           "flex justify-between mt-16"
         )}
       >
-        <p>14,32 GB</p>
-        <p className="text-text-600">16,00</p>
+        {{
+          [CardStatus.Active]: (
+            <>
+              <p>{formatBytes(card.trafficRemainingBytes)}</p>
+              <p className="text-text-600">
+                {formatBytes(card.trafficTotalBytes)}
+              </p>
+            </>
+          ),
+          [CardStatus.Expired]: <></>,
+          [CardStatus.Inactive]: <></>,
+          [CardStatus.Paid]: <p>{formatBytes(card.trafficTotalBytes)}</p>,
+          [CardStatus.Pending]: <></>,
+        }[card.status] || <></>}
       </div>
-      <ProgressBar
-        progress={(card.trafficRemainingBytes * 100) / card.trafficTotalBytes}
-      />
+      {{
+        [CardStatus.Active]: (
+          <ProgressBar
+            progress={
+              (card.trafficRemainingBytes * 100) / card.trafficTotalBytes
+            }
+            className="mt-3"
+          />
+        ),
+        [CardStatus.Expired]: <></>,
+        [CardStatus.Inactive]: <></>,
+        [CardStatus.Paid]: (
+          <ProgressBarSignleLine
+            progress={
+              (card.trafficTotalBytes - card.trafficRemainingBytes) /
+              card.trafficTotalBytes
+            }
+            className="mt-3"
+          />
+        ),
+        [CardStatus.Pending]: <></>,
+      }[card.status] || <></>}
       <div className="flex gap-4 justify-between items-center mt-6">
-        <PrimaryButton className="w-full">Buy new plan</PrimaryButton>
-        <SecondaryButton className="w-full py-[14px]">
-          View details
-        </SecondaryButton>
+        {{
+          [CardStatus.Active]: (
+            <>
+              <PrimaryButton className="w-full">Buy new plan</PrimaryButton>
+              <SecondaryButton className="w-full py-[14px]">
+                View details
+              </SecondaryButton>
+            </>
+          ),
+          [CardStatus.Expired]: (
+            <>
+              <SecondaryButton className="w-full py-[14px]">
+                Buy new plan
+              </SecondaryButton>
+              <SecondaryButton className="w-full py-[14px]">
+                View details
+              </SecondaryButton>
+            </>
+          ),
+          [CardStatus.Inactive]: <></>,
+          [CardStatus.Paid]: (
+            <PrimaryButton className="w-full">Install eSIM</PrimaryButton>
+          ),
+          [CardStatus.Pending]: <></>,
+        }[card.status] || <></>}
       </div>
     </div>
   );
