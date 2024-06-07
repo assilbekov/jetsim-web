@@ -6,7 +6,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 export function PlanningTripCard() {
   return (
     <div className="flex flex-col justify-center h-[300px] py-5 px-6 items-center rounded-3xl border-2 border-solid border-[#E9F0F2]">
-      <div className="flex flex-col gap-4 max-w-full w-[261px] text-center">
+      <div className="flex flex-col gap-4 text-center">
         <Image
           src="/icons/globe.svg"
           alt="Globe icon"

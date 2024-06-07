@@ -111,7 +111,7 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
         ),
         [CardStatus.Pending]: <></>,
       }[card.status] || <></>}
-      <div className="flex gap-4 justify-between items-center mt-6">
+      <div className="grid gap-3 mt-6">
         {{
           [CardStatus.Active]: (
             <>
