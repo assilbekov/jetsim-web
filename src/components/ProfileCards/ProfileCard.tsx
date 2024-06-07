@@ -111,30 +111,32 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
         ),
         [CardStatus.Pending]: <></>,
       }[card.status] || <></>}
-      <div className="grid gap-3 mt-6">
+      <div className="mt-6">
         {{
           [CardStatus.Active]: (
-            <>
-              <PrimaryButton className="w-full">Buy new plan</PrimaryButton>
-              <SecondaryButton className="w-full py-[14px]">
+            <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
+              <PrimaryButton className="w-full px-1">
+                Buy new plan
+              </PrimaryButton>
+              <SecondaryButton className="w-full py-[14px] px-1">
                 View details
               </SecondaryButton>
-            </>
+            </div>
           ),
           [CardStatus.Expired]: (
-            <>
-              <SecondaryButton className="w-full py-[14px]">
+            <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
+              <SecondaryButton className="w-full py-[14px] px-1">
                 Buy new plan
               </SecondaryButton>
-              <SecondaryButton className="w-full py-[14px]">
+              <SecondaryButton className="w-full py-[14px] px-1">
                 View details
               </SecondaryButton>
-            </>
+            </div>
           ),
-          [CardStatus.Inactive]: <></>,
           [CardStatus.Paid]: (
             <PrimaryButton className="w-full">Install eSIM</PrimaryButton>
           ),
+          [CardStatus.Inactive]: <></>,
           [CardStatus.Pending]: <></>,
         }[card.status] || <></>}
       </div>
