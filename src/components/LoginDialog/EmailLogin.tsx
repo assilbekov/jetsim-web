@@ -145,7 +145,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
           isFormLoading || step === LoginStep.Code ? !code : !isEmailValid
         }
         type="submit"
-        className="w-full"
+        className="w-full mt-4"
       >
         Continue{step === LoginStep.Email ? " with code" : ""}
       </PrimaryButton>
