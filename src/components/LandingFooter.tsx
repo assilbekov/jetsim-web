@@ -12,7 +12,13 @@ const Title = ({ children }: { children: React.ReactNode }) => {
 };
 
 // TOOD: Make list element a link
-const ListElement = ({ children }: { children: React.ReactNode }) => {
+const ListElement = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href?: string;
+}) => {
   return (
     <li
       className={clsx(
@@ -20,7 +26,7 @@ const ListElement = ({ children }: { children: React.ReactNode }) => {
         getTypographyClass(TypographyVariants.Caption)
       )}
     >
-      <Link href="#">{children}</Link>
+      <Link href={href || "#"}>{children}</Link>
     </li>
   );
 };
@@ -68,8 +74,12 @@ export const LandingFooter = ({
             <LinksBlock>
               <Title>Legal</Title>
               <ListBlock>
-                <ListElement>Privacy policy</ListElement>
-                <ListElement>Terms of Service</ListElement>
+                <ListElement href="/en/privacy-policy">
+                  Privacy policy
+                </ListElement>
+                <ListElement href="/en/terms-of-service">
+                  Terms of Service
+                </ListElement>
                 <ListElement>COF Agreement</ListElement>
               </ListBlock>
             </LinksBlock>
