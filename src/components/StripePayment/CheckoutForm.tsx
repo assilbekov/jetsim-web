@@ -4,14 +4,9 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
-export const CheckoutForm = ({
-  packageID,
-  cardID,
-}: {
-  packageID: string;
-  cardID: string;
-}) => {
+export const CheckoutForm = ({ cardID }: { cardID: string }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -42,17 +37,16 @@ export const CheckoutForm = ({
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <button disabled={isProcessing} id="submit">
-        <PaymentElement />
-        <span id="button-text">
-          {isProcessing ? "Processing..." : "Pay now"}
-        </span>
-      </button>
+    <form
+      id="payment-form"
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-5"
+    >
+      <PaymentElement />
       <div id="message">{message}</div>
-      <p>
-        packageID: {packageID}, cardID: {cardID}
-      </p>
+      <PrimaryButton disabled={isProcessing} id="submit" className="w-full">
+        {isProcessing ? "Processing..." : "Pay"}
+      </PrimaryButton>
     </form>
   );
 };

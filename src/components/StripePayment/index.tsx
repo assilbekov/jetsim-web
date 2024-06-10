@@ -53,7 +53,7 @@ export const StripePayment = ({
           stripe={stripePromise}
           options={{ clientSecret }}
         >
-          <CheckoutForm packageID={packageID} cardID={cardID} />
+          <CheckoutForm cardID={cardID} />
         </Elements>
       ) : (
         <Skeleton className="min-w-full min-h-[250px] rounded-[20px]" />
