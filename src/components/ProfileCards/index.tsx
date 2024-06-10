@@ -7,6 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
 import { CardStatus } from "@/models/Card";
+import { Dialog } from "../Dialog";
+import { useState } from "react";
 
 const mockCardsWithLocation = [
   {
@@ -112,6 +114,7 @@ const mockCardsWithLocation = [
 ];
 
 export const ProfileCards = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { data: cards } = useQuery({
     queryKey: ["cards"],
     queryFn: fetchCards,
@@ -155,6 +158,7 @@ export const ProfileCards = () => {
           )}
           <PlanningTripCard />
         </div>
+        {dialogOpen && <Dialog onClose={() => setDialogOpen(false)} />}
       </Card>
     </LandingContainer>
   );
