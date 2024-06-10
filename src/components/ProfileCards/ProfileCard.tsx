@@ -3,7 +3,7 @@ import { Location } from "@/models/Location";
 import * as React from "react";
 import { CircledCountryImage } from "../CircledCountryImage";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import { clsx } from "@/utils";
+import { clsx, formatBytes } from "@/utils";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { ProgressBar, ProgressBarSignleLine } from "./ProgressBar";
@@ -32,18 +32,6 @@ export function ProfileCard({ card, location }: ProfileCardProps) {
 
     return `Expires in ${diffDays} days`;
   };
-
-  function formatBytes(bytes: number, decimals = 2) {
-    if (!+bytes) return "0 Bytes";
-
-    const k = 1024;
-    const dm = decimals < 0 ? 0 : decimals;
-    const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
-  }
 
   return (
     <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-md:px-5">
