@@ -1,3 +1,5 @@
+"use client";
+
 import { createCard, fetchClientOptions } from "@/api/cards";
 import { fetchPackage } from "@/api/packages";
 import { Package } from "@/models/Package";
