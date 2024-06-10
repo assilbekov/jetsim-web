@@ -37,8 +37,11 @@ export default function Index({ searchParams }: PageProps) {
       <div>
         <HomeLogo />
       </div>
-      <div className="mt-6">
-        <OrderSummary {...searchParams} />
+      <div className="flex flex-col sm:flex-row-reverse gap-6 mt-6">
+        <OrderSummary
+          {...searchParams}
+          className="sm:max-w-[300px] sm:h-full"
+        />
         <StripePayment {...searchParams} />
       </div>
       <div className="flex flex-col gap-6 mt-6">

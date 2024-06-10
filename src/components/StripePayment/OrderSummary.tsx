@@ -10,6 +10,7 @@ import { CircledCountryImage } from "../CircledCountryImage";
 import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
 import { Skeleton } from "../Skeleton";
 import { Card } from "../Card";
+import { clsx } from "@/utils";
 
 type OrderElementProps = {
   title: React.ReactNode;
@@ -32,9 +33,14 @@ const OrderElement = ({ title, value }: OrderElementProps) => {
 type OrderSummaryProps = {
   placeID: string;
   packageID: string;
+  className?: string;
 };
 
-export const OrderSummary = ({ packageID, placeID }: OrderSummaryProps) => {
+export const OrderSummary = ({
+  packageID,
+  placeID,
+  className,
+}: OrderSummaryProps) => {
   const [location, setLocation] = useState<Location | null>(null);
   const [packageData, setPackageData] = useState<Package | null>(null);
 
@@ -55,7 +61,12 @@ export const OrderSummary = ({ packageID, placeID }: OrderSummaryProps) => {
   }
 
   return (
-    <Card className="flex flex-col justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2]">
+    <Card
+      className={clsx(
+        "flex flex-col justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2]",
+        className ?? ""
+      )}
+    >
       <h3 className={getTypographyClass(TypographyVariants.Body)}>
         Order Summary
       </h3>

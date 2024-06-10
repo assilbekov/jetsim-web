@@ -43,7 +43,7 @@ export const StripePayment = ({
   }, [packageID, placeID]);
 
   return (
-    <Card className="flex flex-col justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2]">
+    <Card className="flex flex-col flex-1 justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2]">
       <h3 className={clsx(getTypographyClass(TypographyVariants.Body), "mb-5")}>
         Select a payment method
       </h3>
