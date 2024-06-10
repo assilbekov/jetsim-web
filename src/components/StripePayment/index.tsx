@@ -1,12 +1,14 @@
 "use client";
 
 import { createCard, fetchClientOptions } from "@/api/cards";
-import { fetchPackage } from "@/api/packages";
-import { Package } from "@/models/Package";
 import { Elements } from "@stripe/react-stripe-js";
 import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
 import { CheckoutForm } from "./CheckoutForm";
+import { TypographyVariants, getTypographyClass } from "../Typography";
+import { Card } from "../Card";
+import { clsx } from "@/utils";
+import { Skeleton } from "../Skeleton";
 
 type StripePaymentProps = {
   packageID: string;
@@ -22,7 +24,6 @@ export const StripePayment = ({
   >(null);
   const [clientSecret, setClientSecret] = useState("");
   const [cardID, setCardID] = useState("");
-  const [packageData, setPackageData] = useState<Package | null>(null);
 
   useEffect(() => {
     fetchClientOptions().then((res) => {
@@ -39,17 +40,13 @@ export const StripePayment = ({
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
       setCardID(res.cardID);
     });
-
-    fetchPackage(packageID).then((res) => {
-      setPackageData(res);
-    });
   }, [packageID, placeID]);
 
   return (
-    <div>
-      <h1>Payment Page</h1>
-      <p>{JSON.stringify(packageData)}</p>
-      <p>clientSecret: {JSON.stringify(clientSecret)}</p>
+    <Card className="flex flex-col justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2]">
+      <h3 className={clsx(getTypographyClass(TypographyVariants.Body), "mb-5")}>
+        Select a payment method
+      </h3>
       {stripePromise && clientSecret ? (
         <Elements
           key={clientSecret}
@@ -59,8 +56,8 @@ export const StripePayment = ({
           <CheckoutForm packageID={packageID} cardID={cardID} />
         </Elements>
       ) : (
-        "Loading..."
+        <Skeleton className="min-w-full min-h-[250px] rounded-[20px]" />
       )}
-    </div>
+    </Card>
   );
 };
