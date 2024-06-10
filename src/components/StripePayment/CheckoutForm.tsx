@@ -5,12 +5,14 @@ import {
 } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
+import { StripeError } from "@stripe/stripe-js";
+import { ErrorMessage } from "./ErrorMessage";
 
 export const CheckoutForm = ({ cardID }: { cardID: string }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [message, setMessage] = useState("");
+  const [err, setErr] = useState<StripeError | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -30,7 +32,7 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
     });
 
     if (error) {
-      setMessage(error.message ?? "An unknown error occurred");
+      setErr(error);
     }
 
     setIsProcessing(false);
@@ -43,7 +45,7 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
       className="flex flex-col gap-5"
     >
       <PaymentElement />
-      <div id="message">{message}</div>
+      {err && <ErrorMessage err={err} />}
       <PrimaryButton disabled={isProcessing} id="submit" className="w-full">
         {isProcessing ? "Processing..." : "Pay"}
       </PrimaryButton>
