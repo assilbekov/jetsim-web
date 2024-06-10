@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Link, { LinkProps } from "next/link";
 import { HumburgerButton } from "./HumburgerButton";
 
@@ -7,6 +6,7 @@ import "./navbar.css";
 import { LoginLink } from "./LoginLink";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
+import { HomeLogo } from "./HomeLogo";
 
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
@@ -22,9 +22,7 @@ export const Navbar = () => {
   const t = useTranslations("MainPage");
   return (
     <header className="flex justify-between items-center h-[54px]">
-      <Link className="z-[1001]" href="/">
-        <Image src="/logo.svg" alt="logo image" width={155} height={36} />
-      </Link>
+      <HomeLogo />
       <HumburgerButton />
       <nav
         id="primary-navigation"
