@@ -4,6 +4,7 @@ import { FAQ } from "@/components/FAQ";
 import { BeforeInstallation } from "@/components/InstallESim/BeforeInstallation";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
+import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 
 export default function Completion({
@@ -26,6 +27,7 @@ export default function Completion({
         <ThanksForPurchase />
         <CompletionSuccess cardID={cardID} />
         <BeforeInstallation />
+        <LandingSupport />
         <FAQ />
         <LandingFooter />
       </div>
