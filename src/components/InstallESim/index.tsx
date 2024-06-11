@@ -1,15 +1,13 @@
 "use client";
 
-import { Card } from "@/models/Card";
-import Image from "next/image";
-import * as React from "react";
-import { TagButton } from "../buttons/TagButton";
-import { PrimaryButton } from "../buttons/PrimaryButton";
-import { CopyButton } from "../buttons/CopyButton";
+import { Card as CardModel } from "@/models/Card";
 import { ManualInstall } from "./ManualInstall";
 import { QRCodeInstall } from "./QRCodeInstall";
 import { ReinstallESim } from "./ReinstallESim";
 import { InstallToggleButtons } from "./InstallToggleButtons";
+import { useState } from "react";
+import { Card } from "../Card";
+import { LandingContainer } from "../LandingContainer";
 
 enum InstallMethod {
   QR = "qr",
@@ -17,26 +15,30 @@ enum InstallMethod {
 }
 
 type InstallESimProps = {
-  card: Card;
+  card: CardModel;
 };
 
 export const InstallESim = ({ card }: InstallESimProps) => {
-  const [installMethod, setInstallMethod] = React.useState<InstallMethod>(
+  const [installMethod, setInstallMethod] = useState<InstallMethod>(
     InstallMethod.QR
   );
 
   return (
-    <div className="flex flex-col justify-center self-stretch p-6 mx-auto w-full text-base font-medium bg-white max-w-[480px]">
-      <ReinstallESim />
-      <InstallToggleButtons
-        installMethod={installMethod}
-        setInstallMethod={setInstallMethod}
-      />
-      {installMethod === InstallMethod.QR ? (
-        <QRCodeInstall card={card} />
-      ) : (
-        <ManualInstall card={card} />
-      )}
-    </div>
+    <LandingContainer>
+      <Card>
+        <div className="max-w-[453px] mx-auto">
+          <ReinstallESim />
+          <InstallToggleButtons
+            installMethod={installMethod}
+            setInstallMethod={setInstallMethod}
+          />
+          {installMethod === InstallMethod.QR ? (
+            <QRCodeInstall card={card} />
+          ) : (
+            <ManualInstall card={card} />
+          )}
+        </div>
+      </Card>
+    </LandingContainer>
   );
 };
