@@ -33,33 +33,37 @@ type PageProps = {
 
 export default function Index({ searchParams }: PageProps) {
   return (
-    <div className="p-6 pb-11 bg-[#F2F4F7]">
-      <div>
-        <HomeLogo />
-      </div>
-      <div className="flex flex-col sm:flex-row-reverse gap-6 mt-6">
-        <OrderSummary
-          {...searchParams}
-          className="sm:max-w-[300px] sm:h-full"
-        />
-        <StripePayment {...searchParams} />
-      </div>
-      <div className="flex flex-col gap-6 mt-6">
-        <p
-          className={clsx(
-            getTypographyClass(TypographyVariants.Body2),
-            "text-text-600"
-          )}
-        >
-          2024 JetSIM. All rights reserved
-        </p>
-        <ul className="flex flex-col gap-3">
-          <ListElement href="/en/privacy-policy">Privacy policy</ListElement>
-          <ListElement href="/en/terms-of-service">
-            Terms of Service
-          </ListElement>
-          <ListElement>COF Agreement</ListElement>
-        </ul>
+    <div className="bg-[#F2F4F7]">
+      <div className="flex flex-col justify-between min-h-screen max-w-[950px] p-6 sm:p-8 pb-11 mx-auto">
+        <div>
+          <div>
+            <HomeLogo />
+          </div>
+          <div className="flex flex-col sm:flex-row-reverse gap-6 mt-6">
+            <OrderSummary
+              {...searchParams}
+              className="sm:max-w-[300px] sm:h-full"
+            />
+            <StripePayment {...searchParams} />
+          </div>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-6 mt-6">
+          <p
+            className={clsx(
+              getTypographyClass(TypographyVariants.Body2),
+              "text-text-600"
+            )}
+          >
+            2024 JetSIM. All rights reserved
+          </p>
+          <ul className="flex flex-col sm:flex-row sm:gap-6 gap-3">
+            <ListElement href="/en/privacy-policy">Privacy policy</ListElement>
+            <ListElement href="/en/terms-of-service">
+              Terms of Service
+            </ListElement>
+            <ListElement>COF Agreement</ListElement>
+          </ul>
+        </div>
       </div>
     </div>
   );

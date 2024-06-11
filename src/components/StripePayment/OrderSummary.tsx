@@ -57,7 +57,9 @@ export const OrderSummary = ({
   }, [packageID]);
 
   if (!packageData || !location) {
-    return <Skeleton className="min-w-full min-h-[250px] rounded-[20px]" />;
+    return (
+      <Skeleton className="min-w-full min-h-[250px] rounded-[20px] sm:max-w-[300px] sm:min-w-[300px]" />
+    );
   }
 
   return (
