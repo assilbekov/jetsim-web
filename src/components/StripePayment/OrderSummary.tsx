@@ -20,7 +20,7 @@ type OrderElementProps = {
 
 const OrderElement = ({ title, value }: OrderElementProps) => {
   return (
-    <div className="font-inter text-sm leading-[18px] font-medium">
+    <div className="font-inter text-sm leading-[18px] font-medium sm:font-inter sm:text-[16px] sm:leading-[19px]">
       <div className="shrink-0 mt-3 h-0.5 bg-[#E9F0F2]" />
       <div className="flex gap-5 justify-between mt-3 whitespace-nowrap">
         <p>{title}</p>
