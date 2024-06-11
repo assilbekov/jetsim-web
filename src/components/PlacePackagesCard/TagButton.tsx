@@ -2,7 +2,7 @@ import { clsx } from "@/utils";
 import { ButtonHTMLAttributes } from "react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 
-type TagButtonsProps = {
+export type TagButtonsProps = {
   active: boolean;
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;

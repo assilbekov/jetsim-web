@@ -9,6 +9,7 @@ import { CopyButton } from "../buttons/CopyButton";
 import { ManualInstall } from "./ManualInstall";
 import { QRCodeInstall } from "./QRCodeInstall";
 import { ReinstallESim } from "./ReinstallESim";
+import { InstallToggleButtons } from "./InstallToggleButtons";
 
 enum InstallMethod {
   QR = "qr",
@@ -27,20 +28,10 @@ export const InstallESim = ({ card }: InstallESimProps) => {
   return (
     <div className="flex flex-col justify-center self-stretch p-6 mx-auto w-full text-base font-medium bg-white max-w-[480px]">
       <ReinstallESim />
-      <div className="flex gap-4 justify-center mt-6 leading-[137.5%] text-slate-950">
-        <TagButton
-          active={installMethod === InstallMethod.QR}
-          onClick={() => setInstallMethod(InstallMethod.QR)}
-        >
-          QR code install
-        </TagButton>
-        <TagButton
-          active={installMethod === InstallMethod.MANUAL}
-          onClick={() => setInstallMethod(InstallMethod.MANUAL)}
-        >
-          Manual install
-        </TagButton>
-      </div>
+      <InstallToggleButtons
+        installMethod={installMethod}
+        setInstallMethod={setInstallMethod}
+      />
       {installMethod === InstallMethod.QR ? (
         <QRCodeInstall card={card} />
       ) : (
