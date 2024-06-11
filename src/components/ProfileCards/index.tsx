@@ -158,7 +158,7 @@ export const ProfileCards = () => {
           )}
           <PlanningTripCard />
         </div>
-        {dialogOpen && <Dialog onClose={() => setDialogOpen(false)} />}
+        {dialogOpen && <Dialog onClose={() => setDialogOpen(false)}>content</Dialog>}
       </Card>
     </LandingContainer>
   );
