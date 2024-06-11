@@ -1,4 +1,5 @@
 import { CompletionSuccess } from "@/components/CompletionSuccess";
+import { ThanksForPurchase } from "@/components/CompletionSuccess/ThanksForPurchase";
 import { FAQ } from "@/components/FAQ";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
@@ -21,6 +22,7 @@ export default function Completion({
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
+        <ThanksForPurchase />
         <CompletionSuccess cardID={cardID} />
         <FAQ />
         <LandingFooter />
