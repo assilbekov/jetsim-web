@@ -33,6 +33,15 @@ const config: Config = {
       // => @media (min-width: 1920px) { ... }
     },
     extend: {
+      animation: {
+        "mobile-dialog": "mobile-dialog 0.3s ease-in-out",
+      },
+      keyframes: {
+        "mobile-dialog": {
+          "0%": { transform: "translateY(100vh)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
