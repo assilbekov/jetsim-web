@@ -6,29 +6,9 @@ import { fetchCards } from "@/api/cards";
 import { useQuery } from "@tanstack/react-query";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
-import { Card as CardModel, CardStatus } from "@/models/Card";
-import { Dialog } from "../Dialog";
+import { CardStatus } from "@/models/Card";
 import { useState } from "react";
-import { Location } from "@/models/Location";
-import { DialogTitle } from "../Dialog/DialogTitle";
-import { BeforeInstallationContent } from "../InstallESim/BeforeInstallation";
-import { ReinstallESim } from "../InstallESim/ReinstallESim";
-import { InstallESimToggle } from "../InstallESim/InstallESimToggle";
-import { QRCodeInstall } from "../InstallESim/QRCodeInstall";
-import { ManualInstall } from "../InstallESim/ManualInstall";
-import { InfoCard } from "./InfoCard";
-
-enum ModalType {
-  INSTALL = "install",
-  DETAILS = "details",
-  BUY_NEW_PLAN = "buy-new-plan",
-}
-
-type Modal = {
-  type: ModalType;
-  card: CardModel;
-  location: Location;
-};
+import { CardDialog, CardDialogModel, CardDialogType } from "./CardDialog";
 
 const mockCardsWithLocation = [
   {
@@ -134,7 +114,7 @@ const mockCardsWithLocation = [
 ];
 
 export const ProfileCards = () => {
-  const [modal, setModal] = useState<Modal | null>(null);
+  const [dialog, setDialog] = useState<CardDialogModel | null>(null);
   const { data: cards } = useQuery({
     queryKey: ["cards"],
     queryFn: fetchCards,
@@ -178,44 +158,29 @@ export const ProfileCards = () => {
                   card={card}
                   location={location}
                   onBuyNewPlanClick={(card, location) =>
-                    setModal({ type: ModalType.BUY_NEW_PLAN, card, location })
+                    setDialog({
+                      type: CardDialogType.BUY_NEW_PLAN,
+                      card,
+                      location,
+                    })
                   }
                   onDetailsClick={(card, location) =>
-                    setModal({ type: ModalType.DETAILS, card, location })
+                    setDialog({ type: CardDialogType.DETAILS, card, location })
                   }
                   onInstallClick={(card, location) =>
-                    setModal({ type: ModalType.INSTALL, card, location })
+                    setDialog({ type: CardDialogType.INSTALL, card, location })
                   }
                 />
               )
           )}
           <PlanningTripCard />
         </div>
-        {modal && (
-          <Dialog onClose={() => setModal(null)}>
-            <div className="flex flex-col gap-5">
-              <DialogTitle
-                onClose={() => setModal(null)}
-                title="Install eSIM"
-              />
-              <ReinstallESim />
-              <InstallESimToggle
-                QRContent={
-                  <InfoCard>
-                    <QRCodeInstall card={modal.card} />
-                  </InfoCard>
-                }
-                ManualContent={
-                  <InfoCard>
-                    <ManualInstall card={modal.card} />
-                  </InfoCard>
-                }
-              />
-              <InfoCard>
-                <BeforeInstallationContent />
-              </InfoCard>
-            </div>
-          </Dialog>
+        {dialog && (
+          <CardDialog
+            card={dialog.card}
+            location={dialog.location}
+            setDialog={setDialog}
+          />
         )}
       </Card>
     </LandingContainer>
