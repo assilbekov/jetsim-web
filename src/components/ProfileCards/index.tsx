@@ -6,9 +6,22 @@ import { fetchCards } from "@/api/cards";
 import { useQuery } from "@tanstack/react-query";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
-import { CardStatus } from "@/models/Card";
+import { Card as CardModel, CardStatus } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { useState } from "react";
+import { Location } from "@/models/Location";
+
+enum ModalType {
+  INSTALL = "install",
+  DETAILS = "details",
+  BUY_NEW_PLAN = "buy-new-plan",
+}
+
+type Modal = {
+  type: ModalType;
+  card: CardModel;
+  location: Location;
+};
 
 const mockCardsWithLocation = [
   {
@@ -114,7 +127,7 @@ const mockCardsWithLocation = [
 ];
 
 export const ProfileCards = () => {
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [modal, setModal] = useState<Modal | null>(null);
   const { data: cards } = useQuery({
     queryKey: ["cards"],
     queryFn: fetchCards,
@@ -153,12 +166,29 @@ export const ProfileCards = () => {
           {cardsWithLocation?.map(
             ({ card, location }) =>
               location && (
-                <ProfileCard key={card.id} card={card} location={location} />
+                <ProfileCard
+                  key={card.id}
+                  card={card}
+                  location={location}
+                  onBuyNewPlanClick={(card, location) =>
+                    setModal({ type: ModalType.BUY_NEW_PLAN, card, location })
+                  }
+                  onDetailsClick={(card, location) =>
+                    setModal({ type: ModalType.DETAILS, card, location })
+                  }
+                  onInstallClick={(card, location) =>
+                    setModal({ type: ModalType.INSTALL, card, location })
+                  }
+                />
               )
           )}
           <PlanningTripCard />
         </div>
-        {dialogOpen && <Dialog onClose={() => setDialogOpen(false)}>content</Dialog>}
+        {modal && (
+          <Dialog onClose={() => setModal(null)}>
+            {JSON.stringify(modal)}
+          </Dialog>
+        )}
       </Card>
     </LandingContainer>
   );
