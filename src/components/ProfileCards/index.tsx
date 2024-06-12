@@ -175,13 +175,7 @@ export const ProfileCards = () => {
           )}
           <PlanningTripCard />
         </div>
-        {dialog && (
-          <CardDialog
-            card={dialog.card}
-            location={dialog.location}
-            setDialog={setDialog}
-          />
-        )}
+        {dialog && <CardDialog {...dialog} setDialog={setDialog} />}
       </Card>
     </LandingContainer>
   );

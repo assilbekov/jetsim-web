@@ -22,39 +22,42 @@ export type CardDialogModel = {
 };
 
 type CardDialogProps = {
-  card: Card;
-  location: Location;
   setDialog: (model: CardDialogModel | null) => void;
+} & CardDialogModel;
+
+const InstallContent = ({ card, setDialog }: CardDialogProps) => {
+  return (
+    <>
+      <DialogTitle onClose={() => setDialog(null)} title="Install eSIM" />
+      <ReinstallESim />
+      <InstallESimToggle
+        QRContent={
+          <InfoCard>
+            <QRCodeInstall card={card} />
+          </InfoCard>
+        }
+        ManualContent={
+          <InfoCard>
+            <ManualInstall card={card} />
+          </InfoCard>
+        }
+      />
+      <InfoCard>
+        <BeforeInstallationContent />
+      </InfoCard>
+    </>
+  );
 };
 
-export const CardDialog = ({
-  card,
-  location,
-  setDialog,
-}: CardDialogProps) => {
+export const CardDialog = (props: CardDialogProps) => {
   return (
-    <Dialog onClose={() => setDialog(null)}>
+    <Dialog onClose={() => props.setDialog(null)}>
       <div className="flex flex-col gap-5">
-        <DialogTitle
-          onClose={() => setDialog(null)}
-          title="Install eSIM"
-        />
-        <ReinstallESim />
-        <InstallESimToggle
-          QRContent={
-            <InfoCard>
-              <QRCodeInstall card={card} />
-            </InfoCard>
-          }
-          ManualContent={
-            <InfoCard>
-              <ManualInstall card={card} />
-            </InfoCard>
-          }
-        />
-        <InfoCard>
-          <BeforeInstallationContent />
-        </InfoCard>
+        {{
+          [CardDialogType.INSTALL]: <InstallContent {...props} />,
+          [CardDialogType.DETAILS]: <></>,
+          [CardDialogType.BUY_NEW_PLAN]: <></>,
+        }[props.type] || <></>}
       </div>
     </Dialog>
   );
