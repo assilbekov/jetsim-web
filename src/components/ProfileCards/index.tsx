@@ -11,6 +11,12 @@ import { Dialog } from "../Dialog";
 import { useState } from "react";
 import { Location } from "@/models/Location";
 import { DialogTitle } from "../Dialog/DialogTitle";
+import { BeforeInstallation } from "../InstallESim/BeforeInstallation";
+import { ReinstallESim } from "../InstallESim/ReinstallESim";
+import { InstallESimToggle } from "../InstallESim/InstallESimToggle";
+import { QRCodeInstall } from "../InstallESim/QRCodeInstall";
+import { ManualInstall } from "../InstallESim/ManualInstall";
+import { InfoCard } from "./InfoCard";
 
 enum ModalType {
   INSTALL = "install",
@@ -187,8 +193,28 @@ export const ProfileCards = () => {
         </div>
         {modal && (
           <Dialog onClose={() => setModal(null)}>
-            <DialogTitle onClose={() => setModal(null)} title="Install eSIM" />
-            {JSON.stringify(modal)}
+            <div className="flex flex-col gap-5">
+              <DialogTitle
+                onClose={() => setModal(null)}
+                title="Install eSIM"
+              />
+              <ReinstallESim />
+              <InstallESimToggle
+                QRContent={
+                  <InfoCard>
+                    <QRCodeInstall card={modal.card} />
+                  </InfoCard>
+                }
+                ManualContent={
+                  <InfoCard>
+                    <ManualInstall card={modal.card} />
+                  </InfoCard>
+                }
+              />
+              <InfoCard>
+                <BeforeInstallation />
+              </InfoCard>
+            </div>
           </Dialog>
         )}
       </Card>
