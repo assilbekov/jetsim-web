@@ -10,6 +10,7 @@ import { Card as CardModel, CardStatus } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { useState } from "react";
 import { Location } from "@/models/Location";
+import { DialogTitle } from "../Dialog/DialogTitle";
 
 enum ModalType {
   INSTALL = "install",
@@ -186,6 +187,7 @@ export const ProfileCards = () => {
         </div>
         {modal && (
           <Dialog onClose={() => setModal(null)}>
+            <DialogTitle onClose={() => setModal(null)} title="Install eSIM" />
             {JSON.stringify(modal)}
           </Dialog>
         )}
