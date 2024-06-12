@@ -49,14 +49,68 @@ const InstallContent = ({ card, setDialog }: CardDialogProps) => {
   );
 };
 
+const DetailsContent = ({ card, location, setDialog }: CardDialogProps) => {
+  return (
+    <>
+      <DialogTitle
+        onClose={() => setDialog(null)}
+        title={`eSIM for ${location.title}`}
+      />
+      <ReinstallESim />
+      <InstallESimToggle
+        QRContent={
+          <InfoCard>
+            <QRCodeInstall card={card} />
+          </InfoCard>
+        }
+        ManualContent={
+          <InfoCard>
+            <ManualInstall card={card} />
+          </InfoCard>
+        }
+      />
+      <InfoCard>
+        <BeforeInstallationContent />
+      </InfoCard>
+    </>
+  );
+};
+
+const BuyNewPlanContent = ({ card, location, setDialog }: CardDialogProps) => {
+  return (
+    <>
+      <DialogTitle
+        onClose={() => setDialog(null)}
+        title={`eSIM for ${location.title}`}
+      />
+      <ReinstallESim />
+      <InstallESimToggle
+        QRContent={
+          <InfoCard>
+            <QRCodeInstall card={card} />
+          </InfoCard>
+        }
+        ManualContent={
+          <InfoCard>
+            <ManualInstall card={card} />
+          </InfoCard>
+        }
+      />
+      <InfoCard>
+        <BeforeInstallationContent />
+      </InfoCard>
+    </>
+  );
+};
+
 export const CardDialog = (props: CardDialogProps) => {
   return (
     <Dialog onClose={() => props.setDialog(null)}>
       <div className="flex flex-col gap-5">
         {{
           [CardDialogType.INSTALL]: <InstallContent {...props} />,
-          [CardDialogType.DETAILS]: <></>,
-          [CardDialogType.BUY_NEW_PLAN]: <></>,
+          [CardDialogType.DETAILS]: <DetailsContent {...props} />,
+          [CardDialogType.BUY_NEW_PLAN]: <BuyNewPlanContent {...props} />,
         }[props.type] || <></>}
       </div>
     </Dialog>
