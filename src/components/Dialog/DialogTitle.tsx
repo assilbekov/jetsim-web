@@ -13,7 +13,7 @@ export const DialogTitle = ({ title, onClose }: DialogTitleProps) => {
         {title}
       </h5>
       <div
-        className="relative p-4 transition duration-200 ease-in-out hover:bg-[#EBEFF0] active:bg-[#C3D4D9] cursor-pointer rounded-full"
+        className="relative p-4 -mr-4 transition duration-200 ease-in-out hover:bg-[#EBEFF0] active:bg-[#C3D4D9] cursor-pointer rounded-full"
         onClick={onClose}
       >
         <Image

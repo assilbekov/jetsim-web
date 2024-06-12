@@ -40,7 +40,7 @@ export const ManualInstall = ({ card }: ManualInstallProps) => {
 
   return (
     <div>
-      <CopyCard text={smdpAddr} label="SM-DP+ Address" className="mt-6" />
+      <CopyCard text={smdpAddr} label="SM-DP+ Address" />
       <CopyCard
         text={lpaActivationCode}
         label="Activation Code"

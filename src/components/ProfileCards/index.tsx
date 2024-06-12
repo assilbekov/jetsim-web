@@ -11,7 +11,7 @@ import { Dialog } from "../Dialog";
 import { useState } from "react";
 import { Location } from "@/models/Location";
 import { DialogTitle } from "../Dialog/DialogTitle";
-import { BeforeInstallation } from "../InstallESim/BeforeInstallation";
+import { BeforeInstallationContent } from "../InstallESim/BeforeInstallation";
 import { ReinstallESim } from "../InstallESim/ReinstallESim";
 import { InstallESimToggle } from "../InstallESim/InstallESimToggle";
 import { QRCodeInstall } from "../InstallESim/QRCodeInstall";
@@ -212,7 +212,7 @@ export const ProfileCards = () => {
                 }
               />
               <InfoCard>
-                <BeforeInstallation />
+                <BeforeInstallationContent />
               </InfoCard>
             </div>
           </Dialog>

@@ -42,49 +42,55 @@ const InfoElement = ({ src, alt, title, description }: InfoElementProps) => {
   );
 };
 
+export const BeforeInstallationContent = () => {
+  return (
+    <div className="py-2 md:py-0">
+      <h6
+        className={clsx(
+          getTypographyClass(TypographyVariants.Body2),
+          "md:text-xl md:leading-[26px] text-text-600 text-center"
+        )}
+      >
+        What you need to know
+      </h6>
+      <h5
+        className={clsx(
+          getTypographyClass(TypographyVariants.Subheader),
+          "md:font-interTight md:text-[34px] md:leading-[38px] md:tracking-[0.68px] text-center mt-1 md:mt-2"
+        )}
+      >
+        Before installation
+      </h5>
+      <div className="shrink-0 my-6 md:my-10 h-0.5 border border-solid border-[#E9F0F2]" />
+      <div className="flex flex-col md:flex-row gap-8">
+        <InfoElement
+          src="/icons/primary/play_circle.svg"
+          alt="Don't interrupt installation"
+          title="Don't interrupt installation"
+          description="Ensure stable internet connection for activation"
+        />
+        <InfoElement
+          src="/icons/primary/language.svg"
+          alt="Activate Data Roaming"
+          title="Activate Data Roaming"
+          description="to start using the internet"
+        />
+        <InfoElement
+          src="/icons/primary/label_off.svg"
+          alt="Don't delete the eSIM"
+          title="Don't delete the eSIM"
+          description="You can only scan the code once"
+        />
+      </div>
+    </div>
+  );
+};
+
 export function BeforeInstallation() {
   return (
     <LandingContainer>
       <Card>
-        <div className="py-2 md:py-0">
-          <h6
-            className={clsx(
-              getTypographyClass(TypographyVariants.Body2),
-              "md:text-xl md:leading-[26px] text-text-600 text-center"
-            )}
-          >
-            What you need to know
-          </h6>
-          <h5
-            className={clsx(
-              getTypographyClass(TypographyVariants.Subheader),
-              "md:font-interTight md:text-[34px] md:leading-[38px] md:tracking-[0.68px] text-center mt-1 md:mt-2"
-            )}
-          >
-            Before installation
-          </h5>
-          <div className="shrink-0 my-6 md:my-10 h-0.5 border border-solid border-[#E9F0F2]" />
-          <div className="flex flex-col md:flex-row gap-8">
-            <InfoElement
-              src="/icons/primary/play_circle.svg"
-              alt="Don't interrupt installation"
-              title="Don't interrupt installation"
-              description="Ensure stable internet connection for activation"
-            />
-            <InfoElement
-              src="/icons/primary/language.svg"
-              alt="Activate Data Roaming"
-              title="Activate Data Roaming"
-              description="to start using the internet"
-            />
-            <InfoElement
-              src="/icons/primary/label_off.svg"
-              alt="Don't delete the eSIM"
-              title="Don't delete the eSIM"
-              description="You can only scan the code once"
-            />
-          </div>
-        </div>
+        <BeforeInstallationContent />
       </Card>
     </LandingContainer>
   );
