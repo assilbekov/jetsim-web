@@ -1,3 +1,5 @@
+"use client";
+
 import { Card } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
@@ -14,6 +16,8 @@ import { clsx, convertDateToISO, formatBytes } from "@/utils";
 import { Package } from "@/models/Package";
 import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
 import { PrimaryButton } from "../buttons/PrimaryButton";
+import { SelectPackagesBuyForm } from "../PlacePackagesCard/SelectPackagesBuyForm";
+import { useRouter } from "next/navigation";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -149,7 +153,14 @@ const DetailsContent = ({
   );
 };
 
-const BuyNewPlanContent = ({ card, location, setDialog }: CardDialogProps) => {
+const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
+  const router = useRouter();
+
+  const handleCheckout = (selectedPackageId: string) => {
+    const redirectUrl = `${window.location.origin}/en/payment?packageID=${selectedPackageId}&placeID=${location.placeID}`;
+    router.push(redirectUrl);
+  };
+
   return (
     <>
       <div>
@@ -166,22 +177,14 @@ const BuyNewPlanContent = ({ card, location, setDialog }: CardDialogProps) => {
           Unlimited and standard plans for travellers and remote workers
         </p>
       </div>
-      <ReinstallESim className="bg-[#EDFAFF] border-[#EDFAFF]" />
-      <InstallESimToggle
-        QRContent={
-          <InfoCard>
-            <QRCodeInstall card={card} />
-          </InfoCard>
+      <SelectPackagesBuyForm
+        placeId={location.placeID}
+        infoContent={
+          <ReinstallESim className="bg-[#EDFAFF] border-[#EDFAFF] my-1" />
         }
-        ManualContent={
-          <InfoCard>
-            <ManualInstall card={card} />
-          </InfoCard>
-        }
+        onSubmit={handleCheckout}
+        updateSearchParams={false}
       />
-      <InfoCard>
-        <BeforeInstallationContent />
-      </InfoCard>
     </>
   );
 };
