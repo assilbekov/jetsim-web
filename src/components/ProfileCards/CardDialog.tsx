@@ -10,9 +10,10 @@ import { BeforeInstallationContent } from "../InstallESim/BeforeInstallation";
 import { Location } from "@/models/Location";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import { convertDateToISO, formatBytes } from "@/utils";
+import { clsx, convertDateToISO, formatBytes } from "@/utils";
 import { Package } from "@/models/Package";
 import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -65,9 +66,18 @@ const DetailsItem = ({
   content: React.ReactNode;
 }) => {
   return (
-    <div>
-      <Image src={src} alt={alt} width={24} height={24} className="w-6 h-6" />
-      <p className={getTypographyClass(TypographyVariants.Body2)}>{content}</p>
+    <div className="flex items-start gap-3">
+      <div className="w-6 h-6">
+        <Image src={src} alt={alt} width={24} height={24} className="w-6 h-6" />
+      </div>
+      <p
+        className={clsx(
+          getTypographyClass(TypographyVariants.Body2),
+          "mt-[2.5px]"
+        )}
+      >
+        {content}
+      </p>
     </div>
   );
 };
@@ -84,14 +94,14 @@ const DetailsContent = ({
         onClose={() => setDialog(null)}
         title={`eSIM for ${location.title}`}
       />
-      <InfoCard>
+      <InfoCard className="flex flex-col gap-3 pt-4 pb-4 pl-4 pr-4">
         <DetailsItem
           src="/icons/black/globe.svg"
           alt="globe icon"
           content={
             <>
               Data {formatBytes(card.trafficTotalBytes)}
-              <p>
+              <p className="text-text-600 mt-1">
                 {convertCurrencyCodeToSymbol(selectedPackage.cost.currency)}
                 {selectedPackage.traffic.unit.costPerUnit.price} /{" "}
                 {selectedPackage.traffic.unit.label}
@@ -117,22 +127,24 @@ const DetailsContent = ({
           )}${selectedPackage.cost.price}`}
         />
       </InfoCard>
-      <ReinstallESim />
-      <InstallESimToggle
-        QRContent={
-          <InfoCard>
-            <QRCodeInstall card={card} />
-          </InfoCard>
-        }
-        ManualContent={
-          <InfoCard>
-            <ManualInstall card={card} />
-          </InfoCard>
-        }
-      />
-      <InfoCard>
-        <BeforeInstallationContent />
+      <InfoCard className="flex flex-col gap-3 pt-4 pb-4 pl-4 pr-4">
+        <DetailsItem
+          src="/icons/black/shield.svg"
+          alt="shield icon"
+          content="No hidden fees, extra costs"
+        />
+        <DetailsItem
+          src="/icons/black/no_calls.svg"
+          alt="no calls icon"
+          content="No calls and SMS, its only for data plan"
+        />
+        <DetailsItem
+          src="/icons/black/cell_tower.svg"
+          alt="cell tower icon"
+          content="3G/4G/LTE/5G depends on the network"
+        />
       </InfoCard>
+      <PrimaryButton>Buy new plan</PrimaryButton>
     </>
   );
 };
