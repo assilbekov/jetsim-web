@@ -4,26 +4,21 @@ import { fetchLocation, fetchLocationCover } from "@/api/locations";
 import { useQuery } from "@tanstack/react-query";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
-import Image from "next/image";
 import {
   TypographyVariants,
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "../Typography";
 import { clsx } from "@/utils";
-import { Package, PackageTagEnum } from "@/models/Package";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { fetchPackages } from "@/api/packages";
-import { mockPackages } from "./mockdata";
-import { PackageOption } from "./PackageOption";
-import { TagButton } from "./TagButton";
+import { useSearchParams } from "next/navigation";
 import { Skeleton } from "../Skeleton";
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BackgroundImage } from "./BackgroundImage";
 import { LoginDialog } from "../LoginDialog";
 import { CircledCountryImage } from "../CircledCountryImage";
 import { PaymentMethodsInfo } from "./PaymentMethodsInfo";
+import { SelectPackagesBuyForm } from "./SelectPackagesBuyForm";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -31,20 +26,9 @@ type PlacePackagesCardProps = {
 };
 
 export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
-  const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const [loginRedirectUrl, setLoginRedirectUrl] = useState<string>("");
-
-  const [selectedPackageId, setSelectedPackageId] = useState<string>(() => {
-    return searchParams.get("selectedPackage") ?? "";
-  });
-  const [selectedTag, setSelectedTag] = useState<PackageTagEnum>(() => {
-    return (
-      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.UNLIMITED
-    );
-  });
 
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
@@ -63,75 +47,10 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     retry: 1,
   });
 
-  const packagesUnlimitedQuery = useQuery({
-    queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
-    queryFn: async () => {
-      await fetchPackages(placeId, PackageTagEnum.STANDARD);
-      return { data: mockPackages };
-    },
-    staleTime: 1000 * 60 * 5,
-  });
-  const packagesStandardQuery = useQuery({
-    queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
-    queryFn: async () => {
-      await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
-      return { data: mockPackages };
-    },
-    staleTime: 1000 * 60 * 5,
-  });
-
-  useEffect(() => {
-    if (selectedPackageId) return;
-
-    setSelectedPackageId(
-      (selectedTag === PackageTagEnum.STANDARD
-        ? packagesStandardQuery.data?.data.find((p) => p.bestChoice)?.id
-        : packagesUnlimitedQuery.data?.data.find((p) => p.bestChoice)?.id) ?? ""
-    );
-  }, [packagesUnlimitedQuery.data, packagesStandardQuery.data, selectedTag]);
-
-  const packagesList =
-    (searchParams.get("tags") === PackageTagEnum.STANDARD
-      ? packagesStandardQuery.data?.data
-      : packagesUnlimitedQuery.data?.data) ?? [];
-
-  const handleTagChange = (tag: PackageTagEnum) => {
-    if (tag === selectedTag) return;
-
-    setSelectedTag(tag);
-    setSelectedPackageId("");
-
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("tags", tag);
-    params.delete("selectedPackage");
-
-    router.push(`${pathname}?${params.toString()}`);
-  };
-
-  const handlePackageChange = (_selectedPackage: Package) => {
-    if (_selectedPackage.id === selectedPackageId) return;
-
-    setSelectedPackageId(_selectedPackage.id);
-
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("selectedPackage", _selectedPackage.id);
-
-    router.push(`${pathname}?${params.toString()}`);
-  };
-
-  const handleCheckout = () => {
-    console.log({
-      selectedPackageId,
-      selectedTag,
-      placeId,
-      pathname,
-      router,
-      searchParams,
-    });
-    const mockPackageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
+  const handleCheckout = (selectedPackageId: string) => {
     const redirectUrl = `${
       window.location.origin
-    }/en/payment?packageID=${mockPackageID}&placeID=${placeId}&${searchParams.toString()}`;
+    }/en/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
     /* router.push(
       `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
         window.location.origin
@@ -182,45 +101,12 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
             Unlimited and standard plans for travellers and remote workers
           </p>
         </div>
-        <div>
-          <TagButton
-            active={selectedTag === PackageTagEnum.STANDARD}
-            onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
-          >
-            Standard
-          </TagButton>
-          <TagButton
-            active={selectedTag === PackageTagEnum.UNLIMITED}
-            onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
-          >
-            Unlimited
-          </TagButton>
-        </div>
-        <div className="flex flex-col gap-2 xxs:gap-3">
-          {packagesStandardQuery.isLoading && packagesUnlimitedQuery.isLoading
-            ? Array.from({ length: 4 }).map((_, i) => (
-                <Skeleton key={i} className="w-full h-20 rounded-xl" />
-              ))
-            : packagesList.map((packageEntity) => (
-                <PackageOption
-                  key={packageEntity.id}
-                  tag={selectedTag}
-                  packageEntity={packageEntity}
-                  selected={selectedPackageId === packageEntity.id}
-                  onSelect={handlePackageChange}
-                />
-              ))}
-        </div>
-        <PaymentMethodsInfo />
-        <button
-          className={clsx(
-            "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
-            getTypographyClass(TypographyVariants.Caption)
-          )}
-          onClick={handleCheckout}
-        >
-          Go to checkout
-        </button>
+        <SelectPackagesBuyForm
+          placeId={placeId}
+          infoContent={<PaymentMethodsInfo />}
+          onSubmit={handleCheckout}
+          updateSearchParams
+        />
       </Card>
       <BackgroundImage
         url={locationCoverQuery.data?.url || "/support-background.png"}

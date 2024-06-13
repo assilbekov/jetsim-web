@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const PaymentMethodsInfo = () => {
   return (
-    <div className="flex justify-between items-center w-full max-w-[397px] m-auto">
+    <div className="flex justify-between items-center w-full max-w-[397px] m-auto py-2">
       <Image
         src="/icons/gray/paypal.svg"
         alt="paypal icon"
