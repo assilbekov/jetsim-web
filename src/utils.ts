@@ -11,3 +11,10 @@ export function formatBytes(bytes: number, decimals = 2) {
 
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
+
+export function convertDateToISO(dateTimeString: string) {
+  const [date] = dateTimeString.split(" ");
+  const [YYYY, MM, DD] = date.split("-");
+
+  return `${DD}.${MM}.${YYYY}`;
+}
