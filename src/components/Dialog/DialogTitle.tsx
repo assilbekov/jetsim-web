@@ -19,9 +19,9 @@ export const DialogTitle = ({ title, onClose }: DialogTitleProps) => {
         <Image
           src="/icons/gray/close.svg"
           alt="close icon"
-          width={20}
-          height={20}
-          className="w-5 h-5 md:w-6 md:h-6"
+          width={24}
+          height={24}
+          className="w-6 h-6 md:w-6 md:h-6"
         />
       </div>
     </div>
