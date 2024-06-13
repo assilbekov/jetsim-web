@@ -219,7 +219,9 @@ export const ProfileCards = () => {
           )}
           <PlanningTripCard />
         </div>
-        {dialog && <CardDialog {...dialog} setDialog={setDialog} />}
+        {dialog && (
+          <CardDialog key={dialog.type} {...dialog} setDialog={setDialog} />
+        )}
       </Card>
     </LandingContainer>
   );

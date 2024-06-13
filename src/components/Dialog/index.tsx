@@ -18,8 +18,10 @@ export const Dialog = ({ onClose, children }: DialogProps) => {
   return (
     <>
       <div className="fixed bottom-0 left-0 h-[calc(100vh-32px)] w-screen z-[9999] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
-        <div className="h-full pt-5 px-6 pb-20 animate-mobile-dialog bg-white rounded-3xl rounded-b-none overflow-y-scroll">
-          <div className="flex flex-col items-center gap-6">{children}</div>
+        <div className="h-full animate-mobile-dialog bg-white rounded-3xl rounded-b-none pt-3">
+          <div className="flex flex-col items-center gap-6 h-full overflow-y-scroll pt-4 px-6 pb-20">
+            {children}
+          </div>
         </div>
       </div>
 

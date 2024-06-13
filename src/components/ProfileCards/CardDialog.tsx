@@ -148,7 +148,18 @@ const DetailsContent = ({
           content="3G/4G/LTE/5G depends on the network"
         />
       </InfoCard>
-      <PrimaryButton>Buy new plan</PrimaryButton>
+      <PrimaryButton
+        onClick={() =>
+          setDialog({
+            type: CardDialogType.BUY_NEW_PLAN,
+            card,
+            location,
+            selectedPackage,
+          })
+        }
+      >
+        Buy new plan
+      </PrimaryButton>
     </>
   );
 };
