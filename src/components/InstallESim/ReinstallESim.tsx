@@ -2,9 +2,18 @@ import { clsx } from "@/utils";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 
-export const ReinstallESim = () => {
+type ReinstallESimProps = {
+  className?: string;
+};
+
+export const ReinstallESim = ({ className }: ReinstallESimProps) => {
   return (
-    <div className="flex gap-3 items-start p-4 rounded-xl border-2 border-solid border-[#E9F0F2]">
+    <div
+      className={clsx(
+        "flex gap-3 items-start p-4 rounded-xl border-2 border-solid border-[#E9F0F2]",
+        className ?? ""
+      )}
+    >
       <Image
         loading="lazy"
         src="/icons/info.svg"

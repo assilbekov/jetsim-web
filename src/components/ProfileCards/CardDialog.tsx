@@ -152,11 +152,21 @@ const DetailsContent = ({
 const BuyNewPlanContent = ({ card, location, setDialog }: CardDialogProps) => {
   return (
     <>
-      <DialogTitle
-        onClose={() => setDialog(null)}
-        title={`eSIM for ${location.title}`}
-      />
-      <ReinstallESim />
+      <div>
+        <DialogTitle
+          onClose={() => setDialog(null)}
+          title={`eSIM for ${location.title}`}
+        />
+        <p
+          className={clsx(
+            getTypographyClass(TypographyVariants.Body2),
+            "text-text-600 pt-2 w-11/12"
+          )}
+        >
+          Unlimited and standard plans for travellers and remote workers
+        </p>
+      </div>
+      <ReinstallESim className="bg-[#EDFAFF] border-[#EDFAFF]" />
       <InstallESimToggle
         QRContent={
           <InfoCard>
