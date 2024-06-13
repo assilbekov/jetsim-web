@@ -9,6 +9,7 @@ import { Card } from "../Card";
 import { CardStatus } from "@/models/Card";
 import { useState } from "react";
 import { CardDialog, CardDialogModel, CardDialogType } from "./CardDialog";
+import { fetchPackage } from "@/api/packages";
 
 const mockCardsWithLocation = [
   {
@@ -117,15 +118,44 @@ export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
   const { data: cards } = useQuery({
     queryKey: ["cards"],
-    queryFn: fetchCards,
+    queryFn: async () => {
+      const resCards = await fetchCards();
+      return resCards.concat(mockCardsWithLocation.map(({ card }) => card));
+    },
   });
+
+  const locationIds = Object.keys(
+    cards?.reduce((res: Record<string, boolean>, card) => {
+      if (card.placeID) {
+        res[card.placeID] = true;
+      }
+      return res;
+    }, {}) || {}
+  );
+  const packageIds = Object.keys(
+    cards?.reduce((res: Record<string, boolean>, card) => {
+      if (card.package.id) {
+        res[card.package.id] = true;
+      }
+      return res;
+    }, {}) || {}
+  );
+
   const { data: locations } = useQuery({
-    queryKey: ["cards", cards?.map((card) => card.id)],
+    queryKey: ["locations", ...locationIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
-        cards
-          ?.filter((card) => card.placeID && card.lpaCode)
-          .map((card) => fetchLocation(card.placeID)) || []
+        locationIds.map((locationId) => fetchLocation(locationId)) || []
+      );
+
+      return await promiseAll;
+    },
+  });
+  const { data: packages } = useQuery({
+    queryKey: ["packages", ...packageIds],
+    queryFn: async () => {
+      const promiseAll = Promise.all(
+        packageIds.map((packageId) => fetchPackage(packageId)) || []
       );
 
       return await promiseAll;
@@ -138,21 +168,24 @@ export const ProfileCards = () => {
       const location = locations?.find(
         (location) => location.placeID === card.placeID
       );
+      const selectedPackage = packages?.find((p) => p.id === card.package.id);
 
       return {
         card,
         location,
+        selectedPackage,
       };
-    })
-    .concat(mockCardsWithLocation);
+    });
 
   return (
     <LandingContainer>
       <Card>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {cardsWithLocation?.map(
-            ({ card, location }) =>
-              location && (
+            ({ card, location, selectedPackage }) =>
+              card &&
+              location &&
+              selectedPackage && (
                 <ProfileCard
                   key={card.id}
                   card={card}
