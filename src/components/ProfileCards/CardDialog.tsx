@@ -202,7 +202,17 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
 
 export const CardDialog = (props: CardDialogProps) => {
   return (
-    <Dialog onClose={() => props.setDialog(null)}>
+    <Dialog
+      onClose={() => props.setDialog(null)}
+      dialogClassName={
+        props.type === CardDialogType.DETAILS
+          ? "md:h-auto md:h-max-auto md:h-fit"
+          : ""
+      }
+      dialogContentClassName={
+        props.type === CardDialogType.DETAILS ? "md:h-auto" : ""
+      }
+    >
       <div className="flex flex-col gap-5 w-full">
         {{
           [CardDialogType.INSTALL]: <InstallContent {...props} />,
