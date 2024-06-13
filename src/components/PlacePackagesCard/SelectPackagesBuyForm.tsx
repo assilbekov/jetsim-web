@@ -114,12 +114,14 @@ export const SelectPackagesBuyForm = ({
     >
       <div>
         <TagButton
+          type="button"
           active={selectedTag === PackageTagEnum.STANDARD}
           onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
         >
           Standard
         </TagButton>
         <TagButton
+          type="button"
           active={selectedTag === PackageTagEnum.UNLIMITED}
           onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
         >
