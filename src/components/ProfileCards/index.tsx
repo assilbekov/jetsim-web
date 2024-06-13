@@ -195,13 +195,24 @@ export const ProfileCards = () => {
                       type: CardDialogType.BUY_NEW_PLAN,
                       card,
                       location,
+                      selectedPackage,
                     })
                   }
                   onDetailsClick={(card, location) =>
-                    setDialog({ type: CardDialogType.DETAILS, card, location })
+                    setDialog({
+                      type: CardDialogType.DETAILS,
+                      card,
+                      location,
+                      selectedPackage,
+                    })
                   }
                   onInstallClick={(card, location) =>
-                    setDialog({ type: CardDialogType.INSTALL, card, location })
+                    setDialog({
+                      type: CardDialogType.INSTALL,
+                      card,
+                      location,
+                      selectedPackage,
+                    })
                   }
                 />
               )
