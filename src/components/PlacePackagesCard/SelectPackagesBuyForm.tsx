@@ -6,7 +6,6 @@ import { clsx } from "@/utils";
 import { Package, PackageTagEnum } from "@/models/Package";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { fetchPackages } from "@/api/packages";
-import { mockPackages } from "./mockdata";
 import { PackageOption } from "./PackageOption";
 import { TagButton } from "./TagButton";
 import { Skeleton } from "../Skeleton";
@@ -42,16 +41,14 @@ export const SelectPackagesBuyForm = ({
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => {
-      await fetchPackages(placeId, PackageTagEnum.STANDARD);
-      return { data: mockPackages };
+      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
     },
     staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => {
-      await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
-      return { data: mockPackages };
+      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
     },
     staleTime: 1000 * 60 * 5,
   });
@@ -61,15 +58,15 @@ export const SelectPackagesBuyForm = ({
 
     setSelectedPackageId(
       (selectedTag === PackageTagEnum.STANDARD
-        ? packagesStandardQuery.data?.data.find((p) => p.bestChoice)?.id
-        : packagesUnlimitedQuery.data?.data.find((p) => p.bestChoice)?.id) ?? ""
+        ? packagesStandardQuery.data?.find((p) => p.bestChoice)?.id
+        : packagesUnlimitedQuery.data?.find((p) => p.bestChoice)?.id) ?? ""
     );
   }, [packagesUnlimitedQuery.data, packagesStandardQuery.data, selectedTag]);
 
   const packagesList =
     (searchParams.get("tags") === PackageTagEnum.STANDARD
-      ? packagesStandardQuery.data?.data
-      : packagesUnlimitedQuery.data?.data) ?? [];
+      ? packagesStandardQuery.data
+      : packagesUnlimitedQuery.data) ?? [];
 
   const handleTagChange = (tag: PackageTagEnum) => {
     if (tag === selectedTag) return;

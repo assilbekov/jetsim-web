@@ -1,6 +1,4 @@
-export interface PackageResponse {
-  data: Package[];
-}
+export type PackageResponse = Package[];
 
 export interface Package {
   id: string;
