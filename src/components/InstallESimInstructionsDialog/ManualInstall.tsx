@@ -59,6 +59,27 @@ export function ManualInstall() {
           />
           <ArrowRightImage />
         </InfoRow>
+        <InfoRow>
+          <IconWithText
+            src="/icons/mobile-service.svg"
+            alt="mobile service icon"
+            text="Mobile Service"
+          />
+          <ArrowRightImage />
+          <span>Add eSIM</span>
+          <ArrowRightImage />
+        </InfoRow>
+        <InfoRow>
+          <IconWithText
+            src="/icons/primary/qr.svg"
+            alt="QR code icon"
+            text="Use QR Code"
+          />
+          <ArrowRightImage />
+        </InfoRow>
+        <InfoRow>
+          <span>Enter Details Manually</span>
+        </InfoRow>
       </div>
       <div className="flex flex-col flex-wrap justify-center content-center items-center px-3 mt-5 text-center">
         <div className="flex gap-3 items-center text-base font-medium leading-5 text-slate-950">
