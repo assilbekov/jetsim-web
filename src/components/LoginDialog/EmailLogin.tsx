@@ -11,6 +11,8 @@ import {
   useState,
 } from "react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
+import { Tokens } from "@/models/Tokens";
+import { ApiResponse } from "@/models/ApiResponse";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -83,6 +85,11 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       }
     );
     if (response.ok) {
+      const json: ApiResponse<Tokens> = await response.json();
+
+      localStorage.setItem("accessToken", json.payload?.accessToken);
+      localStorage.setItem("refreshToken", json.payload?.refreshToken);
+
       if (redirectUrl) {
         router.push(redirectUrl);
       }
