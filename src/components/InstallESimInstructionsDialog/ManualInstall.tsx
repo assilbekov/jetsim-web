@@ -16,6 +16,30 @@ const InfoRow = ({ children, className }: InfoRowProps) => {
   );
 };
 
+export const ArrowRightImage = () => (
+  <Image
+    src="/icons/black/arrow-right.svg"
+    alt="Arrow right icon"
+    width={20}
+    height={20}
+  />
+);
+
+type IconWithTextProps = {
+  src: string;
+  alt: string;
+  text: string;
+};
+
+const IconWithText = ({ src, alt, text }: IconWithTextProps) => {
+  return (
+    <span className="inline-flex items-center gap-2">
+      <Image src={src} alt={alt} width={24} height={24} />
+      {text}
+    </span>
+  );
+};
+
 export function ManualInstall() {
   return (
     <div
@@ -28,7 +52,12 @@ export function ManualInstall() {
       <div>
         <InfoRow>
           <span>Go to</span>
-          <span><Image src="/icons/settings.png" alt="settings icon" width={40} height={40} /> Settings</span>
+          <IconWithText
+            src="/icons/settings.png"
+            alt="settings icon"
+            text="Settings"
+          />
+          <ArrowRightImage />
         </InfoRow>
       </div>
       <div className="flex flex-col flex-wrap justify-center content-center items-center px-3 mt-5 text-center">
