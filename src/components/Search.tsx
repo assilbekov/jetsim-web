@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
+import { convertLocationBestCost } from "@/app/converters/location";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
@@ -97,9 +98,11 @@ export const Search = () => {
                   <p className="text-xl leading-6 font-medium">
                     {location.title}
                   </p>
-                  <p className="text-base leading-5 text-text-600">
-                    from $2/day
-                  </p>
+                  {location.bestCost && (
+                    <p className="text-base leading-5 text-text-600">
+                      {convertLocationBestCost(location)}
+                    </p>
+                  )}
                 </div>
               </li>
             </Link>

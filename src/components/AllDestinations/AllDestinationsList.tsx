@@ -1,4 +1,4 @@
-import { fetchAllDestinations, fetchTopCountries } from "@/api/locations";
+import { fetchAllDestinations } from "@/api/locations";
 import { CountryCard } from "../CountryCard";
 
 export const AllDestinationsList = async () => {

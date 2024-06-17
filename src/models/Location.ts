@@ -3,11 +3,21 @@ type Coordinate = {
   lng: number;
 };
 
+export interface BestCost {
+  period: string;
+  cost: Cost;
+}
+
+export interface Cost {
+  price: number;
+  currency: string;
+}
+
 export type Location = {
   coordinate: Coordinate;
   countryCode: string;
   title: string;
-  bestCost: number | null;
+  bestCost: BestCost | null;
   placeID: string;
 };
 

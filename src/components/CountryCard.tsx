@@ -7,6 +7,7 @@ import {
 } from "./Typography";
 import { clsx } from "@/utils";
 import { CircledCountryImage } from "./CircledCountryImage";
+import { convertLocationBestCost } from "@/app/converters/location";
 
 type CountryCardProps = {
   country: Location;
@@ -38,14 +39,16 @@ export const CountryCard = ({ country, className }: CountryCardProps) => {
           >
             {country.title}
           </p>
-          <p
-            className={clsx(
-              "text-text-600",
-              getTypographyClass(TypographyVariants.Caption)
-            )}
-          >
-            from $2/day
-          </p>
+          {country.bestCost && (
+            <p
+              className={clsx(
+                "text-text-600",
+                getTypographyClass(TypographyVariants.Caption)
+              )}
+            >
+              {convertLocationBestCost(country)}
+            </p>
+          )}
         </div>
       </div>
     </Link>
