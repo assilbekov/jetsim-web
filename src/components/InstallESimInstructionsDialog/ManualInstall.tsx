@@ -2,6 +2,7 @@ import { clsx } from "@/utils";
 import { RoundedLabel } from "./RoundedLabel";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import Image from "next/image";
+import { CopyButton } from "../buttons/CopyButton";
 
 type InfoRowProps = {
   children: React.ReactNode;
@@ -80,6 +81,13 @@ export function ManualInstall() {
         <InfoRow>
           <span>Enter Details Manually</span>
         </InfoRow>
+      </div>
+      <div>
+        <RoundedLabel>2</RoundedLabel>
+        <p>
+          Enter the following data
+        </p>
+        <CopyButton text="LPA:1$consumer.rsp.global" />
       </div>
       <div className="flex flex-col flex-wrap justify-center content-center items-center px-3 mt-5 text-center">
         <div className="flex gap-3 items-center text-base font-medium leading-5 text-slate-950">
