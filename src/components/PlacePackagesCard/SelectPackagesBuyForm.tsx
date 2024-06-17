@@ -97,8 +97,7 @@ export const SelectPackagesBuyForm = ({
   };
 
   const handleCheckout = () => {
-    const mockPackageID = "d64f19c9-cf5d-57cb-9be6-7de56a8e706a";
-    onSubmit(mockPackageID);
+    onSubmit(selectedPackageId);
   };
 
   return (
