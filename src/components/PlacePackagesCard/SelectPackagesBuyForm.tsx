@@ -39,16 +39,16 @@ export const SelectPackagesBuyForm = ({
   });
 
   const packagesUnlimitedQuery = useQuery({
-    queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
+    queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
+      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
     },
     staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
-    queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
+    queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
+      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
     },
     staleTime: 1000 * 60 * 5,
   });
