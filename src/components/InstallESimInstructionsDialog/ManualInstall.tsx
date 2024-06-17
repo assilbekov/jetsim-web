@@ -5,6 +5,7 @@ import { CopyButton } from "../buttons/CopyButton";
 import { Card } from "@/models/Card";
 import { EnterDetailsManuallyStep } from "./EnterDetailsManuallyStep";
 import { TurnOnDataRoamingStep } from "./TurnOnDataRoamingStep";
+import { EnterFollowingDataStep } from "./EnterFollowingDataStep";
 
 type ManualInstallProps = {
   card: Card;
@@ -19,7 +20,8 @@ export function ManualInstall({ card }: ManualInstallProps) {
       )}
     >
       <EnterDetailsManuallyStep step={1} />
-      <TurnOnDataRoamingStep step={5} />
+      <TurnOnDataRoamingStep step={4} />
+      <EnterFollowingDataStep step={2} card={card} />
       <div>
         <RoundedLabel>2</RoundedLabel>
         <p>Enter the following data</p>
