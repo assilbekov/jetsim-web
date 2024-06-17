@@ -1,11 +1,36 @@
 import { clsx } from "@/utils";
-import * as React from "react";
 import { RoundedLabel } from "./RoundedLabel";
+import { TypographyVariants, getTypographyClass } from "../Typography";
+import Image from "next/image";
+
+type InfoRowProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const InfoRow = ({ children, className }: InfoRowProps) => {
+  return (
+    <div className={clsx("flex items-center gap-3", className ?? "")}>
+      {children}
+    </div>
+  );
+};
 
 export function ManualInstall() {
   return (
-    <div className="flex flex-col justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]">
+    <div
+      className={clsx(
+        getTypographyClass(TypographyVariants.Body2),
+        "flex flex-col justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]"
+      )}
+    >
       <RoundedLabel>1</RoundedLabel>
+      <div>
+        <InfoRow>
+          <span>Go to</span>
+          <span><Image src="/icons/settings.png" alt="settings icon" width={40} height={40} /> Settings</span>
+        </InfoRow>
+      </div>
       <div className="flex flex-col flex-wrap justify-center content-center items-center px-3 mt-5 text-center">
         <div className="flex gap-3 items-center text-base font-medium leading-5 text-slate-950">
           <div className="self-stretch my-auto">Go to</div>
