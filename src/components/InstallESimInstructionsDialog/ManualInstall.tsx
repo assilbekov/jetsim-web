@@ -42,19 +42,16 @@ const IconWithText = ({ src, alt, text }: IconWithTextProps) => {
   );
 };
 
-type ManualInstallProps = {
-  card: Card;
-}
+type EnterDetailsManuallyStep = {
+  step: number;
+};
 
-export function ManualInstall({card}: ManualInstallProps) {
+export const EnterDetailsManuallyStep = ({
+  step,
+}: EnterDetailsManuallyStep) => {
   return (
-    <div
-      className={clsx(
-        getTypographyClass(TypographyVariants.Body2),
-        "flex flex-col justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]"
-      )}
-    >
-      <RoundedLabel>1</RoundedLabel>
+    <div>
+      <RoundedLabel>{step}</RoundedLabel>
       <div>
         <InfoRow>
           <span>Go to</span>
@@ -87,11 +84,26 @@ export function ManualInstall({card}: ManualInstallProps) {
           <span>Enter Details Manually</span>
         </InfoRow>
       </div>
+    </div>
+  );
+};
+
+type ManualInstallProps = {
+  card: Card;
+};
+
+export function ManualInstall({ card }: ManualInstallProps) {
+  return (
+    <div
+      className={clsx(
+        getTypographyClass(TypographyVariants.Body2),
+        "flex flex-col justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]"
+      )}
+    >
+      <EnterDetailsManuallyStep step={1} />
       <div>
         <RoundedLabel>2</RoundedLabel>
-        <p>
-          Enter the following data
-        </p>
+        <p>Enter the following data</p>
         <CopyButton text="LPA:1$consumer.rsp.global" />
       </div>
       <div className="flex flex-col flex-wrap justify-center content-center items-center px-3 mt-5 text-center">
