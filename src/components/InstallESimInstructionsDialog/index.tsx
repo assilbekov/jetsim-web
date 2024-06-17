@@ -1,3 +1,4 @@
+import { Card } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { ManualInstall } from "./ManualInstall";
 import { ManualInstallDialogContent } from "./ManualInstallDialogContent";
@@ -9,10 +10,14 @@ enum InstallESimInstructionsType {
 }
 
 type InstallESimInstructionsDialogProps = {
-  // TODO
+  type?: InstallESimInstructionsType;
+  card: Card;
 };
 
-export const InstallESimInstructionsDialog = () => {
+export const InstallESimInstructionsDialog = ({
+  type = InstallESimInstructionsType.BOTH,
+  card,
+}: InstallESimInstructionsDialogProps) => {
   return (
     <Dialog
       //onClose={() => props.setDialog(null)}
@@ -24,7 +29,7 @@ export const InstallESimInstructionsDialog = () => {
       //dialogContentClassName={props.type === CardDialogType.DETAILS ? "md:h-auto" : ""}
     >
       <div className="flex flex-col gap-5 w-full">
-        <ManualInstallDialogContent onClose={() => {}} />
+        <ManualInstallDialogContent card={card} onClose={() => {}} />
       </div>
     </Dialog>
   );

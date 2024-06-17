@@ -3,6 +3,7 @@ import { RoundedLabel } from "./RoundedLabel";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import Image from "next/image";
 import { CopyButton } from "../buttons/CopyButton";
+import { Card } from "@/models/Card";
 
 type InfoRowProps = {
   children: React.ReactNode;
@@ -41,7 +42,11 @@ const IconWithText = ({ src, alt, text }: IconWithTextProps) => {
   );
 };
 
-export function ManualInstall() {
+type ManualInstallProps = {
+  card: Card;
+}
+
+export function ManualInstall({card}: ManualInstallProps) {
   return (
     <div
       className={clsx(
