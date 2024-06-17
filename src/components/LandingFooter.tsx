@@ -44,6 +44,51 @@ type LandingFooterProps = {
   cardClassName?: string;
 };
 
+export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
+  return (
+    <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
+      <div className="flex gap-8 flex-col lg:flex-row">
+        <div className="w-1/2">
+          <Image src="/logo.svg" alt="logo image" width={155} height={36} />
+        </div>
+        <div className="flex gap-8 flex-col sm:flex-row">
+          <LinksBlock>
+            <Title>Top destinations</Title>
+            <ListBlock>
+              <ListElement>Europe</ListElement>
+              <ListElement>USA</ListElement>
+              <ListElement>Turkey</ListElement>
+              <ListElement>Spain</ListElement>
+              <ListElement>France</ListElement>
+            </ListBlock>
+          </LinksBlock>
+          <LinksBlock>
+            <Title>Legal</Title>
+            <ListBlock>
+              <ListElement href="/en/privacy-policy">
+                Privacy policy
+              </ListElement>
+              <ListElement href="/en/terms-of-service">
+                Terms of Service
+              </ListElement>
+              <ListElement>COF Agreement</ListElement>
+            </ListBlock>
+          </LinksBlock>
+          <LinksBlock>
+            <Title>More</Title>
+            <ListBlock>
+              <ListElement>Blog</ListElement>
+              <ListElement>About us</ListElement>
+              <ListElement>Contacts</ListElement>
+              <ListElement>Refund Policy</ListElement>
+            </ListBlock>
+          </LinksBlock>
+        </div>
+      </div>
+    </Card>
+  );
+};
+
 export const LandingFooter = ({
   cardClassName,
   containerClassName,
@@ -55,46 +100,7 @@ export const LandingFooter = ({
         containerClassName ?? ""
       )}
     >
-      <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
-        <div className="flex gap-8 flex-col lg:flex-row">
-          <div className="w-1/2">
-            <Image src="/logo.svg" alt="logo image" width={155} height={36} />
-          </div>
-          <div className="flex gap-8 flex-col sm:flex-row">
-            <LinksBlock>
-              <Title>Top destinations</Title>
-              <ListBlock>
-                <ListElement>Europe</ListElement>
-                <ListElement>USA</ListElement>
-                <ListElement>Turkey</ListElement>
-                <ListElement>Spain</ListElement>
-                <ListElement>France</ListElement>
-              </ListBlock>
-            </LinksBlock>
-            <LinksBlock>
-              <Title>Legal</Title>
-              <ListBlock>
-                <ListElement href="/en/privacy-policy">
-                  Privacy policy
-                </ListElement>
-                <ListElement href="/en/terms-of-service">
-                  Terms of Service
-                </ListElement>
-                <ListElement>COF Agreement</ListElement>
-              </ListBlock>
-            </LinksBlock>
-            <LinksBlock>
-              <Title>More</Title>
-              <ListBlock>
-                <ListElement>Blog</ListElement>
-                <ListElement>About us</ListElement>
-                <ListElement>Contacts</ListElement>
-                <ListElement>Refund Policy</ListElement>
-              </ListBlock>
-            </LinksBlock>
-          </div>
-        </div>
-      </Card>
+      <LandingFooterContent cardClassName={cardClassName} />
     </LandingContainer>
   );
 };
