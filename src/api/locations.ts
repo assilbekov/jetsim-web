@@ -28,7 +28,9 @@ export const fetchTopCountries = async (
 };
 
 export const fetchAllDestinations = async (): Promise<Location[]> => {
-  const res = await fetch(`${geoServiceURL}places/lists/q/top-countries`);
+  const res = await fetch(`${geoServiceURL}places/lists/q/top-countries`, {
+    cache: "force-cache",
+  });
   const json: ApiResponse<DestinationsResponse> = await res.json();
   return json.payload.data.sort((l1, l2) => (l1.title > l2.title ? 1 : -1));
 };
