@@ -7,9 +7,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
-import { convertLocationBestCost } from "@/app/converters/location";
+import { convertLocationBestCost } from "@/converters/location";
 import { Skeleton } from "./Skeleton";
-import { clsx } from "@/utils";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo

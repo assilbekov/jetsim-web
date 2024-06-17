@@ -7,7 +7,7 @@ import {
 } from "./Typography";
 import { clsx } from "@/utils";
 import { CircledCountryImage } from "./CircledCountryImage";
-import { convertLocationBestCost } from "@/app/converters/location";
+import { convertLocationBestCost } from "@/converters/location";
 
 type CountryCardProps = {
   country: Location;
