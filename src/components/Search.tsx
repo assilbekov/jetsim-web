@@ -8,6 +8,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
 import { convertLocationBestCost } from "@/app/converters/location";
+import { Skeleton } from "./Skeleton";
+import { clsx } from "@/utils";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
@@ -40,6 +42,46 @@ export const Search = () => {
 
   const handleElementClick = (location: Location) => {
     setOpen(false);
+  };
+
+  const renderList = () => {
+    const locations: Location[] =
+      (query ? queryInfo.data : topCountriesInfo?.data?.data.slice(0, 4)) || [];
+
+    if (!locations?.length) {
+      return (
+        <li className="flex flex-col gap-2">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="w-full h-20 rounded-xl" />
+          ))}
+        </li>
+      );
+    }
+
+    return locations.map((location) => (
+      <Link key={location.title} href={`/en/places/${location.placeID}`}>
+        <li
+          onClick={() => handleElementClick(location)}
+          className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"
+        >
+          <div className="min-w-10 min-h-10 flex items-center rounded-full">
+            <CircledCountryImage
+              countryCode={location.countryCode}
+              width={40}
+              height={40}
+            />
+          </div>
+          <div className="flex flex-col gap-1">
+            <p className="text-xl leading-6 font-medium">{location.title}</p>
+            {location.bestCost && (
+              <p className="text-base leading-5 text-text-600">
+                {convertLocationBestCost(location)}
+              </p>
+            )}
+          </div>
+        </li>
+      </Link>
+    ));
   };
 
   return (
@@ -76,37 +118,9 @@ export const Search = () => {
           placeholder="Where do you go?"
         />
       </div>
-      {open && !!queryInfo.data && !!topCountriesInfo.data && (
+      {open && (
         <ul className="p-[14px] my-4 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-3xl border-2 border-[#EBEFF0] z-50 absolute w-full bg-text-900">
-          {(queryInfo.data?.length
-            ? queryInfo.data
-            : topCountriesInfo.data.data.slice(0, 4)
-          ).map((location) => (
-            <Link key={location.title} href={`/en/places/${location.placeID}`}>
-              <li
-                onClick={() => handleElementClick(location)}
-                className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"
-              >
-                <div className="min-w-10 min-h-10 flex items-center rounded-full">
-                  <CircledCountryImage
-                    countryCode={location.countryCode}
-                    width={40}
-                    height={40}
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <p className="text-xl leading-6 font-medium">
-                    {location.title}
-                  </p>
-                  {location.bestCost && (
-                    <p className="text-base leading-5 text-text-600">
-                      {convertLocationBestCost(location)}
-                    </p>
-                  )}
-                </div>
-              </li>
-            </Link>
-          ))}
+          {renderList()}
         </ul>
       )}
       {open && (
