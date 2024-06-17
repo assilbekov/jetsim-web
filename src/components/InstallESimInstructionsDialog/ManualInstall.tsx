@@ -1,11 +1,11 @@
+import { clsx } from "@/utils";
 import * as React from "react";
+import { RoundedLabel } from "./RoundedLabel";
 
 export function ManualInstall() {
   return (
-    <div className="flex flex-col justify-center self-stretch px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]">
-      <div className="justify-center items-center self-center px-4 w-10 h-10 text-xl font-medium leading-7 text-white whitespace-nowrap bg-sky-500 rounded-3xl">
-        1
-      </div>
+    <div className="flex flex-col justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]">
+      <RoundedLabel>1</RoundedLabel>
       <div className="flex flex-col flex-wrap justify-center content-center items-center px-3 mt-5 text-center">
         <div className="flex gap-3 items-center text-base font-medium leading-5 text-slate-950">
           <div className="self-stretch my-auto">Go to</div>
