@@ -1,5 +1,6 @@
 import { Dialog } from "../Dialog";
 import { ManualInstall } from "./ManualInstall";
+import { ManualInstallDialogContent } from "./ManualInstallDialogContent";
 
 enum InstallESimInstructionsType {
   MANUAL = "manual",
@@ -23,7 +24,7 @@ export const InstallESimInstructionsDialog = () => {
       //dialogContentClassName={props.type === CardDialogType.DETAILS ? "md:h-auto" : ""}
     >
       <div className="flex flex-col gap-5 w-full">
-        <ManualInstall />
+        <ManualInstallDialogContent onClose={() => {}} />
       </div>
     </Dialog>
   );
