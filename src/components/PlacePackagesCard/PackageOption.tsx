@@ -84,15 +84,17 @@ export const PackageOption = ({
         <div className="flex gap-6 w-full">
           <TextContainer>
             <BoldText>
-              {packageEntity.traffic.unit.count}{" "}
-              {packageEntity.traffic.unit.label}
+              {tag === PackageTagEnum.UNLIMITED
+                ? `${packageEntity.days} days`
+                : `${packageEntity.traffic.unit.count} ${packageEntity.traffic.unit.label}`}
             </BoldText>
             <SecondaryText>
-              {convertPrice(
-                packageEntity.traffic.unit.costPerUnit.price,
-                packageEntity.cost.currency
-              )}{" "}
-              / {packageEntity.traffic.unit.label}
+              {tag === PackageTagEnum.UNLIMITED
+                ? "Unlimited GB"
+                : `${convertPrice(
+                    packageEntity.traffic.unit.costPerUnit.price,
+                    packageEntity.cost.currency
+                  )} / ${packageEntity.traffic.unit.label}`}
             </SecondaryText>
           </TextContainer>
           <TextContainer className="xxs:min-w-20">
@@ -102,7 +104,9 @@ export const PackageOption = ({
                 packageEntity.cost.currency
               )}
             </BoldText>
-            <SecondaryText>{packageEntity.days} days</SecondaryText>
+            {tag === PackageTagEnum.STANDARD && (
+              <SecondaryText>{packageEntity.days} days</SecondaryText>
+            )}
           </TextContainer>
         </div>
         <div className="flex gap-3 items-start">
