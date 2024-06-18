@@ -7,7 +7,7 @@ import { Package } from "@/models/Package";
 import { useEffect, useState } from "react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { CircledCountryImage } from "../CircledCountryImage";
-import { convertCurrencyCodeToSymbol } from "@/converters/prices";
+import { convertPrice } from "@/converters/prices";
 import { Skeleton } from "../Skeleton";
 import { Card } from "../Card";
 import { clsx } from "@/utils";
@@ -92,9 +92,7 @@ export const OrderSummary = ({
       <OrderElement title="Duration" value={`${packageData.days} days`} />
       <OrderElement
         title="Price"
-        value={`${convertCurrencyCodeToSymbol(packageData.cost.currency)} ${
-          packageData.cost.price
-        }`}
+        value={convertPrice(packageData.cost.price, packageData.cost.currency)}
       />
     </Card>
   );
