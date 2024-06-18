@@ -5,6 +5,7 @@ import { clsx } from "@/utils";
 import { BestBadge } from "./BestBadge";
 import { PlansHelperInfo } from "./PlansHelperInfo";
 import { convertPrice } from "@/converters/prices";
+import { convertSecondsToHours } from "@/converters/times";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -121,17 +122,23 @@ export const PackageOption = ({
               <BrowsingFeature
                 imageAlt="browsing icon"
                 imageSrc="/icons/browse.svg"
-                label="60h browsing"
+                label={`${convertSecondsToHours(
+                  packageEntity.traffic.browsingSec
+                )}h browsing`}
               />
               <BrowsingFeature
                 imageAlt="music icon"
                 imageSrc="/icons/music.svg"
-                label="30h music"
+                label={`${convertSecondsToHours(
+                  packageEntity.traffic.musicSec
+                )}h music`}
               />
               <BrowsingFeature
                 imageAlt="video icon"
                 imageSrc="/icons/video.svg"
-                label="20h video"
+                label={`${convertSecondsToHours(
+                  packageEntity.traffic.videoSec
+                )}h video`}
               />
             </div>
             <PlansHelperInfo tag={tag} />
