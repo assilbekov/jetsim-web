@@ -14,7 +14,7 @@ import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { clsx, convertDateToISO, formatBytes } from "@/utils";
 import { Package } from "@/models/Package";
-import { convertCurrencyCodeToSymbol } from "@/converters/prices";
+import { convertPrice } from "@/converters/prices";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SelectPackagesBuyForm } from "../PlacePackagesCard/SelectPackagesBuyForm";
 import { useRouter } from "next/navigation";
@@ -106,9 +106,11 @@ const DetailsContent = ({
             <>
               Data {formatBytes(card.trafficTotalBytes)}
               <p className="text-text-600 mt-1">
-                {convertCurrencyCodeToSymbol(selectedPackage.cost.currency)}
-                {selectedPackage.traffic.unit.costPerUnit.price} /{" "}
-                {selectedPackage.traffic.unit.label}
+                {convertPrice(
+                  selectedPackage.traffic.unit.costPerUnit.price,
+                  selectedPackage.cost.currency
+                )}{" "}
+                / {selectedPackage.traffic.unit.label}
               </p>
             </>
           }
@@ -126,9 +128,10 @@ const DetailsContent = ({
         <DetailsItem
           src="/icons/black/wallet.svg"
           alt="Wallet icon"
-          content={`Price ${convertCurrencyCodeToSymbol(
+          content={`Price ${convertPrice(
+            selectedPackage.cost.price,
             selectedPackage.cost.currency
-          )}${selectedPackage.cost.price}`}
+          )}`}
         />
       </InfoCard>
       <InfoCard className="flex flex-col gap-3 pt-4 pb-4 pl-4 pr-4">
