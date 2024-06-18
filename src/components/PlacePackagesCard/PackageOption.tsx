@@ -4,7 +4,7 @@ import { Checkbox } from "../Checkbox";
 import { clsx } from "@/utils";
 import { BestBadge } from "./BestBadge";
 import { PlansHelperInfo } from "./PlansHelperInfo";
-import { convertCurrencyCodeToSymbol } from "@/converters/prices";
+import { convertPrice } from "@/converters/prices";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -87,15 +87,19 @@ export const PackageOption = ({
               {packageEntity.traffic.unit.label}
             </BoldText>
             <SecondaryText>
-              {convertCurrencyCodeToSymbol(packageEntity.cost.currency)}
-              {packageEntity.traffic.unit.costPerUnit.price} /{" "}
-              {packageEntity.traffic.unit.label}
+              {convertPrice(
+                packageEntity.traffic.unit.costPerUnit.price,
+                packageEntity.cost.currency
+              )}{" "}
+              / {packageEntity.traffic.unit.label}
             </SecondaryText>
           </TextContainer>
           <TextContainer className="xxs:min-w-20">
             <BoldText>
-              {convertCurrencyCodeToSymbol(packageEntity.cost.currency)}
-              {packageEntity.cost.price}
+              {convertPrice(
+                packageEntity.cost.price,
+                packageEntity.cost.currency
+              )}
             </BoldText>
             <SecondaryText>{packageEntity.days} days</SecondaryText>
           </TextContainer>
