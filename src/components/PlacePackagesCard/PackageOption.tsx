@@ -1,10 +1,10 @@
-import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
 import { Package, PackageTagEnum } from "@/models/Package";
 import Image from "next/image";
 import { Checkbox } from "../Checkbox";
 import { clsx } from "@/utils";
 import { BestBadge } from "./BestBadge";
 import { PlansHelperInfo } from "./PlansHelperInfo";
+import { convertCurrencyCodeToSymbol } from "@/converters/prices";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (

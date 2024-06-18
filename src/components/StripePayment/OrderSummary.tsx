@@ -7,7 +7,7 @@ import { Package } from "@/models/Package";
 import { useEffect, useState } from "react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { CircledCountryImage } from "../CircledCountryImage";
-import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
+import { convertCurrencyCodeToSymbol } from "@/converters/prices";
 import { Skeleton } from "../Skeleton";
 import { Card } from "../Card";
 import { clsx } from "@/utils";

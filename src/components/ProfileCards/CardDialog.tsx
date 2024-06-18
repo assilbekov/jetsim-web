@@ -14,7 +14,7 @@ import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { clsx, convertDateToISO, formatBytes } from "@/utils";
 import { Package } from "@/models/Package";
-import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
+import { convertCurrencyCodeToSymbol } from "@/converters/prices";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SelectPackagesBuyForm } from "../PlacePackagesCard/SelectPackagesBuyForm";
 import { useRouter } from "next/navigation";

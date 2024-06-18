@@ -1,5 +1,5 @@
-import { convertCurrencyCodeToSymbol } from "@/convertCurrency";
 import { Location } from "@/models/Location";
+import { convertCurrencyCodeToSymbol } from "./prices";
 
 export const convertLocationBestCost = (location: Location) => {
   return `from ${convertCurrencyCodeToSymbol(

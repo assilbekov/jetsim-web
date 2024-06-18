@@ -6,6 +6,7 @@ import { Card } from "@/models/Card";
 import { EnterDetailsManuallyStep } from "./EnterDetailsManuallyStep";
 import { TurnOnDataRoamingStep } from "./TurnOnDataRoamingStep";
 import { EnterFollowingDataStep } from "./EnterFollowingDataStep";
+import { PlanTextStep } from "./PlanTextStep";
 
 type ManualInstallProps = {
   card: Card;
@@ -20,6 +21,9 @@ export function ManualInstall({ card }: ManualInstallProps) {
       )}
     >
       <EnterDetailsManuallyStep step={1} />
+      <PlanTextStep step={3}>
+        Follow screen instructions to install eSIM
+      </PlanTextStep>
       <TurnOnDataRoamingStep step={4} />
       <EnterFollowingDataStep step={2} card={card} />
       <div>
