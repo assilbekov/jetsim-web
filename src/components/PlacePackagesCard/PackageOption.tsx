@@ -122,23 +122,35 @@ export const PackageOption = ({
               <BrowsingFeature
                 imageAlt="browsing icon"
                 imageSrc="/icons/browse.svg"
-                label={`${convertSecondsToHours(
-                  packageEntity.traffic.browsingSec
-                )}h browsing`}
+                label={
+                  tag === PackageTagEnum.UNLIMITED
+                    ? "∞ browsing"
+                    : `${convertSecondsToHours(
+                        packageEntity.traffic.browsingSec
+                      )}h browsing`
+                }
               />
               <BrowsingFeature
                 imageAlt="music icon"
                 imageSrc="/icons/music.svg"
-                label={`${convertSecondsToHours(
-                  packageEntity.traffic.musicSec
-                )}h music`}
+                label={
+                  tag === PackageTagEnum.UNLIMITED
+                    ? "∞ music"
+                    : `${convertSecondsToHours(
+                        packageEntity.traffic.musicSec
+                      )}h music`
+                }
               />
               <BrowsingFeature
                 imageAlt="video icon"
                 imageSrc="/icons/video.svg"
-                label={`${convertSecondsToHours(
-                  packageEntity.traffic.videoSec
-                )}h video`}
+                label={
+                  tag === PackageTagEnum.UNLIMITED
+                    ? "∞ video"
+                    : `${convertSecondsToHours(
+                        packageEntity.traffic.videoSec
+                      )}h video`
+                }
               />
             </div>
             <PlansHelperInfo tag={tag} />
