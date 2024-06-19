@@ -42,7 +42,7 @@ type BackgroundImageProps = {
 export const BackgroundImage = ({ url, alt }: BackgroundImageProps) => {
   return (
     <div className="relative -ml-14 -mr-14">
-      <div className="absolute top-0 left-0">
+      <div className="absolute top-0 left-0 hidden md:block">
         <LeftArch />
       </div>
       <Image
@@ -53,7 +53,7 @@ export const BackgroundImage = ({ url, alt }: BackgroundImageProps) => {
         className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5"
         style={{ objectFit: "cover" }}
       />
-      <div className="absolute top-0 right-0">
+      <div className="absolute top-0 right-0 hidden md:block">
         <RightArch />
       </div>
     </div>
