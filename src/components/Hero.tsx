@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Feature } from "./Feature";
 import { Search } from "./Search";
@@ -10,7 +9,6 @@ import {
 import { clsx } from "@/utils";
 
 export const Hero = () => {
-  const t = useTranslations("MainPage");
   return (
     <div className="flex items-center sm:mx-auto xxs:pb-4 md:pb-10 md:px-8">
       <Image
@@ -32,33 +30,29 @@ export const Hero = () => {
               "sm:text-center"
             )}
           >
-            {t("subheader")}
+            Stay connected anywhere with eSIM
           </h3>
           <Typography
             variant={TypographyVariants.H1}
             className="sm:text-center"
           >
-            {t("header")}
+            Reliable, affordable worldwide internet with JetSim eSIM
           </Typography>
         </div>
         <div>
           <Search />
         </div>
         <div className="sm:justify-center flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 lg:gap-6 md:m-auto">
-          <Feature
-            icon="/timer.svg"
-            iconAlt="timer icon"
-            title={t("timer_feature")}
-          />
+          <Feature icon="/timer.svg" iconAlt="timer icon" title="1 min setup" />
           <Feature
             icon="/sim.svg"
             iconAlt="sim icon"
-            title={t("sim_feature")}
+            title="Keep current SIM"
           />
           <Feature
             icon="/support.svg"
             iconAlt="support icon"
-            title={t("support_feature")}
+            title="24/7 support"
           />
         </div>
       </div>

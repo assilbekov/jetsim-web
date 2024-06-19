@@ -58,7 +58,7 @@ export const Search = () => {
     }
 
     return locations.map((location) => (
-      <Link key={location.title} href={`/en/places/${location.placeID}`}>
+      <Link key={location.title} href={`/places/${location.placeID}`}>
         <li
           onClick={() => handleElementClick(location)}
           className="flex gap-4 p-4 items-center hover:bg-[#EBEFF0] rounded-xl cursor-pointer transition duration-200 ease-in-out"

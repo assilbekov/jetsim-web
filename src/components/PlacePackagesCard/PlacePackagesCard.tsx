@@ -50,11 +50,11 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const handleCheckout = (selectedPackageId: string) => {
     const redirectUrl = `${
       window.location.origin
-    }/en/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
+    }/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
     /* router.push(
-      `/en/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
+      `/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
         window.location.origin
-      }/en/payment${searchParams.toString()}`
+      }/payment${searchParams.toString()}`
     ); */
 
     setLoginRedirectUrl(redirectUrl);

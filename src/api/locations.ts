@@ -23,7 +23,6 @@ export const fetchTopCountries = async (
     `${geoServiceURL}places/lists/q/top-countries?limit=${limit}`
   );
   const json: ApiResponse<DestinationsResponse> = await res.json();
-  console.log(json);
   return json.payload;
 };
 

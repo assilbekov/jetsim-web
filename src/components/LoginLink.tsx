@@ -60,7 +60,7 @@ export const LoginLink = () => {
           onClick={(e) => {
             e.preventDefault();
             if (isLoggedIn) {
-              router.push("/en/profile");
+              router.push("/profile");
               return;
             }
             setIsDialogOpen(true);

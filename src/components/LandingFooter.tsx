@@ -65,10 +65,10 @@ export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
           <LinksBlock>
             <Title>Legal</Title>
             <ListBlock>
-              <ListElement href="/en/privacy-policy">
+              <ListElement href="/privacy-policy">
                 Privacy policy
               </ListElement>
-              <ListElement href="/en/terms-of-service">
+              <ListElement href="/terms-of-service">
                 Terms of Service
               </ListElement>
               <ListElement>COF Agreement</ListElement>

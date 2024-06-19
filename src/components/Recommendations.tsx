@@ -1,7 +1,4 @@
-import { useTranslations } from "next-intl";
 import { LandingContainer } from "./LandingContainer";
-import { Location } from "@/models/Location";
-import Image from "next/image";
 import { Card } from "./Card";
 import { clsx } from "@/utils";
 import {
@@ -36,7 +33,7 @@ const ArrowRightIcon = () => (
 
 const ViewAllCard = () => {
   return (
-    <Link href="/en/all-destinations">
+    <Link href="/all-destinations">
       <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
         <div className="flex flex-col gap-0.5">
           <p
@@ -65,14 +62,13 @@ const ViewAllCard = () => {
 };
 
 export const Recommendations = async () => {
-  const t = useTranslations("MainPage");
   const topCountries = await fetchTopCountries(11);
 
   return (
     <LandingContainer>
       <Card>
         <Typography variant={TypographyVariants.H2}>
-          {t("where_do_you_want_to_go")}
+          Where do you want to go?
         </Typography>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 md:mt-6 lg:mt-8">
           {topCountries.data.slice(0, 11).map((country, index) => (

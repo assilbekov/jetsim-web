@@ -57,8 +57,8 @@ export default function Index({ searchParams }: PageProps) {
             2024 JetSIM. All rights reserved
           </p>
           <ul className="flex flex-col sm:flex-row sm:gap-6 gap-3">
-            <ListElement href="/en/privacy-policy">Privacy policy</ListElement>
-            <ListElement href="/en/terms-of-service">
+            <ListElement href="/privacy-policy">Privacy policy</ListElement>
+            <ListElement href="/terms-of-service">
               Terms of Service
             </ListElement>
             <ListElement>COF Agreement</ListElement>

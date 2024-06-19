@@ -27,7 +27,7 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${window.location.origin}/en/payment/completion?cardID=${cardID}`,
+        return_url: `${window.location.origin}/payment/completion?cardID=${cardID}`,
       },
     });
 

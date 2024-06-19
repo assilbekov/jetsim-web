@@ -1,5 +1,3 @@
-import { useTranslations } from "next-intl";
-import { Header, HeadersVariant } from "./Header";
 import Image from "next/image";
 import { LandingContainer } from "./LandingContainer";
 import { Card } from "./Card";
@@ -62,7 +60,6 @@ type WhyBlockProps = {
 export const WhyBlock = ({
   showSecurePaymentMethods = true,
 }: WhyBlockProps) => {
-  const t = useTranslations("MainPage");
   return (
     <LandingContainer>
       <Card size="md" className="xxs:p-8 xs:p-6 md:p-8">
@@ -77,36 +74,36 @@ export const WhyBlock = ({
                 })
               )}
             >
-              {t("why_jetsim")}
+              Why JetSim?
             </p>
             <Typography variant={TypographyVariants.H2}>
-              {t("internet_everywhere_with")}
+            Internet everywhere with JetSim
             </Typography>
           </div>
           <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
-              title={t("affordable")}
-              description={t("data_plans_tailored_for_you")}
+              title="Affordable"
+              description="Data plans tailored for you"
             />
             <FeatureBlock
               iconSrc="/done.svg"
               iconAlt="done icon"
-              title={t("no_hidden_fees")}
-              description={t("internet_without_extra_costs")}
+              title="No hidden fees"
+              description="Internet without extra costs"
             />
             <FeatureBlock
               iconSrc="/no-sim.svg"
               iconAlt="no sim icon"
-              title={t("no_plastic_sim")}
-              description={t("hassle_free_online_installation")}
+              title="No plastic SIM"
+              description="hassle-free online installation"
             />
             <FeatureBlock
               iconSrc="/no-id.svg"
               iconAlt="no id icon"
-              title={t("no_id_required")}
-              description={t("just_buy_and_start_using")}
+              title="No ID required"
+              description="Just buy and start using"
             />
           </div>
           {showSecurePaymentMethods && (
@@ -122,7 +119,7 @@ export const WhyBlock = ({
                     })
                   )}
                 >
-                  {t("secure_payment_methods")}
+                  Secure Payment Methods
                 </p>
                 <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between lg:min-w-[646px] flex-wrap w-full items-center">
                   <Image

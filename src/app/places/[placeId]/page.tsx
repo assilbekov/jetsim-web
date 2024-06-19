@@ -1,18 +1,18 @@
 import { FAQ } from "@/components/FAQ";
+import { FeatureAndTechDetails } from "@/components/FeaturesAndTechDetails";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
-import { ProfileCards } from "@/components/ProfileCards";
-import { Recommendations } from "@/components/Recommendations";
-import { useTranslations } from "next-intl";
+import { PlacePackagesCard } from "@/components/PlacePackagesCard";
+import { SetupJetSim } from "@/components/SetupJetSim";
+import { WhyBlock } from "@/components/WhyBlock";
 
 export default function Index({
   params,
 }: {
   params: { placeId: string; locale: string };
 }) {
-  const t = useTranslations("Index");
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
@@ -23,9 +23,11 @@ export default function Index({
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
-        <ProfileCards />
+        <PlacePackagesCard placeId={params.placeId} locale={params.locale} />
+        <FeatureAndTechDetails />
+        <WhyBlock showSecurePaymentMethods={false} />
+        <SetupJetSim />
         <LandingSupport />
-        <Recommendations />
         <FAQ />
         <LandingFooter />
       </div>

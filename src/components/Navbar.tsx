@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import Link, { LinkProps } from "next/link";
 import { HumburgerButton } from "./HumburgerButton";
 
@@ -19,7 +18,6 @@ const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
 );
 
 export const Navbar = () => {
-  const t = useTranslations("MainPage");
   return (
     <header className="flex justify-between items-center h-[54px]">
       <HomeLogo />
@@ -30,10 +28,10 @@ export const Navbar = () => {
         className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between"
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
-          <StyledLink href="#">{t("check_compatability")}</StyledLink>
-          <StyledLink href="#">{t("how_to")}</StyledLink>
-          <StyledLink href="#">{t("support")}</StyledLink>
-          <StyledLink href="#">{t("faq")}</StyledLink>
+          <StyledLink href="#">Check compatability</StyledLink>
+          <StyledLink href="#">How to</StyledLink>
+          <StyledLink href="#">Support</StyledLink>
+          <StyledLink href="#">FAQ</StyledLink>
         </div>
         <LoginLink />
       </nav>
