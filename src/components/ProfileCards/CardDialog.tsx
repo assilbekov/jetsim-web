@@ -103,16 +103,20 @@ const DetailsContent = ({
           src="/icons/black/globe.svg"
           alt="globe icon"
           content={
-            <>
-              Data {formatBytes(card.trafficTotalBytes)}
-              <p className="text-text-600 mt-1">
-                {convertPrice(
-                  selectedPackage.traffic.unit.costPerUnit.price,
-                  selectedPackage.cost.currency
-                )}{" "}
-                / {selectedPackage.traffic.unit.label}
-              </p>
-            </>
+            selectedPackage.traffic.isUnlimited ? (
+              "Unlimited data"
+            ) : (
+              <>
+                Data {formatBytes(card.trafficTotalBytes)}
+                <p className="text-text-600 mt-1">
+                  {convertPrice(
+                    selectedPackage.traffic.unit.costPerUnit.price,
+                    selectedPackage.cost.currency
+                  )}{" "}
+                  / {selectedPackage.traffic.unit.label}
+                </p>
+              </>
+            )
           }
         />
         <DetailsItem
