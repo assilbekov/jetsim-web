@@ -18,7 +18,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
         value={card.lpaCode}
         className="self-center w-full aspect-square fill-white max-w-[220px]"
       />
-      <InfoRow>Scan this QR code</InfoRow>
+      <InfoRow>Scan this QR code</InfoRow>
     </div>
   );
 };
