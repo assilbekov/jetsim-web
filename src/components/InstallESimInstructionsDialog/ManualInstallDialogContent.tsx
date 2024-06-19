@@ -1,7 +1,7 @@
 import { Card } from "@/models/Card";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { ManualInstall } from "./ManualInstall";
-import { QRInstall } from "./QrInstall";
+import { QRInstall } from "./QRInstall";
 
 type ManualInstallDialogContentProps = {
   onClose: () => void;
