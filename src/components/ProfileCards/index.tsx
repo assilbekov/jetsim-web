@@ -119,7 +119,7 @@ export const ProfileCards = () => {
         {dialog && (
           <CardDialog key={dialog.type} {...dialog} setDialog={setDialog} />
         )}
-        {cards?.[3] && <InstallESimInstructionsDialog card={cards[3]} />}
+        {/* {cards?.[3] && <InstallESimInstructionsDialog card={cards[3]} />} */}
       </Card>
     </LandingContainer>
   );
