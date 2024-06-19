@@ -15,7 +15,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export default function LocaleLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode;
