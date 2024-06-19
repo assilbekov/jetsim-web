@@ -28,7 +28,7 @@ export const InstallToggleButtons = ({
   setInstallMethod,
 }: InstallToggleButtons) => {
   return (
-    <div className="flex gap-4 justify-center">
+    <div className="flex gap-4 justify-center max-w-[360px] w-full mx-auto">
       <StyledTagButton
         active={installMethod === InstallMethod.QR}
         onClick={() => setInstallMethod(InstallMethod.QR)}
