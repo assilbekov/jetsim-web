@@ -1,4 +1,3 @@
-import { AuthProvider } from "@/contexts/AuthContext";
 import "./globals.css";
 import { QueryContext } from "@/contexts/QueryContext";
 import { Inter_Tight, Inter } from "next/font/google";
@@ -24,9 +23,7 @@ export default function LocaleLayout({
   return (
     <html lang="en" className={clsx(interTight.variable, inter.variable)}>
       <body>
-        <QueryContext>
-          <AuthProvider>{children}</AuthProvider>
-        </QueryContext>
+        <QueryContext>{children}</QueryContext>
       </body>
     </html>
   );
