@@ -2,6 +2,7 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Card } from "@/models/Card";
 import { UseQRDetailsStep } from "./UseQRDetailsStep";
+import { ScanQRStep } from "./ScanQRStep";
 
 type QRInstallProps = {
   card: Card;
@@ -16,6 +17,7 @@ export const QRInstall = ({ card }: QRInstallProps) => {
       )}
     >
       <UseQRDetailsStep step={1} />
+      <ScanQRStep step={2} card={card} />
     </div>
   );
 };
