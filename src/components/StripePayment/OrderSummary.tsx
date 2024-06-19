@@ -44,6 +44,8 @@ export const OrderSummary = ({
   const [location, setLocation] = useState<Location | null>(null);
   const [packageData, setPackageData] = useState<Package | null>(null);
 
+  console.log({ location, packageData });
+
   useEffect(() => {
     fetchLocation(placeID).then((res) => {
       setLocation(res);
@@ -87,7 +89,11 @@ export const OrderSummary = ({
       />
       <OrderElement
         title="Data"
-        value={`${packageData.traffic.unit.count} ${packageData.traffic.unit.label}`}
+        value={
+          packageData.traffic.isUnlimited
+            ? "∞"
+            : `${packageData.traffic.unit.count} ${packageData.traffic.unit.label}`
+        }
       />
       <OrderElement title="Duration" value={`${packageData.days} days`} />
       <OrderElement

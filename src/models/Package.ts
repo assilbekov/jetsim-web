@@ -19,6 +19,7 @@ export interface PackageTraffic {
   videoSec: number;
   musicSec: number;
   unit: PackageTrafficUnit;
+  isUnlimited: boolean;
 }
 
 export interface PackageTrafficUnit {
