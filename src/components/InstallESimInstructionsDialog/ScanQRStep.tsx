@@ -12,11 +12,13 @@ type ScanQRStepProps = {
 
 export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <RoundedLabel>{step}</RoundedLabel>
       <QRCode
         value={card.lpaCode}
-        className="self-center w-full aspect-square fill-white max-w-[220px]"
+        height={140}
+        width={140}
+        className="self-center w-full aspect-square fill-white max-w-[140px] max-h-[140px]"
       />
       <InfoRow>Scan this QR code</InfoRow>
     </div>

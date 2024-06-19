@@ -7,7 +7,12 @@ type InfoRowProps = {
 
 export const InfoRow = ({ children, className }: InfoRowProps) => {
   return (
-    <div className={clsx("flex items-center gap-3", className ?? "")}>
+    <div
+      className={clsx(
+        "flex items-center gap-3 justify-center",
+        className ?? ""
+      )}
+    >
       {children}
     </div>
   );

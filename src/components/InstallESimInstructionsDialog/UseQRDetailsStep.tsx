@@ -11,7 +11,7 @@ export const UseQRDetailsStep = ({ step }: UseQRDetailsStepProps) => {
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
-      <div>
+      <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
           <span>Go to</span>
           <IconWithText

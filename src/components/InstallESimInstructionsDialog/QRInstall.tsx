@@ -15,7 +15,7 @@ export const QRInstall = ({ card }: QRInstallProps) => {
     <div
       className={clsx(
         getTypographyClass(TypographyVariants.Body2),
-        "flex flex-col justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]"
+        "flex flex-col gap-8 justify-center self-stretch text-center px-4 py-8 mx-auto w-full rounded-2xl bg-slate-50 max-w-[480px]"
       )}
     >
       <UseQRDetailsStep step={1} />
