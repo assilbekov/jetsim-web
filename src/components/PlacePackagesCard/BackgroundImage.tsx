@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Skeleton } from "../Skeleton";
 
 const LeftArch = () => {
   return (
@@ -37,22 +38,31 @@ const RightArch = () => {
 type BackgroundImageProps = {
   url: string;
   alt: string;
+  imageLoaded: boolean;
 };
 
-export const BackgroundImage = ({ url, alt }: BackgroundImageProps) => {
+export const BackgroundImage = ({
+  url,
+  alt,
+  imageLoaded,
+}: BackgroundImageProps) => {
   return (
     <div className="relative -ml-14 -mr-14">
       <div className="absolute top-0 left-0 hidden md:block">
         <LeftArch />
       </div>
-      <Image
-        src={url}
-        alt={alt}
-        width={1200}
-        height={796}
-        className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5"
-        style={{ objectFit: "cover" }}
-      />
+      {imageLoaded ? (
+        <Image
+          src={url}
+          alt={alt}
+          width={1200}
+          height={796}
+          className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5"
+          style={{ objectFit: "cover" }}
+        />
+      ) : (
+        <Skeleton className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5" />
+      )}
       <div className="absolute top-0 right-0 hidden md:block">
         <RightArch />
       </div>

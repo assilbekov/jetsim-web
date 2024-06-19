@@ -109,6 +109,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         />
       </Card>
       <BackgroundImage
+        imageLoaded={locationCoverQuery.isFetched}
         url={locationCoverQuery.data?.url || "/support-background.png"}
         alt={`${placeId} cover image`}
       />
