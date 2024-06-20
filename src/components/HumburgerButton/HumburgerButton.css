@@ -7,7 +7,7 @@
   .mobile-nav-toggle {
     display: flex;
     background-repeat: no-repeat;
-    z-index: 9999;
+    z-index: 999;
     aspect-ratio: 1;
 
     transition: background-image 0.3s ease-in-out;
