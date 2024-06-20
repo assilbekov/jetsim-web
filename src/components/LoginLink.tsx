@@ -24,7 +24,10 @@ export const LoginLink = () => {
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
-    if (!accessToken) return;
+    if (!accessToken) {
+      handleLogout();
+      return;
+    }
 
     fetch("https://auth.jetsim.app/api/v1/check", {
       headers: { Authorization: `Bearer ${accessToken}` },
@@ -35,15 +38,17 @@ export const LoginLink = () => {
       }
 
       const refreshToken = localStorage.getItem("refreshToken");
-      if (!refreshToken) return;
+      if (!refreshToken) {
+        handleLogout();
+        return;
+      }
 
       fetch("https://auth.jetsim.app/api/v1/renew", {
         headers: { Authorization: `Bearer ${refreshToken}` },
         method: "POST",
       }).then(async (res) => {
         if (!res.ok) {
-          localStorage.removeItem("accessToken");
-          localStorage.removeItem("refreshToken");
+          handleLogout();
           return;
         }
 
