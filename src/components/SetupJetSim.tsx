@@ -7,7 +7,7 @@ import {
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
-import { CheckCompatibilityLink } from "./CheckCompatibilityLink";
+import { CheckCompatibilityLink } from "./CheckCompatibility/CheckCompatibilityLink";
 
 type SelectDataPlanProps = {
   selected: boolean;

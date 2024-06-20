@@ -6,7 +6,7 @@ import {
   TypographyVariants,
   getTypographyClass,
 } from "./Typography";
-import { CheckCompatibilityLink } from "./CheckCompatibilityLink";
+import { CheckCompatibilityLink } from "./CheckCompatibility/CheckCompatibilityLink";
 import { clsx } from "@/utils";
 
 type FeatureProps = {
