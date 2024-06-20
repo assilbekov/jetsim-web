@@ -6,6 +6,7 @@ type Coordinate = {
 export interface BestCost {
   period: string;
   cost: Cost;
+  unit: string;
 }
 
 export interface Cost {
