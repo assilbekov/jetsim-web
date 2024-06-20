@@ -134,7 +134,7 @@ export const SelectPackagesBuyForm = ({
             There are no available data plans for Turkey at the moment
           </p>
         </div>
-        <Link href="/" className="text-center">
+        <Link href="/all-destinations" className="text-center">
           <SecondaryButton>Choose another country</SecondaryButton>
         </Link>
       </div>
