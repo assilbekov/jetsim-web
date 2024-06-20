@@ -11,6 +11,9 @@ import { TagButton } from "./TagButton";
 import { Skeleton } from "../Skeleton";
 import "./styles.css";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import { SecondaryButton } from "../buttons/SecondaryButton";
+import Link from "next/link";
 
 type SelectPackagesBuyFormProps = {
   placeId: string;
@@ -59,18 +62,11 @@ export const SelectPackagesBuyForm = ({
     packagesUnlimitedQuery.isFetched &&
     packagesUnlimitedQuery.data?.length === 0;
 
-  console.log({
-    packagesStandardQuery,
-    packagesUnlimitedQuery,
-    selectedPackageId,
-    selectedTag,
-    searchParams,
-    pathname,
-    router,
-    updateSearchParams,
-    infoContent,
-    onSubmit,
-  });
+  useEffect(() => {
+    if (!isStandardEmpty && isUnlimitedEmpty) {
+      setSelectedTag(PackageTagEnum.UNLIMITED);
+    }
+  }, [isUnlimitedEmpty]);
 
   useEffect(() => {
     if (selectedPackageId) return;
@@ -118,6 +114,32 @@ export const SelectPackagesBuyForm = ({
   const handleCheckout = () => {
     onSubmit(selectedPackageId);
   };
+
+  if (isStandardEmpty && isUnlimitedEmpty) {
+    return (
+      <div className="flex flex-col gap-4 h-full justify-center">
+        <div className="flex flex-col gap-4 items-center">
+          <Image
+            src="/icons/primary/sentiment_sad.svg"
+            alt="No packages available"
+            width={48}
+            height={48}
+          />
+          <p
+            className={clsx(
+              getTypographyClass(TypographyVariants.Subheader),
+              "text-center"
+            )}
+          >
+            There are no available data plans for Turkey at the moment
+          </p>
+        </div>
+        <Link href="/" className="text-center">
+          <SecondaryButton>Choose another country</SecondaryButton>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <form
