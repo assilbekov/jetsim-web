@@ -207,6 +207,45 @@ export const CheckCompatibilityDialog = ({
               </>
             }
           />
+
+          <ListBlock
+            title="Huawei"
+            elements={[
+              "P40",
+              "P40 Pro (not including P40 Pro +)",
+              "Mate 40 Pro",
+            ]}
+            postText={
+              <>
+                Visit{" "}
+                <LinkText href="https://consumer.huawei.com/za/community/details/How-to-use-eSIM-on-your-eligible-Huawei-Phone/topicId_172574/">
+                  Huawei website
+                </LinkText>{" "}
+                to learn more about eSIM
+              </>
+            }
+          />
+
+          <ListBlock
+            title="Sony"
+            elements={[
+              "Xperia 10 V",
+              "Xperia 5 V",
+              "Xperia 1 V",
+              "Xperia 10 IV",
+              "Xperia 5 IV",
+              "Xperia 1 IV",
+            ]}
+            postText={
+              <>
+                Visit{" "}
+                <LinkText href="https://www.sony.co.uk/electronics/support/articles/00300757">
+                  Sony website
+                </LinkText>{" "}
+                to learn more about eSIM
+              </>
+            }
+          />
         </div>
       </AccordionPanel>
 
