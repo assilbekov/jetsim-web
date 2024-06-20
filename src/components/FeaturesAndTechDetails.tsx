@@ -6,8 +6,8 @@ import {
   TypographyVariants,
   getTypographyClass,
 } from "./Typography";
-import { CheckCompatibilityLink } from "./CheckCompatibility/CheckCompatibilityLink";
 import { clsx } from "@/utils";
+import { CheckCompatibility } from "./CheckCompatibility";
 
 type FeatureProps = {
   imageSrc: string;
@@ -60,7 +60,7 @@ export const FeatureAndTechDetails = () => {
             content={
               <>
                 Compatible with all devices with eSIM
-                <CheckCompatibilityLink label="Check  compatibility here" className="mt-0.5" />
+                <CheckCompatibility label="Check  compatibility here" className="mt-0.5" />
               </>
             }
           />

@@ -7,7 +7,7 @@ import {
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
-import { CheckCompatibilityLink } from "./CheckCompatibility/CheckCompatibilityLink";
+import { CheckCompatibility } from "./CheckCompatibility";
 
 type SelectDataPlanProps = {
   selected: boolean;
@@ -174,7 +174,7 @@ export const SetupJetSim = () => {
                 Most current phones, tablets, and watches support eSIM, its
                 possible your device only supports physical SIM cards
               </p>
-              <CheckCompatibilityLink
+              <CheckCompatibility
                 label="Check compatibility"
                 className="mt-3 xxs:mt-4"
               />
