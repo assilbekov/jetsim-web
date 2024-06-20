@@ -6,11 +6,9 @@ import { fetchCards } from "@/api/cards";
 import { useQuery } from "@tanstack/react-query";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
-import { CardStatus } from "@/models/Card";
 import { useState } from "react";
 import { CardDialog, CardDialogModel, CardDialogType } from "./CardDialog";
 import { fetchPackage } from "@/api/packages";
-import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
 
 export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
