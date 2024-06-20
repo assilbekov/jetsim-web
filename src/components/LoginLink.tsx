@@ -6,10 +6,12 @@ import { useEffect, useState } from "react";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 import { useRouter } from "next/navigation";
+import { SecondaryButton } from "./buttons/SecondaryButton";
+import Image from "next/image";
 
 export const LoginLink = () => {
   const router = useRouter();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -53,23 +55,39 @@ export const LoginLink = () => {
 
   return (
     <>
-      <div className="h-[52px] w-full sm:w-[195px] md:w-[107px] rounded-[44px] border-2 bg-text-900 border-[#EBEFF0] active:bg-[#C3D4D9] hover:bg-[#EDF1F2] active:border-[#C3D4D9] transition duration-200 ease-in-out">
-        <Link
-          href="#"
-          className="w-full h-full flex justify-center items-center text-text-100 font-medium text-base leading-[22px]"
-          onClick={(e) => {
-            e.preventDefault();
-            if (isLoggedIn) {
-              router.push("/profile");
-              return;
-            }
-            setIsDialogOpen(true);
-          }}
-        >
-          <span>{isLoggedIn ? "My eSIMs" : "Login"}</span>
-        </Link>
+      <div>
+        {isLoggedIn ? (
+          <div className="flex flex-col gap-4 md:flex-row">
+            <Link href="/profile" className="w-full">
+              <SecondaryButton className="pl-1 pr-1 min-w-[140px] w-full">
+                My eSIMs
+              </SecondaryButton>
+            </Link>
+            <SecondaryButton className="flex justify-center gap-2 pl-1 pr-1 md:min-w-[84px]">
+              <Image
+                src="/icons/black/logout.svg"
+                alt="Logout icon"
+                width={20}
+                height={20}
+              />
+              <span className="md:hidden">Log out</span>
+            </SecondaryButton>
+          </div>
+        ) : (
+          <SecondaryButton
+            className="w-full"
+            onClick={() => setIsLoginDialogOpen(true)}
+          >
+            Login
+          </SecondaryButton>
+        )}
       </div>
-      {isDialogOpen && <LoginDialog onClose={() => setIsDialogOpen(false)} />}
+      {isLoginDialogOpen && (
+        <LoginDialog
+          redirectUrl="/profile"
+          onClose={() => setIsLoginDialogOpen(false)}
+        />
+      )}
     </>
   );
 };
