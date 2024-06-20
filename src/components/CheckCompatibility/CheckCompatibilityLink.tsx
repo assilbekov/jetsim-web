@@ -5,20 +5,22 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 type CheckCompatibilityLinkProps = {
   label: React.ReactNode;
   className?: string;
+  onClick: () => void;
 };
 
 export const CheckCompatibilityLink = ({
   label,
   className,
+  onClick,
 }: CheckCompatibilityLinkProps) => {
   return (
-    <Link
-      href="#"
+    <button
       className={clsx(
         "flex group gap-1 text-secondary-500 hover:text-secondary-300 transition duration-200 ease-in-out",
         getTypographyClass(TypographyVariants.Caption),
         className ?? ""
       )}
+      onClick={onClick}
     >
       {label}
       <svg
@@ -36,6 +38,6 @@ export const CheckCompatibilityLink = ({
           />
         </g>
       </svg>
-    </Link>
+    </button>
   );
 };

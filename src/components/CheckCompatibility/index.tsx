@@ -10,11 +10,16 @@ export type CheckCompatibilityProps = {
 };
 
 export const CheckCompatibility = (props: CheckCompatibilityProps) => {
-  const [isDialogShow, setIsDialogShow] = useState(false);
+  const [isDialogShow, setIsDialogShow] = useState(true);
   return (
     <>
-      <CheckCompatibilityLink {...props} />
-      <CheckCompatibilityDialog onClose={() => setIsDialogShow(false)} />
+      <CheckCompatibilityLink
+        {...props}
+        onClick={() => setIsDialogShow(true)}
+      />
+      {isDialogShow && (
+        <CheckCompatibilityDialog onClose={() => setIsDialogShow(false)} />
+      )}
     </>
   );
 };
