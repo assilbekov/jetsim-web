@@ -48,16 +48,18 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   });
 
   const handleCheckout = (selectedPackageId: string) => {
+    if (!selectedPackageId) return;
+
+    const accessToken = localStorage.getItem("accessToken");
     const redirectUrl = `${
       window.location.origin
     }/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
-    /* router.push(
-      `/auth?selectedPackage=${selectedPackageId}&tags=${selectedTag}&placeId=${placeId}&redirect=${
-        window.location.origin
-      }/payment${searchParams.toString()}`
-    ); */
 
-    setLoginRedirectUrl(redirectUrl);
+    if (!accessToken) {
+      return setLoginRedirectUrl(redirectUrl);
+    }
+
+    window.location.href = redirectUrl;
   };
 
   return (
