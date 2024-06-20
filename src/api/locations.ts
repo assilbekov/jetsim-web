@@ -20,7 +20,8 @@ export const fetchTopCountries = async (
   limit: number
 ): Promise<DestinationsResponse> => {
   const res = await fetch(
-    `${geoServiceURL}places/lists/q/top-countries?limit=${limit}`
+    `${geoServiceURL}places/lists/q/top-countries?limit=${limit}`,
+    { cache: "force-cache" }
   );
   const json: ApiResponse<DestinationsResponse> = await res.json();
   return json.payload;
