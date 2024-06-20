@@ -5,14 +5,22 @@ import { LoginDialog } from "./LoginDialog";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
-import { useRouter } from "next/navigation";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
 
 export const LoginLink = () => {
-  const router = useRouter();
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    setIsLoggedIn(false);
+
+    if (window.location.pathname === "/profile") {
+      window.location.href = "/";
+    }
+  };
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
@@ -63,7 +71,10 @@ export const LoginLink = () => {
                 My eSIMs
               </SecondaryButton>
             </Link>
-            <SecondaryButton className="flex justify-center gap-2 pl-1 pr-1 md:min-w-[84px]">
+            <SecondaryButton
+              className="flex justify-center gap-2 pl-1 pr-1 md:min-w-[84px]"
+              onClick={handleLogout}
+            >
               <Image
                 src="/icons/black/logout.svg"
                 alt="Logout icon"
