@@ -77,6 +77,7 @@ export const AccordionPanel = ({
               "pt-3 md:pt-4 pr-10 text-text-600",
               getTypographyClass(TypographyVariants.Caption)
             )}
+            onClick={(e) => e.stopPropagation()}
           >
             {children}
           </p>
