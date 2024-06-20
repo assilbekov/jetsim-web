@@ -40,7 +40,7 @@ type ListBlockProps = {
 const ListBlock = ({ title, elements, postText }: ListBlockProps) => (
   <div className="flex flex-col gap-1">
     {title && <Subheader>{title}</Subheader>}
-    <ul className="list-disc list-inside pl-2">
+    <ul className="list-disc list-outside pl-5">
       {elements.map((element, index) => (
         <li
           key={index}
@@ -68,7 +68,7 @@ export const CheckCompatibilityDialog = ({
     <Dialog onClose={onClose}>
       <DialogTitle title="Compatible smartphones with eSIM" onClose={onClose} />
       <AccordionPanel title="iOS" index={0}>
-        <div className="w-full">
+        <div className="w-full flex flex-col gap-4">
           <Paragraph>
             Visit the{" "}
             <LinkText href="https://support.apple.com/en-jo/guide/deployment/dep36c581d6x/web">
@@ -89,6 +89,38 @@ export const CheckCompatibilityDialog = ({
               "iPhone SE (2nd generation) and up",
             ]}
           />
+
+          <ListBlock
+            title="iPads"
+            elements={[
+              "iPad Pro 13-inch and 11-inch (M4) models",
+              "iPad Air 13-inch and 11-inch (M2) models",
+              "iPad Pro (3rd generation) or later 11-inch, 12.9-inch models",
+              "iPad mini (5th generation) or later",
+              "iPad Air (3rd generation) or later",
+              "iPad (7th generation) or later",
+            ]}
+          />
+
+          <ListBlock
+            title="Not supported"
+            elements={[
+              "All iPhones bellow iPhone 8 and iPhone SE (1st generation)",
+              "WiFi only iPads",
+              <>
+                Not all Dual SIM phones are supported. Learn more on the{" "}
+                <LinkText href="https://support.apple.com/en-us/108898">
+                  Apple Support website
+                </LinkText>
+              </>,
+            ]}
+          />
+
+          <Paragraph>
+            Your device must be unlocked and the iOS version must be updated
+            to 14.1 or newer. You can check with your carrier to see if there
+            is anything you can do to unlock the eSIM in your device.
+          </Paragraph>
 
           <Paragraph>
             Your device must be unlocked and the iOS version must be updated to

@@ -8,7 +8,7 @@ type DialogTitleProps = {
 
 export const DialogTitle = ({ title, onClose }: DialogTitleProps) => {
   return (
-    <div className="flex justify-between items-center h-[30px]">
+    <div className="flex justify-between items-center h-[30px] w-full">
       <h5 className={getTypographyClass(TypographyVariants.Subheader)}>
         {title}
       </h5>
