@@ -191,15 +191,19 @@ export const SelectPackagesBuyForm = ({
             ))}
       </div>
       {infoContent}
-      <button
-        className={clsx(
-          "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
-          getTypographyClass(TypographyVariants.Caption)
-        )}
-        type="submit"
-      >
-        Go to checkout
-      </button>
+      {selectedPackageId ? (
+        <button
+          className={clsx(
+            "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
+            getTypographyClass(TypographyVariants.Caption)
+          )}
+          type="submit"
+        >
+          Go to checkout
+        </button>
+      ) : (
+        <Skeleton className="w-full h-12 rounded-xl" />
+      )}
     </form>
   );
 };
