@@ -53,6 +53,25 @@ export const SelectPackagesBuyForm = ({
     staleTime: 1000 * 60 * 5,
   });
 
+  const isStandardEmpty =
+    packagesStandardQuery.isFetched && packagesStandardQuery.data?.length === 0;
+  const isUnlimitedEmpty =
+    packagesUnlimitedQuery.isFetched &&
+    packagesUnlimitedQuery.data?.length === 0;
+
+  console.log({
+    packagesStandardQuery,
+    packagesUnlimitedQuery,
+    selectedPackageId,
+    selectedTag,
+    searchParams,
+    pathname,
+    router,
+    updateSearchParams,
+    infoContent,
+    onSubmit,
+  });
+
   useEffect(() => {
     if (selectedPackageId) return;
 
@@ -108,22 +127,32 @@ export const SelectPackagesBuyForm = ({
       }}
       className="flex flex-col gap-4"
     >
-      <div>
-        <TagButton
-          type="button"
-          active={selectedTag === PackageTagEnum.STANDARD}
-          onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
-        >
-          Standard
-        </TagButton>
-        <TagButton
-          type="button"
-          active={selectedTag === PackageTagEnum.UNLIMITED}
-          onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
-        >
-          Unlimited
-        </TagButton>
-      </div>
+      {!(isStandardEmpty || isUnlimitedEmpty) && (
+        <div className="flex gap-1">
+          {packagesStandardQuery.isFetched ? (
+            <TagButton
+              type="button"
+              active={selectedTag === PackageTagEnum.STANDARD}
+              onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
+            >
+              Standard
+            </TagButton>
+          ) : (
+            <Skeleton className="w-28 h-11 rounded-xl" />
+          )}
+          {packagesUnlimitedQuery.isFetched ? (
+            <TagButton
+              type="button"
+              active={selectedTag === PackageTagEnum.UNLIMITED}
+              onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
+            >
+              Unlimited
+            </TagButton>
+          ) : (
+            <Skeleton className="w-28 h-11 rounded-xl" />
+          )}
+        </div>
+      )}
       <div className="flex flex-col gap-2 xxs:gap-3">
         {packagesStandardQuery.isLoading && packagesUnlimitedQuery.isLoading
           ? Array.from({ length: 4 }).map((_, i) => (
