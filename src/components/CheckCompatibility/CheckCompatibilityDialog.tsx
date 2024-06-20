@@ -246,6 +246,63 @@ export const CheckCompatibilityDialog = ({
               </>
             }
           />
+
+          <ListBlock
+            title="Motorola"
+            elements={[
+              "Moto G Stylus 5G (2024)",
+              "Edge 50 Ultra",
+              "Edge 50 Fusion",
+              "Edge 50 Pro",
+              "Moto G Power (2024)",
+              "Moto G (2024)",
+              "Moto G34",
+              "Edge (2023)",
+              "Edge 40 Neo",
+              "Moto G54",
+              "Razr 40 Ultra",
+              "Razr 40",
+              "Edge 40",
+              "Edge+ (2023)",
+              "Edge 40 Pro",
+              "Moto G53",
+              "Edge (2022)",
+              "Razr 2022",
+              "Razr 5G",
+              "Razr 2019",
+            ]}
+          />
+
+          <ListBlock
+            title="Oppo"
+            elements={[
+              "OPPO Find X3, X3 Pro",
+              "Find X5, X5 Pro",
+              "Oppo Find N2 Flip",
+              "Oppo Reno A",
+            ]}
+          />
+
+          <ListBlock
+            title="Honor"
+            elements={[
+              "HONOR Magic4 Pro",
+              "HONOR Magic5 Pro",
+              "HONOR Magic6 Pro",
+              "HONOR Magic Vs",
+              "HONOR Magic V2",
+              "HONOR 90",
+            ]}
+            postText={
+              <>
+                Visit the{" "}
+                <LinkText href="https://www.honor.com/global/tech/honor-esim/">
+                  Honor website
+                </LinkText>{" "}
+                to learn more about eSIM
+              </>
+            }
+          />
         </div>
       </AccordionPanel>
 
