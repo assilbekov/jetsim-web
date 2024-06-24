@@ -31,6 +31,22 @@ const MockCards = [
     placeID: "mexico",
   },
   {
+    id: "6e9fc000-gfda-4d57-b458-d9127aeedf21",
+    status: CardStatus.Installed,
+    lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
+    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
+    expiresAt: "2024-06-26 16:04:31 +0000 UTC",
+    trafficTotalBytes: 37580963840,
+    trafficRemainingBytes: 27580963840,
+    package: {
+      id: "5ae1b16b-7b69-5903-8c4f-75b59a4a80da",
+      traffic: {
+        isUnlimited: true,
+      },
+    },
+    placeID: "mexico",
+  },
+  {
     id: "debb0741-55bb-4713-967b-5434dbc31f34",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
@@ -70,6 +86,22 @@ const MockCards = [
     expiresAt: "2024-06-26 16:04:31 +0000 UTC",
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 15580963840,
+    package: {
+      id: "ce1fd811-0cfe-5ba7-9433-2b276806c3e5",
+      traffic: {
+        isUnlimited: false,
+      },
+    },
+    placeID: "turkiye",
+  },
+  {
+    id: "debb0741-55bb-4713-267b-5434dbq31f34",
+    status: CardStatus.Installed,
+    lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
+    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
+    expiresAt: "2024-06-26 16:04:31 +0000 UTC",
+    trafficTotalBytes: 37580963840,
+    trafficRemainingBytes: 5580963840,
     package: {
       id: "ce1fd811-0cfe-5ba7-9433-2b276806c3e5",
       traffic: {

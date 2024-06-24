@@ -62,21 +62,28 @@ export function ProfileCard({
           </p>
         );
       case CardStatus.Installed:
+        if (card.package.traffic.isUnlimited) {
+          return (
+            <>
+              <p className={clsx(isDaysLeftLow ? "text-secondary-500" : "")}>
+                {selectedPackage.days} days
+              </p>
+              <p className="text-text-600">∞ GB</p>
+            </>
+          );
+        }
+
         return (
           <>
             <p className={clsx(isTrafficLow ? "text-secondary-500" : "")}>
-              {card.package.traffic.isUnlimited
-                ? `${selectedPackage.days} days`
-                : formatBytes(card.trafficRemainingBytes)}
+              {formatBytes(card.trafficRemainingBytes)}
             </p>
             <p
               className={clsx(
                 isDaysLeftLow ? "text-secondary-500" : "text-text-600"
               )}
             >
-              {card.package.traffic.isUnlimited
-                ? "∞ GB"
-                : formatBytes(card.trafficTotalBytes)}
+              {formatBytes(card.trafficTotalBytes)}
             </p>
           </>
         );
@@ -96,7 +103,9 @@ export function ProfileCard({
             progress={progress}
             className="mt-3"
             progressBarClassName={
-              isTrafficLow ? "bg-secondary-500" : "bg-primary-500"
+              isTrafficLow || isDaysLeftLow
+                ? "bg-secondary-500"
+                : "bg-primary-500"
             }
           />
         );
