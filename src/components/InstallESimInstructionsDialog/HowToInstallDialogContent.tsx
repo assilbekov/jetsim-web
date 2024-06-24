@@ -12,10 +12,12 @@ import { ManualInstall } from "./ManualInstall";
 
 type HowToInstallDialogContentProps = {
   card: Card;
+  onClose: () => void;
 };
 
 export const HowToInstallDialogContent = ({
   card,
+  onClose
 }: HowToInstallDialogContentProps) => {
   const [installMethod, setInstallMethod] = useState<InstallMethod>(
     InstallMethod.QR
@@ -23,7 +25,7 @@ export const HowToInstallDialogContent = ({
 
   return (
     <>
-      <DialogTitle title="How to install eSIM" onClose={() => {}} />
+      <DialogTitle title="How to install eSIM" onClose={onClose} />
       <InstallToggleButtons
         installMethod={installMethod}
         setInstallMethod={setInstallMethod}

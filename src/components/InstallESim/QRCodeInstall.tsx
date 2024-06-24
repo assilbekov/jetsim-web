@@ -10,7 +10,10 @@ type QRCodeInstallProps = {
   onSeeInstructionsClick: () => void;
 };
 
-export const QRCodeInstall = ({ card }: QRCodeInstallProps) => {
+export const QRCodeInstall = ({
+  card,
+  onSeeInstructionsClick,
+}: QRCodeInstallProps) => {
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
       <QRCode
@@ -34,7 +37,9 @@ export const QRCodeInstall = ({ card }: QRCodeInstallProps) => {
         Share this QR code to other phone or laptop and scan it from there
       </p>
       <PrimaryButton className="mt-4">Share a QR code</PrimaryButton>
-      <SecondaryButton className="mt-4">See instructions</SecondaryButton>
+      <SecondaryButton className="mt-4" onClick={onSeeInstructionsClick}>
+        See instructions
+      </SecondaryButton>
     </div>
   );
 };

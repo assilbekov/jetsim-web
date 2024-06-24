@@ -14,16 +14,17 @@ enum InstallESimInstructionsType {
 type InstallESimInstructionsDialogProps = {
   type?: InstallESimInstructionsType;
   card: Card;
+  onClose: () => void;
 };
 
 export const InstallESimInstructionsDialog = ({
   type = InstallESimInstructionsType.BOTH,
   card,
+  onClose,
 }: InstallESimInstructionsDialogProps) => {
   return (
     <Dialog
-      //onClose={() => props.setDialog(null)}
-      onClose={() => {}} // TODO
+      onClose={onClose}
       dialogClassName={
         //props.type === CardDialogType.DETAILS
         true ? "md:h-auto md:h-max-auto md:h-fit" : ""
@@ -33,13 +34,13 @@ export const InstallESimInstructionsDialog = ({
       <div className="flex flex-col gap-5 w-full">
         {{
           [InstallESimInstructionsType.MANUAL]: (
-            <ManualInstallDialogContent card={card} onClose={() => {}} />
+            <ManualInstallDialogContent card={card} onClose={onClose} />
           ),
           [InstallESimInstructionsType.QR]: (
-            <QRInstallDialogContent card={card} />
+            <QRInstallDialogContent card={card} onClose={onClose} />
           ),
           [InstallESimInstructionsType.BOTH]: (
-            <HowToInstallDialogContent card={card} />
+            <HowToInstallDialogContent card={card} onClose={onClose} />
           ),
         }[type] || <></>}
       </div>

@@ -11,6 +11,7 @@ import { CardDialog, CardDialogModel, CardDialogType } from "./CardDialog";
 import { fetchPackage } from "@/api/packages";
 import { SkeletonCard } from "./SkeletonCard";
 import { CardStatus } from "@/models/Card";
+import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
 
 const MockCards = [
   {
@@ -231,19 +232,24 @@ export const ProfileCards = () => {
             key={dialog.type}
             {...dialog}
             setDialog={setDialog}
-            onSeeInstructionsClick={() =>
+            onSeeInstructionsClick={() => {
               setInstructionsDialog({
                 type: CardDialogType.INSTALL,
                 card: dialog.card,
                 location: dialog.location,
                 selectedPackage: dialog.selectedPackage,
-              })
-            }
+              });
+              setDialog(null);
+            }}
           />
         )}
-        {/* {instructionsDialog && (
-          <InstallESimInstructionsDialog key={instructionsDialog.type} {...instructionsDialog} setDialog={setInstructionsDialog} />
-        )} */}
+        {instructionsDialog && (
+          <InstallESimInstructionsDialog
+            key={instructionsDialog.type}
+            card={instructionsDialog.card}
+            onClose={() => setInstructionsDialog(null)}
+          />
+        )}
         {/* {cards?.[3] && <InstallESimInstructionsDialog card={cards[3]} />} */}
       </Card>
     </LandingContainer>

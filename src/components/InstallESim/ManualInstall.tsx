@@ -34,7 +34,10 @@ type ManualInstallProps = {
   onSeeInstructionsClick: () => void;
 };
 
-export const ManualInstall = ({ card }: ManualInstallProps) => {
+export const ManualInstall = ({
+  card,
+  onSeeInstructionsClick,
+}: ManualInstallProps) => {
   const [smdp, addr, lpaCode] = card.lpaCode.split("$");
   const smdpAddr = `${smdp}$${addr}`;
   const lpaActivationCode = `$${lpaCode}`;
@@ -63,7 +66,9 @@ export const ManualInstall = ({ card }: ManualInstallProps) => {
       >
         Copy this code when you manully adding eSIM
       </p>
-      <PrimaryButton className="mt-4 w-full">See instructions</PrimaryButton>
+      <PrimaryButton className="mt-4 w-full" onClick={onSeeInstructionsClick}>
+        See instructions
+      </PrimaryButton>
     </div>
   );
 };
