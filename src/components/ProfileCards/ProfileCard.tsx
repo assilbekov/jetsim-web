@@ -113,13 +113,13 @@ export function ProfileCard({
           [CardStatus.Active]: (
             <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
               <PrimaryButton
-                className="w-full px-1"
+                className="w-full pr-1 pl-1"
                 onClick={() => onBuyNewPlanClick(card, location)}
               >
                 Buy new plan
               </PrimaryButton>
               <SecondaryButton
-                className="w-full py-[14px] px-1"
+                className="w-full py-[14px] pr-1 pl-1"
                 onClick={() => onDetailsClick(card, location)}
               >
                 View details
@@ -129,13 +129,13 @@ export function ProfileCard({
           [CardStatus.Expired]: (
             <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
               <SecondaryButton
-                className="w-full py-[14px] px-1"
+                className="w-full py-[14px] pr-1 pl-1"
                 onClick={() => onBuyNewPlanClick(card, location)}
               >
                 Buy new plan
               </SecondaryButton>
               <SecondaryButton
-                className="w-full py-[14px] px-1"
+                className="w-full py-[14px] pr-1 pl-1"
                 onClick={() => onDetailsClick(card, location)}
               >
                 View details
