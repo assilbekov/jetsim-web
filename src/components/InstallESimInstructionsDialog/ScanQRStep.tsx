@@ -1,6 +1,4 @@
-import QRCode from "react-qr-code";
-import { ArrowRightImage } from "./ArrowRightImage";
-import { IconWithText } from "./IconWithText";
+import QRCode from 'qrcode.react';
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
 import { Card } from "@/models/Card";

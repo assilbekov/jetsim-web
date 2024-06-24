@@ -1,5 +1,5 @@
 import { Card } from "@/models/Card";
-import QRCode from "react-qr-code";
+import QRCode from 'qrcode.react';
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
