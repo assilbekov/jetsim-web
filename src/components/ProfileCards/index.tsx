@@ -53,7 +53,7 @@ const MockCards = [
     activatedAt: "2024-06-24 16:04:31 +0000 UTC",
     expiresAt: "2024-07-09 16:04:31 +0000 UTC",
     trafficTotalBytes: 37580963840,
-    trafficRemainingBytes: 17580963840,
+    trafficRemainingBytes: 5580963840,
     package: {
       id: "ce1fd811-0cfe-5ba7-9433-2b276806c3e5",
       traffic: {

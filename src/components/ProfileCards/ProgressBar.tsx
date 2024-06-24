@@ -3,8 +3,13 @@ import { clsx } from "@/utils";
 type ProgressBarProps = {
   progress: number;
   className?: string;
+  progressBarClassName?: string;
 };
-export const ProgressBar = ({ progress, className }: ProgressBarProps) => {
+export const ProgressBar = ({
+  progress,
+  className,
+  progressBarClassName,
+}: ProgressBarProps) => {
   return (
     <div className={clsx("flex gap-3 max-md:flex-wrap", className ?? "")}>
       {Array.from({ length: 5 }).map((_, index) => {
@@ -26,7 +31,10 @@ export const ProgressBar = ({ progress, className }: ProgressBarProps) => {
             className="flex-1 shrink-0 h-1.5 bg-[#E9F0F2] rounded-full dark:bg-gray-700"
           >
             <div
-              className="bg-primary-500 h-1.5 rounded-full"
+              className={clsx(
+                "bg-primary-500 h-1.5 rounded-full",
+                progressBarClassName ?? ""
+              )}
               style={{
                 width,
               }}
@@ -41,6 +49,7 @@ export const ProgressBar = ({ progress, className }: ProgressBarProps) => {
 export const ProgressBarSignleLine = ({
   progress,
   className,
+  progressBarClassName,
 }: ProgressBarProps) => {
   const width = `${progress}%`;
   return (
@@ -51,7 +60,10 @@ export const ProgressBarSignleLine = ({
       )}
     >
       <div
-        className="bg-primary-500 h-1.5 rounded-full"
+        className={clsx(
+          "bg-primary-500 h-1.5 rounded-full",
+          progressBarClassName ?? ""
+        )}
         style={{
           width,
         }}

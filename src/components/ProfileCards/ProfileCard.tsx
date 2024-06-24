@@ -75,12 +75,15 @@ export function ProfileCard({
           />
         );
       case CardStatus.Installed:
+        const progress =
+          (card.trafficRemainingBytes * 100) / card.trafficTotalBytes;
         return (
           <ProgressBar
-            progress={
-              (card.trafficRemainingBytes * 100) / card.trafficTotalBytes
-            }
+            progress={progress}
             className="mt-3"
+            progressBarClassName={
+              progress < 20 ? "bg-secondary-500" : "bg-primary-500"
+            }
           />
         );
       default:
