@@ -1,9 +1,12 @@
+"use client";
+
 import { Card } from "@/models/Card";
-import QRCode from 'qrcode.react';
+import QRCode from "qrcode.react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { useRef } from "react";
 
 type QRCodeInstallProps = {
   card: Card;
@@ -14,12 +17,27 @@ export const QRCodeInstall = ({
   card,
   onSeeInstructionsClick,
 }: QRCodeInstallProps) => {
+  const qrRef = useRef<HTMLDivElement>(null);
+
+  const handleShare = () => {
+    const canvas = qrRef?.current?.querySelector("canvas");
+    const url = canvas?.toDataURL("image/png");
+    const a = document.createElement("a");
+    if (!url) return;
+    a.href = url;
+    a.download = "qrcode.png";
+    a.click();
+  };
+
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
-      <QRCode
-        value={card.lpaCode}
-        className="self-center w-full aspect-square fill-white max-w-[220px]"
-      />
+      <div ref={qrRef} className="flex justify-center">
+        <QRCode
+          id="qrCodeCanvas"
+          value={card.lpaCode}
+          className="self-center w-full aspect-square fill-white max-w-[220px]"
+        />
+      </div>
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
@@ -36,7 +54,9 @@ export const QRCodeInstall = ({
       >
         Share this QR code to other phone or laptop and scan it from there
       </p>
-      <PrimaryButton className="mt-4">Share a QR code</PrimaryButton>
+      <PrimaryButton className="mt-4" onClick={handleShare}>
+        Share a QR code
+      </PrimaryButton>
       <SecondaryButton className="mt-4" onClick={onSeeInstructionsClick}>
         See instructions
       </SecondaryButton>
