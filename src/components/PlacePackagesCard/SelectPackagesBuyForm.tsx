@@ -64,7 +64,7 @@ export const SelectPackagesBuyForm = ({
 
   useEffect(() => {
     if (!isStandardEmpty && isUnlimitedEmpty) {
-      setSelectedTag(PackageTagEnum.UNLIMITED);
+      setSelectedTag(PackageTagEnum.STANDARD);
     }
   }, [isUnlimitedEmpty]);
 
@@ -79,7 +79,7 @@ export const SelectPackagesBuyForm = ({
   }, [packagesUnlimitedQuery.data, packagesStandardQuery.data, selectedTag]);
 
   const packagesList =
-    (searchParams.get("tags") === PackageTagEnum.STANDARD
+    (selectedTag === PackageTagEnum.STANDARD
       ? packagesStandardQuery.data
       : packagesUnlimitedQuery.data) ?? [];
 
