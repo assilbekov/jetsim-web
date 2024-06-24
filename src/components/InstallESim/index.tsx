@@ -18,7 +18,7 @@ export const InstallESim = ({
   return (
     <LandingContainer>
       <Card>
-        <div className="max-w-[453px] mx-auto">
+        <div className="max-w-[453px] mx-auto flex flex-col gap-8">
           <ReinstallESim />
           <InstallESimToggle
             QRContent={
