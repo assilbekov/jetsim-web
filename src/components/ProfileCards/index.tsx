@@ -63,6 +63,22 @@ const MockCards = [
     placeID: "turkiye",
   },
   {
+    id: "debb0741-55bb-4713-267b-5434dbc31f34",
+    status: CardStatus.Installed,
+    lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
+    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
+    expiresAt: "2024-06-26 16:04:31 +0000 UTC",
+    trafficTotalBytes: 37580963840,
+    trafficRemainingBytes: 15580963840,
+    package: {
+      id: "ce1fd811-0cfe-5ba7-9433-2b276806c3e5",
+      traffic: {
+        isUnlimited: false,
+      },
+    },
+    placeID: "turkiye",
+  },
+  {
     id: "debb0741-55bb-4713-957b-5434dbc39f34",
     status: CardStatus.Expired,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
@@ -194,6 +210,7 @@ export const ProfileCards = () => {
                     key={card.id}
                     card={card}
                     location={location}
+                    selectedPackage={selectedPackage}
                     onBuyNewPlanClick={(card, location) =>
                       setDialog({
                         type: CardDialogType.BUY_NEW_PLAN,

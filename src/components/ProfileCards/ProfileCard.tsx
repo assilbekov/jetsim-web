@@ -7,10 +7,12 @@ import { clsx, formatBytes } from "@/utils";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { ProgressBar, ProgressBarSignleLine } from "./ProgressBar";
+import { Package } from "@/models/Package";
 
 type ProfileCardProps = {
   card: Card;
   location: Location;
+  selectedPackage: Package;
   onInstallClick: (card: Card, location: Location) => void;
   onDetailsClick: (card: Card, location: Location) => void;
   onBuyNewPlanClick: (card: Card, location: Location) => void;
@@ -19,18 +21,23 @@ type ProfileCardProps = {
 export function ProfileCard({
   card,
   location,
+  selectedPackage,
   onBuyNewPlanClick,
   onDetailsClick,
   onInstallClick,
 }: ProfileCardProps) {
+  const expirationDate = new Date(card.expiresAt);
+  const currentDate = new Date();
+
+  const diffTime = Math.abs(expirationDate.getTime() - currentDate.getTime());
+  const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+  const diffMonths = Math.round(diffDays / 30);
+
+  const progress = (card.trafficRemainingBytes * 100) / card.trafficTotalBytes;
+  const isTrafficLow = progress < 20;
+  const isDaysLeftLow = (diffDays * 100) / selectedPackage.days;
+
   const getExpirationText = () => {
-    const expirationDate = new Date(card.expiresAt);
-    const currentDate = new Date();
-
-    const diffTime = Math.abs(expirationDate.getTime() - currentDate.getTime());
-    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-    const diffMonths = Math.round(diffDays / 30);
-
     if (expirationDate < currentDate) {
       if (diffMonths > 1) {
         return `Expired ${diffMonths} month${diffMonths > 1 ? "s" : ""} ago`;
@@ -65,24 +72,14 @@ export function ProfileCard({
     switch (card.status) {
       case CardStatus.ReadyToInstall:
       case CardStatus.Paid:
-        return (
-          <ProgressBarSignleLine
-            progress={
-              (card.trafficTotalBytes - card.trafficRemainingBytes) /
-              card.trafficTotalBytes
-            }
-            className="mt-3"
-          />
-        );
+        return <ProgressBarSignleLine progress={0} className="mt-3" />;
       case CardStatus.Installed:
-        const progress =
-          (card.trafficRemainingBytes * 100) / card.trafficTotalBytes;
         return (
           <ProgressBar
             progress={progress}
             className="mt-3"
             progressBarClassName={
-              progress < 20 ? "bg-secondary-500" : "bg-primary-500"
+              isTrafficLow ? "bg-secondary-500" : "bg-primary-500"
             }
           />
         );
