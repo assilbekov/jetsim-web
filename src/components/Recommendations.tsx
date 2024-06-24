@@ -31,7 +31,7 @@ const ArrowRightIcon = () => (
   </svg>
 );
 
-const ViewAllCard = () => {
+const ViewAllCard = ({ count }: { count: number }) => {
   return (
     <Link href="/all-destinations">
       <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
@@ -50,7 +50,7 @@ const ViewAllCard = () => {
               getTypographyClass(TypographyVariants.Caption)
             )}
           >
-            {ALL_COUNTRIES_NUMBER} countries
+            {count || ALL_COUNTRIES_NUMBER} countries
           </p>
         </div>
         <div className="w-[34px] h-[34px] flex items-center justify-end rounded-full">
@@ -88,7 +88,7 @@ export const Recommendations = async () => {
               })()}
             />
           ))}
-          <ViewAllCard />
+          <ViewAllCard count={topCountries.total} />
         </div>
       </Card>
     </LandingContainer>
