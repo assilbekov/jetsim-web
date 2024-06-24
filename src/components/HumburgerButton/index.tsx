@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import "./HumburgerButton.css";
 
 export const HumburgerButton = () => {
@@ -18,6 +19,12 @@ export const HumburgerButton = () => {
       body.classList.toggle("overflow-hidden");
     }
   };
+
+  useEffect(() => {
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
 
   return (
     <button
