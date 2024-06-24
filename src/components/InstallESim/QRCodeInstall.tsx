@@ -7,6 +7,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 
 type QRCodeInstallProps = {
   card: Card;
+  onSeeInstructionsClick: () => void;
 };
 
 export const QRCodeInstall = ({ card }: QRCodeInstallProps) => {

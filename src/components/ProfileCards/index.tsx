@@ -113,6 +113,8 @@ const MockCards = [
 
 export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
+  const [instructionsDialog, setInstructionsDialog] =
+    useState<CardDialogModel | null>(null);
   const { data: cards, isFetched: isCardsFetched } = useQuery({
     queryKey: ["cards"],
     queryFn: async () => {
@@ -225,8 +227,23 @@ export const ProfileCards = () => {
           <PlanningTripCard />
         </div>
         {dialog && (
-          <CardDialog key={dialog.type} {...dialog} setDialog={setDialog} />
+          <CardDialog
+            key={dialog.type}
+            {...dialog}
+            setDialog={setDialog}
+            onSeeInstructionsClick={() =>
+              setInstructionsDialog({
+                type: CardDialogType.INSTALL,
+                card: dialog.card,
+                location: dialog.location,
+                selectedPackage: dialog.selectedPackage,
+              })
+            }
+          />
         )}
+        {/* {instructionsDialog && (
+          <InstallESimInstructionsDialog key={instructionsDialog.type} {...instructionsDialog} setDialog={setInstructionsDialog} />
+        )} */}
         {/* {cards?.[3] && <InstallESimInstructionsDialog card={cards[3]} />} */}
       </Card>
     </LandingContainer>

@@ -31,6 +31,7 @@ const CopyCard = ({ text, label, className }: CopyCardProps) => {
 
 type ManualInstallProps = {
   card: Card;
+  onSeeInstructionsClick: () => void;
 };
 
 export const ManualInstall = ({ card }: ManualInstallProps) => {

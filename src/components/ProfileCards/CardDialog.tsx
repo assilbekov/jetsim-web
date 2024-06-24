@@ -34,9 +34,14 @@ export type CardDialogModel = {
 
 type CardDialogProps = {
   setDialog: (model: CardDialogModel | null) => void;
+  onSeeInstructionsClick: () => void;
 } & CardDialogModel;
 
-const InstallContent = ({ card, setDialog }: CardDialogProps) => {
+const InstallContent = ({
+  card,
+  setDialog,
+  onSeeInstructionsClick,
+}: CardDialogProps) => {
   return (
     <>
       <DialogTitle onClose={() => setDialog(null)} title="Install eSIM" />
@@ -44,12 +49,18 @@ const InstallContent = ({ card, setDialog }: CardDialogProps) => {
       <InstallESimToggle
         QRContent={
           <InfoCard>
-            <QRCodeInstall card={card} />
+            <QRCodeInstall
+              card={card}
+              onSeeInstructionsClick={onSeeInstructionsClick}
+            />
           </InfoCard>
         }
         ManualContent={
           <InfoCard>
-            <ManualInstall card={card} />
+            <ManualInstall
+              card={card}
+              onSeeInstructionsClick={onSeeInstructionsClick}
+            />
           </InfoCard>
         }
       />
