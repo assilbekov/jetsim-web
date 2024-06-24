@@ -4,9 +4,11 @@ import { fetchCard } from "@/api/cards";
 import { InstallESim } from "@/components/InstallESim";
 import { Card } from "@/models/Card";
 import { useEffect, useState } from "react";
+import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
 
 export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
   const [card, setCard] = useState<Card | null>(null);
+  const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
 
   useEffect(() => {
     fetchCard(cardID)
@@ -27,5 +29,22 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
       });
   }, [cardID]);
 
-  return <div>{card && <InstallESim card={card} />}</div>;
+  return (
+    <div>
+      {card && (
+        <InstallESim
+          card={card}
+          onSeeInstructionsClick={() => {
+            setInstructionsDialogShow(true);
+          }}
+        />
+      )}
+      {card && instructionsDialogShow && (
+        <InstallESimInstructionsDialog
+          card={card}
+          onClose={() => setInstructionsDialogShow(false)}
+        />
+      )}
+    </div>
+  );
 };

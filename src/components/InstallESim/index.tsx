@@ -8,17 +8,31 @@ import { InstallESimToggle } from "./InstallESimToggle";
 
 type InstallESimProps = {
   card: CardModel;
+  onSeeInstructionsClick: () => void;
 };
 
-export const InstallESim = ({ card }: InstallESimProps) => {
+export const InstallESim = ({
+  card,
+  onSeeInstructionsClick,
+}: InstallESimProps) => {
   return (
     <LandingContainer>
       <Card>
         <div className="max-w-[453px] mx-auto">
           <ReinstallESim />
           <InstallESimToggle
-            QRContent={<QRCodeInstall card={card} />}
-            ManualContent={<ManualInstall card={card} />}
+            QRContent={
+              <QRCodeInstall
+                card={card}
+                onSeeInstructionsClick={onSeeInstructionsClick}
+              />
+            }
+            ManualContent={
+              <ManualInstall
+                card={card}
+                onSeeInstructionsClick={onSeeInstructionsClick}
+              />
+            }
           />
         </div>
       </Card>
