@@ -9,10 +9,11 @@ import { Card } from "../Card";
 import { useState } from "react";
 import { CardDialog, CardDialogModel, CardDialogType } from "./CardDialog";
 import { fetchPackage } from "@/api/packages";
+import { SkeletonCard } from "./SkeletonCard";
 
 export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
-  const { data: cards } = useQuery({
+  const { data: cards, isFetched: isCardsFetched } = useQuery({
     queryKey: ["cards"],
     queryFn: async () => {
       return await fetchCards();
@@ -36,7 +37,7 @@ export const ProfileCards = () => {
     }, {}) || {}
   );
 
-  const { data: locations } = useQuery({
+  const { data: locations, isFetched: isLocationsFetched } = useQuery({
     queryKey: ["locations", ...locationIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
@@ -46,7 +47,7 @@ export const ProfileCards = () => {
       return await promiseAll;
     },
   });
-  const { data: packages } = useQuery({
+  const { data: packages, isFetched: isPackagesFetched } = useQuery({
     queryKey: ["packages", ...packageIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
@@ -72,46 +73,54 @@ export const ProfileCards = () => {
       };
     });
 
+  const isCardsLoaded =
+    isCardsFetched && isLocationsFetched && isPackagesFetched;
+
   return (
     <LandingContainer>
       <Card>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {cardsWithLocation?.map(
-            ({ card, location, selectedPackage }) =>
-              card &&
-              location &&
-              selectedPackage && (
-                <ProfileCard
-                  key={card.id}
-                  card={card}
-                  location={location}
-                  onBuyNewPlanClick={(card, location) =>
-                    setDialog({
-                      type: CardDialogType.BUY_NEW_PLAN,
-                      card,
-                      location,
-                      selectedPackage,
-                    })
-                  }
-                  onDetailsClick={(card, location) =>
-                    setDialog({
-                      type: CardDialogType.DETAILS,
-                      card,
-                      location,
-                      selectedPackage,
-                    })
-                  }
-                  onInstallClick={(card, location) =>
-                    setDialog({
-                      type: CardDialogType.INSTALL,
-                      card,
-                      location,
-                      selectedPackage,
-                    })
-                  }
-                />
-              )
+          {isCardsLoaded ? (
+            cardsWithLocation?.map(
+              ({ card, location, selectedPackage }) =>
+                card &&
+                location &&
+                selectedPackage && (
+                  <ProfileCard
+                    key={card.id}
+                    card={card}
+                    location={location}
+                    onBuyNewPlanClick={(card, location) =>
+                      setDialog({
+                        type: CardDialogType.BUY_NEW_PLAN,
+                        card,
+                        location,
+                        selectedPackage,
+                      })
+                    }
+                    onDetailsClick={(card, location) =>
+                      setDialog({
+                        type: CardDialogType.DETAILS,
+                        card,
+                        location,
+                        selectedPackage,
+                      })
+                    }
+                    onInstallClick={(card, location) =>
+                      setDialog({
+                        type: CardDialogType.INSTALL,
+                        card,
+                        location,
+                        selectedPackage,
+                      })
+                    }
+                  />
+                )
+            )
+          ) : (
+            <SkeletonCard />
           )}
+
           <PlanningTripCard />
         </div>
         {dialog && (
