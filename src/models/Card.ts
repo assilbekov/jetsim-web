@@ -14,6 +14,9 @@ export type Card = {
 
 type Package = {
   id: string;
+  traffic: {
+    isUnlimited: boolean;
+  };
 };
 
 export enum CardStatus {

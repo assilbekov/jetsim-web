@@ -34,8 +34,9 @@ export function ProfileCard({
   const diffMonths = Math.round(diffDays / 30);
 
   const progress = (card.trafficRemainingBytes * 100) / card.trafficTotalBytes;
+  const daysProgress = (diffDays * 100) / selectedPackage.days;
   const isTrafficLow = progress < 20;
-  const isDaysLeftLow = (diffDays * 100) / selectedPackage.days;
+  const isDaysLeftLow = daysProgress < 20;
 
   const getExpirationText = () => {
     if (expirationDate < currentDate) {
@@ -53,13 +54,29 @@ export function ProfileCard({
     switch (card.status) {
       case CardStatus.Paid:
       case CardStatus.ReadyToInstall:
-        return <p>{formatBytes(card.trafficTotalBytes)}</p>;
+        return (
+          <p>
+            {card.package.traffic.isUnlimited
+              ? `${selectedPackage.days} days`
+              : formatBytes(card.trafficTotalBytes)}
+          </p>
+        );
       case CardStatus.Installed:
         return (
           <>
-            <p>{formatBytes(card.trafficRemainingBytes)}</p>
-            <p className="text-text-600">
-              {formatBytes(card.trafficTotalBytes)}
+            <p className={clsx(isTrafficLow ? "text-secondary-500" : "")}>
+              {card.package.traffic.isUnlimited
+                ? `${selectedPackage.days} days`
+                : formatBytes(card.trafficRemainingBytes)}
+            </p>
+            <p
+              className={clsx(
+                isDaysLeftLow ? "text-secondary-500" : "text-text-600"
+              )}
+            >
+              {card.package.traffic.isUnlimited
+                ? "∞ GB"
+                : formatBytes(card.trafficTotalBytes)}
             </p>
           </>
         );
