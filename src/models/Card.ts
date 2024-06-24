@@ -17,11 +17,12 @@ type Package = {
 };
 
 export enum CardStatus {
-  Active = "active",
-  Inactive = "inactive",
-  Paid = "paid",
   Pending = "pending",
+  Paid = "paid",
+  ReadyToInstall = "readyToInstall",
+  Installed = "installed",
   Expired = "expired",
+  Deleted = "deleted",
 }
 
 export interface ClientOptionsResponse {

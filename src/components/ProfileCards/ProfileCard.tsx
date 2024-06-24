@@ -42,6 +42,103 @@ export function ProfileCard({
     return `Expires in ${diffDays} day${diffDays > 1 ? "s" : ""}`;
   };
 
+  const renderTrafficText = () => {
+    switch (card.status) {
+      case CardStatus.Paid:
+      case CardStatus.ReadyToInstall:
+        return <p>{formatBytes(card.trafficTotalBytes)}</p>;
+      case CardStatus.Installed:
+        return (
+          <>
+            <p>{formatBytes(card.trafficRemainingBytes)}</p>
+            <p className="text-text-600">
+              {formatBytes(card.trafficTotalBytes)}
+            </p>
+          </>
+        );
+      default:
+        return <></>;
+    }
+  };
+
+  const renderProgressBar = () => {
+    switch (card.status) {
+      case CardStatus.ReadyToInstall:
+      case CardStatus.Paid:
+        return (
+          <ProgressBarSignleLine
+            progress={
+              (card.trafficTotalBytes - card.trafficRemainingBytes) /
+              card.trafficTotalBytes
+            }
+            className="mt-3"
+          />
+        );
+      case CardStatus.Installed:
+        return (
+          <ProgressBar
+            progress={
+              (card.trafficRemainingBytes * 100) / card.trafficTotalBytes
+            }
+            className="mt-3"
+          />
+        );
+      default:
+        return <></>;
+    }
+  };
+
+  const renderActionButtons = () => {
+    switch (card.status) {
+      case CardStatus.Paid:
+      case CardStatus.ReadyToInstall:
+        return (
+          <PrimaryButton
+            className="w-full"
+            onClick={() => onInstallClick(card, location)}
+          >
+            Install eSIM
+          </PrimaryButton>
+        );
+      case CardStatus.Installed:
+        return (
+          <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
+            <PrimaryButton
+              className="w-full pr-1 pl-1"
+              onClick={() => onBuyNewPlanClick(card, location)}
+            >
+              Buy new plan
+            </PrimaryButton>
+            <SecondaryButton
+              className="w-full py-[14px] pr-1 pl-1"
+              onClick={() => onDetailsClick(card, location)}
+            >
+              View details
+            </SecondaryButton>
+          </div>
+        );
+      case CardStatus.Expired:
+        return (
+          <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
+            <SecondaryButton
+              className="w-full py-[14px] pr-1 pl-1"
+              onClick={() => onBuyNewPlanClick(card, location)}
+            >
+              Buy new plan
+            </SecondaryButton>
+            <SecondaryButton
+              className="w-full py-[14px] pr-1 pl-1"
+              onClick={() => onDetailsClick(card, location)}
+            >
+              View details
+            </SecondaryButton>
+          </div>
+        );
+      default:
+        return <></>;
+    }
+  };
+
   return (
     <div className="flex flex-col justify-between px-6 pt-5 pb-6 bg-white rounded-3xl border-2 border-solid border-slate-200 max-md:px-5">
       <div className="flex gap-4">
@@ -71,89 +168,10 @@ export function ProfileCard({
           "flex justify-between mt-16"
         )}
       >
-        {{
-          [CardStatus.Active]: (
-            <>
-              <p>{formatBytes(card.trafficRemainingBytes)}</p>
-              <p className="text-text-600">
-                {formatBytes(card.trafficTotalBytes)}
-              </p>
-            </>
-          ),
-          [CardStatus.Expired]: <></>,
-          [CardStatus.Inactive]: <></>,
-          [CardStatus.Paid]: <p>{formatBytes(card.trafficTotalBytes)}</p>,
-          [CardStatus.Pending]: <></>,
-        }[card.status] || <></>}
+        {renderTrafficText()}
       </div>
-      {{
-        [CardStatus.Active]: (
-          <ProgressBar
-            progress={
-              (card.trafficRemainingBytes * 100) / card.trafficTotalBytes
-            }
-            className="mt-3"
-          />
-        ),
-        [CardStatus.Expired]: <></>,
-        [CardStatus.Inactive]: <></>,
-        [CardStatus.Paid]: (
-          <ProgressBarSignleLine
-            progress={
-              (card.trafficTotalBytes - card.trafficRemainingBytes) /
-              card.trafficTotalBytes
-            }
-            className="mt-3"
-          />
-        ),
-        [CardStatus.Pending]: <></>,
-      }[card.status] || <></>}
-      <div className="mt-6">
-        {{
-          [CardStatus.Active]: (
-            <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
-              <PrimaryButton
-                className="w-full pr-1 pl-1"
-                onClick={() => onBuyNewPlanClick(card, location)}
-              >
-                Buy new plan
-              </PrimaryButton>
-              <SecondaryButton
-                className="w-full py-[14px] pr-1 pl-1"
-                onClick={() => onDetailsClick(card, location)}
-              >
-                View details
-              </SecondaryButton>
-            </div>
-          ),
-          [CardStatus.Expired]: (
-            <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
-              <SecondaryButton
-                className="w-full py-[14px] pr-1 pl-1"
-                onClick={() => onBuyNewPlanClick(card, location)}
-              >
-                Buy new plan
-              </SecondaryButton>
-              <SecondaryButton
-                className="w-full py-[14px] pr-1 pl-1"
-                onClick={() => onDetailsClick(card, location)}
-              >
-                View details
-              </SecondaryButton>
-            </div>
-          ),
-          [CardStatus.Paid]: (
-            <PrimaryButton
-              className="w-full"
-              onClick={() => onInstallClick(card, location)}
-            >
-              Install eSIM
-            </PrimaryButton>
-          ),
-          [CardStatus.Inactive]: <></>,
-          [CardStatus.Pending]: <></>,
-        }[card.status] || <></>}
-      </div>
+      {renderProgressBar()}
+      <div className="mt-6">{renderActionButtons()}</div>
     </div>
   );
 }
