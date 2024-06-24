@@ -224,7 +224,7 @@ export const CardDialog = (props: CardDialogProps) => {
       onClose={() => props.setDialog(null)}
       dialogClassName={
         props.type === CardDialogType.DETAILS
-          ? "md:h-auto md:h-max-auto md:h-fit"
+          ? "md:h-auto md:h-max-auto md:h-fit md:mt-[80px]"
           : ""
       }
       dialogContentClassName={
