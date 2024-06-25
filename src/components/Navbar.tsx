@@ -6,6 +6,7 @@ import { LoginLink } from "./LoginLink";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { HomeLogo } from "./HomeLogo";
+import { CookieInfo } from "./CookieInfo";
 
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
@@ -35,6 +36,7 @@ export const Navbar = () => {
         </div>
         <LoginLink />
       </nav>
+      <CookieInfo />
     </header>
   );
 };
