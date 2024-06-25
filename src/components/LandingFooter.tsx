@@ -97,7 +97,6 @@ export const LandingFooterContent = async ({
               <ListElement href="/terms-of-service">
                 Terms of Service
               </ListElement>
-              <ListElement>COF Agreement</ListElement>
             </ListBlock>
           </LinksBlock>
           <AddressBlock className="lg:hidden" />
