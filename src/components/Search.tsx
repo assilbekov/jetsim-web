@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
 import { convertLocationBestCost } from "@/converters/location";
 import { Skeleton } from "./Skeleton";
+import { SecondaryButton } from "./buttons/SecondaryButton";
+import { TypographyVariants, getTypographyClass } from "./Typography";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
@@ -44,15 +46,36 @@ export const Search = () => {
   };
 
   const renderList = () => {
+    const isFetched = query ? queryInfo.isFetched : topCountriesInfo.isFetched;
     const locations: Location[] =
       (query ? queryInfo.data : topCountriesInfo?.data?.data.slice(0, 4)) || [];
 
-    if (!locations?.length) {
+    console.log({ topCountriesInfo, queryInfo, locations, isFetched });
+
+    if (!isFetched) {
       return (
         <li className="flex flex-col gap-2">
           {Array.from({ length: 4 }).map((_, i) => (
             <Skeleton key={i} className="w-full h-20 rounded-xl" />
           ))}
+        </li>
+      );
+    }
+
+    if (isFetched && !locations.length) {
+      return (
+        <li className="flex items-center justify-between gap-2 py-3 px-6">
+          <p className={getTypographyClass(TypographyVariants.Body)}>
+            No results found
+          </p>
+          <Link href="all-destinations">
+            <SecondaryButton
+              onClick={() => setOpen(false)}
+              className="pt-3 pb-3"
+            >
+              Show all countries
+            </SecondaryButton>
+          </Link>
         </li>
       );
     }
