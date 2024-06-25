@@ -2,6 +2,7 @@ import { clsx } from "@/utils";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { SecondaryButton } from "../buttons/SecondaryButton";
+import Link from "next/link";
 
 export function PlanningTripCard() {
   return (
@@ -28,9 +29,11 @@ export function PlanningTripCard() {
             Buy a new plan at affordable price
           </p>
         </div>
-        <SecondaryButton className="w-[190px] py-[14px] mx-auto">
-          View details
-        </SecondaryButton>
+        <Link href="/all-destinations">
+          <SecondaryButton className="w-[190px] py-[14px] mx-auto">
+            Buy a new plan
+          </SecondaryButton>
+        </Link>
       </div>
     </div>
   );
