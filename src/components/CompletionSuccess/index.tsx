@@ -2,12 +2,15 @@
 
 import { fetchCard } from "@/api/cards";
 import { InstallESim } from "@/components/InstallESim";
-import { Card } from "@/models/Card";
+import { Card as CardModel } from "@/models/Card";
 import { useEffect, useState } from "react";
 import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
+import { Skeleton } from "../Skeleton";
+import { LandingContainer } from "../LandingContainer";
+import { Card } from "../Card";
 
 export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
-  const [card, setCard] = useState<Card | null>(null);
+  const [card, setCard] = useState<CardModel | null>(null);
   const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
 
   useEffect(() => {
@@ -31,19 +34,27 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
 
   return (
     <div>
-      {card && (
-        <InstallESim
-          card={card}
-          onSeeInstructionsClick={() => {
-            setInstructionsDialogShow(true);
-          }}
-        />
-      )}
-      {card && instructionsDialogShow && (
-        <InstallESimInstructionsDialog
-          card={card}
-          onClose={() => setInstructionsDialogShow(false)}
-        />
+      {card ? (
+        <>
+          <InstallESim
+            card={card}
+            onSeeInstructionsClick={() => {
+              setInstructionsDialogShow(true);
+            }}
+          />
+          {instructionsDialogShow && (
+            <InstallESimInstructionsDialog
+              card={card}
+              onClose={() => setInstructionsDialogShow(false)}
+            />
+          )}
+        </>
+      ) : (
+        <LandingContainer>
+          <Card>
+            <Skeleton className="h-[500px] w-full rounded-xl" />
+          </Card>
+        </LandingContainer>
       )}
     </div>
   );
