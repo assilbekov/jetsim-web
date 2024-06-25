@@ -107,6 +107,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
           placeId={placeId}
           infoContent={<PaymentMethodsInfo />}
           onSubmit={handleCheckout}
+          location={locationQuery.data}
           updateSearchParams
         />
       </Card>

@@ -14,16 +14,19 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import Link from "next/link";
+import { Location } from "@/models/Location";
 
 type SelectPackagesBuyFormProps = {
   placeId: string;
   updateSearchParams: boolean;
+  location?: Location;
   infoContent: React.ReactNode;
   onSubmit: (selectedPackageId: string) => void;
 };
 
 export const SelectPackagesBuyForm = ({
   placeId,
+  location,
   onSubmit,
   infoContent,
   updateSearchParams,
@@ -131,7 +134,8 @@ export const SelectPackagesBuyForm = ({
               "text-center"
             )}
           >
-            There are no available data plans for Turkey at the moment
+            There are no available data plans for{" "}
+            {location?.title || "the selected location"} at the moment
           </p>
         </div>
         <Link href="/all-destinations" className="text-center">

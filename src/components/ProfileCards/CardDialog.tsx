@@ -212,6 +212,7 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
         infoContent={
           <ReinstallESim className="bg-[#EDFAFF] border-[#EDFAFF] my-1" />
         }
+        location={location}
         onSubmit={handleCheckout}
         updateSearchParams={false}
       />
