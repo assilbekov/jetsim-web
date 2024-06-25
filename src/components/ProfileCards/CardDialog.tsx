@@ -18,6 +18,7 @@ import { convertPrice } from "@/converters/prices";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SelectPackagesBuyForm } from "../PlacePackagesCard/SelectPackagesBuyForm";
 import { useRouter } from "next/navigation";
+import { convertDaysText } from "@/converters/texts";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -133,7 +134,7 @@ const DetailsContent = ({
         <DetailsItem
           src="/icons/black/calendar_clock.svg"
           alt="calendar clock icon"
-          content={`${selectedPackage.days} days`}
+          content={convertDaysText(selectedPackage.days)}
         />
         <DetailsItem
           src="/icons/black/calendar_today.svg"

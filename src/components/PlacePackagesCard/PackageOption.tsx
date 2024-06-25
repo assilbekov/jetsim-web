@@ -6,6 +6,7 @@ import { BestBadge } from "./BestBadge";
 import { PlansHelperInfo } from "./PlansHelperInfo";
 import { convertPrice } from "@/converters/prices";
 import { convertSecondsToHours } from "@/converters/times";
+import { convertDaysText } from "@/converters/texts";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -85,7 +86,7 @@ export const PackageOption = ({
           <TextContainer>
             <BoldText>
               {tag === PackageTagEnum.UNLIMITED
-                ? `${packageEntity.days} days`
+                ? convertDaysText(packageEntity.days)
                 : `${packageEntity.traffic.unit.count} ${packageEntity.traffic.unit.label}`}
             </BoldText>
             <SecondaryText>
@@ -105,7 +106,7 @@ export const PackageOption = ({
               )}
             </BoldText>
             {tag === PackageTagEnum.STANDARD && (
-              <SecondaryText>{packageEntity.days} days</SecondaryText>
+              <SecondaryText>{convertDaysText(packageEntity.days)}</SecondaryText>
             )}
           </TextContainer>
         </div>

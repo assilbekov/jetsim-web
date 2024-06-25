@@ -11,6 +11,7 @@ import { convertPrice } from "@/converters/prices";
 import { Skeleton } from "../Skeleton";
 import { Card } from "../Card";
 import { clsx } from "@/utils";
+import { convertDaysText } from "@/converters/texts";
 
 type OrderElementProps = {
   title: React.ReactNode;
@@ -95,7 +96,10 @@ export const OrderSummary = ({
             : `${packageData.traffic.unit.count} ${packageData.traffic.unit.label}`
         }
       />
-      <OrderElement title="Duration" value={`${packageData.days} days`} />
+      <OrderElement
+        title="Duration"
+        value={convertDaysText(packageData.days)}
+      />
       <OrderElement
         title="Price"
         value={convertPrice(packageData.cost.price, packageData.cost.currency)}

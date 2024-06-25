@@ -8,6 +8,7 @@ import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { ProgressBar, ProgressBarSignleLine } from "./ProgressBar";
 import { Package } from "@/models/Package";
+import { convertDaysText } from "@/converters/texts";
 
 type ProfileCardProps = {
   card: Card;
@@ -57,7 +58,7 @@ export function ProfileCard({
         return (
           <p>
             {card.package.traffic.isUnlimited
-              ? `${selectedPackage.days} days`
+              ? convertDaysText(selectedPackage.days)
               : formatBytes(card.trafficTotalBytes)}
           </p>
         );
@@ -66,7 +67,7 @@ export function ProfileCard({
           return (
             <>
               <p className={clsx(isDaysLeftLow ? "text-secondary-500" : "")}>
-                {selectedPackage.days} days
+                {convertDaysText(selectedPackage.days)}
               </p>
               <p className="text-text-600">∞ GB</p>
             </>
