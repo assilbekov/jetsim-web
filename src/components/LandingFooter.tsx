@@ -37,7 +37,27 @@ const ListBlock = ({ children }: { children: React.ReactNode }) => {
 };
 
 const LinksBlock = ({ children }: { children: React.ReactNode }) => {
-  return <div className="flex flex-col gap-4 w-48">{children}</div>;
+  return (
+    <div className="flex flex-col gap-4 w-full lg:min-w-[260px]">
+      {children}
+    </div>
+  );
+};
+
+const AddressBlock = ({ className }: { className: string }) => {
+  return (
+    <p
+      className={clsx(
+        getTypographyClass(TypographyVariants.Caption),
+        "text-text-600 w-full",
+        className ?? ""
+      )}
+    >
+      <p>GIBCO LTD,</p>
+      <p>27 OLD GLOUCESTER STREET LONDON UNITED KINGDOM WC1N 3AX</p>
+      <p>Company number 14246904</p>
+    </p>
+  );
 };
 
 type LandingFooterProps = {
@@ -51,9 +71,10 @@ export const LandingFooterContent = async ({
   const topCountriesRes = await fetchTopCountries(5);
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
-      <div className="flex gap-8 flex-col lg:flex-row">
-        <div className="w-1/2">
+      <div className="flex gap-8 flex-col lg:flex-row lg:justify-between">
+        <div className="w-1/2 flex flex-col justify-between">
           <Image src="/logo.svg" alt="logo image" width={155} height={36} />
+          <AddressBlock className="hidden lg:block" />
         </div>
         <div className="flex gap-8 flex-col sm:flex-row">
           <LinksBlock>
@@ -79,15 +100,7 @@ export const LandingFooterContent = async ({
               <ListElement>COF Agreement</ListElement>
             </ListBlock>
           </LinksBlock>
-          <LinksBlock>
-            <Title>More</Title>
-            <ListBlock>
-              <ListElement>Blog</ListElement>
-              <ListElement>About us</ListElement>
-              <ListElement>Contacts</ListElement>
-              <ListElement>Refund Policy</ListElement>
-            </ListBlock>
-          </LinksBlock>
+          <AddressBlock className="lg:hidden" />
         </div>
       </div>
     </Card>

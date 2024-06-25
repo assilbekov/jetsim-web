@@ -7,12 +7,12 @@ import { TypographyVariants, getTypographyClass } from "./Typography";
 import Link from "next/link";
 
 export const CookieInfo = () => {
-  const [isCookieAccepted, setIsCookieAccepted] = useState(false);
+  const [isCookieAccepted, setIsCookieAccepted] = useState(true);
 
   useEffect(() => {
     const isCookieAccepted = localStorage.getItem("isCookieAccepted");
-    if (isCookieAccepted) {
-      setIsCookieAccepted(true);
+    if (!isCookieAccepted) {
+      setIsCookieAccepted(false);
     }
   }, []);
 
