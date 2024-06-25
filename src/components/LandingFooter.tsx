@@ -4,6 +4,7 @@ import { LandingContainer } from "./LandingContainer";
 import Link from "next/link";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
+import { fetchTopCountries } from "@/api/locations";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -44,7 +45,10 @@ type LandingFooterProps = {
   cardClassName?: string;
 };
 
-export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
+export const LandingFooterContent = async ({
+  cardClassName,
+}: LandingFooterProps) => {
+  const topCountriesRes = await fetchTopCountries(5);
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
       <div className="flex gap-8 flex-col lg:flex-row">
@@ -55,19 +59,20 @@ export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
           <LinksBlock>
             <Title>Top destinations</Title>
             <ListBlock>
-              <ListElement>Europe</ListElement>
-              <ListElement>USA</ListElement>
-              <ListElement>Turkey</ListElement>
-              <ListElement>Spain</ListElement>
-              <ListElement>France</ListElement>
+              {topCountriesRes.data.map((country) => (
+                <ListElement
+                  key={country.placeID}
+                  href={`/places/${country.placeID}`}
+                >
+                  {country.title}
+                </ListElement>
+              ))}
             </ListBlock>
           </LinksBlock>
           <LinksBlock>
             <Title>Legal</Title>
             <ListBlock>
-              <ListElement href="/privacy-policy">
-                Privacy policy
-              </ListElement>
+              <ListElement href="/privacy-policy">Privacy policy</ListElement>
               <ListElement href="/terms-of-service">
                 Terms of Service
               </ListElement>
