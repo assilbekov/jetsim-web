@@ -187,7 +187,7 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
   const router = useRouter();
 
   const handleCheckout = (selectedPackageId: string) => {
-    const redirectUrl = `${window.location.origin}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}`;
+    const redirectUrl = `${window.location.origin}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}&reinstall=true`;
     router.push(redirectUrl);
   };
 

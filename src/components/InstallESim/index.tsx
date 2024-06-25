@@ -5,6 +5,7 @@ import { ReinstallESim } from "./ReinstallESim";
 import { Card } from "../Card";
 import { LandingContainer } from "../LandingContainer";
 import { InstallESimToggle } from "./InstallESimToggle";
+import { useSearchParams } from "next/navigation";
 
 type InstallESimProps = {
   card: CardModel;
@@ -15,11 +16,13 @@ export const InstallESim = ({
   card,
   onSeeInstructionsClick,
 }: InstallESimProps) => {
+  const searchParams = useSearchParams();
+  const isReinstall = searchParams.get("reinstall");
   return (
     <LandingContainer>
       <Card>
         <div className="max-w-[453px] mx-auto flex flex-col gap-8">
-          <ReinstallESim />
+          {isReinstall && <ReinstallESim />}
           <InstallESimToggle
             QRContent={
               <QRCodeInstall
