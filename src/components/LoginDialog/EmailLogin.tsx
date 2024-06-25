@@ -28,6 +28,7 @@ const StyledInput = ({
   value,
   onChange,
   placeholder,
+  className,
 }: DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -36,7 +37,8 @@ const StyledInput = ({
     <input
       className={clsx(
         getTypographyClass(TypographyVariants.Caption),
-        "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full"
+        "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full",
+        className ?? ""
       )}
       placeholder={placeholder}
       value={value}
@@ -59,7 +61,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
 
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
-  const [isCodeValid, setIsCodeValid] = useState(false);
+  const [isCodeInvalid, setIsCodeInvalid] = useState(false);
   const isEmailValid = useMemo(() => validateEmail(email), [email]);
   const [isFormLoading, setIsFormLoading] = useState(false);
   const [step, setStep] = useState<LoginStep>(LoginStep.Email);
@@ -96,7 +98,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
 
       return;
     }
-    setIsCodeValid(false);
+    setIsCodeInvalid(true);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -128,11 +130,12 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
             placeholder="Enter the verification code"
             value={code}
             onChange={(e) => setCode(e.target.value)}
+            className={isCodeInvalid ? "border-[#F00]" : ""}
           />
         )}
         {step === LoginStep.Code && (
           <div className="absolute bottom-0 right-0 flex gap-4 items-center">
-            {isCodeValid && (
+            {isCodeInvalid && (
               <p
                 className={clsx(
                   getTypographyClass(TypographyVariants.Caption),
