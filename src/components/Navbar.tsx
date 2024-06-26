@@ -26,11 +26,13 @@ const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
 type NavbarProps = {
   howToHref?: string;
   faqHref?: string;
+  hideNav?: boolean;
 };
 
 export const Navbar = ({
   howToHref = "#how-to",
   faqHref = "#faq",
+  hideNav = false,
 }: NavbarProps) => {
   useEffect(() => {
     const hash = window.location.hash;
@@ -52,12 +54,17 @@ export const Navbar = ({
         className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between"
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
-          <CheckCompatibilityFromHeader label="Check compatability" />
-          <StyledLink href={howToHref}>How to</StyledLink>
-          <SupportButton>
-            <StyledLink href="#">Support</StyledLink>
-          </SupportButton>
-          <StyledLink href={faqHref}>FAQ</StyledLink>
+          {/* <CheckCompatibilityFromHeader label="Check compatability" /> */}
+          {!hideNav && (
+            <>
+              <StyledLink href="/all-destinations">Destinations</StyledLink>
+              <StyledLink href={howToHref}>How to</StyledLink>
+              <SupportButton>
+                <StyledLink href="#">Support</StyledLink>
+              </SupportButton>
+              <StyledLink href={faqHref}>FAQ</StyledLink>
+            </>
+          )}
         </div>
         <LoginLink />
       </nav>

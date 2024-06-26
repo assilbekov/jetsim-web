@@ -19,7 +19,7 @@ export default function Completion({
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
-            <Navbar />
+            <Navbar hideNav />
           </div>
         </LandingContainer>
       </div>
