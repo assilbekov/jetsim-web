@@ -8,6 +8,7 @@ import { TypographyVariants, getTypographyClass } from "./Typography";
 import { HomeLogo } from "./HomeLogo";
 import { CookieInfo } from "./CookieInfo";
 import { CheckCompatibilityFromHeader } from "./CheckCompatibility";
+import { SupportButton } from "./SupportButton";
 
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
@@ -32,7 +33,9 @@ export const Navbar = () => {
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
           <CheckCompatibilityFromHeader label="Check compatability" />
           <StyledLink href="#">How to</StyledLink>
-          <StyledLink href="#">Support</StyledLink>
+          <SupportButton>
+            <StyledLink href="#">Support</StyledLink>
+          </SupportButton>
           <StyledLink href="#">FAQ</StyledLink>
         </div>
         <LoginLink />
