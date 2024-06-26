@@ -1,6 +1,6 @@
 "use client";
 
-import { Card } from "@/models/Card";
+import { Card, CardStatus } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { ReinstallESim } from "../InstallESim/ReinstallESim";
@@ -19,11 +19,13 @@ import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SelectPackagesBuyForm } from "../PlacePackagesCard/SelectPackagesBuyForm";
 import { useRouter } from "next/navigation";
 import { convertDaysText } from "@/converters/texts";
+import { SecondaryButton } from "../buttons/SecondaryButton";
 
 export enum CardDialogType {
   INSTALL = "install",
   DETAILS = "details",
   BUY_NEW_PLAN = "buy-new-plan",
+  DELETE = "delete",
 }
 
 export type CardDialogModel = {
@@ -167,18 +169,44 @@ const DetailsContent = ({
           content="3G/4G/LTE/5G depends on the network"
         />
       </InfoCard>
-      <PrimaryButton
-        onClick={() =>
-          setDialog({
-            type: CardDialogType.BUY_NEW_PLAN,
-            card,
-            location,
-            selectedPackage,
-          })
-        }
-      >
-        Buy new plan
-      </PrimaryButton>
+      <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
+        {card.status === CardStatus.Expired && (
+          <SecondaryButton
+            className="w-full py-[14px] pr-1 pl-1"
+            onClick={() =>
+              setDialog({
+                type: CardDialogType.DELETE,
+                card,
+                location,
+                selectedPackage,
+              })
+            }
+          >
+            <div className="flex justify-center gap-2">
+              <Image
+                src="/icons/black/delete.svg"
+                alt="delete icon"
+                height={20}
+                width={20}
+              />
+              Delete eSIM
+            </div>
+          </SecondaryButton>
+        )}
+        <PrimaryButton
+          className="w-full pr-1 pl-1"
+          onClick={() =>
+            setDialog({
+              type: CardDialogType.BUY_NEW_PLAN,
+              card,
+              location,
+              selectedPackage,
+            })
+          }
+        >
+          Buy new plan
+        </PrimaryButton>
+      </div>
     </>
   );
 };
@@ -220,6 +248,19 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
   );
 };
 
+const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
+  return (
+    <>
+      <h5>Delete eSIM?</h5>
+      <p>It will remove it from the history</p>
+      <div>
+        <button onClick={() => setDialog(null)}>Cancel</button>
+        <button>Confirm</button>
+      </div>
+    </>
+  );
+};
+
 export const CardDialog = (props: CardDialogProps) => {
   return (
     <Dialog
@@ -238,6 +279,7 @@ export const CardDialog = (props: CardDialogProps) => {
           [CardDialogType.INSTALL]: <InstallContent {...props} />,
           [CardDialogType.DETAILS]: <DetailsContent {...props} />,
           [CardDialogType.BUY_NEW_PLAN]: <BuyNewPlanContent {...props} />,
+          [CardDialogType.DELETE]: <DeleteContent {...props} />,
         }[props.type] || <></>}
       </div>
     </Dialog>
