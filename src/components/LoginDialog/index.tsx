@@ -17,7 +17,9 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
   return createPortal(
     <Dialog
       onClose={onClose}
-      dialogClassName="xxs:max-h-[550px] md:h-[500px]"
+      //dialogClassName="xxs:max-h-[550px] md:h-[500px]"
+      dialogClassName="xxs:max-h-[550px] md:h-[500px] md:h-auto md:h-max-auto md:h-fit md:mt-[20vh]"
+      dialogContentClassName="md:h-auto"
     >
       <DialogTitle title="Log in or sign up" onClose={onClose} />
       <div className="w-full">
