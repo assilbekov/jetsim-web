@@ -11,7 +11,7 @@ export const SupportButton = (props: { children: React.ReactNode }) => {
   const handleSupportClick = () => {
     try {
       if (isZendeskLoaded && localWindow.zE) {
-        localWindow.zE("webWidget", "open");
+        localWindow.zE("messenger", "open");
       } else {
         console.error("Zendesk Widget is not loaded");
       }
