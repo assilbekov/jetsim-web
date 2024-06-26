@@ -6,6 +6,7 @@ import {
   matchTypographyMediaQuery,
 } from "./Typography";
 import Image from "next/image";
+import { SupportButton } from "./SupportButton";
 
 export const LandingSupport = () => {
   return (
@@ -40,14 +41,16 @@ export const LandingSupport = () => {
               </h3>
             </div>
             <div className="text-center sm:text-start">
-              <button
-                className={clsx(
-                  "py-4 px-8 md:px-6 bg-secondary-500 active:bg-secondary-300 hover:bg-secondary-700 rounded-full text-text-900 transition duration-200 ease-in-out",
-                  getTypographyClass(TypographyVariants.Caption)
-                )}
-              >
-                Send a message
-              </button>
+              <SupportButton>
+                <button
+                  className={clsx(
+                    "py-4 px-8 md:px-6 bg-secondary-500 active:bg-secondary-300 hover:bg-secondary-700 rounded-full text-text-900 transition duration-200 ease-in-out",
+                    getTypographyClass(TypographyVariants.Caption)
+                  )}
+                >
+                  Send a message
+                </button>
+              </SupportButton>
             </div>
           </div>
           <div className="hidden sm:block bg-[url('/support-person.png')] bg-cover sm:h-[252px] sm:w-[181px] md:h-[290px] md:w-[207px] lg:h-[355px] lg:w-[255px] xxl:h-[434px] xxl:w-[308px] absolute right-[12%] bottom-0" />
