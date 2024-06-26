@@ -139,7 +139,7 @@ const DetailsContent = ({
         <DetailsItem
           src="/icons/black/calendar_clock.svg"
           alt="calendar clock icon"
-          content={convertDaysText(selectedPackage.days)}
+          content={`Validity ${convertDaysText(selectedPackage.days)}`}
         />
         <DetailsItem
           src="/icons/black/calendar_today.svg"
