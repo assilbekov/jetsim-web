@@ -1,3 +1,5 @@
+"use client";
+
 import Link, { LinkProps } from "next/link";
 import { HumburgerButton } from "./HumburgerButton";
 
@@ -9,6 +11,7 @@ import { HomeLogo } from "./HomeLogo";
 import { CookieInfo } from "./CookieInfo";
 import { CheckCompatibilityFromHeader } from "./CheckCompatibility";
 import { SupportButton } from "./SupportButton";
+import { useEffect } from "react";
 
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
@@ -20,7 +23,25 @@ const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   />
 );
 
-export const Navbar = () => {
+type NavbarProps = {
+  howToHref?: string;
+  faqHref?: string;
+};
+
+export const Navbar = ({
+  howToHref = "#how-to",
+  faqHref = "#faq",
+}: NavbarProps) => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <header className="flex justify-between items-center h-[54px]">
       <HomeLogo />
@@ -32,11 +53,11 @@ export const Navbar = () => {
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
           <CheckCompatibilityFromHeader label="Check compatability" />
-          <StyledLink href="#">How to</StyledLink>
+          <StyledLink href={howToHref}>How to</StyledLink>
           <SupportButton>
             <StyledLink href="#">Support</StyledLink>
           </SupportButton>
-          <StyledLink href="#">FAQ</StyledLink>
+          <StyledLink href={faqHref}>FAQ</StyledLink>
         </div>
         <LoginLink />
       </nav>

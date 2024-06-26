@@ -65,7 +65,7 @@ export const FAQ = () => {
   const faqLeft = faq.slice(0, Math.ceil(faq.length / 2));
   const faqRight = faq.slice(Math.ceil(faq.length / 2));
   return (
-    <LandingContainer>
+    <LandingContainer id="faq">
       <Card size="md">
         <Typography variant={TypographyVariants.H2}>
           Frequently Asked Questions

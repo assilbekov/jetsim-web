@@ -115,7 +115,10 @@ const Step = ({ step, title, content }: StepProps) => {
 
 export const SetupJetSim = () => {
   return (
-    <LandingContainer className="border-t-2 border-[#E9F0F2] xxs:border-t-0">
+    <LandingContainer
+      className="border-t-2 border-[#E9F0F2] xxs:border-t-0"
+      id="how-to"
+    >
       <Card className="flex flex-col gap-5 md:gap-6 lg:gap-8">
         <div className="flex flex-col gap-4 xxs:gap-5 sm:gap-6 lg:gap-8">
           <Typography variant={TypographyVariants.H2}>
