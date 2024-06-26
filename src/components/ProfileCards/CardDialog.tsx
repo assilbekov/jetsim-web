@@ -20,6 +20,7 @@ import { SelectPackagesBuyForm } from "../PlacePackagesCard/SelectPackagesBuyFor
 import { useRouter } from "next/navigation";
 import { convertDaysText } from "@/converters/texts";
 import { SecondaryButton } from "../buttons/SecondaryButton";
+import { TertiaryButton } from "../buttons/TertiaryButton";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -250,14 +251,27 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
 
 const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
   return (
-    <>
-      <h5>Delete eSIM?</h5>
-      <p>It will remove it from the history</p>
-      <div>
-        <button onClick={() => setDialog(null)}>Cancel</button>
-        <button>Confirm</button>
+    <div>
+      <h5 className={getTypographyClass(TypographyVariants.Body2)}>
+        Delete eSIM?
+      </h5>
+      <p
+        className={clsx(
+          getTypographyClass(TypographyVariants.Body2),
+          "text-text-600 mt-2"
+        )}
+      >
+        It will remove it from the history
+      </p>
+      <div className="flex gap-1 justify-end mt-8">
+        <TertiaryButton onClick={() => setDialog(null)}>
+          <span>Cancel</span>
+        </TertiaryButton>
+        <TertiaryButton>
+          <span className="text-secondary-500">Confirm</span>
+        </TertiaryButton>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -268,10 +282,15 @@ export const CardDialog = (props: CardDialogProps) => {
       dialogClassName={
         props.type === CardDialogType.DETAILS
           ? "md:h-auto md:h-max-auto md:h-fit md:mt-[80px]"
+          : props.type === CardDialogType.DELETE
+          ? "md:h-auto md:h-max-auto md:h-fit md:mt-[35vh]"
           : ""
       }
       dialogContentClassName={
-        props.type === CardDialogType.DETAILS ? "md:h-auto" : ""
+        props.type === CardDialogType.DETAILS ||
+        props.type === CardDialogType.DELETE
+          ? "md:h-auto"
+          : ""
       }
     >
       <div className="flex flex-col gap-5 w-full">
