@@ -7,6 +7,7 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { HomeLogo } from "./HomeLogo";
 import { CookieInfo } from "./CookieInfo";
+import { CheckCompatibilityFromHeader } from "./CheckCompatibility";
 
 const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
@@ -29,7 +30,7 @@ export const Navbar = () => {
         className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between"
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
-          <StyledLink href="#">Check compatability</StyledLink>
+          <CheckCompatibilityFromHeader label="Check compatability" />
           <StyledLink href="#">How to</StyledLink>
           <StyledLink href="#">Support</StyledLink>
           <StyledLink href="#">FAQ</StyledLink>
