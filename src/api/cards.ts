@@ -39,3 +39,9 @@ export const fetchClientOptions = async (): Promise<ClientOptionsResponse> => {
   const json: ApiResponse<ClientOptionsResponse> = await res.json();
   return json.payload;
 };
+
+export const deleteCard = async (id: string): Promise<void> => {
+  await fetchProtected(`${simServiceURL}cards/${id}`, {
+    method: "DELETE",
+  });
+};

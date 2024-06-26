@@ -21,6 +21,8 @@ import { useRouter } from "next/navigation";
 import { convertDaysText } from "@/converters/texts";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { TertiaryButton } from "../buttons/TertiaryButton";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { deleteCard } from "@/api/cards";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -250,6 +252,15 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
 };
 
 const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: deleteCard,
+    onSuccess: () => {
+      setDialog(null);
+      queryClient.invalidateQueries({ queryKey: ["cards"] });
+    },
+  });
+
   return (
     <div>
       <h5 className={getTypographyClass(TypographyVariants.Body2)}>
@@ -268,7 +279,9 @@ const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
           <span>Cancel</span>
         </TertiaryButton>
         <TertiaryButton>
-          <span className="text-secondary-500">Confirm</span>
+          <span className="text-secondary-500" onClick={() => mutate(card.id)}>
+            Confirm
+          </span>
         </TertiaryButton>
       </div>
     </div>
