@@ -98,7 +98,7 @@ export const SelectPackagesBuyForm = ({
     params.set("tags", tag);
     params.delete("selectedPackage");
 
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   const handlePackageChange = (_selectedPackage: Package) => {
