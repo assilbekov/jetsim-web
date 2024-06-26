@@ -111,7 +111,7 @@ export const SelectPackagesBuyForm = ({
     const params = new URLSearchParams(searchParams.toString());
     params.set("selectedPackage", _selectedPackage.id);
 
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   const handleCheckout = () => {
