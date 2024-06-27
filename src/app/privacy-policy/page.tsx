@@ -393,13 +393,63 @@ export default function Index() {
                       </li>
                     </ul>
                   </>,
-                  "Below are examples of the types of information we collect in various contexts and how we use them.",
+                  "While the above sections outline the main purposes for data collection, it is often the case that there may be multiple purposes. For instance, if you make an online purchase, we collect your information to fulfill our contract with you, but we also retain it for legitimate interests in keeping this information post-transaction to quickly address any questions regarding your order. Therefore, our processing and collecting your information in different instances depend on your consent, contract necessities, legal requirements, and/or legitimate interests in running our business.",
                 ],
               },
               {
-                header: "Data Storage",
+                header: "6. How We Share Personal Information",
                 content: [
-                  "We retain your personal information only for as long as necessary to achieve the purposes outlined in this Privacy Policy, including compliance with legal, accounting, and reporting requirements, unless a longer period is required or permitted by law. To determine the appropriate retention period for personal information, we consider the volume, nature, and level of confidentiality of the information, the potential risk of harm from unauthorized use or disclosure, the purposes for which we process your information, whether we can achieve those purposes through other means, and applicable legal requirements.",
+                  <>
+                    <p>
+                      Besides the specific scenarios discussed in other sections
+                      of the Privacy Policy, we may disclose personal
+                      information as follows:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        Affiliates and Acquisition Operations. We may transfer
+                        information to our corporate affiliates (e.g., parent
+                        and subsidiary companies, joint ventures, and other
+                        entities under common control). If another company
+                        acquires or plans to acquire our company, business, or
+                        assets, we will also transfer information to that
+                        company, including during negotiations.
+                      </li>
+                      <li>
+                        Disclosure Without Consent. We may disclose information
+                        in response to a court order, subpoena, or court
+                        directive, as well as in connection with legal processes
+                        or to comply with relevant laws. We may also share your
+                        information to establish and exercise our rights, defend
+                        against claims, investigate, prevent, and take action
+                        against potential illegal activities, suspected fraud,
+                        threats to personal safety or property, and violations
+                        of our policies, and to fulfill your request to ship
+                        products and render services through a third-party
+                        intermediary.
+                      </li>
+                      <li>
+                        Partner Promotions. We may host promotions with
+                        third-party partners. If you decide to participate in a
+                        promotion sponsored by a third party, the information
+                        you provide will be transmitted to us and to that
+                        partner. The use of your information by the partner is
+                        not governed by this privacy policy.
+                      </li>
+                      <li>
+                        Service Providers. We may transfer your information to
+                        service providers. Service providers help, among other
+                        things, administer our site and provide services for
+                        smooth business operations, provide technical support,
+                        process payments, and assist in order fulfillment.
+                      </li>
+                      <li>
+                        Disclosure With Your Consent. We may disclose your
+                        information to third parties if we have received your
+                        consent or direction to do so.
+                      </li>
+                    </ul>
+                  </>,
                 ],
               },
               {
