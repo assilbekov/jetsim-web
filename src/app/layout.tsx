@@ -3,7 +3,6 @@ import { QueryContext } from "@/contexts/QueryContext";
 import { Inter_Tight, Inter } from "next/font/google";
 import { clsx } from "@/utils";
 import { ZendeskProvider } from "@/contexts/ZendeskProvider";
-import { GoogleAnalyticsProvider } from "@/contexts/GoogleAnalyticsContext";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -22,9 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en" className={clsx(interTight.variable, inter.variable)}>
       <body>
         <QueryContext>
-          <ZendeskProvider>
-            <GoogleAnalyticsProvider>{children}</GoogleAnalyticsProvider>
-          </ZendeskProvider>
+          <ZendeskProvider>{children}</ZendeskProvider>
         </QueryContext>
       </body>
     </html>

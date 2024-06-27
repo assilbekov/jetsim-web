@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
-const GA_TRACKING_ID = "G-XXXXXXXXXX"; // Replace with your tracking ID
+const GA_TRACKING_ID = "G-TG5HZCCKZE"; // Replace with your tracking ID
 
 const GoogleAnalyticsContext = createContext(null);
 
