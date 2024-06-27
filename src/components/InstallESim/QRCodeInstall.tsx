@@ -33,9 +33,15 @@ export const QRCodeInstall = ({
     a.click();
   };
 
+  const handleQRCodeLongPress = () => {
+    // Custom behavior for long press
+    alert("Long press detected! Now installing eSIM...");
+    window.location.href = card.lpaCode;
+  };
+
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
-    <p>sep text</p>
+      <p>sep text</p>
       <div ref={qrRef} className="flex justify-center">
         <QRCode
           id="qrCodeCanvas"
@@ -98,6 +104,9 @@ export const QRCodeInstall = ({
       >
         Share this QR code to other phone or laptop and scan it from there
       </p>
+      <PrimaryButton className="mt-4" onClick={handleQRCodeLongPress}>
+        install
+      </PrimaryButton>
       <PrimaryButton className="mt-4" onClick={handleShare}>
         Share a QR code
       </PrimaryButton>
