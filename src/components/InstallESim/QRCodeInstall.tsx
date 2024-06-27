@@ -35,6 +35,7 @@ export const QRCodeInstall = ({
         <QRCode
           id="qrCodeCanvas"
           value={card.lpaCode}
+          size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
         />
       </div>

@@ -15,6 +15,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
       <QRCode
         value={card.lpaCode}
         height={140}
+        size={140}
         width={140}
         className="self-center w-full aspect-square fill-white max-w-[140px] max-h-[140px]"
       />
