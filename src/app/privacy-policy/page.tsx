@@ -335,17 +335,64 @@ export default function Index() {
                 ],
               },
               {
-                header: "4. Jetsim as a Data Processor",
+                header: "4. Data Storage",
                 content: [
-                  "When Jetsim provides services on behalf and under the direction of a Business User, the company acts as a data processor. This includes:",
-                  "• Business-to-Business Context for End Customers: Jetsim functions as a data processor concerning End Customers and Business Users in a business-to-business context.",
-                  "• Providing Services for Business Users: following Business Users' directions, such as account creation and eSIM card issuance to End Customers.",
-                  "As a data processor, we recommend users familiarize themselves with the privacy policy of the respective data controller (business user), which provides information on how their data is processed and protected. Jetsim strictly follows the data controller's instructions and is committed to maintaining the confidentiality and security of processed data in accordance with applicable data protection laws and contractual obligations.",
+                  "We retain your personal information only for as long as necessary to achieve the purposes outlined in this Privacy Policy, including compliance with legal, accounting, and reporting requirements, unless a longer period is required or permitted by law. To determine the appropriate retention period for personal information, we consider the volume, nature, and level of confidentiality of the information, the potential risk of harm from unauthorized use or disclosure, the purposes for which we process your information, whether we can achieve those purposes through other means, and applicable legal requirements.",
                 ],
               },
               {
-                header: "Information Collected",
+                header: "5. How We Use Personal Information",
                 content: [
+                  <>
+                    <p>
+                      Beyond the purposes and methods described above, we also
+                      use information in the following ways:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>To identify you when you visit our websites.</li>
+                      <li>
+                        To provide products and services and process return
+                        requests.
+                      </li>
+                      <li>To improve our service and product offerings.</li>
+                      <li>To facilitate the order placement process.</li>
+                      <li>To conduct analyses.</li>
+                      <li>
+                        To communicate with you, for example, to answer your
+                        inquiries, requests, issue reports, or feedback and
+                        follow up on them.
+                      </li>
+                      <li>
+                        To send marketing and promotional materials, including
+                        information about our products, services, sales, and
+                        promotions or those of our business partners.
+                      </li>
+                      <li>
+                        To detect and protect against harmful, misleading,
+                        fraudulent, and illegal activities, including policy and
+                        term violations, security incidents, and damage to the
+                        rights, property, and safety of our company and our
+                        users, employees, and others.
+                      </li>
+                      <li>
+                        To debug, identify, and fix errors that impair the
+                        intended functionality of our website and services.
+                      </li>
+                      <li>
+                        To comply with legal and regulatory obligations,
+                        establish or exercise our rights, and protect against
+                        claims.
+                      </li>
+                      <li>
+                        For internal administrative purposes, as well as in
+                        dealings with third parties.
+                      </li>
+                      <li>
+                        For other purposes that you may consent to from time to
+                        time (which we may request).
+                      </li>
+                    </ul>
+                  </>,
                   "Below are examples of the types of information we collect in various contexts and how we use them.",
                 ],
               },
