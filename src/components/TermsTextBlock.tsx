@@ -45,14 +45,16 @@ export const TermsTextBlock = ({
               key={block.header}
               className="flex flex-col gap-4 xs:gap-5 sm:gap-4 lg:gap-5"
             >
-              <h3
-                className={clsx(
-                  getTypographyClass(TypographyVariants.Body),
-                  "xxs:font-inter xxs:text-2xl xxs:leading-[30px] xxs:font-medium"
-                )}
-              >
-                {block.header}
-              </h3>
+              {block.header && (
+                <h3
+                  className={clsx(
+                    getTypographyClass(TypographyVariants.Body),
+                    "xxs:font-inter xxs:text-2xl xxs:leading-[30px] xxs:font-medium"
+                  )}
+                >
+                  {block.header}
+                </h3>
+              )}
               <ul className="flex flex-col gap-4 xs:gap-5 sm:gap-4 lg:gap-5">
                 {block.content.map((content, index) => (
                   <li
