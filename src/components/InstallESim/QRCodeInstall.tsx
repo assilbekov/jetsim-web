@@ -38,6 +38,7 @@ export const QRCodeInstall = ({
     alert("Long press detected! Now installing eSIM...");
     window.location.href = card.lpaCode;
   };
+  const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
@@ -87,7 +88,19 @@ export const QRCodeInstall = ({
       </div>
       <div>
         image
-      {card.lpaCode && <img src={card.lpaCode} alt={"tap and hold"} />}
+        {card.lpaCode && <img src={card.lpaCode} alt={"tap and hold"} />}
+      </div>
+      <div>
+        another try
+        <a href={url} download="esim.qr">
+          <QRCode value={url} size={256} />
+        </a>
+      </div>
+      <div> 
+        another try 2
+        <a href={url}>
+          <QRCode value={url} size={256} />
+        </a>
       </div>
       <p>lpa code: {card.lpaCode}</p>
       deviceDetect: {JSON.stringify(deviceDetect)}
