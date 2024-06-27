@@ -47,9 +47,9 @@ export const QRCodeInstall = ({
           />
         </a>
       </div>
-      <div>
+      <p>
       deviceData: {JSON.stringify(deviceData)}
-      </div>
+      </p>
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
