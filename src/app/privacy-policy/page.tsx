@@ -83,13 +83,94 @@ export default function Index() {
                 header:
                   "2. How We Collect, Disclose, and Use Personal Information",
                 content: [
-                  "We collect information about you in various ways depending on how you interact with us and our Services, including:",
-                  "• Directly from you: when you provide it to us, such as when creating an account, subscribing to newsletters, placing an order, making a purchase, or contacting us by phone, email, or other means.",
-                  "• Automatically: using cookies, server logs, and similar technologies when you interact with our Services and/or email—where permitted by law or with your consent.",
-                  "• From other sources: for example, from our affiliates, business partners, service providers, social networks, and other third parties, as well as public sources.",
+                  <>
+                    <p>
+                      We collect information about you in various ways depending
+                      on how you interact with us and our Services, including:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        Directly from you: when you provide it to us, such as
+                        when creating an account, subscribing to newsletters,
+                        placing an order, making a purchase, or contacting us by
+                        phone, email, or other means.
+                      </li>
+                      <li>
+                        Automatically: using cookies, server logs, and similar
+                        technologies when you interact with our Services and/or
+                        email—where permitted by law or with your consent.
+                      </li>
+                      <li>
+                        From other sources: for example, from our affiliates,
+                        business partners, service providers, social networks,
+                        and other third parties, as well as public sources.
+                      </li>
+                    </ul>
+                  </>,
                   "To ensure an appropriate level of data protection, Jetsim maintains the confidentiality of information systems in accordance with legal requirements, the level of confidentiality, and business importance.",
                   "«Data Controller» is an entity that determines the purposes and means of data processing.",
-                  "«Data Processor» is an entity acting on behalf and under the direction of the controller regarding the processing of personal information.",
+                  `"Data Processor" is an entity acting on behalf and under the direction of the controller regarding the processing of personal information`,
+                  <>
+                    <h6 className="text-text-600">
+                      Jetsim as a Data Controller
+                    </h6>
+                    <p>
+                      Jetsim assumes the role of a data controller, determining
+                      the purposes and means of processing personal data. As a
+                      data controller, Jetsim is responsible for ensuring that
+                      personal data is processed in accordance with applicable
+                      data protection laws. Jetsim's activities as a data
+                      controller include:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        Direct Registration: Jetsim is the data controller when
+                        users register directly with the service.
+                      </li>
+                    </ul>
+                    <p>Main activities:</p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        Providing Services: using data to provide Jetsim's
+                        products and services.
+                      </li>
+                      <li>
+                        Fraud Prevention: monitoring and detecting fraudulent
+                        transactions and activities.
+                      </li>
+                      <li>
+                        Compliance with Legal Norms: complying with applicable
+                        financial, legal, and regulatory requirements.
+                      </li>
+                      <li>
+                        Improving Services: developing and improving products
+                        and services based on data analysis.
+                      </li>
+                    </ul>
+                  </>,
+                  <>
+                    <h6 className="text-text-600">
+                      Jetsim as a Data Processor
+                    </h6>
+                    <p>
+                      When Jetsim provides services on behalf and under the
+                      direction of a Business User, the company acts as a data
+                      processor. This includes:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        Business-to-Business Context for End Customers: Jetsim
+                        functions as a data processor concerning End Customers
+                        and Business Users in a business-to-business context.
+                      </li>
+                      <li>
+                        Providing Services for Business Users: following
+                        Business Users' directions, such as account creation and
+                        eSIM card issuance to End Customers.
+                      </li>
+                    </ul>
+                  </>,
+                  "As a data processor, we recommend users familiarize themselves with the privacy policy of the respective data controller (business user), which provides information on how their data is processed and protected. Jetsim strictly follows the data controller's instructions and is committed to maintaining the confidentiality and security of processed data in accordance with applicable data protection laws and contractual obligations.",
                 ],
               },
               {
@@ -192,7 +273,7 @@ export default function Index() {
                 ],
               },
               {
-                header: "Data Transfer and International Data Transfer",
+                header: "8. Data Transfer and International Data Transfer",
                 content: [
                   "The Service is owned by Jetsim and may be accessed in Europe and abroad. Therefore, your information may be processed abroad, where privacy laws may be less stringent than those in your country. Nevertheless, we process personal information by applying, as far as possible, the same privacy principles applicable under the laws of the country where we originally received your information. By submitting your personal information, you consent to its transfer, storage, and processing in a country other than your country of residence, including the United States of America. For further information on our measures to apply privacy principles across jurisdictions, you may contact us using the information below.",
                 ],
