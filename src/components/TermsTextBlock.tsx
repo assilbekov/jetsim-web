@@ -5,7 +5,7 @@ import { TypographyVariants, getTypographyClass } from "./Typography";
 
 type InfoBlock = {
   header: string;
-  content: string[];
+  content: React.ReactNode[];
 };
 
 type TermsTextBlockProps = {
