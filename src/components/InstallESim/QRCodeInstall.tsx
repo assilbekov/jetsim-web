@@ -35,36 +35,48 @@ export const QRCodeInstall = ({
 
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
+    <p>sep text</p>
       <div ref={qrRef} className="flex justify-center">
         <QRCode
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
+          level={"H"}
+          includeMargin={true}
         />
       </div>
+      <p>sep text</p>
       <div className="p-10">
         <QRCode
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
+          level={"H"}
+          includeMargin={true}
         />
       </div>
+      <p>sep text</p>
       <div className="p-10">
         <QRCodeSVG
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
+          level={"H"}
+          includeMargin={true}
         />
       </div>
+      <p>sep text</p>
       <div className="p-10">
         <QRCodeCanvas
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
+          level={"H"}
+          includeMargin={true}
         />
       </div>
       <p>lpa code: {card.lpaCode}</p>
