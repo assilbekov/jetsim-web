@@ -1,3 +1,5 @@
+"use client";
+
 import { Card as CardModel } from "@/models/Card";
 import { ManualInstall } from "./ManualInstall";
 import { QRCodeInstall } from "./QRCodeInstall";

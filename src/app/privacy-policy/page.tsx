@@ -23,7 +23,7 @@ export default function Index() {
                 header: "",
                 content: [
                   `GIBCO. LTD., operating under the name Jetsim (hereinafter referred to as "Jetsim," "we," "our"), cares about your privacy. This Privacy Policy describes how we collect, use, share, and protect your personal information ("Personal Data"). This Privacy Policy also discusses your rights and choices regarding your personal information, and how you can contact us and get answers to your questions.`,
-                  `By registering an account or otherwise using or visiting Jetsim's website, application, product, software, tool, data channel, and/or service (together, the "Service"), you acknowledge that you understand and accept the terms of this Privacy Policy.`,
+                  `By registering an account or otherwise using or visiting Jetsim&apos;s website, application, product, software, tool, data channel, and/or service (together, the "Service"), you acknowledge that you understand and accept the terms of this Privacy Policy.`,
                   "This Privacy Policy outlines how we collect, use, disclose, store, and protect your personal information. Please read this Privacy Policy carefully.",
                   <>
                     <p>Contents</p>
@@ -69,8 +69,8 @@ export default function Index() {
                       </li>
                       <li>
                         Business Users: Jetsim provides services to
-                        organizations (hereinafter, "Business Users") that
-                        directly or indirectly provide us with personal
+                        organizations (hereinafter, &quot;Business Users&quot;)
+                        that directly or indirectly provide us with personal
                         information about End Customers in connection with their
                         own business activities.
                       </li>
@@ -123,7 +123,7 @@ export default function Index() {
                       the purposes and means of processing personal data. As a
                       data controller, Jetsim is responsible for ensuring that
                       personal data is processed in accordance with applicable
-                      data protection laws. Jetsim's activities as a data
+                      data protection laws. Jetsim&apos;s activities as a data
                       controller include:
                     </p>
                     <ul className="list-disc ml-4">
@@ -135,7 +135,7 @@ export default function Index() {
                     <p>Main activities:</p>
                     <ul className="list-disc ml-4">
                       <li>
-                        Providing Services: using data to provide Jetsim's
+                        Providing Services: using data to provide Jetsim&apos;s
                         products and services.
                       </li>
                       <li>
@@ -169,22 +169,22 @@ export default function Index() {
                       </li>
                       <li>
                         Providing Services for Business Users: following
-                        Business Users' directions, such as account creation and
-                        eSIM card issuance to End Customers.
+                        Business Users&apos; directions, such as account
+                        creation and eSIM card issuance to End Customers.
                       </li>
                     </ul>
                   </>,
-                  "As a data processor, we recommend users familiarize themselves with the privacy policy of the respective data controller (business user), which provides information on how their data is processed and protected. Jetsim strictly follows the data controller's instructions and is committed to maintaining the confidentiality and security of processed data in accordance with applicable data protection laws and contractual obligations.",
+                  "As a data processor, we recommend users familiarize themselves with the privacy policy of the respective data controller (business user), which provides information on how their data is processed and protected. Jetsim strictly follows the data controller&apos;s instructions and is committed to maintaining the confidentiality and security of processed data in accordance with applicable data protection laws and contractual obligations.",
                 ],
               },
               {
                 header: "3. Information Collected",
                 content: [
-                  <p>
+                  <p key="inf">
                     Below are examples of the types of information we collect in
                     various contexts and how we use them.
                   </p>,
-                  <table className="table-auto w-full">
+                  <table key="table" className="table-auto w-full">
                     <thead>
                       <tr>
                         <th className="w-1/3 align-top py-2 px-4">Context</th>
@@ -233,12 +233,12 @@ export default function Index() {
                           Necessary Online Tracking Technologies
                         </TableCell>
                         <TableCell>
-                          We use cookies. "Cookies" are small files with
-                          information that a site stores on a computer's hard
-                          drive when browsing the site. These tracking
-                          technologies may collect information about your
-                          browser type, operating system, IP address (an
-                          identifier automatically assigned to your computer
+                          We use cookies. &quot;Cookies&quot; are small files
+                          with information that a site stores on a
+                          computer&apos;s hard drive when browsing the site.
+                          These tracking technologies may collect information
+                          about your browser type, operating system, IP address
+                          (an identifier automatically assigned to your computer
                           when using the Internet), domain name, clicks,
                           referral site, and/or date and time stamps regarding
                           visitors.
@@ -325,10 +325,10 @@ export default function Index() {
                       </tr>
                     </tbody>
                   </table>,
-                  "Jetsim assumes the role of a data controller, determining the purposes and means of processing personal data. As a data controller, Jetsim is responsible for ensuring that personal data is processed in accordance with applicable data protection laws. Jetsim's activities as a data controller include:",
+                  "Jetsim assumes the role of a data controller, determining the purposes and means of processing personal data. As a data controller, Jetsim is responsible for ensuring that personal data is processed in accordance with applicable data protection laws. Jetsim&apos;s activities as a data controller include:",
                   "• Direct Registration: Jetsim is the data controller when users register directly with the service.",
                   "Main activities:",
-                  "• Providing Services: using data to provide Jetsim's products and services.",
+                  "• Providing Services: using data to provide Jetsim&apos;s products and services.",
                   "• Fraud Prevention: monitoring and detecting fraudulent transactions and activities.",
                   "• Compliance with Legal Norms: complying with applicable financial, legal, and regulatory requirements.",
                   "• Improving Services: developing and improving products and services based on data analysis.",
@@ -519,23 +519,23 @@ export default function Index() {
                       You can unsubscribe from receiving marketing emails by
                       using the unsubscribe feature in the profile settings. To
                       change settings, log into your account and go to profile
-                      settings. Enable or disable the "Receive marketing mail"
-                      option. If turned off, your email will be unsubscribed
-                      from marketing emails promptly.
+                      settings. Enable or disable the &quot;Receive marketing
+                      mail&quot; option. If turned off, your email will be
+                      unsubscribed from marketing emails promptly.
                     </p>
                   </>,
-                  "If you have questions about how to opt-out of Jetsim's marketing emails, write to us at support@jetsim.app.",
+                  "If you have questions about how to opt-out of Jetsim&apos;s marketing emails, write to us at support@jetsim.app.",
                   <>
                     <h6 className="text-text-600">
                       How to Delete an Account?{" "}
                     </h6>
                     <p>
-                      You can delete your account using the "Delete Account"
-                      function in the profile settings. Log into your account
-                      and go to profile settings. Click on "Delete Account" and
-                      confirm your intention. We will process the request
-                      without delay or within one month of receipt if subject to
-                      special requirements.
+                      You can delete your account using the &quot;Delete
+                      Account&quot; function in the profile settings. Log into
+                      your account and go to profile settings. Click on
+                      &quot;Delete Account&quot; and confirm your intention. We
+                      will process the request without delay or within one month
+                      of receipt if subject to special requirements.
                     </p>
                   </>,
                   "Please note that we may still need to verify your identity and your relationship with us before we can process the request.",
@@ -571,7 +571,7 @@ export default function Index() {
               {
                 header: "10. Changes to the Privacy Policy",
                 content: [
-                  "We reserve the right to modify this Privacy Policy's terms at any time. If changes are significant or affect how we use your personal information, we will notify you by posting a notice of such changes here on our main page or by sending you an email. We recommend reviewing this Policy whenever you visit one of our websites or applications. The Privacy Policy's effective date and the last modification date are listed herein. The effective date is the date the current version comes into force, and the last modification date indicates the latest substantial change to the current version.",
+                  "We reserve the right to modify this Privacy Policy&apos;s terms at any time. If changes are significant or affect how we use your personal information, we will notify you by posting a notice of such changes here on our main page or by sending you an email. We recommend reviewing this Policy whenever you visit one of our websites or applications. The Privacy Policy&apos;s effective date and the last modification date are listed herein. The effective date is the date the current version comes into force, and the last modification date indicates the latest substantial change to the current version.",
                 ],
               },
               {
