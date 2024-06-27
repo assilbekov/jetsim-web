@@ -85,6 +85,10 @@ export const QRCodeInstall = ({
           includeMargin={true}
         />
       </div>
+      <div>
+        image
+      {card.lpaCode && <img src={card.lpaCode} alt={"tap and hold"} />}
+      </div>
       <p>lpa code: {card.lpaCode}</p>
       deviceDetect: {JSON.stringify(deviceDetect)}
       deviceData: {JSON.stringify(deviceData)}
