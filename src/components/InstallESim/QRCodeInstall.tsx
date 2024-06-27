@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/models/Card";
-import QRCode from "qrcode.react";
+import QRCode, {QRCodeSVG} from "qrcode.react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
@@ -32,7 +32,7 @@ export const QRCodeInstall = ({
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
       <div ref={qrRef} className="flex justify-center">
-        <QRCode
+        <QRCodeSVG
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
