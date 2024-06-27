@@ -1,7 +1,8 @@
 "use client";
 
 import { Card } from "@/models/Card";
-import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
+import { deviceDetect, useDeviceData } from "react-device-detect";
+import QRCode, { QRCodeSVG, QRCodeCanvas } from "qrcode.react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
@@ -18,6 +19,7 @@ export const QRCodeInstall = ({
   onSeeInstructionsClick,
 }: QRCodeInstallProps) => {
   const qrRef = useRef<HTMLDivElement>(null);
+  const deviceData = useDeviceData(window.navigator.userAgent);
 
   const handleShare = () => {
     const canvas = qrRef?.current?.querySelector("canvas");
@@ -40,6 +42,8 @@ export const QRCodeInstall = ({
         />
       </div>
       {card.lpaCode}
+      deviceDetect: {JSON.stringify(deviceDetect)}
+      deviceData: {JSON.stringify(deviceData)}
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
