@@ -2,7 +2,9 @@
 
 import { Card } from "@/models/Card";
 import { deviceDetect, useDeviceData } from "react-device-detect";
-import QRCode, { QRCodeSVG, QRCodeCanvas } from "qrcode.react";
+//import QRCode, { QRCodeSVG, QRCodeCanvas } from "qrcode.react";
+
+import QRCode from "react-qr-code";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
@@ -50,7 +52,7 @@ export const QRCodeInstall = ({
           "mt-6 text-center text-text-100"
         )}
       >
-        Scan this QR code from other device 1
+        Scan this QR code from other device 12
       </p>
       <p
         className={clsx(

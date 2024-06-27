@@ -1,4 +1,6 @@
-import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
+//import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
+
+import QRCode from "react-qr-code";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
 import { Card } from "@/models/Card";
@@ -20,7 +22,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
         width={140}
         className="self-center w-full aspect-square fill-white max-w-[140px] max-h-[140px]"
       />
-      <InfoRow>Scan this QR code 1</InfoRow>
+      <InfoRow>Scan this QR code 12</InfoRow>
     </div>
   );
 };
