@@ -39,6 +39,7 @@ export const QRCodeInstall = ({
           className="self-center w-full aspect-square fill-white max-w-[220px]"
         />
       </div>
+      {card.lpaCode}
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
