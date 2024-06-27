@@ -45,12 +45,38 @@ export default function Index() {
               {
                 header: "1. Applicability of this Privacy Policy",
                 content: [
-                  "This Privacy Policy applies to users of Jetsim services worldwide, including users of mobile applications, the Partner platform, websites, features, and other Jetsim services, online and offline interactions with Jetsim (hereinafter, 'Services').",
-                  "This Privacy Policy describes how Jetsim collects and uses data. It applies to all Jetsim users worldwide, except in cases where they use a service for which a separate privacy notice applies.",
-                  "This Privacy Policy specifically applies to the following subjects:",
-                  "• End Users: Individuals who use the Services and interact directly with them through their Jetsim account for personal purposes.",
-                  "• Business Users: Jetsim provides services to organizations (hereinafter, 'Business Users') that directly or indirectly provide us with personal information about End Customers in connection with their own business activities.",
-                  "• End Customers: Individuals who use services ordered by other Jetsim account holders, such as when conducting business or otherwise transacting with a Business User.",
+                  `This Privacy Policy applies to users of Jetsim services worldwide, including users of mobile applications, the Partner platform, websites, features, and other Jetsim services, online and offline interactions with Jetsim (hereinafter, "Services").`,
+                  <>
+                    <p>
+                      This Privacy Policy describes how Jetsim collects and uses
+                      data. It applies to all Jetsim users worldwide, except in
+                      cases where they use a service for which a separate
+                      privacy notice applies.
+                    </p>
+                    <p>
+                      This Privacy Policy specifically applies to the following
+                      subjects:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        End Users: Individuals who use the Services and interact
+                        directly with them through their Jetsim account for
+                        personal purposes.
+                      </li>
+                      <li>
+                        Business Users: Jetsim provides services to
+                        organizations (hereinafter, "Business Users") that
+                        directly or indirectly provide us with personal
+                        information about End Customers in connection with their
+                        own business activities.
+                      </li>
+                      <li>
+                        End Customers: Individuals who use services ordered by
+                        other Jetsim account holders, such as when conducting
+                        business or otherwise transacting with a Business User.
+                      </li>
+                    </ul>
+                  </>,
                 ],
               },
               {
