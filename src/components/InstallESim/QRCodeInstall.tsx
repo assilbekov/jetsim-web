@@ -32,7 +32,7 @@ export const QRCodeInstall = ({
     a.download = "qrcode.png";
     a.click();
   };
-  
+
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 
   return (
@@ -46,6 +46,9 @@ export const QRCodeInstall = ({
             className="self-center w-full aspect-square fill-white max-w-[220px]"
           />
         </a>
+      </div>
+      <div>
+      deviceData: {JSON.stringify(deviceData)}
       </div>
       <p
         className={clsx(
