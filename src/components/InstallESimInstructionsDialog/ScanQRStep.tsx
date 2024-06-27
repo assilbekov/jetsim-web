@@ -1,7 +1,8 @@
-import QRCode, {QRCodeSVG} from "qrcode.react";
+import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
 import { Card } from "@/models/Card";
+import {} from "react-device-detect";
 
 type ScanQRStepProps = {
   step: number;
@@ -12,7 +13,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
   return (
     <div className="flex flex-col gap-5">
       <RoundedLabel>{step}</RoundedLabel>
-      <QRCodeSVG
+      <QRCodeCanvas
         value={card.lpaCode}
         height={140}
         size={140}
