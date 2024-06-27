@@ -1,6 +1,6 @@
-//import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
+import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
 
-import QRCode from "react-qr-code";
+//import QRCode from "react-qr-code";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
 import { Card } from "@/models/Card";
