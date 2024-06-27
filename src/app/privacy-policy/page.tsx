@@ -198,14 +198,14 @@ export default function Index() {
                 ],
               },
               {
-                header: "Security",
+                header: "9. Security",
                 content: [
                   "We follow industry-standard practices to protect your personal information. No method of data transmission over the Internet, through mobile technologies, or electronic storage is completely secure. Given the above and despite our efforts to use physical, electronic, and procedural security measures to protect the confidentiality of information collected online, we cannot guarantee its absolute security.",
                   "Jetsim users are responsible for protecting their passwords and account credentials. If you believe your interaction with us is no longer secure (e.g., you believe your account security has been compromised), please notify us immediately via email at support@jetsim.app.",
                 ],
               },
               {
-                header: "Changes to the Privacy Policy",
+                header: "10. Changes to the Privacy Policy",
                 content: [
                   "We reserve the right to modify this Privacy Policy's terms at any time. If changes are significant or affect how we use your personal information, we will notify you by posting a notice of such changes here on our main page or by sending you an email. We recommend reviewing this Policy whenever you visit one of our websites or applications. The Privacy Policy's effective date and the last modification date are listed herein. The effective date is the date the current version comes into force, and the last modification date indicates the latest substantial change to the current version.",
                 ],
