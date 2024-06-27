@@ -27,7 +27,7 @@ export const Dialog = ({
     <>
       <div
         className={clsx(
-          "fixed bottom-0 left-0 h-[calc(100vh-32px)] md:max-h-[calc(100vh-50px)] md:h-full w-screen md:w-[576px] md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[9999] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]",
+          "fixed bottom-0 left-0 h-[calc(100vh-100px)] md:max-h-[calc(100vh-50px)] md:h-full w-screen md:w-[576px] md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-[9999] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]",
           dialogClassName ?? ""
         )}
       >

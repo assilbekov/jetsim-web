@@ -43,25 +43,30 @@ export const QRCodeInstall = ({
           className="self-center w-full aspect-square fill-white max-w-[220px]"
         />
       </div>
-      <QRCode
+      <div className="p-10">
+        <QRCode
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
         />
+      </div>
+      <div className="p-10">
         <QRCodeSVG
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
         />
+      </div>
+      <div className="p-10">
         <QRCodeCanvas
           id="qrCodeCanvas"
           value={card.lpaCode}
           size={220}
           className="self-center w-full aspect-square fill-white max-w-[220px]"
         />
-
+      </div>
       <p>lpa code: {card.lpaCode}</p>
       deviceDetect: {JSON.stringify(deviceDetect)}
       deviceData: {JSON.stringify(deviceData)}
