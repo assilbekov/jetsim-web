@@ -453,69 +453,106 @@ export default function Index() {
                 ],
               },
               {
-                header: "How We Use Personal Information",
+                header: "7. Your Rights ",
                 content: [
-                  "Beyond the purposes and methods described above, we also use information in the following ways:",
-                  "• To identify you when you visit our websites.",
-                  "• To provide products and services and process return requests.",
-                  "• To improve our service and product offerings.",
-                  "• To facilitate the order placement process.",
-                  "• To conduct analyses.",
-                  "• To communicate with you, for example, to answer your inquiries, requests, issue reports, or feedback and follow up on them.",
-                  "• To send marketing and promotional materials, including information about our products, services, sales, and promotions or those of our business partners.",
-                  "• To detect and protect against harmful, misleading, fraudulent, and illegal activities, including policy and term violations, security incidents, and damage to the rights, property, and safety of our company and our users, employees, and others.",
-                  "• To debug, identify, and fix errors that impair the intended functionality of our website and services.",
-                  "• To comply with legal and regulatory obligations, establish or exercise our rights, and protect against claims.",
-                  "• For internal administrative purposes, as well as in dealings with third parties.",
-                  "• For other purposes that you may consent to from time to time (which we may request).",
-                  "While the above sections outline the main purposes for data collection, it is often the case that there may be multiple purposes. For instance, if you make an online purchase, we collect your information to fulfill our contract with you, but we also retain it for legitimate interests in keeping this information post-transaction to quickly address any questions regarding your order. Therefore, our processing and collecting your information in different instances depend on your consent, contract necessities, legal requirements, and/or legitimate interests in running our business.",
-                ],
-              },
-              {
-                header: "How We Share Personal Information",
-                content: [
-                  "Besides the specific scenarios discussed in other sections of the Privacy Policy, we may disclose personal information as follows:",
-                  "• Affiliates and Acquisition Operations: We may transfer information to our corporate affiliates (e.g., parent and subsidiary companies, joint ventures, and other entities under common control). If another company acquires or plans to acquire our company, business, or assets, we will also transfer information to that company, including during negotiations.",
-                  "• Disclosure Without Consent: We may disclose information in response to a court order, subpoena, or court directive, as well as in connection with legal processes or to comply with relevant laws. We may also share your information to establish and exercise our rights, defend against claims, investigate, prevent, and take action against potential illegal activities, suspected fraud, threats to personal safety or property, and violations of our policies, and to fulfill your request to ship products and render services through a third-party intermediary.",
-                  "• Partner Promotions: We may host promotions with third-party partners. If you decide to participate in a promotion sponsored by a third party, the information you provide will be transmitted to us and to that partner. The use of your information by the partner is not governed by this privacy policy.",
-                  "• Service Providers: We may transfer your information to service providers. Service providers help, among other things, administer our site and provide services for smooth business operations, provide technical support, process payments, and assist in order fulfillment.",
-                  "• Disclosure With Your Consent: We may disclose your information to third parties if we have received your consent or direction to do so.",
-                ],
-              },
-              {
-                header: "Your Rights",
-                content: [
-                  "Depending on your location and applicable laws, you may have the following rights:",
-                  "• Access to Your Data: The right to request that we disclose to you the personal information we collect, use, or disclose about you, as well as the nature of our data operations. In certain limited circumstances, you may also request your personal information in a portable, machine-readable format.",
-                  "• Review and Request Corrections: The right to request that we correct inaccuracies in the personal information we hold about you. We rely on you to update and correct your personal information. Our site allows you to change or delete your account profile. If our site does not allow the update or correction of certain information, you may contact us at the address provided below to request changes. Note: We may retain uncorrected information in backup files as required by law.",
-                  "• Deletion of Personal Information: The right to request that we delete the personal information we have collected about you.",
-                  "• Withdraw Consent at Any Time: The right to withdraw consent for processing your personal information if you have previously given it.",
-                  "• Object to Processing of Personal Information: The right to object to the processing of personal information if processing is carried out on a legal basis other than consent.",
-                  "Note: Not all the above rights are absolute; the applicability of rights depends on the circumstances. In some cases, we may fulfill a request to a limited extent or deny the request if permitted or required by law or if we cannot properly verify your identity. We do not discriminate against individuals exercising their privacy rights under applicable law. For more details on specific rights, see this section.",
+                  <>
+                    <p>
+                      Depending on your location and applicable laws, you may
+                      have the following rights:
+                    </p>
+                    <ul className="list-disc ml-4">
+                      <li>
+                        Access to Your Data. The right to request that we
+                        disclose to you the personal information we collect,
+                        use, or disclose about you, as well as the nature of our
+                        data operations. In certain limited circumstances, you
+                        may also request your personal information in a
+                        portable, machine-readable format.
+                      </li>
+                      <li>
+                        Review and Request Corrections. The right to request
+                        that we correct inaccuracies in the personal information
+                        we hold about you. We rely on you to update and correct
+                        your personal information. Our site allows you to change
+                        or delete your account profile. If our site does not
+                        allow the update or correction of certain information,
+                        you may contact us at the address provided below to
+                        request changes. Note: We may retain uncorrected
+                        information in backup files as required by law.
+                      </li>
+                      <li>
+                        Deletion of Personal Information. The right to request
+                        that we delete the personal information we have
+                        collected about you.
+                      </li>
+                      <li>
+                        Withdraw Consent at Any Time. The right to withdraw
+                        consent for processing your personal information if you
+                        have previously given it.
+                      </li>
+                      <li>
+                        Object to Processing of Personal Information. The right
+                        to object to the processing of personal information if
+                        processing is carried out on a legal basis other than
+                        consent.
+                      </li>
+                    </ul>
+                    <p>
+                      Note: Not all the above rights are absolute; the
+                      applicability of rights depends on the circumstances. In
+                      some cases, we may fulfill a request to a limited extent
+                      or deny the request if permitted or required by law or if
+                      we cannot properly verify your identity. We do not
+                      discriminate against individuals exercising their privacy
+                      rights under applicable law. For more details on specific
+                      rights, see this section.
+                    </p>
+                  </>,
                   "To submit a request to exercise any of the rights described above or appeal a decision we made regarding a data subject rights request, contact us using the information below.",
                   "Note: As required by law, we will need to verify your identity. Depending on the request, we may request information such as your name, your last purchase from us, or the date of your last purchase. We may also ask you to sign a declaration confirming your identity. We will make reasonable efforts to fulfill your request to provide, correct, or delete personal information about you in our records.",
                   "In certain cases, you may appoint an authorized representative to submit requests to exercise certain privacy rights on your behalf. If you are an authorized representative submitting a request on behalf of an individual, you must attach a signed document confirming that you can act on behalf of that person.",
-                ],
-              },
-              {
-                header: "How to Unsubscribe from Marketing Emails?",
-                content: [
-                  "You can unsubscribe from receiving marketing emails by using the unsubscribe feature in the profile settings. To change settings, log into your account and go to profile settings. Enable or disable the 'Receive marketing mail' option. If turned off, your email will be unsubscribed from marketing emails promptly.",
+                  <>
+                    <h6 className="text-text-600">
+                      How to Unsubscribe from Marketing Emails?
+                    </h6>
+                    <p>
+                      You can unsubscribe from receiving marketing emails by
+                      using the unsubscribe feature in the profile settings. To
+                      change settings, log into your account and go to profile
+                      settings. Enable or disable the "Receive marketing mail"
+                      option. If turned off, your email will be unsubscribed
+                      from marketing emails promptly.
+                    </p>
+                  </>,
                   "If you have questions about how to opt-out of Jetsim's marketing emails, write to us at support@jetsim.app.",
-                ],
-              },
-              {
-                header: "How to Delete an Account?",
-                content: [
-                  "You can delete your account using the 'Delete Account' function in the profile settings. Log into your account and go to profile settings. Click on 'Delete Account' and confirm your intention. We will process the request without delay or within one month of receipt if subject to special requirements.",
+                  <>
+                    <h6 className="text-text-600">
+                      How to Delete an Account?{" "}
+                    </h6>
+                    <p>
+                      You can delete your account using the "Delete Account"
+                      function in the profile settings. Log into your account
+                      and go to profile settings. Click on "Delete Account" and
+                      confirm your intention. We will process the request
+                      without delay or within one month of receipt if subject to
+                      special requirements.
+                    </p>
+                  </>,
                   "Please note that we may still need to verify your identity and your relationship with us before we can process the request.",
-                ],
-              },
-              {
-                header:
-                  "When does Jetsim perform data processing after receiving a request to delete or object to processing?",
-                content: [
-                  "Under certain circumstances, the law may require Jetsim to retain and process your Personal Data even after a request to delete or object to process. For example, Jetsim is required to retain certain personal information to meet legal obligations under the rules regarding payment transaction records.",
+                  <>
+                    <h6 className="text-text-600">
+                      When does Jetsim perform data processing after receiving a
+                      request to delete or object to processing?{" "}
+                    </h6>
+                    <p>
+                      Under certain circumstances, the law may require Jetsim to
+                      retain and process your Personal Data even after a request
+                      to delete or object to process. For example, Jetsim is
+                      required to retain certain personal information to meet
+                      legal obligations under the rules regarding payment
+                      transaction records.
+                    </p>
+                  </>,
                 ],
               },
               {

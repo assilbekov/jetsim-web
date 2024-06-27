@@ -37,7 +37,7 @@ export const TermsTextBlock = ({
             "lg:font-inter lg:text-xl lg:leading-[26px] lg:font-medium text-text-600"
           )}
         >
-          Last updated: {lastUpdated}
+          Effective Date: {lastUpdated}
         </p>
         <div className="flex flex-col gap-4 xs:gap-5 sm:gap-4 lg:gap-5">
           {infoBlocks.map((block) => (
