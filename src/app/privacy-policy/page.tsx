@@ -3,6 +3,10 @@ import { LandingFooterContent } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
 
+const TableCell = ({ children }: { children: React.ReactNode }) => {
+  return <td className="w-1/3 align-top py-2 px-4">{children}</td>;
+};
+
 export default function Index() {
   return (
     <main className="bg-[#F8F9FB] overflow-hidden">
@@ -176,6 +180,151 @@ export default function Index() {
               {
                 header: "3. Information Collected",
                 content: [
+                  <p>
+                    Below are examples of the types of information we collect in
+                    various contexts and how we use them.
+                  </p>,
+                  <table className="table-auto w-full">
+                    <thead>
+                      <tr>
+                        <th className="w-1/3 align-top py-2 px-4">Context</th>
+                        <th className="w-1/3 align-top py-2 px-4">
+                          Types of Data
+                        </th>
+                        <th className="w-1/3 align-top py-2 px-4">
+                          Main Purpose of Data Collection and Use
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <TableCell>Account Registration</TableCell>
+                        <TableCell>
+                          When you create an account, we collect your name and
+                          contact information, including your email address. We
+                          also collect information regarding your activities
+                          when you log into the account.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in providing our users
+                          with account-related features. Accounts facilitate
+                          order placement and allow you to track transaction
+                          history and settings. We also process this information
+                          to fulfill our contract with you.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Business Users</TableCell>
+                        <TableCell>
+                          We collect the name and contact information, including
+                          email address, phone number, and physical address, of
+                          the employees of our Business Users we may interact
+                          with.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in contacting and
+                          communicating with our clients on regular business
+                          administration matters, such as project management,
+                          service provision, and billing.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>
+                          Necessary Online Tracking Technologies
+                        </TableCell>
+                        <TableCell>
+                          We use cookies. "Cookies" are small files with
+                          information that a site stores on a computer's hard
+                          drive when browsing the site. These tracking
+                          technologies may collect information about your
+                          browser type, operating system, IP address (an
+                          identifier automatically assigned to your computer
+                          when using the Internet), domain name, clicks,
+                          referral site, and/or date and time stamps regarding
+                          visitors.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in ensuring the
+                          efficient operation of the website.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Demographic Information</TableCell>
+                        <TableCell>
+                          We collect personal information, such as your age and
+                          location.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in analyzing user
+                          characteristics and providing personalized services.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Feedback and Support</TableCell>
+                        <TableCell>
+                          If you leave feedback or seek support, we collect your
+                          name and email address, as well as other content you
+                          send, to respond to you.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in receiving and
+                          responding to your feedback, issue reports, and
+                          inquiries.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Mobile Devices</TableCell>
+                        <TableCell>
+                          We collect information from your mobile device, such
+                          as unique identifiers transmitted by the device when
+                          visiting a site.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in identifying unique
+                          visitors and tracking site visits.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Placing Orders</TableCell>
+                        <TableCell>
+                          When you place an order, we collect your name, billing
+                          address, shipping address, email address, phone
+                          number, and payment card number.
+                        </TableCell>
+                        <TableCell>
+                          We use this information to fulfill the contract of
+                          providing our services.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Partner Promotions</TableCell>
+                        <TableCell>
+                          We collect information you provide as part of a
+                          co-branded promotion with another company.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in conducting
+                          promotions.
+                        </TableCell>
+                      </tr>
+                      <tr>
+                        <TableCell>Surveys</TableCell>
+                        <TableCell>
+                          When you participate in a survey, we collect
+                          information your provide during the survey. If a
+                          survey is conducted by a third-party service provider,
+                          the collection, use, and disclosure of your
+                          information is subject to the privacy policy of that
+                          third-party provider.
+                        </TableCell>
+                        <TableCell>
+                          We have a legitimate interest in analyzing your
+                          opinion and collecting information related to our
+                          organization.
+                        </TableCell>
+                      </tr>
+                    </tbody>
+                  </table>,
                   "Jetsim assumes the role of a data controller, determining the purposes and means of processing personal data. As a data controller, Jetsim is responsible for ensuring that personal data is processed in accordance with applicable data protection laws. Jetsim's activities as a data controller include:",
                   "• Direct Registration: Jetsim is the data controller when users register directly with the service.",
                   "Main activities:",
