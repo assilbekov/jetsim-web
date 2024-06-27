@@ -211,16 +211,16 @@ export default function Index() {
                 ],
               },
               {
-                header: "Children",
+                header: "11. Children",
                 content: [
                   "Our Services are not intended for children under the age of 13. We do not knowingly collect personal information from minors under 16 without parental consent. Children under 13 should not provide us with their personal information.",
                 ],
               },
               {
-                header: "Contact Information",
+                header: "12. Contact Information",
                 content: [
-                  "If you have any questions, comments, appeals, or complaints about our privacy measures or need access to this Privacy Policy in an alternative format due to a disability, contact us at the appropriate address below. We will try to respond to your request and provide additional privacy-related information.",
-                  "• support@jetsim.app.",
+                  `If you have any questions, comments, appeals, or complaints about our privacy measures or need access to this Privacy Policy in an alternative format due to a disability, contact us at the appropriate address below. We will try to respond to your request and provide additional privacy-related information.
+                • support@jetsim.app.`,
                 ],
               },
             ]}
