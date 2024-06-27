@@ -1,4 +1,4 @@
-import QRCode, {QRCodeSVG, QRCodeCanvas} from "qrcode.react";
+import QRCode, { QRCodeSVG, QRCodeCanvas } from "qrcode.react";
 
 //import QRCode from "react-qr-code";
 import { InfoRow } from "./InfoRow";
@@ -12,16 +12,17 @@ type ScanQRStepProps = {
 };
 
 export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
+  const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
   return (
     <div className="flex flex-col gap-5">
       <RoundedLabel>{step}</RoundedLabel>
-      <QRCode
-        value={card.lpaCode}
-        height={140}
-        size={140}
-        width={140}
-        className="self-center w-full aspect-square fill-white max-w-[140px] max-h-[140px]"
-      />
+      <a href={url}>
+        <QRCode
+          value={url}
+          size={140}
+          className="self-center w-full aspect-square fill-white max-w-[140px] max-h-[140px]"
+        />
+      </a>
       <InfoRow>Scan this QR code 12</InfoRow>
     </div>
   );

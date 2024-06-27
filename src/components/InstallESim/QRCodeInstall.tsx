@@ -32,86 +32,28 @@ export const QRCodeInstall = ({
     a.download = "qrcode.png";
     a.click();
   };
-
-  const handleQRCodeLongPress = () => {
-    // Custom behavior for long press
-    alert("Long press detected! Now installing eSIM...");
-    window.location.href = card.lpaCode;
-  };
+  
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
       <p>sep text</p>
       <div ref={qrRef} className="flex justify-center">
-        <QRCode
-          id="qrCodeCanvas"
-          value={card.lpaCode}
-          size={220}
-          className="self-center w-full aspect-square fill-white max-w-[220px]"
-          level={"H"}
-          includeMargin={true}
-        />
-      </div>
-      <p>sep text</p>
-      <div className="p-10">
-        <QRCode
-          id="qrCodeCanvas"
-          value={card.lpaCode}
-          size={220}
-          className="self-center w-full aspect-square fill-white max-w-[220px]"
-          level={"H"}
-          includeMargin={true}
-        />
-      </div>
-      <p>sep text</p>
-      <div className="p-10">
-        <QRCodeSVG
-          id="qrCodeCanvas"
-          value={card.lpaCode}
-          size={220}
-          className="self-center w-full aspect-square fill-white max-w-[220px]"
-          level={"H"}
-          includeMargin={true}
-        />
-      </div>
-      <p>sep text</p>
-      <div className="p-10">
-        <QRCodeCanvas
-          id="qrCodeCanvas"
-          value={card.lpaCode}
-          size={220}
-          className="self-center w-full aspect-square fill-white max-w-[220px]"
-          level={"H"}
-          includeMargin={true}
-        />
-      </div>
-      <div>
-        image
-        {card.lpaCode && <img src={card.lpaCode} alt={"tap and hold"} />}
-      </div>
-      <div>
-        another try
-        <a href={url} download="esim.qr">
-          <QRCode value={url} size={256} />
-        </a>
-      </div>
-      <div> 
-        another try 2
         <a href={url}>
-          <QRCode value={url} size={256} />
+          <QRCode
+            value={url}
+            size={220}
+            className="self-center w-full aspect-square fill-white max-w-[220px]"
+          />
         </a>
       </div>
-      <p>lpa code: {card.lpaCode}</p>
-      deviceDetect: {JSON.stringify(deviceDetect)}
-      deviceData: {JSON.stringify(deviceData)}
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
           "mt-6 text-center text-text-100"
         )}
       >
-        Scan this QR code from other device 12
+        Scan this QR code from other device
       </p>
       <p
         className={clsx(
@@ -121,9 +63,6 @@ export const QRCodeInstall = ({
       >
         Share this QR code to other phone or laptop and scan it from there
       </p>
-      <PrimaryButton className="mt-4" onClick={handleQRCodeLongPress}>
-        install
-      </PrimaryButton>
       <PrimaryButton className="mt-4" onClick={handleShare}>
         Share a QR code
       </PrimaryButton>
