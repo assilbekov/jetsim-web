@@ -19,6 +19,9 @@ const inter = Inter({
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={clsx(interTight.variable, inter.variable)}>
+      <head>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+      </head>
       <body>
         <QueryContext>
           <ZendeskProvider>{children}</ZendeskProvider>

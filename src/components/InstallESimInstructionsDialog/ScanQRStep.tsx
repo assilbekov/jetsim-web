@@ -12,7 +12,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
   return (
     <div className="flex flex-col gap-5">
       <RoundedLabel>{step}</RoundedLabel>
-      <a href={card.lpaCode} download="esim.qr">
+      <a href={card.lpaCode}>
         <QRCode
           value={card.lpaCode}
           height={140}

@@ -32,7 +32,7 @@ export const QRCodeInstall = ({
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
       <div ref={qrRef} className="flex justify-center">
-        <a href={card.lpaCode} download="esim.qr">
+        <a href={card.lpaCode}>
           <QRCode
             id="qrCodeCanvas"
             value={card.lpaCode}
