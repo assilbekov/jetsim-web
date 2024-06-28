@@ -11,9 +11,9 @@ export const useDeviceTypeAndVerion = (): DeviceData => {
   const deviceData = useDeviceData(window.navigator.userAgent);
 
   return {
-    isIOS: deviceData.osName === "iOS",
-    isAndroid: deviceData.osName === "Android",
-    isDesktop: deviceData.deviceType === "desktop",
-    version: deviceData.osVersion,
+    isIOS: deviceData.os.name === "iOS",
+    isAndroid: deviceData.os.name === "Android",
+    isDesktop: deviceData.device.type !== "mobile",
+    version: deviceData.os.version,
   };
 };
