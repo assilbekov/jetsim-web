@@ -6,6 +6,8 @@ import { clsx } from "@/utils";
 import Image from "next/image";
 import QRCode from "qrcode.react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { SeeInstructionsButton } from "./SeeInstructionsButton";
+import { ShareQRCodeButton } from "./ShareQRCodeButton";
 
 type QRCodeBlockProps = {
   size: number;
@@ -17,7 +19,8 @@ const Title = ({ children }: { children: React.ReactNode }) => {
     <p
       className={clsx(
         getTypographyClass(TypographyVariants.Subheader),
-        "md:font-interTight md:text-[34px] md:leading-[38px] md:font-medium md:tracking-[0.68px]"
+        "md:font-interTight md:text-[34px] md:leading-[38px] md:font-medium md:tracking-[0.68px]",
+        "mt-6 mb-3"
       )}
     >
       {children}
@@ -49,9 +52,15 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
       return (
         <div>
           <a href={url}>
-            <QRCode value={url} size={size} height={52} width={37} />
+            <QRCode value={url} size={size} />
           </a>
-          <Image src="/icons/black/union.svg" alt="union icon" />
+          <Image
+            src="/icons/black/union.svg"
+            alt="union icon"
+            height={52}
+            width={37}
+            className="mt-4"
+          />
         </div>
       );
     }
@@ -65,11 +74,13 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
             alt="union icon"
             height={52}
             width={37}
+            className="mt-4"
           />
           <Title>Press and hold on a QR code and select Add eSIM</Title>
           <Description>
             Share this QR code to other phone or laptop and scan it from there
           </Description>
+          <SeeInstructionsButton card={card} />
         </div>
       );
     }
@@ -82,6 +93,8 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <Description>
             Share this QR code to other phone or laptop and scan it from there
           </Description>
+          <ShareQRCodeButton />
+          <SeeInstructionsButton card={card} />
         </div>
       );
     }
@@ -103,6 +116,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
         <Description>
           Share this QR code to other phone or laptop and scan it from there
         </Description>
+        <SeeInstructionsButton card={card} />
       </div>
     );
   };
