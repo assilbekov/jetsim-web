@@ -39,7 +39,6 @@ export const QRCodeInstall = ({
 
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">
-      <p>sep text</p>
       <div ref={qrRef} className="flex justify-center">
         {deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "17.5" ? (
           <a href={url}>
