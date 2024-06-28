@@ -17,7 +17,7 @@ export const ShareQRCodeButton = () => {
   };
 
   return (
-    <PrimaryButton className="mt-4" onClick={handleShare}>
+    <PrimaryButton className="mt-4 w-full" onClick={handleShare}>
       Share a QR code
     </PrimaryButton>
   );

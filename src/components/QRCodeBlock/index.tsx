@@ -44,7 +44,7 @@ const Description = ({ children }: { children: React.ReactNode }) => {
 
 const QRCodeElement = ({ url, size }: { url: string; size: number }) => {
   return (
-    <div>
+    <div className="flex justify-center">
       <QRCode value={url} size={size} />
     </div>
   );
@@ -113,6 +113,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <QRCodeElement url={url} size={size} />
           <Title>Install eSIM with QR code</Title>
           <Description>Scan this QR code with your device</Description>
+          <SeeInstructionsButton card={card} />
         </div>
       );
     }
@@ -124,6 +125,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
         <Description>
           Share this QR code to other phone or laptop and scan it from there
         </Description>
+        <ShareQRCodeButton />
         <SeeInstructionsButton card={card} />
       </div>
     );

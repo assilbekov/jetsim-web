@@ -12,7 +12,7 @@ export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
   return (
     <>
       <SecondaryButton
-        className="mt-4"
+        className="mt-4 w-full"
         onClick={() => setInstructionsDialogShow(true)}
       >
         See instructions
