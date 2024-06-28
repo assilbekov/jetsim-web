@@ -41,14 +41,21 @@ export const QRCodeInstall = ({
     <div className="flex flex-col justify-center text-base font-medium leading-6">
       <p>sep text</p>
       <div ref={qrRef} className="flex justify-center">
-        if
-        <a href={url}>
-          <QRCode
+        {deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "17.5" ? (
+          <a href={url}>
+            <QRCode
+              value={url}
+              size={220}
+              className="self-center w-full aspect-square fill-white max-w-[220px]"
+            />
+          </a>
+        ) : (
+          <QRCodeCanvas
             value={url}
             size={220}
             className="self-center w-full aspect-square fill-white max-w-[220px]"
           />
-        </a>
+        )}
       </div>
       <p>deviceData: {JSON.stringify(deviceData)}</p>
       <p>deviceTypeAndVerion: {JSON.stringify(deviceTypeAndVerion)}</p>
