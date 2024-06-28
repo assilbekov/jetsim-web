@@ -23,7 +23,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
           className="self-center w-full aspect-square fill-white max-w-[140px] max-h-[140px]"
         />
       </a>
-      <InfoRow>Scan this QR code 12</InfoRow>
+      <InfoRow>Scan this QR code</InfoRow>
     </div>
   );
 };
