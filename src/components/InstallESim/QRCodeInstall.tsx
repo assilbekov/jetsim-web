@@ -75,9 +75,11 @@ export const QRCodeInstall = ({
       >
         Share this QR code to other phone or laptop and scan it from there
       </p>
-      <PrimaryButton className="mt-4" onClick={handleShare}>
-        Share a QR code
-      </PrimaryButton>
+      {!deviceTypeAndVerion.isDesktop && (
+        <PrimaryButton className="mt-4" onClick={handleShare}>
+          Share a QR code
+        </PrimaryButton>
+      )}
       <SecondaryButton className="mt-4" onClick={onSeeInstructionsClick}>
         See instructions
       </SecondaryButton>
