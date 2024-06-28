@@ -10,6 +10,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { useRef } from "react";
+import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 
 type QRCodeInstallProps = {
   card: Card;
@@ -22,6 +23,7 @@ export const QRCodeInstall = ({
 }: QRCodeInstallProps) => {
   const qrRef = useRef<HTMLDivElement>(null);
   const deviceData = useDeviceData(window.navigator.userAgent);
+  const deviceTypeAndVerion = useDeviceTypeAndVerion();
 
   const handleShare = () => {
     const canvas = qrRef?.current?.querySelector("canvas");
@@ -39,6 +41,7 @@ export const QRCodeInstall = ({
     <div className="flex flex-col justify-center text-base font-medium leading-6">
       <p>sep text</p>
       <div ref={qrRef} className="flex justify-center">
+        if
         <a href={url}>
           <QRCode
             value={url}
@@ -47,9 +50,8 @@ export const QRCodeInstall = ({
           />
         </a>
       </div>
-      <p>
-      deviceData: {JSON.stringify(deviceData)}
-      </p>
+      <p>deviceData: {JSON.stringify(deviceData)}</p>
+      <p>deviceTypeAndVerion: {JSON.stringify(deviceTypeAndVerion)}</p>
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
