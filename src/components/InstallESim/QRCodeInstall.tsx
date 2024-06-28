@@ -11,6 +11,7 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { useRef } from "react";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { QRCodeBlock } from "../QRCodeBlock";
 
 type QRCodeInstallProps = {
   card: Card;
@@ -36,6 +37,12 @@ export const QRCodeInstall = ({
   };
 
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
+
+  return (
+    <div>
+      <QRCodeBlock size={220} card={card} />
+    </div>
+  )
 
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">

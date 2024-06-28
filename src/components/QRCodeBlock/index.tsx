@@ -20,7 +20,7 @@ const Title = ({ children }: { children: React.ReactNode }) => {
       className={clsx(
         getTypographyClass(TypographyVariants.Subheader),
         "md:font-interTight md:text-[34px] md:leading-[38px] md:font-medium md:tracking-[0.68px]",
-        "mt-6 mb-3"
+        "mt-6 mb-3 text-center"
       )}
     >
       {children}
@@ -34,11 +34,19 @@ const Description = ({ children }: { children: React.ReactNode }) => {
       className={clsx(
         getTypographyClass(TypographyVariants.Body2),
         "md:font-inter md:text-xl md:leading-[26px] md:font-medium",
-        "text-text-600"
+        "text-text-600 text-center"
       )}
     >
       {children}
     </p>
+  );
+};
+
+const QRCodeElement = ({ url, size }: { url: string; size: number }) => {
+  return (
+    <div>
+      <QRCode value={url} size={size} />
+    </div>
   );
 };
 
@@ -52,7 +60,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
       return (
         <div>
           <a href={url}>
-            <QRCode value={url} size={size} />
+            <QRCodeElement url={url} size={size} />
           </a>
           <Image
             src="/icons/black/union.svg"
@@ -68,7 +76,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
     if (deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "16.0") {
       return (
         <div>
-          <QRCode value={url} size={size} />
+          <QRCodeElement url={url} size={size} />
           <Image
             src="/icons/black/union.svg"
             alt="union icon"
@@ -88,7 +96,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
     if (deviceTypeAndVerion.isIOS) {
       return (
         <div>
-          <QRCode value={url} size={size} />
+          <QRCodeElement url={url} size={size} />
           <Title>Scan this QR code from other device</Title>
           <Description>
             Share this QR code to other phone or laptop and scan it from there
@@ -102,7 +110,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
     if (deviceTypeAndVerion.isDesktop) {
       return (
         <div>
-          <QRCode value={url} size={size} />
+          <QRCodeElement url={url} size={size} />
           <Title>Install eSIM with QR code</Title>
           <Description>Scan this QR code with your device</Description>
         </div>
@@ -111,7 +119,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
 
     return (
       <div>
-        <QRCode value={url} size={size} />
+        <QRCodeElement url={url} size={size} />
         <Title>Scan this QR code from other device</Title>
         <Description>
           Share this QR code to other phone or laptop and scan it from there
