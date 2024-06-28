@@ -62,13 +62,15 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <a href={url}>
             <QRCodeElement url={url} size={size} />
           </a>
-          <Image
-            src="/icons/black/union.svg"
-            alt="union icon"
-            height={52}
-            width={37}
-            className="mt-4"
-          />
+          <div className="flex justify-center">
+            <Image
+              src="/icons/black/union.svg"
+              alt="union icon"
+              height={52}
+              width={37}
+              className="mt-4"
+            />
+          </div>
         </div>
       );
     }
@@ -77,13 +79,15 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
       return (
         <div>
           <QRCodeElement url={url} size={size} />
-          <Image
-            src="/icons/black/union.svg"
-            alt="union icon"
-            height={52}
-            width={37}
-            className="mt-4"
-          />
+          <div className="flex justify-center">
+            <Image
+              src="/icons/black/union.svg"
+              alt="union icon"
+              height={52}
+              width={37}
+              className="mt-4"
+            />
+          </div>
           <Title>Press and hold on a QR code and select Add eSIM</Title>
           <Description>
             Share this QR code to other phone or laptop and scan it from there
