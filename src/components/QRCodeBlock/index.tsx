@@ -8,6 +8,7 @@ import QRCode from "qrcode.react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { SeeInstructionsButton } from "./SeeInstructionsButton";
 import { ShareQRCodeButton } from "./ShareQRCodeButton";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 type QRCodeBlockProps = {
   size: number;
@@ -71,6 +72,11 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
               className="mt-4"
             />
           </div>
+          <Title>Click on the QR code to install eSIM</Title>
+          <Description>or click on the button bellow</Description>
+          <a href={url} className="w-full">
+            <PrimaryButton className="w-full mt-4">Install eSIM</PrimaryButton>
+          </a>
         </div>
       );
     }
