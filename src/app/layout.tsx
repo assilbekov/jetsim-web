@@ -3,6 +3,7 @@ import { QueryContext } from "@/contexts/QueryContext";
 import { Inter_Tight, Inter } from "next/font/google";
 import { clsx } from "@/utils";
 import { ZendeskProvider } from "@/contexts/ZendeskProvider";
+import { GTM } from "@/components/GMT";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={clsx(interTight.variable, inter.variable)}>
       <head>
+        <GTM />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body>
