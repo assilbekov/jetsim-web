@@ -61,7 +61,6 @@ export default function Index({ searchParams }: PageProps) {
             <ListElement href="/terms-of-service">
               Terms of Service
             </ListElement>
-            <ListElement>COF Agreement</ListElement>
           </ul>
         </div>
       </div>
