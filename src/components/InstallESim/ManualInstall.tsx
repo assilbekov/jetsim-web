@@ -3,6 +3,7 @@ import { CopyButton } from "../buttons/CopyButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 
 type CopyCardProps = {
   text: string;
@@ -38,18 +39,25 @@ export const ManualInstall = ({
   card,
   onSeeInstructionsClick,
 }: ManualInstallProps) => {
+  const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const [smdp, addr, lpaCode] = card.lpaCode.split("$");
   const smdpAddr = `${smdp}$${addr}`;
   const lpaActivationCode = `$${lpaCode}`;
 
   return (
     <div>
-      <CopyCard text={smdpAddr} label="SM-DP+ Address" />
-      <CopyCard
-        text={lpaActivationCode}
-        label="Activation Code"
-        className="mt-4"
-      />
+      {deviceTypeAndVerion.isAndroid ? (
+        <CopyCard text={card.lpaCode} label="Activation Code" />
+      ) : (
+        <>
+          <CopyCard text={smdpAddr} label="SM-DP+ Address" />
+          <CopyCard
+            text={lpaActivationCode}
+            label="Activation Code"
+            className="mt-4"
+          />
+        </>
+      )}
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),

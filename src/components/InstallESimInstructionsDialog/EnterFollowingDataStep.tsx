@@ -2,6 +2,7 @@ import { Card } from "@/models/Card";
 import { CopyButton } from "../buttons/CopyButton";
 import { RoundedLabel } from "./RoundedLabel";
 import { InfoRow } from "./InfoRow";
+import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 
 type CopyBlockProps = {
   text: string;
@@ -29,6 +30,7 @@ export const EnterFollowingDataStep = ({
   step,
   card,
 }: EnterFollowingDataStepProps) => {
+  const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const [smdp, addr, lpaCode] = card.lpaCode.split("$");
   const smdpAddr = `${smdp}$${addr}`;
   const lpaActivationCode = `$${lpaCode}`;
@@ -39,8 +41,14 @@ export const EnterFollowingDataStep = ({
       <InfoRow>
         <span>Enter the following data</span>
       </InfoRow>
-      <CopyBlock text={smdpAddr} label="SM-DP+ Address" />
-      <CopyBlock text={lpaActivationCode} label="Activation Code" />
+      {deviceTypeAndVerion.isAndroid ? (
+        <CopyBlock text={card.lpaCode} label="Activation Code" />
+      ) : (
+        <>
+          <CopyBlock text={smdpAddr} label="SM-DP+ Address" />
+          <CopyBlock text={lpaActivationCode} label="Activation Code" />
+        </>
+      )}
     </div>
   );
 };
