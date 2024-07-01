@@ -1,11 +1,11 @@
-const GTM_ID = "G-TG5HZCCKZE"; // Replace with your Google Analytics Measurement ID
+const GA4_ID = "G-TG5HZCCKZE"; // Replace with your Google Analytics Measurement ID
 
-export const GTM = () => {
+export const GA4 = () => {
   return (
     <>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GTM_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
       />
       <script
         dangerouslySetInnerHTML={{
@@ -13,7 +13,7 @@ export const GTM = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GTM_ID}');
+            gtag('config', '${GA4_ID}');
           `,
         }}
       />
