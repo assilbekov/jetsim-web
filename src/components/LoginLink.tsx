@@ -66,6 +66,11 @@ export const LoginLink = () => {
     });
   }, []);
 
+  const handleLoginClick = () => {
+    (window as any)?.dataLayer.push({ event: "registration" });
+    setIsLoginDialogOpen(true);
+  };
+
   return (
     <>
       <div>
@@ -90,10 +95,7 @@ export const LoginLink = () => {
             </SecondaryButton>
           </div>
         ) : (
-          <SecondaryButton
-            className="w-full"
-            onClick={() => setIsLoginDialogOpen(true)}
-          >
+          <SecondaryButton className="w-full" onClick={handleLoginClick}>
             Login
           </SecondaryButton>
         )}
