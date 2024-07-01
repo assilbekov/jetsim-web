@@ -4,6 +4,7 @@ import { Inter_Tight, Inter } from "next/font/google";
 import { clsx } from "@/utils";
 import { ZendeskProvider } from "@/contexts/ZendeskProvider";
 import { GA4 } from "@/components/anylitics-scripts/GA4";
+import { GTM, GTMNoScript } from "@/components/anylitics-scripts/GTM";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -22,9 +23,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en" className={clsx(interTight.variable, inter.variable)}>
       <head>
         <GA4 />
+        <GTM />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body>
+        <GTMNoScript />
         <QueryContext>
           <ZendeskProvider>{children}</ZendeskProvider>
         </QueryContext>
