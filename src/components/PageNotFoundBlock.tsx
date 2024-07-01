@@ -25,7 +25,7 @@ export const PageNotFoundBlock = () => {
               "text-center"
             )}
           >
-            Oops! The page you're looking for doesn't exist. It might have been
+            Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been
             moved or deleted, or perhaps the URL was mistyped
           </p>
         </div>
