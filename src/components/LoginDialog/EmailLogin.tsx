@@ -74,6 +74,8 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
     });
     if (response.ok) {
       setStep(LoginStep.Code);
+      setCode("");
+      setIsCodeInvalid(false);
     }
   };
 
@@ -145,7 +147,13 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
                 Wrong code
               </p>
             )}
-            <ChangeEmailButton onClick={() => setStep(LoginStep.Email)} />
+            <ChangeEmailButton
+              onClick={() => {
+                setStep(LoginStep.Email);
+                setCode("");
+                setIsCodeInvalid(false);
+              }}
+            />
           </div>
         )}
       </div>
