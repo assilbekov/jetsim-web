@@ -20,8 +20,9 @@ export const ProfileCards = () => {
   const { data: cards, isFetched: isCardsFetched } = useQuery({
     queryKey: ["cards"],
     queryFn: async () => {
-      const cardsRes = await fetchCards();
-      return MockCards.concat(cardsRes);
+      return await fetchCards();
+      //const cardsRes = await fetchCards();
+      //return MockCards.concat(cardsRes);
     },
   });
 
