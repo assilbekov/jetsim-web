@@ -3,7 +3,7 @@ import { QueryContext } from "@/contexts/QueryContext";
 import { Inter_Tight, Inter } from "next/font/google";
 import { clsx } from "@/utils";
 import { ZendeskProvider } from "@/contexts/ZendeskProvider";
-import { GTM } from "@/components/GMT";
+import { GTM } from "@/components/anylitics-scripts/GMT";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
