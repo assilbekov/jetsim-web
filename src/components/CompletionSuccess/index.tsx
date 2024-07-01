@@ -9,22 +9,47 @@ import { Skeleton } from "../Skeleton";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
 
+function fetchCardWithRetry(
+  cardID: string,
+  retries: number,
+  delay: number
+): Promise<CardModel> {
+  async function attemptFetch(remainingRetries: number): Promise<CardModel> {
+    return fetchCard(cardID)
+      .then((card) => {
+        if (!card.lpaCode && remainingRetries > 0) {
+          return new Promise<CardModel>((resolve) => {
+            setTimeout(() => {
+              resolve(attemptFetch(remainingRetries - 1));
+            }, delay);
+          });
+        } else if (!card.lpaCode) {
+          throw new Error("Failed to fetch card with valid lpaCode");
+        }
+        return card;
+      })
+      .catch((error) => {
+        if (remainingRetries > 0) {
+          return new Promise<CardModel>((resolve) => {
+            setTimeout(() => {
+              resolve(attemptFetch(remainingRetries - 1));
+            }, delay);
+          });
+        }
+        throw error;
+      });
+  }
+
+  return attemptFetch(retries);
+}
+
 export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
   const [card, setCard] = useState<CardModel | null>(null);
   const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
 
   useEffect(() => {
-    fetchCard(cardID)
+    fetchCardWithRetry(cardID, 10, 1000)
       .then((card) => {
-        if (!card.lpaCode) {
-          setTimeout(() => {
-            fetchCard(cardID).then((res) => {
-              setCard(res);
-            });
-          }, 3000);
-          return;
-        }
-
         setCard(card);
       })
       .catch((error) => {
