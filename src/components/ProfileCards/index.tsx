@@ -12,6 +12,7 @@ import { fetchPackage } from "@/api/packages";
 import { SkeletonCard } from "./SkeletonCard";
 import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
 import { MockCards } from "./mockCards";
+import { handleSuccessPaymentInstructionClick } from "@/gtm-events";
 
 export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
@@ -136,6 +137,7 @@ export const ProfileCards = () => {
             {...dialog}
             setDialog={setDialog}
             onSeeInstructionsClick={() => {
+              handleSuccessPaymentInstructionClick();
               setInstructionsDialog({
                 type: CardDialogType.INSTALL,
                 card: dialog.card,

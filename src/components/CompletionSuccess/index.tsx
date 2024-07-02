@@ -8,6 +8,10 @@ import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog"
 import { Skeleton } from "../Skeleton";
 import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
+import {
+  handleSuccessPaymentInstructionClick,
+  handleSuccessPaymentManualClick,
+} from "@/gtm-events";
 
 function fetchCardWithRetry(
   cardID: string,
@@ -64,13 +68,17 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
           <InstallESim
             card={card}
             onSeeInstructionsClick={() => {
+              handleSuccessPaymentInstructionClick();
               setInstructionsDialogShow(true);
             }}
           />
           {instructionsDialogShow && (
             <InstallESimInstructionsDialog
               card={card}
-              onClose={() => setInstructionsDialogShow(false)}
+              onClose={() => {
+                handleSuccessPaymentManualClick();
+                setInstructionsDialogShow(false);
+              }}
             />
           )}
         </>
