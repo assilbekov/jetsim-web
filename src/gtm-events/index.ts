@@ -34,18 +34,20 @@ export function getBrowserData(): string {
 // - browser data - json
 // - country/country_id - string
 export const handleGTMEvent = (eventName: string, event?: any) => {
-  const defaultFields = {
-    device_id: getDeviceId(),
-    user_id: getUserId(),
-    timestamp: getTimestamp(),
-    browser_data: getBrowserData(),
-  };
+  setTimeout(() => {
+    const defaultFields = {
+      device_id: getDeviceId(),
+      user_id: getUserId(),
+      timestamp: getTimestamp(),
+      browser_data: getBrowserData(),
+    };
 
-  (window as any)?.dataLayer.push({
-    event: eventName,
-    ...defaultFields,
-    ...event,
-  });
+    (window as any)?.dataLayer.push({
+      event: eventName,
+      ...defaultFields,
+      ...event,
+    });
+  }, 0);
 };
 
 export const handleMainPageScreenEvent = () => {

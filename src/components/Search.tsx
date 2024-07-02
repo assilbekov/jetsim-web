@@ -11,6 +11,7 @@ import { convertLocationBestCost } from "@/converters/location";
 import { Skeleton } from "./Skeleton";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { TypographyVariants, getTypographyClass } from "./Typography";
+import { handleMainPageCountryClickEvent } from "@/gtm-events";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
@@ -43,6 +44,7 @@ export const Search = () => {
 
   const handleElementClick = (location: Location) => {
     setOpen(false);
+    handleMainPageCountryClickEvent(location.placeID);
   };
 
   const renderList = () => {
