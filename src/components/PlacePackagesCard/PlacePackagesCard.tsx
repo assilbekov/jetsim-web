@@ -21,6 +21,7 @@ import { PaymentMethodsInfo } from "./PaymentMethodsInfo";
 import { SelectPackagesBuyForm } from "./SelectPackagesBuyForm";
 import { PackageTagEnum } from "@/models/Package";
 import { fetchPackages } from "@/api/packages";
+import { handleCountryPageCheckoutEvent } from "@/gtm-events";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -72,6 +73,8 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
 
   const handleCheckout = (selectedPackageId: string) => {
     if (!selectedPackageId) return;
+
+    handleCountryPageCheckoutEvent(placeId, selectedPackageId);
 
     const accessToken = localStorage.getItem("accessToken");
     const redirectUrl = `${

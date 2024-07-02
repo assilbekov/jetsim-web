@@ -7,6 +7,7 @@ import { Navbar } from "@/components/Navbar";
 import { PlacePackagesCard } from "@/components/PlacePackagesCard";
 import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
+import { CountryScreenEvent } from "./_components/CountryScreenEvent";
 
 export default function Index({
   params,
@@ -15,6 +16,7 @@ export default function Index({
 }) {
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
+      <CountryScreenEvent countryId={params.placeId} />
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
