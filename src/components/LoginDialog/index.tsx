@@ -6,6 +6,10 @@ import { ApiResponse } from "@/models/ApiResponse";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { createPortal } from "react-dom";
+import {
+  handleLoginAppleClickEvent,
+  handleLoginGoogleClickEvent,
+} from "@/gtm-events";
 
 type LoginDialogProps = {
   redirectUrl?: string;
@@ -33,6 +37,7 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
           icon="/icons/social/google.svg"
           label="Continue with Google"
           onClick={async () => {
+            handleLoginGoogleClickEvent();
             const res = await fetch(
               `https://auth.jetsim.app/api/v1/google/login-link?redirect=${window.location.origin}/auth/callback`
             );
@@ -49,6 +54,9 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
           icon="/icons/social/apple.svg"
           label="Continue with Apple"
           className="w-full"
+          onClick={() => {
+            handleLoginAppleClickEvent();
+          }}
         />
         <div className="font-inter text-base leading-[22px] font-medium text-center text-gray-400 mt-5">
           <span>By continuing you agree to our </span>

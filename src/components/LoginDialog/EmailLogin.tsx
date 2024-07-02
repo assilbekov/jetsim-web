@@ -13,6 +13,10 @@ import {
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { Tokens } from "@/models/Tokens";
 import { ApiResponse } from "@/models/ApiResponse";
+import {
+  handleLoginEmailClickEvent,
+  handleLoginEmailCodeClickEvent,
+} from "@/gtm-events";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -67,6 +71,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
   const [step, setStep] = useState<LoginStep>(LoginStep.Email);
 
   const handleEmailSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
+    handleLoginEmailClickEvent();
     const response = await fetch("https://auth.jetsim.app/api/v1/email", {
       method: "POST",
       body: JSON.stringify({ email }),
@@ -76,6 +81,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       setStep(LoginStep.Code);
       setCode("");
       setIsCodeInvalid(false);
+      handleLoginEmailCodeClickEvent();
     }
   };
 

@@ -7,6 +7,7 @@ import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
+import { handleLoginScreenEvent } from "@/gtm-events";
 
 export const LoginLink = () => {
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
@@ -69,6 +70,7 @@ export const LoginLink = () => {
   const handleLoginClick = () => {
     (window as any)?.dataLayer.push({ event: "registration" });
     setIsLoginDialogOpen(true);
+    handleLoginScreenEvent();
   };
 
   return (
