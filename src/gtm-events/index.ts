@@ -112,8 +112,24 @@ export const handleSuccessPaymentInstructionClick = () => {
 
 export const handleInstructionsScreenEvent = () => {
   handleGTMEvent("instruction_screen");
-}
+};
 
 export const handleTermsScreenEvent = () => {
   handleGTMEvent("terms_screen");
-}
+};
+
+export const handleProfileScreenEvent = () => {
+  handleGTMEvent("profile_screen");
+};
+
+export const handleProfileInstallClickEvent = () => {
+  handleGTMEvent("profile_install_click");
+};
+
+export const handleProfileBuyClickEvent = () => {
+  handleGTMEvent("profile_buy_click");
+};
+
+export const handleProfileCountryClickEvent = (countryId: string) => {
+  handleGTMEvent("profile_country_click", { county_page: countryId });
+};
