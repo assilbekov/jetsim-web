@@ -52,44 +52,46 @@ export const FAQ = () => {
       ),
     },
     {
-      title: "What are the benefits of using eSIM?",
+      title: "How is eSIM better than traditional SIM cards?",
       description:
-        "eSIM offers several benefits over traditional SIM cards, including the ability to activate and manage multiple cellular plans on a single device, the convenience of not having to swap physical SIM cards, and the flexibility to add an extra line for traveling abroad. eSIM also provides additional security features, such as remote SIM provisioning and the ability to lock your eSIM remotely in case of theft or loss.",
+        "With an eSIM, you can start using local mobile networks right upon arrival, even before going through passport control. You can buy and install an eSIM in a few minutes, without standing in long lines at the airport shops to buy a physical SIM card, and it is usually a more pocket-friendly solution. Also, no need to provide your passport for verification.",
     },
     {
-      title: "Can I switch back to a physical SIM card after using eSIM?",
+      title: "Once eSIM expires, can I switch back to a physical SIM card?",
       description:
-        "Yes, you can switch back to a physical SIM card after using eSIM. Most devices that support eSIM also have a physical SIM card slot, allowing you to switch between eSIM and physical SIM cards as needed. If you decide to switch back to a physical SIM card, you can contact your cellular provider to obtain a physical SIM card and activate it on your device.",
+        "Yes, you can switch back to a physical SIM whenever you need it. Don't uninstall an active eSIM if you want to use it later because you can only install it once.",
     },
     {
       title: "Is eSIM secure?",
       description:
-        "eSIM is designed with security in mind and offers several security features to protect your cellular plan and personal information. eSIM uses a secure element to store your SIM profile securely, and it encrypts communication between your device and the cellular network. eSIM also provides additional security features, such as remote SIM provisioning and the ability to lock your eSIM remotely in case of theft or loss.",
+        "JetSim uses modern encryption technologies to secure the connection between your device and a cellular network.",
     },
     {
-      title: "Can I use eSIM for international travel?",
+      title: "Can I use both my SIM card and an eSIM during international travel?",
       description:
-        "Yes, you can use eSIM for international travel. eSIM allows you to add an extra line for traveling abroad, so you can use a local cellular plan while keeping your primary number active. This can help you avoid expensive roaming charges and stay connected while traveling. Many cellular providers offer international eSIM plans that provide data, voice, and text services in multiple countries.",
+        "Yes, you can use your physical SIM card and an eSIM simultaneously. Your primary phone number will remain active, and you'll be able to receive calls and SMS. However, note that you'll be charged according to your mobile operator's pricing in this case, which is why eSIM can be a more suitable option.",
     },
     {
-      title: "How do I know if my device supports eSIM?",
+      title: "Should I install my eSIM in advance, before the trip?",
       description:
-        "Most modern smartphones, tablets, smartwatches, and laptops support eSIM. To check if your device supports eSIM, you can refer to the manufacturer's specifications or contact the manufacturer directly. You can also check with your cellular provider to see if they offer eSIM plans and if your device is compatible with their eSIM service.",
+        `Note that JetSim's data plan becomes active once you purchase it even if you don't start using it right away, so plan the use accordingly. We recommend purchasing and installing your eSIM once you arrive at your destination.
+        Note that you need to connect to Wi-Fi or mobile data to install an eSIM. If you believe you may not have access to Wi-Fi when you arrive, it's better to activate your eSIM in advance.
+        `,
     },
     {
-      title: "Can I use eSIM with any cellular provider?",
+      title: "Do I need to provide my ID to use a JetSim eSIM?",
       description:
-        "eSIM is supported by a wide range of cellular providers worldwide. However, not all cellular providers offer eSIM plans, so it's essential to check if your provider supports eSIM before purchasing an eSIM plan. You can contact your cellular provider to inquire about their eSIM offerings and verify if your device is compatible with their eSIM service.",
+        "JetSim doesn't request your ID before or after a purchase. You can buy an eSIM and start using it right away.",
     },
     {
-      title: "How do I switch my cellular plan to eSIM?",
+      title: "How many times can I use my eSIM?",
       description:
-        "To switch your cellular plan to eSIM, you need to contact your cellular provider and request an eSIM activation. Your provider will provide you with a QR code that contains the necessary information to activate your eSIM. Once you scan the QR code, your eSIM will be activated, and you can start using your cellular plan on your device. Your provider may also offer assistance in transferring your existing number and plan to eSIM.",
+        "You can use your QR code to install an eSIM only once and only on any device.",
     },
     {
-      title: "Can I use eSIM with a prepaid plan?",
+      title: "Can I reinstall my eSIM?",
       description:
-        "Yes, you can use eSIM with a prepaid plan. Many cellular providers offer eSIM plans for prepaid customers, allowing you to activate and manage your prepaid plan on your device using eSIM. With eSIM, you can enjoy the flexibility of prepaid plans without the need for a physical SIM card. You can contact your cellular provider to inquire about their eSIM offerings for prepaid customers.",
+        "No, you can only scan the QR code once. If you uninstall your eSIM, you have to buy a new plan and install it from scratch.",
     },
   ];
 
