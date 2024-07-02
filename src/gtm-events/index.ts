@@ -66,6 +66,26 @@ export const handleCountryPageCheckoutEvent = (
 ) => {
   handleGTMEvent("country_checkout_click", {
     counry_page: countryId,
-    package_id,
+    tariff: package_id,
   });
 };
+
+export const handleLoginScreenEvent = () => {
+  handleGTMEvent("login_screen");
+}
+
+export const handleLoginEmailClickEvent = () => {
+  handleGTMEvent("login_email_click");
+}
+
+export const handleLoginEmailCodeClickEvent = () => {
+  handleGTMEvent("login_email_second_click");
+}
+
+export const handleLoginGoogleClickEvent = () => {
+  handleGTMEvent("login_google_click");
+}
+
+export const handleLoginAppleClickEvent = () => {
+  handleGTMEvent("login_apple_click");
+}
