@@ -1,9 +1,12 @@
+"use client";
+
 import { Card } from "@/models/Card";
 import { Dialog } from "../Dialog";
-import { ManualInstall } from "./ManualInstall";
 import { ManualInstallDialogContent } from "./ManualInstallDialogContent";
 import { HowToInstallDialogContent } from "./HowToInstallDialogContent";
 import { QRInstallDialogContent } from "./QRInstallDialogContent";
+import { useEffect } from "react";
+import { handleInstructionsScreenEvent } from "@/gtm-events";
 
 enum InstallESimInstructionsType {
   MANUAL = "manual",
@@ -22,6 +25,10 @@ export const InstallESimInstructionsDialog = ({
   card,
   onClose,
 }: InstallESimInstructionsDialogProps) => {
+  useEffect(() => {
+    handleInstructionsScreenEvent();
+  }, []);
+
   return (
     <Dialog
       onClose={onClose}
