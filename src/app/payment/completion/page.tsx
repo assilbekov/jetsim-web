@@ -7,6 +7,13 @@ import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { FinishedScreenEvent } from "./_components/FinishedScreenEvent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Successful Order Completion | JetSim eSIM Cards",
+  description:
+    "Thank you for choosing JetSim eSIM cards! Your order has been successfully processed. Stay tuned for seamless global connectivity with our reliable eSIM solutions.",
+};
 
 export default function Completion({
   searchParams,
