@@ -2,6 +2,13 @@ import { AllDestinations } from "@/components/AllDestinations";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Global eSIM Cards for All Destinations | JetSim",
+  description:
+    "Discover JetSim's global eSIM cards for seamless connectivity to all destinations. Explore our diverse eSIM plans designed for international travelers, ensuring reliable internet access wherever you roam. Stay connected effortlessly with JetSim's innovative eSIM solutions.",
+};
 
 export default function Index() {
   return (
