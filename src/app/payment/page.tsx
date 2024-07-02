@@ -7,6 +7,7 @@ import {
 } from "@/components/Typography";
 import { clsx } from "@/utils";
 import Link from "next/link";
+import { PaymentScreenEvent } from "./_components/PaymentScreenEvent";
 
 const ListElement = ({
   children,
@@ -34,6 +35,7 @@ type PageProps = {
 export default function Index({ searchParams }: PageProps) {
   return (
     <div className="bg-[#F2F4F7]">
+      <PaymentScreenEvent />
       <div className="flex flex-col justify-between min-h-screen max-w-[950px] p-6 sm:p-8 pb-11 mx-auto">
         <div>
           <div>
@@ -58,9 +60,7 @@ export default function Index({ searchParams }: PageProps) {
           </p>
           <ul className="flex flex-col sm:flex-row sm:gap-6 gap-3">
             <ListElement href="/privacy-policy">Privacy policy</ListElement>
-            <ListElement href="/terms-of-service">
-              Terms of Service
-            </ListElement>
+            <ListElement href="/terms-of-service">Terms of Service</ListElement>
           </ul>
         </div>
       </div>

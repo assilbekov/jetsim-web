@@ -10,6 +10,7 @@ import { PrimaryButton } from "../buttons/PrimaryButton";
 import { StripeError } from "@stripe/stripe-js";
 import { ErrorMessage } from "./ErrorMessage";
 import { useSearchParams } from "next/navigation";
+import { handlePaymentMethodClickEvent } from "@/gtm-events";
 
 export const CheckoutForm = ({ cardID }: { cardID: string }) => {
   const stripe = useStripe();
@@ -21,6 +22,9 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // TODO: Refactor stripe payment methods.
+    handlePaymentMethodClickEvent("stripe");
+
     const isReinstall = searchParams.get("reinstall");
 
     if (!stripe || !elements) {
@@ -38,6 +42,7 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
           isReinstall ? `&reinstall=true` : ``
         }`,
       },
+      //redirect: 'if_required',
     });
 
     if (error) {

@@ -45,8 +45,6 @@ export const OrderSummary = ({
   const [location, setLocation] = useState<Location | null>(null);
   const [packageData, setPackageData] = useState<Package | null>(null);
 
-  console.log({ location, packageData });
-
   useEffect(() => {
     fetchLocation(placeID).then((res) => {
       setLocation(res);
