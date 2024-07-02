@@ -10,6 +10,12 @@ import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { MainScreenEvent } from "./_components/MainScreenEvent";
 
+export const Metadata = {
+  title: "Buy International eSIM | Global Travel Internet - JetSim",
+  description:
+    "Discover JetSim's eSIM cards for seamless global travel internet. Buy international eSIMs for reliable connectivity wherever you go.",
+};
+
 export default function Index() {
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
