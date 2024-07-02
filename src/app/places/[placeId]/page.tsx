@@ -8,12 +8,24 @@ import { PlacePackagesCard } from "@/components/PlacePackagesCard";
 import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { CountryScreenEvent } from "./_components/CountryScreenEvent";
+import { Metadata } from "next";
+import { fetchLocation } from "@/api/locations";
 
-export default function Index({
-  params,
-}: {
+type PageProps = {
   params: { placeId: string; locale: string };
-}) {
+};
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const location = await fetchLocation(params.placeId);
+  return {
+    title: `${location.title} eSIM for Tourists | Unlimited Mobile Data Plans - JetSim`,
+    description: `eSIM for ${location.title} A vast array of virtual SIM cards available for iPhone and Android devices. Get unlimited mobile data plans from leading eSIM providers worldwide.`,
+  };
+}
+
+export default function Index({ params }: PageProps) {
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <CountryScreenEvent countryId={params.placeId} />
