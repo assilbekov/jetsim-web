@@ -3,6 +3,13 @@ import { LandingFooterContent } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
 import { TermsScreenEvent } from "./_components/TermsScreenEvent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | JetSim eSIM Cards",
+  description:
+    "Explore JetSim's terms of service governing the use of our eSIM cards for seamless global connectivity. Understand our guidelines and obligations to ensure a secure and enjoyable user experience.",
+};
 
 export default function Index() {
   return (

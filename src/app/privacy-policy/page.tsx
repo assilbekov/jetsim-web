@@ -2,6 +2,13 @@ import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooterContent } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | JetSim eSIM Cards",
+  description:
+    "Learn about JetSim's commitment to your privacy with our comprehensive privacy policy. Discover how we protect your personal information while providing reliable eSIM solutions for global connectivity.",
+};
 
 const TableCell = ({ children }: { children: React.ReactNode }) => {
   return <td className="w-1/3 align-top py-2 px-4">{children}</td>;
