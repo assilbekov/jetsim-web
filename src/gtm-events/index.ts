@@ -33,7 +33,7 @@ export function getBrowserData(): string {
 // - timestamp
 // - browser data - json
 // - country/country_id - string
-export const handleGTMEvent = (eventName: string, event: any) => {
+export const handleGTMEvent = (eventName: string, event?: any) => {
   const defaultFields = {
     device_id: getDeviceId(),
     user_id: getUserId(),
@@ -45,5 +45,27 @@ export const handleGTMEvent = (eventName: string, event: any) => {
     event: eventName,
     ...defaultFields,
     ...event,
+  });
+};
+
+export const handleMainPageScreenEvent = () => {
+  handleGTMEvent("main_screen");
+};
+
+export const handleMainPageCountryClickEvent = (countryId: string) => {
+  handleGTMEvent("main_country_click", { counry_page: countryId });
+};
+
+export const handleCountryPageScreenEvent = (countryId: string) => {
+  handleGTMEvent("country_screen", { counry_page: countryId });
+};
+
+export const handleCountryPageCheckoutEvent = (
+  countryId: string,
+  package_id: string
+) => {
+  handleGTMEvent("country_checkout_click", {
+    counry_page: countryId,
+    package_id,
   });
 };
