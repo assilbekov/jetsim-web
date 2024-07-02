@@ -97,3 +97,15 @@ export const handlePaymentScreenEvent = () => {
 export const handlePaymentMethodClickEvent = (payment_type: string) => {
   handleGTMEvent("payment_click", { payment_type });
 };
+
+export const handleSuccessPaymentScreenEvent = () => {
+  handleGTMEvent("finished_payment_screen");
+};
+
+export const handleSuccessPaymentManualClick = () => {
+  handleGTMEvent("finished_payment_manual_click");
+};
+
+export const handleSuccessPaymentInstructionClick = () => {
+  handleGTMEvent("finished_payment_instruction_click");
+};
