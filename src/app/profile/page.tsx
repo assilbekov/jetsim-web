@@ -6,6 +6,13 @@ import { Navbar } from "@/components/Navbar";
 import { ProfileCards } from "@/components/ProfileCards";
 import { Recommendations } from "@/components/Recommendations";
 import { ProfileScreenEvent } from "./_components/TermsScreenEvent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "User Profile | JetSim eSIM Cards",
+  description:
+    "Manage your JetSim account and personal preferences with ease on our user profile page. Update your information and explore our eSIM services tailored for global travelers.",
+};
 
 export default function Index({
   params,
