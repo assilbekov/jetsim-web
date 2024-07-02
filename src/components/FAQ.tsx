@@ -30,8 +30,9 @@ export const FAQ = () => {
             <li>Use your cellular plan!</li>
           </ol>
           <p className="mt-4">
-            If you can't scan the QR code, try sending it to another device or
-            install it manually (instructions are provided along with the code).
+            If you can&apos;t scan the QR code, try sending it to another device
+            or install it manually (instructions are provided along with the
+            code).
           </p>
         </>
       ),
@@ -114,7 +115,9 @@ export const FAQ = () => {
       title: "My QR code isn't working. What should I do?",
       description: (
         <>
-          <p>Here are a few things to check if your QR code isn't working:</p>
+          <p>
+            Here are a few things to check if your QR code isn&apos;t working:
+          </p>
           <ol className="list-decimal ml-8">
             <li>
               Check device compatibility with an eSIM. You can do it{" "}
