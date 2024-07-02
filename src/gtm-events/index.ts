@@ -72,20 +72,28 @@ export const handleCountryPageCheckoutEvent = (
 
 export const handleLoginScreenEvent = () => {
   handleGTMEvent("login_screen");
-}
+};
 
 export const handleLoginEmailClickEvent = () => {
   handleGTMEvent("login_email_click");
-}
+};
 
 export const handleLoginEmailCodeClickEvent = () => {
   handleGTMEvent("login_email_second_click");
-}
+};
 
 export const handleLoginGoogleClickEvent = () => {
   handleGTMEvent("login_google_click");
-}
+};
 
 export const handleLoginAppleClickEvent = () => {
   handleGTMEvent("login_apple_click");
-}
+};
+
+export const handlePaymentScreenEvent = () => {
+  handleGTMEvent("payment_screen");
+};
+
+export const handlePaymentMethodClickEvent = (payment_type: string) => {
+  handleGTMEvent("payment_click", { payment_type });
+};
