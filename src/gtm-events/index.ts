@@ -109,3 +109,11 @@ export const handleSuccessPaymentManualClick = () => {
 export const handleSuccessPaymentInstructionClick = () => {
   handleGTMEvent("finished_payment_instruction_click");
 };
+
+export const handleInstructionsScreenEvent = () => {
+  handleGTMEvent("instruction_screen");
+}
+
+export const handleTermsScreenEvent = () => {
+  handleGTMEvent("terms_screen");
+}
