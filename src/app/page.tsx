@@ -9,12 +9,15 @@ import { Recommendations } from "@/components/Recommendations";
 import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { MainScreenEvent } from "./_components/MainScreenEvent";
+import { Metadata } from "next";
 
-export const Metadata = {
-  title: "Buy International eSIM | Global Travel Internet - JetSim",
-  description:
-    "Discover JetSim's eSIM cards for seamless global travel internet. Buy international eSIMs for reliable connectivity wherever you go.",
-};
+export function generateMetadata(): Metadata {
+  return {
+    title: "Buy International eSIM | Global Travel Internet - JetSim",
+    description:
+      "Discover JetSim's eSIM cards for seamless global travel internet. Buy international eSIMs for reliable connectivity wherever you go.",
+  };
+}
 
 export default function Index() {
   return (

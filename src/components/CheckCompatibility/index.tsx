@@ -8,6 +8,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 
 export type CheckCompatibilityProps = {
   label: React.ReactNode;
+  hideIcon?: boolean;
   className?: string;
 };
 

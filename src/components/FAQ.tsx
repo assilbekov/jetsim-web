@@ -2,23 +2,54 @@ import { LandingContainer } from "./LandingContainer";
 import { Card } from "./Card";
 import { AccordionPanel } from "./AccordionPanel";
 import { Typography, TypographyVariants } from "./Typography";
+import Link from "next/link";
+import { CheckCompatibility } from "./CheckCompatibility";
 
 export const FAQ = () => {
   const faq = [
     {
-      title: "What is an eSIM and how to get use of JetSim?",
+      title: "What is an eSIM and how do you use it?",
       description:
-        "eSIM, or embedded SIM (the same as a digital SIM card, electronic SIM card, or virtual SIM card), is a cloud-based mobile number that allows users to activate and manage multiple cellular plans on a single device. It eliminates the need for a physical SIM card and provides the convenience of having multiple cellular providers on a single device. eSIM also offers additional features, such as the ability to add an extra line for traveling abroad and separate data plans for personal and business purposes.",
+        "An eSIM is an electronic, or virtual, SIM card. You can use it along with your physical SIM card, if necessary. To start using an eSIM, activate it by scanning a provided QR code (or use manual setup).",
     },
     {
-      title: "How do I activate my eSIM?",
-      description:
-        "To activate your eSIM, you need to scan a QR code provided by your cellular provider. The QR code contains the necessary information to activate your eSIM, such as your phone number and plan details. Once you scan the QR code, your eSIM will be activated, and you can start using your cellular plan on your device.",
+      title: "How do I install my eSIM from JetSim?",
+      description: (
+        <>
+          <p>
+            Once you complete a purchase, you receive a QR code. Then, follow
+            these steps:
+          </p>
+          <ol className="list-decimal ml-8">
+            <li>
+              Scan the QR code to activate an eSIM or use an instruction for
+              manual setup.
+            </li>
+            <li>Turn on data roaming on your eSIM upon arrival.</li>
+            <li>Use your cellular plan!</li>
+          </ol>
+          <p className="mt-4">
+            If you can't scan the QR code, try sending it to another device or
+            install it manually (instructions are provided along with the code).
+          </p>
+        </>
+      ),
     },
     {
-      title: "Can I use eSIM on any device?",
-      description:
-        "eSIM is supported on a wide range of devices, including smartphones, tablets, smartwatches, and laptops. However, not all devices are eSIM compatible, so it's essential to check if your device supports eSIM before purchasing an eSIM plan. Most modern devices support eSIM, but it's always best to verify with the manufacturer or cellular provider.",
+      title: "Can I use my eSIM on any device?",
+      description: (
+        <>
+          JetSim eSIM is compatible with the majority of smartphones,
+          smartwatches, and tablets. However, if you have any doubts, please
+          check compatibility before buying an eSIM. You can check it{" "}
+          <CheckCompatibility
+            label="here"
+            className="inline-flex items-center"
+            hideIcon
+          />{" "}
+          or contact your cellular provider to learn more.
+        </>
+      ),
     },
     {
       title: "What are the benefits of using eSIM?",
