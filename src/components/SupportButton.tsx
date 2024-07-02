@@ -3,7 +3,10 @@
 import { ZendeskContext } from "@/contexts/ZendeskProvider";
 import { useContext } from "react";
 
-export const SupportButton = (props: { children: React.ReactNode }) => {
+export const SupportButton = (props: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   const isZendeskLoaded = useContext(ZendeskContext);
   // ignore types for now.
   const localWindow: any = typeof window !== "undefined" ? window : null;
@@ -20,5 +23,9 @@ export const SupportButton = (props: { children: React.ReactNode }) => {
     }
   };
 
-  return <div onClick={handleSupportClick}>{props.children}</div>;
+  return (
+    <div onClick={handleSupportClick} className={props.className}>
+      {props.children}
+    </div>
+  );
 };

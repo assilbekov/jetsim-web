@@ -4,6 +4,7 @@ import { AccordionPanel } from "./AccordionPanel";
 import { Typography, TypographyVariants } from "./Typography";
 import Link from "next/link";
 import { CheckCompatibility } from "./CheckCompatibility";
+import { SupportButton } from "./SupportButton";
 
 export const FAQ = () => {
   const faq = [
@@ -67,14 +68,14 @@ export const FAQ = () => {
         "JetSim uses modern encryption technologies to secure the connection between your device and a cellular network.",
     },
     {
-      title: "Can I use both my SIM card and an eSIM during international travel?",
+      title:
+        "Can I use both my SIM card and an eSIM during international travel?",
       description:
         "Yes, you can use your physical SIM card and an eSIM simultaneously. Your primary phone number will remain active, and you'll be able to receive calls and SMS. However, note that you'll be charged according to your mobile operator's pricing in this case, which is why eSIM can be a more suitable option.",
     },
     {
       title: "Should I install my eSIM in advance, before the trip?",
-      description:
-        `Note that JetSim's data plan becomes active once you purchase it even if you don't start using it right away, so plan the use accordingly. We recommend purchasing and installing your eSIM once you arrive at your destination.
+      description: `Note that JetSim's data plan becomes active once you purchase it even if you don't start using it right away, so plan the use accordingly. We recommend purchasing and installing your eSIM once you arrive at your destination.
         Note that you need to connect to Wi-Fi or mobile data to install an eSIM. If you believe you may not have access to Wi-Fi when you arrive, it's better to activate your eSIM in advance.
         `,
     },
@@ -92,6 +93,55 @@ export const FAQ = () => {
       title: "Can I reinstall my eSIM?",
       description:
         "No, you can only scan the QR code once. If you uninstall your eSIM, you have to buy a new plan and install it from scratch.",
+    },
+    {
+      title: "Can I call or text with JetSim eSIM?",
+      description:
+        "JetSim offers only data plans for you to access the internet anywhere. Our eSIMs do not support phone calls or SMS messages.",
+    },
+    {
+      title: "Can I share internet access with other devices?",
+      description:
+        "Yes, you can use your phone as a personal hotspot. However, you can't install one eSIM on several devices.",
+    },
+    {
+      title: "What happens if I use all my data before the eSIM plan expires?",
+      description: `If you use a standard plan, your eSIM gets deactivated once you use all the data included. If you need more data, you have to buy another plan.
+        If you purchase an unlimited eSIM, you can use it during the whole plan's duration. You might experience a slightly lower internet speed after a certain threshold, but it may happen only after significant data use.
+        `,
+    },
+    {
+      title: "My QR code isn't working. What should I do?",
+      description: (
+        <>
+          <p>Here are a few things to check if your QR code isn't working:</p>
+          <ol className="list-decimal ml-8">
+            <li>
+              Check device compatibility with an eSIM. You can do it{" "}
+              <CheckCompatibility
+                label="here"
+                className="inline-flex items-center"
+                hideIcon
+              />
+              .
+            </li>
+            <li>
+              Check your connection to Wi-Fi or mobile data. You need it to
+              install your eSIM.
+            </li>
+            <li>
+              Try to install your eSIM manually (instructions are provided along
+              with the QR code).
+            </li>
+          </ol>
+          <p className="mt-4">
+            If none of the above solutions work, please{" "}
+            <SupportButton className="inline text-secondary-500 cursor-pointer">
+              contact JetSim support.
+            </SupportButton>
+          </p>
+        </>
+      ),
     },
   ];
 
