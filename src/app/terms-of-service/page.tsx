@@ -2,10 +2,12 @@ import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooterContent } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
+import { TermsScreenEvent } from "./_components/TermsScreenEvent";
 
 export default function Index() {
   return (
     <main className="bg-[#F8F9FB] overflow-hidden">
+      <TermsScreenEvent />
       <LandingContainer className="px-6 sm:px-8 pb-11">
         <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
           <Navbar howToHref="/#how-to" faqHref="/#faq" />
