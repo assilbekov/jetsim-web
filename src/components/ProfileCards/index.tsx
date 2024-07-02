@@ -11,8 +11,11 @@ import { CardDialog, CardDialogModel, CardDialogType } from "./CardDialog";
 import { fetchPackage } from "@/api/packages";
 import { SkeletonCard } from "./SkeletonCard";
 import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
-import { MockCards } from "./mockCards";
-import { handleSuccessPaymentInstructionClick } from "@/gtm-events";
+import {
+  handleProfileBuyClickEvent,
+  handleProfileInstallClickEvent,
+  handleSuccessPaymentInstructionClick,
+} from "@/gtm-events";
 
 export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
@@ -98,14 +101,15 @@ export const ProfileCards = () => {
                     card={card}
                     location={location}
                     selectedPackage={selectedPackage}
-                    onBuyNewPlanClick={(card, location) =>
+                    onBuyNewPlanClick={(card, location) => {
+                      handleProfileBuyClickEvent();
                       setDialog({
                         type: CardDialogType.BUY_NEW_PLAN,
                         card,
                         location,
                         selectedPackage,
-                      })
-                    }
+                      });
+                    }}
                     onDetailsClick={(card, location) =>
                       setDialog({
                         type: CardDialogType.DETAILS,
@@ -114,14 +118,15 @@ export const ProfileCards = () => {
                         selectedPackage,
                       })
                     }
-                    onInstallClick={(card, location) =>
+                    onInstallClick={(card, location) => {
+                      handleProfileInstallClickEvent();
                       setDialog({
                         type: CardDialogType.INSTALL,
                         card,
                         location,
                         selectedPackage,
-                      })
-                    }
+                      });
+                    }}
                   />
                 )
             )
