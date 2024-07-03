@@ -4,6 +4,13 @@ import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { PageNotFoundBlock } from "@/components/PageNotFoundBlock";
 import { Recommendations } from "@/components/Recommendations";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Page Not Found | JetSim eSIM Cards",
+  description:
+    "Oops! The page you are looking for cannot be found. Explore JetSim for the best global travel eSIM solutions and stay connected worldwide.",
+};
 
 export default function NotFoundPage() {
   return (

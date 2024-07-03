@@ -8,6 +8,13 @@ import {
 import { clsx } from "@/utils";
 import Link from "next/link";
 import { PaymentScreenEvent } from "./_components/PaymentScreenEvent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Checkout | JetSim eSIM Cards",
+  description:
+    "Complete your purchase of JetSim eSIM cards and enjoy seamless global travel internet. Secure and fast checkout process to keep you connected worldwide.",
+};
 
 const ListElement = ({
   children,
