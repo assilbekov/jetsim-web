@@ -40,6 +40,7 @@ export const handleGTMEvent = (eventName: string, event?: any) => {
       user_id: getUserId(),
       timestamp: getTimestamp(),
       browser_data: getBrowserData(),
+      country_id: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
 
     (window as any)?.dataLayer.push({
