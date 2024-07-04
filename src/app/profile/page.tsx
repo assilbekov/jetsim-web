@@ -5,7 +5,7 @@ import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { ProfileCards } from "@/components/ProfileCards";
 import { Recommendations } from "@/components/Recommendations";
-import { ProfileScreenEvent } from "./_components/TermsScreenEvent";
+import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
