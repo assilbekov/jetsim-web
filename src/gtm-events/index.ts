@@ -1,6 +1,3 @@
-import FacebookPixel from "react-facebook-pixel";
-//import ReactGA from 'react-ga';
-
 export const getUserIP = () => {
   let ip = localStorage.getItem("user_ip");
   if (!ip) {
@@ -97,9 +94,16 @@ export const handleGTMEvent = (eventName: string, event?: any) => {
 
 export const trackPurchase = (data: any) => {
   const allFields = { ...getDefaultFields(), ...data };
+  const localWindow: any = window;
 
   // Facebook Pixel
-  FacebookPixel.track("Purchase", allFields);
+  //FacebookPixel.track("Purchase", allFields);
+  // Facebook Pixel Event Tracking
+  localWindow.fbq("track", "Purchase", {
+    category: "Ecommerce",
+    label: "Purchase Completed",
+    value: allFields,
+  });
 
   // Google Analytics (ReactGA)
   /* ReactGA.event({
@@ -110,7 +114,7 @@ export const trackPurchase = (data: any) => {
   }); */
 
   // Google Analytics
-  (window as any).gtag("event", "Purchase", {
+  localWindow.gtag("event", "Purchase", {
     category: "Ecommerce",
     label: "Purchase Completed",
     value: allFields,
