@@ -32,6 +32,7 @@ export const GA4 = () => {
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
       />
       <Script
+        id="ga4"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

@@ -30,6 +30,7 @@ export function Facebook() {
   return (
     <>
       <Script
+        id="facebook-pixel"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
