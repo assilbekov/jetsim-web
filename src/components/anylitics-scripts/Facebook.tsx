@@ -2,29 +2,27 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
-import FacebookPixel from "react-facebook-pixel";
-import { useRouter } from "next/navigation";
 
 const PIXEL_ID = "2669054566608624"; // Replace with your Pixel ID
 
-export function Facebook() {
-  const router = useRouter();
-
+export const Facebook = () => {
   useEffect(() => {
-    // Initialize Facebook Pixel
-    FacebookPixel.init(PIXEL_ID);
-    FacebookPixel.pageView(); // For tracking page views
+    const localWindow: any = window;
+    if (typeof window !== "undefined") {
+      localWindow.fbq("init", PIXEL_ID);
+      localWindow.fbq("track", "PageView");
 
-    const handleRouteChange = () => {
-      FacebookPixel.pageView();
-    };
+      const handleRouteChange = () => {
+        localWindow.fbq("track", "PageView");
+      };
 
-    window.addEventListener("popstate", handleRouteChange);
-    handleRouteChange();
+      localWindow?.addEventListener("popstate", handleRouteChange);
+      handleRouteChange();
 
-    return () => {
-      window.removeEventListener("popstate", handleRouteChange);
-    };
+      return () => {
+        localWindow?.removeEventListener("popstate", handleRouteChange);
+      };
+    }
   }, []);
 
   return (
@@ -57,4 +55,4 @@ export function Facebook() {
       </noscript>
     </>
   );
-}
+};
