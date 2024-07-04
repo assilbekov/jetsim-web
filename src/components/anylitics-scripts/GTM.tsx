@@ -1,3 +1,5 @@
+"use client";
+
 const GTM_ID = "GTM-NZV7TB7Z"; // Replace with your Google Analytics Measurement ID
 
 export const GTM = () => {
