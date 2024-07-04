@@ -5,6 +5,7 @@ import { clsx } from "@/utils";
 import { ZendeskProvider } from "@/contexts/ZendeskProvider";
 import { GA4 } from "@/components/anylitics-scripts/GA4";
 import { GTM, GTMNoScript } from "@/components/anylitics-scripts/GTM";
+import { Facebook } from "@/components/anylitics-scripts/Facebook";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <GA4 />
         <GTM />
+        <Facebook />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body>
