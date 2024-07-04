@@ -1,3 +1,23 @@
+import FacebookPixel from "react-facebook-pixel";
+//import ReactGA from 'react-ga';
+
+export const getUserIP = () => {
+  let ip = localStorage.getItem("user_ip");
+  if (!ip) {
+    fetch("https://api.ipify.org?format=json")
+      .then((res) => res.json())
+      .then((data) => {
+        ip = data.ip as string;
+        localStorage.setItem("user_ip", ip);
+      });
+  }
+  return ip;
+};
+
+export const getUserEmail = () => {
+  return localStorage.getItem("user_email");
+};
+
 export function getDeviceId(): string {
   let deviceId = localStorage.getItem("device_id");
   if (!deviceId) {
@@ -7,7 +27,27 @@ export function getDeviceId(): string {
   return deviceId;
 }
 
+function parseJwt(token: string) {
+  let base64Url = token.split(".")[1];
+  let base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  let jsonPayload = decodeURIComponent(
+    window
+      .atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
+
+  return JSON.parse(jsonPayload);
+}
+
 export function getUserId(): string | null {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    return parseJwt(accessToken).user_uuid;
+  }
   return localStorage.getItem("user_id");
 }
 
@@ -28,6 +68,18 @@ export function getBrowserData(): string {
   });
 }
 
+export const getDefaultFields = () => {
+  return {
+    ip: getUserIP(),
+    email: getUserEmail(),
+    device_id: getDeviceId(),
+    user_id: getUserId(),
+    timestamp: getTimestamp(),
+    browser_data: getBrowserData(),
+    country_id: Intl.DateTimeFormat().resolvedOptions().timeZone,
+  };
+};
+
 // - device_id
 // - user_id
 // - timestamp
@@ -35,20 +87,34 @@ export function getBrowserData(): string {
 // - country/country_id - string
 export const handleGTMEvent = (eventName: string, event?: any) => {
   setTimeout(() => {
-    const defaultFields = {
-      device_id: getDeviceId(),
-      user_id: getUserId(),
-      timestamp: getTimestamp(),
-      browser_data: getBrowserData(),
-      country_id: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    };
-
     (window as any)?.dataLayer.push({
       event: eventName,
-      ...defaultFields,
+      ...getDefaultFields(),
       ...event,
     });
   }, 0);
+};
+
+export const trackPurchase = (data: any) => {
+  const allFields = { ...getDefaultFields(), ...data };
+
+  // Facebook Pixel
+  FacebookPixel.track("Purchase", allFields);
+
+  // Google Analytics (ReactGA)
+  /* ReactGA.event({
+    category: 'Ecommerce',
+    action: 'Purchase',
+    label: 'Purchase Completed',
+    value: data.value,
+  }); */
+
+  // Google Analytics
+  (window as any).gtag("event", "Purchase", {
+    category: "Ecommerce",
+    label: "Purchase Completed",
+    value: allFields,
+  });
 };
 
 export const handleMainPageScreenEvent = () => {
