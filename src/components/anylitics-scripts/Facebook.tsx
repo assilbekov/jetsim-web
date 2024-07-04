@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Script from "next/script";
 import FacebookPixel from "react-facebook-pixel";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const PIXEL_ID = "2669054566608624"; // Replace with your Pixel ID
 
@@ -19,12 +19,13 @@ export function Facebook() {
       FacebookPixel.pageView();
     };
 
-    router.events.on("routeChangeComplete", handleRouteChange);
+    window.addEventListener("popstate", handleRouteChange);
+    handleRouteChange();
 
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
+      window.removeEventListener("popstate", handleRouteChange);
     };
-  }, [router.events]);
+  }, []);
 
   return (
     <>
