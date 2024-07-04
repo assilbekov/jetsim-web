@@ -9,10 +9,11 @@ import { FormEvent, useState } from "react";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { StripeError } from "@stripe/stripe-js";
 import { ErrorMessage } from "./ErrorMessage";
-import { useSearchParams } from "next/navigation";
-import { handlePaymentMethodClickEvent } from "@/gtm-events";
+import { useRouter, useSearchParams } from "next/navigation";
+import { handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
 
 export const CheckoutForm = ({ cardID }: { cardID: string }) => {
+  const router = useRouter();
   const stripe = useStripe();
   const elements = useElements();
   const searchParams = useSearchParams();
@@ -33,7 +34,7 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
 
     setIsProcessing(true);
 
-    const { error } = await stripe.confirmPayment({
+    const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
         return_url: `${
@@ -42,8 +43,23 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
           isReinstall ? `&reinstall=true` : ``
         }`,
       },
-      //redirect: 'if_required',
+      redirect: "if_required",
     });
+
+    if (paymentIntent) {
+      trackPurchase({
+        transaction_id: paymentIntent.id,
+        value: paymentIntent.amount,
+        currency: paymentIntent.currency,
+        payment_method: paymentIntent.payment_method,
+      });
+
+      router.push(
+        `/payment/completion?cardID=${cardID}${
+          isReinstall ? `&reinstall=true` : ``
+        }`
+      );
+    }
 
     if (error) {
       setErr(error);

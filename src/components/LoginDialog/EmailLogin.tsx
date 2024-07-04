@@ -99,6 +99,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
 
       localStorage.setItem("accessToken", json.payload?.accessToken);
       localStorage.setItem("refreshToken", json.payload?.refreshToken);
+      localStorage.setItem("email", email);
 
       if (redirectUrl) {
         router.push(redirectUrl);
