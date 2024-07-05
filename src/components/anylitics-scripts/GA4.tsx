@@ -27,11 +27,11 @@ export const GA4 = () => {
 
   return (
     <>
-      <Script
+      <script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
-      />
-      <Script
+      ></script>
+      <script
         id="ga4"
         dangerouslySetInnerHTML={{
           __html: `
@@ -41,7 +41,7 @@ export const GA4 = () => {
             gtag('config', '${GA4_ID}');
           `,
         }}
-      />
+      ></script>
     </>
   );
 };

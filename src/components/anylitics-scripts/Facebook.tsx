@@ -27,9 +27,10 @@ export const Facebook = () => {
 
   return (
     <>
-      <Script
+      <script
         id="facebook-pixel"
-        strategy="afterInteractive"
+        //strategy="afterInteractive"
+        async
         dangerouslySetInnerHTML={{
           __html: `
           !function(f,b,e,v,n,t,s)
@@ -44,7 +45,7 @@ export const Facebook = () => {
           fbq('track', 'PageView');
           `,
         }}
-      />
+      ></script>
       <noscript>
         <img
           height="1"
