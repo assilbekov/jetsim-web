@@ -17,6 +17,7 @@ import {
   handleLoginEmailClickEvent,
   handleLoginEmailCodeClickEvent,
 } from "@/gtm-events";
+import { getProfile } from "@/api/auth";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -99,7 +100,11 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
 
       localStorage.setItem("accessToken", json.payload?.accessToken);
       localStorage.setItem("refreshToken", json.payload?.refreshToken);
-      localStorage.setItem("email", email);
+      localStorage.setItem("user_email", email);
+      getProfile().then((profile) => {
+        localStorage.setItem("user_email", profile.email);
+        localStorage.setItem("user_id", profile.id);
+      });
 
       if (redirectUrl) {
         router.push(redirectUrl);

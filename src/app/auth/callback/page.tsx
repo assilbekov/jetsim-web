@@ -1,5 +1,6 @@
 "use client";
 
+import { getProfile } from "@/api/auth";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 import { useQuery } from "@tanstack/react-query";
@@ -21,6 +22,10 @@ export default function CallbackPage() {
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
+      getProfile().then((profile) => {
+        localStorage.setItem("user_email", profile.email);
+        localStorage.setItem("user_id", profile.id);
+      });
     },
     staleTime: 1000,
   });

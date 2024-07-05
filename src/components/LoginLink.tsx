@@ -8,6 +8,7 @@ import { Tokens } from "@/models/Tokens";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
+import { getProfile } from "@/api/auth";
 
 export const LoginLink = () => {
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
@@ -23,6 +24,13 @@ export const LoginLink = () => {
     }
   };
 
+  const getUserProfile = async () => {
+    getProfile().then((profile) => {
+      localStorage.setItem("user_email", profile.email);
+      localStorage.setItem("user_id", profile.id);
+    });
+  };
+
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (!accessToken) {
@@ -35,6 +43,7 @@ export const LoginLink = () => {
     }).then((res) => {
       if (res.ok) {
         setIsLoggedIn(true);
+        getUserProfile();
         return;
       }
 
@@ -62,6 +71,7 @@ export const LoginLink = () => {
         }: ApiResponse<Tokens> = await res.json();
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("refreshToken", refreshToken);
+        getUserProfile();
         setIsLoggedIn(true);
       });
     });
