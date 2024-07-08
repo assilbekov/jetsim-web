@@ -102,7 +102,8 @@ export const trackPurchase = (data: any) => {
   localWindow.fbq("track", "Purchase", {
     category: "Ecommerce",
     label: "Purchase Completed",
-    value: allFields,
+    //value: allFields,
+    ...allFields,
   });
 
   // Google Analytics (ReactGA)
@@ -117,7 +118,8 @@ export const trackPurchase = (data: any) => {
   localWindow.gtag("event", "Purchase", {
     category: "Ecommerce",
     label: "Purchase Completed",
-    value: allFields,
+    //value: allFields,
+    ...allFields,
   });
 };
 
