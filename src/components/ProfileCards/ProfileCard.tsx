@@ -3,7 +3,7 @@ import { Location } from "@/models/Location";
 import * as React from "react";
 import { CircledCountryImage } from "../CircledCountryImage";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import { clsx, formatBytes } from "@/utils";
+import { clsx, convertDateDiffToText, formatBytes } from "@/utils";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { ProgressBar, ProgressBarSignleLine } from "./ProgressBar";
@@ -31,6 +31,7 @@ export function ProfileCard({
   const currentDate = new Date();
 
   const diffTime = Math.abs(expirationDate.getTime() - currentDate.getTime());
+  const diffHours = Math.round(diffTime / (1000 * 60 * 60));
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
   const diffMonths = Math.round(diffDays / 30);
 
@@ -41,14 +42,12 @@ export function ProfileCard({
 
   const getExpirationText = () => {
     if (expirationDate < currentDate) {
-      if (diffMonths > 1) {
-        return `Expired ${diffMonths} month${diffMonths > 1 ? "s" : ""} ago`;
-      }
-
-      return `Expired ${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
+      return `Expired ${convertDateDiffToText(
+        expirationDate,
+        currentDate
+      )} ago`;
     }
-
-    return `Expires in ${diffDays} day${diffDays > 1 ? "s" : ""}`;
+    return `Expires in ${convertDateDiffToText(expirationDate, currentDate)}`;
   };
 
   const renderTrafficText = () => {

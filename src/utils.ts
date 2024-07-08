@@ -18,3 +18,22 @@ export function convertDateToISO(dateTimeString: string) {
 
   return `${DD}.${MM}.${YYYY}`;
 }
+
+export const convertDateDiffToText = (d1: Date, d2: Date): string => {
+  const diffTime = Math.abs(d1.getTime() - d2.getTime());
+  const diffHours = Math.round(diffTime / (1000 * 60 * 60));
+  const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+  const diffMonths = Math.round(diffDays / 30);
+
+  if (!diffTime) return "";
+
+  if (diffMonths >= 1) {
+    return `${diffMonths} month${diffMonths > 1 ? "s" : ""}`;
+  }
+
+  if (diffDays >= 1) {
+    return `${diffDays} day${diffDays > 1 ? "s" : ""}`;
+  }
+
+  return `${diffHours} hour${diffHours > 1 ? "s" : ""}`;
+};
