@@ -49,7 +49,7 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
     if (paymentIntent) {
       trackPurchase({
         transaction_id: paymentIntent.id,
-        value: paymentIntent.amount,
+        value: paymentIntent.amount / 100,
         currency: paymentIntent.currency,
         payment_method: paymentIntent.payment_method,
       });
