@@ -50,14 +50,14 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
           }}
           className="w-full"
         />
-        <SocialLoginButton
+        {/* <SocialLoginButton
           icon="/icons/social/apple.svg"
           label="Continue with Apple"
           className="w-full"
           onClick={() => {
             handleLoginAppleClickEvent();
           }}
-        />
+        /> */}
         <div className="font-inter text-base leading-[22px] font-medium text-center text-gray-400 mt-5">
           <span>By continuing you agree to our </span>
           <Link href="/terms-of-service">
