@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Script from "next/script";
 
 const PIXEL_ID = "2669054566608624"; // Replace with your Pixel ID
 

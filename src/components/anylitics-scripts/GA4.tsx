@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { useEffect } from "react";
 
 const GA4_ID = "G-TG5HZCCKZE"; // Replace with your Google Analytics Measurement ID
