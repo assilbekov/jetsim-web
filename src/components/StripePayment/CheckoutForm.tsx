@@ -74,9 +74,10 @@ export const CheckoutForm = ({
           {
             item_id: packageInfo.data?.id,
             item_name: packageInfo.data?.name,
+            index: 0,
+            discount: 0,
             quantity: 1,
             price: paymentIntent.amount / 100,
-            ...packageInfo.data,
           },
         ],
         //items: [packageInfo.data],

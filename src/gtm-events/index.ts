@@ -99,12 +99,12 @@ export const trackPurchase = (data: any) => {
   // Facebook Pixel
   //FacebookPixel.track("Purchase", allFields);
   // Facebook Pixel Event Tracking
-  localWindow.fbq("track", "Purchase", {
+  /* localWindow.fbq("track", "Purchase", {
     category: "Ecommerce",
     label: "Purchase Completed",
     //value: allFields,
     ...allFields,
-  });
+  }); */
 
   // Google Analytics (ReactGA)
   /* ReactGA.event({
@@ -115,7 +115,7 @@ export const trackPurchase = (data: any) => {
   }); */
 
   // Google Analytics
-  localWindow.gtag("event", "Purchase", {
+  localWindow.gtag("event", "purchase", {
     category: "Ecommerce",
     label: "Purchase Completed",
     //value: allFields,
