@@ -2,11 +2,11 @@ import { CardStatus } from "@/models/Card";
 
 export const MockCards = [
   {
-    id: "4550c848-cbf4-4584-adaf-a3dc4d8df9df",
+    id: "expires-in-5-days",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UJ-1DISWVF",
-    activatedAt: "2024-06-24 20:37:02 +0000 UTC",
-    expiresAt: "2024-07-01 20:37:02 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 3221225472,
     trafficRemainingBytes: 2221225472,
     package: {
@@ -18,11 +18,11 @@ export const MockCards = [
     placeID: "mongolia",
   },
   {
-    id: "6e9fc000-80fa-4d57-b458-d9127aeedf21",
+    id: "ready-to-install",
     status: CardStatus.ReadyToInstall,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
-    expiresAt: "2024-07-09 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 37580963840,
     package: {
@@ -34,11 +34,11 @@ export const MockCards = [
     placeID: "mexico",
   },
   {
-    id: "6e9fc000-gfda-4d57-b458-d9127aeedf21",
+    id: "expries-in-5-days-unlimited",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
-    expiresAt: "2024-06-26 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 27580963840,
     package: {
@@ -50,11 +50,11 @@ export const MockCards = [
     placeID: "mexico",
   },
   {
-    id: "debb0741-55bb-4713-967b-5434dbc31f34",
+    id: "expired-5-days-ago",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
-    expiresAt: "2024-07-09 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 37580963840,
     package: {
@@ -66,11 +66,11 @@ export const MockCards = [
     placeID: "united-states",
   },
   {
-    id: "debb0741-55bb-4713-267b-5434dbc39f34",
+    id: "low-traffic-5-days-left",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
-    expiresAt: "2024-07-09 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 5580963840,
     package: {
@@ -82,11 +82,11 @@ export const MockCards = [
     placeID: "turkiye",
   },
   {
-    id: "debb0741-55bb-4713-267b-5434dbc31f34",
+    id: "low-days-left",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
-    expiresAt: "2024-06-26 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 0.3).toISOString(),
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 15580963840,
     package: {
@@ -98,11 +98,11 @@ export const MockCards = [
     placeID: "turkiye",
   },
   {
-    id: "debb0741-55bb-4713-267b-5434dbq31f34",
+    id: "low-traffice-and-days-left",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-24 16:04:31 +0000 UTC",
-    expiresAt: "2024-06-26 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 0.3).toISOString(),
     trafficTotalBytes: 37580963840,
     trafficRemainingBytes: 5580963840,
     package: {
@@ -114,11 +114,11 @@ export const MockCards = [
     placeID: "turkiye",
   },
   {
-    id: "debb0741-55bb-4713-957b-5434dbc39f34",
+    id: "expired-5-days-ago-limited",
     status: CardStatus.Expired,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-14 16:04:31 +0000 UTC",
-    expiresAt: "2024-06-19 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 27580963840,
     trafficRemainingBytes: 37580963840,
     package: {
@@ -130,11 +130,11 @@ export const MockCards = [
     placeID: "albania",
   },
   {
-    id: "debb0741-55bb-4713-966b-5434dbc39f34",
+    id: "empty-traffic-limited",
     status: CardStatus.Expired,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-14 16:04:31 +0000 UTC",
-    expiresAt: "2024-06-19 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 5).toISOString(),
     trafficTotalBytes: 0,
     trafficRemainingBytes: 37580963840,
     package: {
@@ -146,11 +146,11 @@ export const MockCards = [
     placeID: "united-kingdom",
   },
   {
-    id: "debb0741-25bb-4713-967b-5434dbc39f34",
+    id: "empty-traffic-few-days-left",
     status: CardStatus.Expired,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UH-R5BLFY",
-    activatedAt: "2024-06-14 16:04:31 +0000 UTC",
-    expiresAt: "2024-06-19 16:04:31 +0000 UTC",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 10).toISOString(),
+    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 0.3).toISOString(),
     trafficTotalBytes: 0,
     trafficRemainingBytes: 37580963840,
     package: {

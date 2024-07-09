@@ -31,9 +31,7 @@ export function ProfileCard({
   const currentDate = new Date();
 
   const diffTime = Math.abs(expirationDate.getTime() - currentDate.getTime());
-  const diffHours = Math.round(diffTime / (1000 * 60 * 60));
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-  const diffMonths = Math.round(diffDays / 30);
 
   const progress = (card.trafficRemainingBytes * 100) / card.trafficTotalBytes;
   const daysProgress = (diffDays * 100) / selectedPackage.days;

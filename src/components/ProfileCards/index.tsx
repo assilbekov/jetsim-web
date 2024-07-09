@@ -16,6 +16,7 @@ import {
   handleProfileInstallClickEvent,
   handleSuccessPaymentInstructionClick,
 } from "@/gtm-events";
+import { MockCards } from "./mockCards";
 
 export const ProfileCards = () => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
@@ -26,7 +27,7 @@ export const ProfileCards = () => {
     queryFn: async () => {
       return await fetchCards();
       //const cardsRes = await fetchCards();
-      //return MockCards.concat(cardsRes);
+      //return MockCards//.concat(cardsRes);
     },
   });
 
