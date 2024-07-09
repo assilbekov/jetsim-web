@@ -44,9 +44,12 @@ export const StripePayment = ({
 
   return (
     <Card className="flex flex-col flex-1 justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2]">
-      <h3 className={clsx(
-        getTypographyClass(TypographyVariants.Body), 
-        "mb-5 sm:text-2xl sm:leading-[30px]")}>
+      <h3
+        className={clsx(
+          getTypographyClass(TypographyVariants.Body),
+          "mb-5 sm:text-2xl sm:leading-[30px]"
+        )}
+      >
         Select a payment method
       </h3>
       {stripePromise && clientSecret ? (
@@ -55,7 +58,11 @@ export const StripePayment = ({
           stripe={stripePromise}
           options={{ clientSecret }}
         >
-          <CheckoutForm cardID={cardID} />
+          <CheckoutForm
+            cardID={cardID}
+            packageID={packageID}
+            placeID={placeID}
+          />
         </Elements>
       ) : (
         <Skeleton className="min-w-full min-h-[250px] rounded-[20px]" />

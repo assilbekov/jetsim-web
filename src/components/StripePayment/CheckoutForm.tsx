@@ -11,12 +11,28 @@ import { StripeError } from "@stripe/stripe-js";
 import { ErrorMessage } from "./ErrorMessage";
 import { useRouter, useSearchParams } from "next/navigation";
 import { handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
+import { useQuery } from "@tanstack/react-query";
+import { fetchPackage } from "@/api/packages";
 
-export const CheckoutForm = ({ cardID }: { cardID: string }) => {
+type CheckoutFormProps = {
+  packageID: string;
+  placeID: string;
+  cardID: string;
+};
+
+export const CheckoutForm = ({
+  cardID,
+  packageID,
+  placeID,
+}: CheckoutFormProps) => {
   const router = useRouter();
   const stripe = useStripe();
   const elements = useElements();
   const searchParams = useSearchParams();
+  const packageInfo = useQuery({
+    queryKey: ["packages", packageID],
+    queryFn: () => fetchPackage(packageID),
+  });
 
   const [err, setErr] = useState<StripeError | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -54,6 +70,16 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
         payment_method: paymentIntent.payment_method,
         tax: 0,
         shipping: 0,
+        items: [
+          {
+            item_id: packageInfo.data?.id,
+            item_name: packageInfo.data?.name,
+            quantity: 1,
+            price: paymentIntent.amount / 100,
+            ...packageInfo.data,
+          },
+        ],
+        //items: [packageInfo.data],
       });
 
       router.push(
