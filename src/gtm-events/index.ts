@@ -120,6 +120,7 @@ export const trackPurchase = (data: any) => {
     label: "Purchase Completed",
     //value: allFields,
     ...allFields,
+    itemss: allFields.items,
   });
 };
 
