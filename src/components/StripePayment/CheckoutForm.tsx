@@ -50,8 +50,10 @@ export const CheckoutForm = ({ cardID }: { cardID: string }) => {
       trackPurchase({
         transaction_id: paymentIntent.id,
         value: paymentIntent.amount / 100,
-        currency: paymentIntent.currency,
+        currency: paymentIntent.currency.toUpperCase(),
         payment_method: paymentIntent.payment_method,
+        tax: 0,
+        shipping: 0,
       });
 
       router.push(
