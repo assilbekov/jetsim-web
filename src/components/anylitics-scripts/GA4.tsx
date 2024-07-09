@@ -5,7 +5,7 @@ import { useEffect } from "react";
 const GA4_ID = "G-TG5HZCCKZE"; // Replace with your Google Analytics Measurement ID
 
 export const GA4 = () => {
-  useEffect(() => {
+  /* useEffect(() => {
     const handleRouteChange = (url: string) => {
       (window as any).gtag("event", "page_view", {
         page_path: url,
@@ -22,13 +22,13 @@ export const GA4 = () => {
     return () => {
       window.removeEventListener("popstate", handleRouteChangeComplete);
     };
-  }, []);
+  }, []); */
 
   return (
     <>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-TG5HZCCKZQ`}
       ></script>
       <script
         id="ga4"
@@ -37,7 +37,7 @@ export const GA4 = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA4_ID}', { 'debug_mode': true });
+            gtag('config', 'G-TG5HZCCKZQ', { 'debug_mode': true });
           `,
         }}
       ></script>
