@@ -39,8 +39,15 @@ export function ProfileCard({
   const isDaysLeftLow = daysProgress < 20;
 
   const expiredText = convertDateDiffToText(expirationDate, currentDate);
+  const dataIsOver =
+    !card.package.traffic.isUnlimited &&
+    (!card.trafficRemainingBytes || card.trafficRemainingBytes < 1);
 
   const getExpirationText = () => {
+    if (dataIsOver) {
+      return "Data is over";
+    }
+
     if (expirationDate < currentDate) {
       return `Expired ${expiredText} ago`;
     }
@@ -48,6 +55,10 @@ export function ProfileCard({
   };
 
   const renderTrafficText = () => {
+    if (dataIsOver) {
+      return null;
+    }
+
     switch (card.status) {
       case CardStatus.Paid:
       case CardStatus.ReadyToInstall:
@@ -90,6 +101,10 @@ export function ProfileCard({
   };
 
   const renderProgressBar = () => {
+    if (dataIsOver) {
+      return null;
+    }
+
     switch (card.status) {
       case CardStatus.ReadyToInstall:
       case CardStatus.Paid:
@@ -126,12 +141,21 @@ export function ProfileCard({
       case CardStatus.Installed:
         return (
           <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
-            <PrimaryButton
-              className="w-full pr-1 pl-1"
-              onClick={() => onBuyNewPlanClick(card, location)}
-            >
-              Buy new plan
-            </PrimaryButton>
+            {dataIsOver ? (
+              <SecondaryButton
+                className="w-full pr-1 pl-1"
+                onClick={() => onBuyNewPlanClick(card, location)}
+              >
+                Buy new plan
+              </SecondaryButton>
+            ) : (
+              <PrimaryButton
+                className="w-full pr-1 pl-1"
+                onClick={() => onBuyNewPlanClick(card, location)}
+              >
+                Buy new plan
+              </PrimaryButton>
+            )}
             <SecondaryButton
               className="w-full py-[14px] pr-1 pl-1"
               onClick={() => onDetailsClick(card, location)}
