@@ -70,6 +70,8 @@ export const CheckoutForm = ({
         payment_method: paymentIntent.payment_method,
         tax: 0,
         shipping: 0,
+        affiliation: "Online Store",
+        price: paymentIntent.amount / 100,
         items: [
           {
             item_id: packageInfo.data?.id,
