@@ -63,7 +63,7 @@ export function ProfileCard({
           return (
             <>
               <p className={clsx(isDaysLeftLow ? "text-secondary-500" : "")}>
-                {expiredText}
+                {convertDaysText(selectedPackage.days)}
               </p>
               <p className="text-text-600">∞ GB</p>
             </>
