@@ -2,6 +2,22 @@ import { CardStatus } from "@/models/Card";
 
 export const MockCards = [
   {
+    id: "expires-in-0-hours",
+    status: CardStatus.Installed,
+    lpaCode: "LPA:1$smdp.io$K2-1VL1UJ-1DISWVF",
+    activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
+    expiresAt: new Date(Date.now()).toISOString(),
+    trafficTotalBytes: 3221225472,
+    trafficRemainingBytes: 2221225472,
+    package: {
+      id: "2158a171-48fc-53eb-8b38-387158c916b6",
+      traffic: {
+        isUnlimited: true,
+      },
+    },
+    placeID: "albania",
+  },
+  {
     id: "expires-in-3-hours",
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UJ-1DISWVF",

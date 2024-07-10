@@ -27,7 +27,9 @@ export function ProfileCard({
   onDetailsClick,
   onInstallClick,
 }: ProfileCardProps) {
-  const expirationDate = new Date(card.expiresAt);
+  const expirationDate = new Date(
+    card.expiresAt.replace(" +0000 UTC", "Z").replace(" ", "T")
+  );
   const currentDate = new Date();
 
   const diffTime = Math.abs(expirationDate.getTime() - currentDate.getTime());
