@@ -35,8 +35,11 @@ export function ProfileCard({
 
   const progress = (card.trafficRemainingBytes * 100) / card.trafficTotalBytes;
   const daysProgress = (diffDays * 100) / selectedPackage.days;
+  const timeProgress =
+    (diffTime * 100) / (selectedPackage.days * 24 * 60 * 60 * 1000);
   const isTrafficLow = progress < 20;
   const isDaysLeftLow = daysProgress < 20;
+  const isTimeLeftLow = timeProgress < 80;
 
   const expiredText = convertDateDiffToText(expirationDate, currentDate);
   const dataIsOver =
@@ -112,10 +115,12 @@ export function ProfileCard({
       case CardStatus.Installed:
         return (
           <ProgressBar
-            progress={progress}
+            progress={
+              card.package.traffic.isUnlimited ? timeProgress : progress
+            }
             className="mt-3"
             progressBarClassName={
-              isTrafficLow || isDaysLeftLow
+              isTrafficLow || isTimeLeftLow
                 ? "bg-secondary-500"
                 : "bg-primary-500"
             }
