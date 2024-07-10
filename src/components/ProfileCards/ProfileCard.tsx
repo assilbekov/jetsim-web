@@ -38,14 +38,13 @@ export function ProfileCard({
   const isTrafficLow = progress < 20;
   const isDaysLeftLow = daysProgress < 20;
 
+  const expiredText = convertDateDiffToText(expirationDate, currentDate);
+
   const getExpirationText = () => {
     if (expirationDate < currentDate) {
-      return `Expired ${convertDateDiffToText(
-        expirationDate,
-        currentDate
-      )} ago`;
+      return `Expired ${expiredText} ago`;
     }
-    return `Expires in ${convertDateDiffToText(expirationDate, currentDate)}`;
+    return `Expires in ${expiredText}`;
   };
 
   const renderTrafficText = () => {
@@ -64,7 +63,7 @@ export function ProfileCard({
           return (
             <>
               <p className={clsx(isDaysLeftLow ? "text-secondary-500" : "")}>
-                {convertDaysText(selectedPackage.days)}
+                {expiredText}
               </p>
               <p className="text-text-600">∞ GB</p>
             </>
