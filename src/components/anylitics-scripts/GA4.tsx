@@ -6,8 +6,12 @@ const GA4_ID = "G-TG5HZCCKZE"; // Replace with your Google Analytics Measurement
 
 export const GA4 = () => {
   useEffect(() => {
+    const localWindow = window as any;
+
     const handleRouteChange = (url: string) => {
-      (window as any).gtag("event", "page_view", {
+      if (!localWindow.gtag) return;
+
+      localWindow.gtag("event", "page_view", {
         page_path: url,
       });
     };

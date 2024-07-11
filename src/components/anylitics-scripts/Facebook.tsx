@@ -7,21 +7,20 @@ const PIXEL_ID = "2669054566608624"; // Replace with your Pixel ID
 export const Facebook = () => {
   useEffect(() => {
     const localWindow: any = window;
-    if (typeof window !== "undefined") {
-      localWindow.fbq("init", PIXEL_ID);
+
+    const handleRouteChange = () => {
       localWindow.fbq("track", "PageView");
+    };
 
-      const handleRouteChange = () => {
-        localWindow.fbq("track", "PageView");
-      };
+    localWindow.fbq("init", PIXEL_ID);
+    localWindow.fbq("track", "PageView");
 
-      localWindow?.addEventListener("popstate", handleRouteChange);
-      handleRouteChange();
+    localWindow?.addEventListener("popstate", handleRouteChange);
+    handleRouteChange();
 
-      return () => {
-        localWindow?.removeEventListener("popstate", handleRouteChange);
-      };
-    }
+    return () => {
+      localWindow?.removeEventListener("popstate", handleRouteChange);
+    };
   }, []);
 
   return (

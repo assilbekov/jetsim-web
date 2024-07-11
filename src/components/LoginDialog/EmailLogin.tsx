@@ -7,6 +7,7 @@ import { ChangeEmailButton } from "./ChangeEmailButton";
 import {
   DetailedHTMLProps,
   InputHTMLAttributes,
+  useContext,
   useMemo,
   useState,
 } from "react";
@@ -18,6 +19,7 @@ import {
   handleLoginEmailCodeClickEvent,
 } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
+import { UTMContext } from "@/contexts/UTMContext";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -63,6 +65,7 @@ type EmailLoginProps = {
 
 export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
   const router = useRouter();
+  const { utmsSearchParams } = useContext(UTMContext);
 
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -88,7 +91,9 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
 
   const handleCodeSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
     const response = await fetch(
-      "https://auth.jetsim.app/api/v1/email/check-code",
+      `https://auth.jetsim.app/api/v1/email/check-code${
+        utmsSearchParams ? `?${utmsSearchParams}` : ""
+      }`,
       {
         method: "POST",
         body: JSON.stringify({ code, email }),

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 type UTM = {
   utm_source: string;
@@ -12,19 +12,21 @@ type UTM = {
 
 type UTMContextType = {
   utms: UTM | null;
-  setUtms: (utms: UTM) => void;
+  utmsSearchParams: string;
 };
 
-const UTMContext = createContext<UTMContextType>({
+export const UTMContext = createContext<UTMContextType>({
   utms: null,
-  setUtms: () => {},
+  utmsSearchParams: "",
 });
 
 export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
-  const [utms, setUtms] = useState<UTM | null>(null);
+  const [utms] = useState<UTM | null>(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
+    const urlParams = new URLSearchParams(window?.location.search);
     const utm_source =
       urlParams.get("utm_source") || sessionStorage.getItem("utm_source") || "";
     const utm_medium =
@@ -35,18 +37,23 @@ export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
       "";
     const utm_term =
       urlParams.get("utm_term") || sessionStorage.getItem("utm_term") || "";
-    //const utm_content = urlParams.get('utm_content');
 
-    sessionStorage.setItem("utm_source", utm_source);
-    sessionStorage.setItem("utm_medium", utm_medium);
-    sessionStorage.setItem("utm_campaign", utm_campaign);
-    sessionStorage.setItem("utm_term", utm_term);
+    return { utm_source, utm_medium, utm_campaign, utm_term };
+  });
 
-    setUtms({ utm_source, utm_medium, utm_campaign, utm_term });
-  }, []);
+  const utmsSearchParams = utms
+    ? Object.entries(utms)
+        .map(([k, v]) => {
+          if (v) {
+            return `${k}=${v}`;
+          }
+          return "";
+        })
+        .join("&")
+    : "";
 
   return (
-    <UTMContext.Provider value={{ utms, setUtms }}>
+    <UTMContext.Provider value={{ utms, utmsSearchParams }}>
       {children}
     </UTMContext.Provider>
   );
