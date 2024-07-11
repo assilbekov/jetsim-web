@@ -9,6 +9,7 @@ import {
   Facebook,
   FacebookNoScript,
 } from "@/components/anylitics-scripts/Facebook";
+import { UTMProvider } from "@/contexts/UTMContext";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -35,7 +36,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <FacebookNoScript />
         <GTMNoScript />
         <QueryContext>
-          <ZendeskProvider>{children}</ZendeskProvider>
+          <ZendeskProvider>
+            <UTMProvider>{children}</UTMProvider>
+          </ZendeskProvider>
         </QueryContext>
       </body>
     </html>
