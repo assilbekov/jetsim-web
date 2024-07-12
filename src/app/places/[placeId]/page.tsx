@@ -27,7 +27,7 @@ export async function generateMetadata({
 
 export default function Index({ params }: PageProps) {
   return (
-    <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
+    <main className="bg-[#F8F9FB] bg-white-900 md:overflow-x-hidden sm:pb-11">
       <CountryScreenEvent countryId={params.placeId} />
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
         <LandingContainer className="px-4 xxs:px-6">
