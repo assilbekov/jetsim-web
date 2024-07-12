@@ -243,44 +243,40 @@ export const SelectPackagesBuyForm = ({
             ))}
       </div>
       {infoContent}
-      <div
-        className={`sticky-element ${
-          isSticky ? "sticky-active" : "non-sticky"
-        }`}
-      >
-        {submitButton}
-        {isSticky && (
-          <div className="sticky-block p-4 pb-10">
-            <p
-              className={clsx(
-                getTypographyClass(TypographyVariants.Body2),
-                "flex"
-              )}
-            >
-              <span>3 GB for 7 days</span>
-              <span className="flex">
-                $9.9
-                <Image
-                  src="/icons/black/chevron-right.svg"
-                  alt="Arrow right"
-                  width={24}
-                  height={24}
-                />
-              </span>
-            </p>
-            {submitButton}
-          </div>
-        )}
-        {isSticky ? "I am sticky!" : "I am not sticky!"}
-      </div>
-      {/* {selectedPackageId && (
-        <div className="sticky-component">{content}</div>
-      )} */}
-      {/* {selectedPackageId ? (
-        <PackagesFooter />
+      {selectedPackageId ? (
+        <div
+          className={`sticky-element ${
+            isSticky ? "sticky-active" : "non-sticky"
+          }`}
+        >
+          {submitButton}
+          {isSticky && (
+            <div className="sticky-block p-4 pb-10">
+              <p
+                className={clsx(
+                  getTypographyClass(TypographyVariants.Body2),
+                  "flex"
+                )}
+              >
+                <span>3 GB for 7 days</span>
+                <span className="flex">
+                  $9.9
+                  <Image
+                    src="/icons/black/chevron-right.svg"
+                    alt="Arrow right"
+                    width={24}
+                    height={24}
+                  />
+                </span>
+              </p>
+              {submitButton}
+            </div>
+          )}
+          {isSticky ? "I am sticky!" : "I am not sticky!"}
+        </div>
       ) : (
         <Skeleton className="w-full h-12 rounded-xl" />
-      )} */}
+      )}
     </form>
   );
 };
