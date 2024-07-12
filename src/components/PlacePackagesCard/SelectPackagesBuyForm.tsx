@@ -267,7 +267,7 @@ export const SelectPackagesBuyForm = ({
               <p
                 className={clsx(
                   getTypographyClass(TypographyVariants.Body2),
-                  "flex justify-between items-center px-2 py-1 mb-4 hover:bg-[#E9F0F2] transition duration-200 ease-in-out rounded-full cursor-pointer"
+                  "flex justify-between items-center px-2 py-1 mb-4 hover:bg-[#E9F0F2] transition-colors duration-200 ease-in-out rounded-full cursor-pointer"
                 )}
               >
                 <span>
@@ -291,7 +291,6 @@ export const SelectPackagesBuyForm = ({
               {submitButton}
             </div>
           )}
-          {isSticky ? "I am sticky!" : "I am not sticky!"}
         </div>
       ) : (
         <Skeleton className="w-full h-12 rounded-xl" />
