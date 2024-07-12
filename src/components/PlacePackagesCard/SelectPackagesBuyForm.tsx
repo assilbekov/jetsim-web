@@ -10,7 +10,7 @@ import { PackageOption } from "./PackageOption";
 import { TagButton } from "./TagButton";
 import { Skeleton } from "../Skeleton";
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import Link from "next/link";
@@ -31,10 +31,12 @@ export const SelectPackagesBuyForm = ({
   infoContent,
   updateSearchParams,
 }: SelectPackagesBuyFormProps) => {
+  const formRef = useRef<HTMLFormElement>(null);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  const [isSticky, setIsSticky] = useState(false);
   const [selectedPackageId, setSelectedPackageId] = useState<string>(() => {
     return searchParams.get("selectedPackage") ?? "";
   });
@@ -43,6 +45,39 @@ export const SelectPackagesBuyForm = ({
       (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.UNLIMITED
     );
   });
+
+  const handleScroll = () => {
+    const parent = formRef.current;
+    if (!parent) return;
+
+    const parentBottom = parent.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth > 980) {
+      setIsSticky(false);
+      return;
+    }
+
+    setIsSticky(parentBottom >= windowHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll);
+
+    // Cleanup the event listener
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!selectedPackageId) return;
+
+    handleScroll();
+  }, [selectedPackageId]);
 
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
@@ -145,8 +180,21 @@ export const SelectPackagesBuyForm = ({
     );
   }
 
+  const submitButton = (
+    <button
+      className={clsx(
+        "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
+        getTypographyClass(TypographyVariants.Caption)
+      )}
+      type="submit"
+    >
+      Go to checkout
+    </button>
+  );
+
   return (
     <form
+      ref={formRef}
       onSubmit={(e) => {
         e.preventDefault();
         handleCheckout();
@@ -195,19 +243,44 @@ export const SelectPackagesBuyForm = ({
             ))}
       </div>
       {infoContent}
-      {selectedPackageId ? (
-        <button
-          className={clsx(
-            "w-full py-3 xxs:py-4 px-8 bg-secondary-500 rounded-[32px] text-text-900 active:bg-secondary-300 hover:bg-secondary-700 transition duration-200 ease-in-out",
-            getTypographyClass(TypographyVariants.Caption)
-          )}
-          type="submit"
-        >
-          Go to checkout
-        </button>
+      <div
+        className={`sticky-element ${
+          isSticky ? "sticky-active" : "non-sticky"
+        }`}
+      >
+        {submitButton}
+        {isSticky && (
+          <div className="sticky-block p-4 pb-10">
+            <p
+              className={clsx(
+                getTypographyClass(TypographyVariants.Body2),
+                "flex"
+              )}
+            >
+              <span>3 GB for 7 days</span>
+              <span className="flex">
+                $9.9
+                <Image
+                  src="/icons/black/chevron-right.svg"
+                  alt="Arrow right"
+                  width={24}
+                  height={24}
+                />
+              </span>
+            </p>
+            {submitButton}
+          </div>
+        )}
+        {isSticky ? "I am sticky!" : "I am not sticky!"}
+      </div>
+      {/* {selectedPackageId && (
+        <div className="sticky-component">{content}</div>
+      )} */}
+      {/* {selectedPackageId ? (
+        <PackagesFooter />
       ) : (
         <Skeleton className="w-full h-12 rounded-xl" />
-      )}
+      )} */}
     </form>
   );
 };
