@@ -21,7 +21,7 @@ function fetchCardWithRetry(
   async function attemptFetch(remainingRetries: number): Promise<CardModel> {
     return fetchCard(cardID)
       .then((card) => {
-        /* if (!card.lpaCode && remainingRetries > 0) {
+        if (!card.lpaCode && remainingRetries > 0) {
           return new Promise<CardModel>((resolve) => {
             setTimeout(() => {
               resolve(attemptFetch(remainingRetries - 1));
@@ -29,7 +29,7 @@ function fetchCardWithRetry(
           });
         } else if (!card.lpaCode) {
           throw new Error("Failed to fetch card with valid lpaCode");
-        } */
+        }
         return card;
       })
       .catch((error) => {
