@@ -120,6 +120,18 @@ export const SelectPackagesBuyForm = ({
     (selectedTag === PackageTagEnum.STANDARD
       ? packagesStandardQuery.data
       : packagesUnlimitedQuery.data) ?? [];
+  const selectedPackage = packagesList.find((p) => p.id === selectedPackageId);
+
+  console.log({
+    selectedPackage,
+    packagesList,
+    packagesStandardQuery,
+    packagesUnlimitedQuery,
+    selectedTag,
+    selectedPackageId,
+    isStandardEmpty,
+    isUnlimitedEmpty,
+  });
 
   const handleTagChange = (tag: PackageTagEnum) => {
     if (tag === selectedTag) return;
@@ -243,7 +255,7 @@ export const SelectPackagesBuyForm = ({
             ))}
       </div>
       {infoContent}
-      {selectedPackageId ? (
+      {selectedPackage ? (
         <div
           className={`sticky-element ${
             isSticky ? "sticky-active" : "non-sticky"
@@ -255,12 +267,19 @@ export const SelectPackagesBuyForm = ({
               <p
                 className={clsx(
                   getTypographyClass(TypographyVariants.Body2),
-                  "flex"
+                  "flex justify-between items-center px-2 py-1 mb-4 hover:bg-[#E9F0F2] transition duration-200 ease-in-out rounded-full cursor-pointer"
                 )}
               >
-                <span>3 GB for 7 days</span>
-                <span className="flex">
-                  $9.9
+                <span>
+                  {selectedPackage.traffic.isUnlimited
+                    ? "Unlimited GB"
+                    : `${selectedPackage.traffic.unit.count} ${selectedPackage.traffic.unit.label}`}{" "}
+                  for {selectedPackage.days}{" "}
+                  {selectedPackage.days > 1 ? "days" : "day"}
+                </span>
+                <span className="flex gap-2 items-center">
+                  {selectedPackage.cost.price / 100}{" "}
+                  {selectedPackage.cost.currency}
                   <Image
                     src="/icons/black/chevron-right.svg"
                     alt="Arrow right"
