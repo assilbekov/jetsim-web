@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Installation</title>
+</html>
+<body>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" class="container">
+          
+          
+
+
+
+          <td
+      style="padding: 32px; background: linear-gradient(180deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.00) 100%), linear-gradient(180deg, rgba(0, 181, 242, 0.80) 0%, rgba(0, 181, 242, 0.00) 100%), url('https://i.imgur.com/pfVQzDS.jpeg') center/cover no-repeat, url('https://i.imgur.com/5xZxGCa.jpeg') center/cover no-repeat; border-radius: 20px 20px 0 0; font-family: Helvetica, Arial, sans-serif;">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin: 0 auto;">
+        <tr>
+          <td>
+            <img
+              src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjoyOTQ1OTJiMi02MDdjLTRmMjUtYmVlZS1lZWNiZjExNDYyZDYiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA4NzI1Njd9.rD6fcc1xtMD8J5Vyz7mJIMYyGWojZbXAeILGWSMM27c"
+              alt="Logo" style="height: 32px; margin-bottom: 24px;">
+          </td>
+        </tr>
+        <tr>
+          <td style="background-color: #FFFFFF; padding: 20px 24px 24px; border-radius: 12px;">
+            <p style="font-size: 16px; margin: 0; padding-top: 2px; color: #00141a; line-height: 20px;">
+              Here is your eSIM</p>
+            <h2 style="font-size: 24px; font-weight: 700; padding-top: 12px; margin: 0;">
+              {{ placeID }} — {{ trafficTotalBytes | divided_by: 1073741824 }} GB and
+              {% assign activatedAtDateParts = activatedAt | split: ' ' %}
+              {% assign expiresAtDateParts = expiresAt | split: ' ' %}
+              {% assign activatedAtDate = activatedAtDateParts[0] %}
+              {% assign expiresAtDate = expiresAtDateParts[0] %}
+              {% assign activatedAtTimestamp = activatedAtDate | date: "%s" %}
+              {% assign expiresAtTimestamp = expiresAtDate | date: "%s" %}
+              {% assign differenceInSeconds = expiresAtTimestamp | minus: activatedAtTimestamp %}
+              {% assign differenceInDays = differenceInSeconds | divided_by: 86400 | round %}
+              {{ differenceInDays }} days
+            </h2>
+            <div style="padding-top: 16px;">
+              <a href="https://www.jetsim.app/profile"
+                style="background-color: #F25100; border-radius: 32px; color: #FFFFFF; font-size: 16px; font-weight: bold; text-align: center; text-decoration: none; padding: 16px 24px; display: inline-block;">
+                View my eSIMs
+              </a>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; margin: 0 auto;">
+          <div style="max-width: 600px; margin: 0 auto; text-align: left; font-family: Helvetica, Arial, sans-serif; color: rgb(0, 20, 26); line-height: 1.2;">
+            <div style="margin-bottom: 24px;">
+              <h1 style="font-size: 28px; font-weight: bold; margin-bottom: 8px;">Your eSIM installation guide</h1>
+              <p style="font-size: 16px;">Let's install your eSIM! Here is what you need to know before you start:</p>
+            </div>
+
+            <div style="display: table; width: 100%; table-layout: fixed; margin-bottom: 24px;">
+              <div style="display: table-row; font-size: 16px;">
+                  <div style="display: table-cell;">
+                      <img src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo1ZmIxYmYwYi1lNTk0LTQxYmItODNjNC1lNjZlYTg1YmFkOGIiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA4OTYyMDN9.5ozrMQS9xUNnCP6bN9KWZ1wexiFjj5k9jENZILJhA7Q" alt="Icon 1" class="icon" width="24px" height="24px">
+                      <span style="display: inline-block; margin-top: 6px; padding-right: 8px;">Don’t interrupt the installation</span>
+                  </div>
+                  <div style="display: table-cell;">
+                    <img src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpjMzY4Mzk5ZC1lZDg2LTQwYzUtODcyOS0yN2RhYjAyYmI4M2UiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA4OTY5NDh9.tDVRwle6ps1bs87lSeItjwTDYtmoBcH8EMDEJX0oL44" alt="Icon 1" class="icon" width="24px" height="24px">
+                      <span style="display: inline-block; margin-top: 6px; padding-right: 8px;">Make sure your internet connection is stable</span>
+                  </div>
+                  <div style="display: table-cell;">
+                    <img src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpiZjQ2YjgxYi1jNjkyLTQ2ZTItODdlZi01ZDdkMTJkYTdiMGEiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA4OTY5NjB9.O4T6dz8KC_WnYvBT2X-hVp8nqEqg8qiqDq-lkKFM-0U" alt="Icon 1" class="icon" width="24px" height="24px">
+                      <span style="display: inline-block; margin-top: 6px; padding-right: 8px;">Don’t delete the eSIM, it can be installed once</span>
+                  </div>
+              </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div style="padding: 24px; padding-top: 16px; background-color: #F5F9FA; border-radius: 12px;">
+            <h1 style="font-size: 24px; font-weight: bold;">Your eSIM installation guide</h1>
+            <div style="display: block; width: 100%; margin-top: 20px;">
+              <div style="display: inline-block; width: 120px; vertical-align: middle;">
+                <div style="background-color: #FFFFFF; width: 100px; height: 100px; display: block;">
+                  <img src="{{qrURL}}" alt="QR Code" style="width: 100%; height: 100%; display: block;">
+                </div>
+              </div>
+              <div style="display: inline-block; width: calc(100% - 129px); min-width: 200px; vertical-align: middle;">
+                <p style="font-size: 16px; margin-bottom: 4px;">Scan this QR code with your device and follow your device's instructions</p>
+                <p style="font-size: 16px; color: rgb(149, 162, 166);">If you can’t scan the QR code, try manual installation below</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div style="padding: 24px; padding-top: 16px; background-color: #F5F9FA; border-radius: 12px;">
+            <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 12px;">Manual installation for iOS</h1>
+                <div
+                  style="display: inline-block; vertical-align: middle; margin-right: 6px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  Go to
+                </div>
+                <img
+                  src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo5MTcyNDRjNS0yNTQ2LTQ3ODYtYjI5NC03MmEyMmE2N2M4ZmUiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5MDczMDR9.SxwMUkj74-pMSMlHZzQ_68_Ii0gzMkzypMUYAYddgGo"
+                  alt="Settings" style="width: 24px; height: 24px; vertical-align: middle;">
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  Settings
+                </div>
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  →
+                </div>
+                <img
+                  src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo1MDJhZDg4Zi03MzZkLTRhNDEtODMxYy0wOWYzOGNkYzgwN2MiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5MDczMTJ9.BvPJ8nPpTiwy1flbF5OeIIzwKX8xHVOeIALT3ENnjg8"
+                  alt="Mobile Service" style="width: 24px; height: 24px; vertical-align: middle;">
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  Mobile Service
+                </div>
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  →
+                </div>
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  Add eSIM
+                </div>
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  →
+                </div>
+                <img
+                  src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjoyMTE2ZTkyMy1iYmVkLTRlNzUtOTg2ZC0yZWVjMmUzNjYwZWQiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5MDcyOTF9.d2ap17nyfbJWS8ARjay7q6qSffRczRlciBWn8X1PFAM"
+                  alt="QR Code" style="width: 24px; height: 24px; vertical-align: middle;">
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  Use QR Code
+                </div>
+                <div
+                  style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  →
+                </div>
+                <div
+                  style="display: inline-block; vertical-align: middle; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                  Enter Details Manually
+                </div>
+
+                <div style="height: 1px; background-color: #CFD6D8; width: 100%; margin-top: 8px; margin-bottom: 12px;"></div>
+
+                <div>
+                  <p style="font-size: 16px; margin-bottom: 12px;">Scan this QR code with your device and follow your device's instructions</p>
+                  <div style="background-color: #ffffff; border-radius: 12px;">
+                      <div style="padding: 16px;">
+                          <span style="font-weight: bold; color: #95A2A6; display: block; font-size: 16px; padding-bottom: 6px; line-height: 20px;">SM-DP+ Address:</span>
+                          <span style="color: #121A26; display: block; font-size: 16px; font-weight: 500; line-height: 20px;">{{smdpAddress}}</span>
+                      </div>
+                      <div style="border-top: 1px solid #D4DBDD;"></div>
+                      <div style="padding: 16px;">
+                          <span style="font-weight: bold; color: #95A2A6; display: block; font-size: 16px; padding-bottom: 6px; line-height: 20px;">Activation Code:</span>
+                          <span style="color: #121A26; display: block; font-size: 16px; font-weight: 500; line-height: 20px;">{{activationCode}}</span>
+                      </div>
+                  </div>
+                </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div style="padding: 24px; padding-top: 16px; background-color: #F5F9FA; border-radius: 12px;">
+            <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 12px;">Manual installation for Android</h1>
+            <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px;">Sumsung</h2>
+            <div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin-right: 6px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Go to
+                  </div>
+                  <img
+                    src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjplMWRmYTc3Mi1mYjQyLTRhMWQtYTQ0OC05MTkzYTczMDNmYzEiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY1NzR9.8GiGAvwi1cqhOLEMWmICfTquwRbl3boXowxaofKClio"
+                    alt="Settings" style="width: 24px; height: 24px; vertical-align: middle;">
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Settings
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    →
+                  </div>
+                  <img
+                    src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpkMjkzZjllOS1lZTAzLTQ4NWMtODk5ZC1hNzFkOWU1N2YzZjgiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY1Nzh9.jeJmRRkJXZmi7ONGaCH4vbX5fp0ux6c_AMm6juLd7Qc"
+                    alt="Connections" style="width: 24px; height: 24px; vertical-align: middle;">
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Connections
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    →
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    SIM manager
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    →
+                  </div>
+                  <img
+                    src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjozMDc5Y2UwZC1lMDQ0LTQzZGQtODc0ZC0zNGYwODYxZTI2NmQiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY1ODh9.-0UIt0VEsdhMht0lwbPxiKfQXkZWGgjaWbOcKuBNlhE"
+                    alt="SIM manager" style="width: 24px; height: 24px; vertical-align: middle;">
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Add eSIM
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    →
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 2px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Scan QR code
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    →
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Enter activation code
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; margin: 0 8px; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    →
+                  </div>
+                  <div
+                    style="display: inline-block; vertical-align: middle; font: 16px Helvetica, Arial, sans-serif; color: #00141A; line-height: 36px;">
+                    Add
+                  </div>
+            </div>
+
+              <div style="height: 1px; background-color: #CFD6D8; width: 100%; margin-top: 8px; margin-bottom: 12px;"></div>
+
+                <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px;">Google Pixel</h2>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin-right: 6px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Go to
+                    </div>
+                    <img
+                      src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpkYjgzZjAwMC00ZTE0LTRjYjAtYWRiNi02NTRhM2NhZDg2YjkiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY2MTl9.ezLcTC80FkBUJUO2k3BlkUTRXSQNrT3S0uulttfJJ5w"
+                      alt="Settings" style="width: 24px; height: 24px; vertical-align: middle;">
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Settings
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <img
+                      src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpiZDdhNWJiMS01YTZhLTQwODktOGMxNy05MmJhNWYxNzBmYjIiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NTE3ODV9.NRoyMK8tkWS_sb91DeCBYbbPgO4MmQV_WOzt7IiXRJ0"
+                      alt="Network & Internet" style="width: 24px; height: 24px; vertical-align: middle;">
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Network & Internet
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      SIM
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Click on
+                    </div>
+                    <img
+                      src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo2NDFhMWEyOC1jN2NmLTRjZGUtYmRiMS1iYzQ2YTY2Y2RiYWQiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY2MzJ9.feg6rCkPjn9X1YbPxeovjILKAXMAcrZxnEL6rzMgBMw"
+                      alt="SIM manager" style="width: 24px; height: 24px; vertical-align: middle;">
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <img
+                      src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjplZGEwODkyOS0wMGM1LTQwMzgtYTJhMi1mM2ZiNTMxYTY5Y2YiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY2Mjl9.cHarZy1iUXMM_Y_2OsF36NbyN2ZLGihw8FuIsh6AkTI"
+                      alt="SIM manager" style="width: 24px; height: 24px; vertical-align: middle;">
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Download a SIM instead
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Yes
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Next
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Need help?
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      →
+                    </div>
+                    <div
+                      style="display: inline-block; vertical-align: middle; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                      Enter it manually
+                    </div>
+
+              <div style="height: 1px; background-color: #CFD6D8; width: 100%; margin-top: 8px; margin-bottom: 12px;"></div>
+
+              <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px;">Enter the following data</h2>
+              <p style="font-size: 16px; margin-bottom: 12px;">and follow screen instructions to install eSIM</p>
+              <div style="background-color: #ffffff; border-radius: 12px;">
+                  <div style="padding: 16px;">
+                      <span style="font-weight: bold; color: #95A2A6; display: block; font-size: 16px; padding-bottom: 6px; line-height: 20px;">Activation Code:</span>
+                      <span style="color: #121A26; display: block; font-size: 16px; font-weight: 500; line-height: 20px;">{{smdpAddress}}</span>
+                      <span style="color: #121A26; display: block; font-size: 16px; font-weight: 500; line-height: 20px;">{{activationCode}}</span>
+                  </div>
+              </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div style="padding: 24px; padding-top: 16px; background-color: #F5F9FA; border-radius: 12px;">
+                <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 12px;">Activate Data Roaming at destination</h1>
+                <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px;">iOS</h2>
+                <div>
+                  <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 6px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  Go to
+                </div>
+                <img
+                  src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo5MTcyNDRjNS0yNTQ2LTQ3ODYtYjI5NC03MmEyMmE2N2M4ZmUiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5MDczMDR9.SxwMUkj74-pMSMlHZzQ_68_Ii0gzMkzypMUYAYddgGo"
+                  alt="Settings"
+                  style="width: 24px; height: 24px; vertical-align: middle"
+                />
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 2px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  Settings
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 8px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  →
+                </div>
+                <img
+                  src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo1MDJhZDg4Zi03MzZkLTRhNDEtODMxYy0wOWYzOGNkYzgwN2MiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5MDczMTJ9.BvPJ8nPpTiwy1flbF5OeIIzwKX8xHVOeIALT3ENnjg8"
+                  alt="Mobile Service"
+                  style="width: 24px; height: 24px; vertical-align: middle"
+                />
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 2px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  Mobile Service
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 8px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  →
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 2px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  Select installed eSIM
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 8px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  →
+                </div>
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 2px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  Turn on
+                </div>
+                <img
+                  src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1Zjo0N2I2ZWI4Ni04MGE1LTRkYWEtOWNiMi1lNzE0YmFjNzlkOTIiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NjE0NDd9.fnfPhVgUlBwrcNcuvZnpKV97eyaLo_wDs2WgJjx_2lU"
+                  alt="QR Code"
+                  style="width: 34px; height: 22px; vertical-align: middle"
+                />
+                <div
+                  style="
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 2px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 16px;
+                    color: #00141a;
+                    line-height: 36px;
+                  "
+                >
+                  Data Roaming
+                </div>
+                </div>
+    
+                  <div style="height: 1px; background-color: #CFD6D8; width: 100%; margin-top: 8px; margin-bottom: 12px;"></div>
+    
+                    <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px;">Samsung</h2>
+                    <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin-right: 6px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Go to
+                  </div>
+                  <img
+                    src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjplMWRmYTc3Mi1mYjQyLTRhMWQtYTQ0OC05MTkzYTczMDNmYzEiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY1NzR9.8GiGAvwi1cqhOLEMWmICfTquwRbl3boXowxaofKClio"
+                    alt="Settings"
+                    style="width: 24px; height: 24px; vertical-align: middle"
+                  />
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 2px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Settings
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 8px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    →
+                  </div>
+                  <img
+                    src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpkMjkzZjllOS1lZTAzLTQ4NWMtODk5ZC1hNzFkOWU1N2YzZjgiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY1Nzh9.jeJmRRkJXZmi7ONGaCH4vbX5fp0ux6c_AMm6juLd7Qc"
+                    alt="Connections"
+                    style="width: 24px; height: 24px; vertical-align: middle"
+                  />
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 2px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Connections
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 8px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    →
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 2px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Mobile Networks
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 8px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    →
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 2px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Select installed eSIM
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 8px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    →
+                  </div>
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 2px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Turn on
+                  </div>
+                  <img
+                    src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjplYmY5M2I5NC1mN2UyLTRmMDYtYTljYi03NjRkYTE5Njk4Y2QiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NjE5Mzh9.1NANBfaKvcFliF0RXgV4siBZ5Puu5nth0Qlfw1GRgHo"
+                    style="width: 32px; height: 26px; vertical-align: middle"
+                  />
+                  <div
+                    style="
+                      display: inline-block;
+                      vertical-align: middle;
+                      margin: 0 px;
+                      font-family: Helvetica, Arial, sans-serif;
+                      font-size: 16px;
+                      color: #00141a;
+                      line-height: 36px;
+                    "
+                  >
+                    Data Roaming
+                  </div>
+                  
+    
+                  <div style="height: 1px; background-color: #CFD6D8; width: 100%; margin-top: 8px; margin-bottom: 12px;"></div>
+
+                  <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 12px;">Google Pixel</h2>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin-right: 6px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        Go to
+                      </div>
+                      <img
+                        src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpkYjgzZjAwMC00ZTE0LTRjYjAtYWRiNi02NTRhM2NhZDg2YjkiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NDY2MTl9.ezLcTC80FkBUJUO2k3BlkUTRXSQNrT3S0uulttfJJ5w"
+                        alt="Settings" style="width: 24px; height: 24px; vertical-align: middle;">
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        Settings
+                      </div>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        →
+                      </div>
+                      <img
+                        src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjpiZDdhNWJiMS01YTZhLTQwODktOGMxNy05MmJhNWYxNzBmYjIiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NTE3ODV9.NRoyMK8tkWS_sb91DeCBYbbPgO4MmQV_WOzt7IiXRJ0"
+                        alt="Network & Internet" style="width: 24px; height: 24px; vertical-align: middle;">
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        Network & Internet
+                      </div>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        →
+                      </div>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        SIMs
+                      </div>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        →
+                      </div>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        Select installed eSIM
+                      </div>
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 8px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        →
+                      </div>
+                  
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 2px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        Scroll and enable
+                      </div>
+                      <img
+                        src="https://media.nest.messagebird.com/media/eyJhbGciOiJIUzI1NiIsImtpZCI6ImZpbGUvMjAyMy0wNy0xN1QxNS0wNi0xNSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZWRpYSIsInN1YiI6ImM3M2Y0ZTdiLTJiNjgtNDQwMC1iMWNlLWE4ZDkxNjU0YzI1ZjplYmY5M2I5NC1mN2UyLTRmMDYtYTljYi03NjRkYTE5Njk4Y2QiLCJhdWQiOlsibWVkaWEvcHJvZHVjdGlvbiJdLCJpYXQiOjE3MjA5NjE5Mzh9.1NANBfaKvcFliF0RXgV4siBZ5Puu5nth0Qlfw1GRgHo"
+                        style="width: 32px; height: 26px; padding-left:2px; vertical-align: middle;">
+                      <div
+                        style="display: inline-block; vertical-align: middle; margin: 0 0px; font-family: Helvetica, Arial, sans-serif; font-size: 16px; color: #00141A; line-height: 36px;">
+                        Roaming
+                      </div>
+    
+    
+                  </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+          </div>
+
+          
+          
+        
+
+
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+    </tr>
+  </table>
+</body>
