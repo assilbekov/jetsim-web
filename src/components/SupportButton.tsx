@@ -13,6 +13,12 @@ export const SupportButton = (props: {
 
   const handleSupportClick = () => {
     try {
+      const launcher = document.getElementById('launcher');
+      
+      if (launcher) {
+        launcher.style.display = 'block';
+      }
+
       if (isZendeskLoaded && localWindow.zE) {
         localWindow.zE("messenger", "open");
       } else {
