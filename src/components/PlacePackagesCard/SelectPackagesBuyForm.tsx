@@ -59,7 +59,7 @@ export const SelectPackagesBuyForm = ({
       return;
     }
 
-    setIsSticky(parentBottom >= windowHeight);
+    setIsSticky(parentBottom >= windowHeight || parentBottom <= 0);
   };
 
   useEffect(() => {
