@@ -29,7 +29,10 @@ export const CookieInfo = () => {
         )}
       >
         By using JetSim services, you agree to our{" "}
-        <Link href="/privacy-policy" className="underline">
+        <Link
+          href="/privacy-policy"
+          className="underline text-text-600 hover:text-text-300 transition-colors duration-200 ease-in-out"
+        >
           privacy policy
         </Link>
         . We use cookies for personalisation, and for analytics.

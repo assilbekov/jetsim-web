@@ -139,7 +139,7 @@ export const FAQ = () => {
           </ol>
           <p className="mt-4">
             If none of the above solutions work, please{" "}
-            <SupportButton className="inline text-secondary-500 cursor-pointer">
+            <SupportButton className="inline text-secondary-500 hover:text-secondary-300 transition-colors duration-200 ease-in-out cursor-pointer">
               contact JetSim support.
             </SupportButton>
           </p>
