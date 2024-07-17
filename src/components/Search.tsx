@@ -52,8 +52,6 @@ export const Search = () => {
     const locations: Location[] =
       (query ? queryInfo.data : topCountriesInfo?.data?.data.slice(0, 4)) || [];
 
-    console.log({ topCountriesInfo, queryInfo, locations, isFetched });
-
     if (!isFetched) {
       return (
         <li className="flex flex-col gap-2">
@@ -140,6 +138,7 @@ export const Search = () => {
           }}
           onFocus={() => setOpen(true)}
           placeholder="Where do you go?"
+          autoComplete="off"
         />
       </div>
       {open && (
