@@ -49,6 +49,7 @@ export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
           }
           return "";
         })
+        .filter(Boolean)
         .join("&")
     : "";
 
