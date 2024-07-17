@@ -28,7 +28,11 @@ const Subheader = ({ children }: { children: React.ReactNode }) => (
 );
 
 const LinkText = (props: LinkProps & { children: React.ReactNode }) => (
-  <Link {...props} className="text-primary-500 underline" target="_blank" />
+  <Link
+    {...props}
+    className="text-primary-500 underline hover:text-primary-300 transition-colors duration-200 ease-in-out"
+    target="_blank"
+  />
 );
 
 type ListBlockProps = {
@@ -311,15 +315,15 @@ export const CheckCompatibilityDialog = ({
           <div className="flex flex-col gap-4">
             <Paragraph>
               To check if a specific device supports eSIM, visit the official
-              website of the device&apos;s manufacturer. Look for specifications or
-              features of the device to see if eSIM is mentioned.
+              website of the device&apos;s manufacturer. Look for specifications
+              or features of the device to see if eSIM is mentioned.
             </Paragraph>
             <Paragraph>
               Additionally, you can refer to user manuals or contact customer
               support for confirmation. Keep in mind that eSIM compatibility may
-              vary depending on the device model, region, and carrier, so it&apos;s
-              essential to verify this information before making a purchase or
-              activation.
+              vary depending on the device model, region, and carrier, so
+              it&apos;s essential to verify this information before making a
+              purchase or activation.
             </Paragraph>
           </div>
         </AccordionPanel>
