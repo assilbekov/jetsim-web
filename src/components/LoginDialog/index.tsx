@@ -6,10 +6,24 @@ import { ApiResponse } from "@/models/ApiResponse";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { createPortal } from "react-dom";
-import {
-  handleLoginAppleClickEvent,
-  handleLoginGoogleClickEvent,
-} from "@/gtm-events";
+import { handleLoginGoogleClickEvent } from "@/gtm-events";
+
+const StyledLink = ({
+  children,
+  href,
+}: {
+  children: React.ReactNode;
+  href: string;
+}) => {
+  return (
+    <Link
+      href={href}
+      className="underline text-text-600 hover:text-text-300 transition duration-200 ease-in-out"
+    >
+      {children}
+    </Link>
+  );
+};
 
 type LoginDialogProps = {
   redirectUrl?: string;
@@ -60,13 +74,9 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
         /> */}
         <div className="font-inter text-base leading-[22px] font-medium text-center text-gray-400 mt-5">
           <span>By continuing you agree to our </span>
-          <Link href="/terms-of-service">
-            <span className="underline">Terms of Service</span>
-          </Link>
+          <StyledLink href="/terms-of-service">Terms of Service</StyledLink>
           <span> and </span>
-          <Link href="/privacy-policy">
-            <span className="underline">Privacy policy</span>
-          </Link>
+          <StyledLink href="/privacy-policy">Privacy policy</StyledLink>
         </div>
       </div>
     </Dialog>,
