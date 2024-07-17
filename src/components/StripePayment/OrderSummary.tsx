@@ -76,13 +76,14 @@ export const OrderSummary = ({
       <OrderElement
         title="Country"
         value={
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-start">
             <CircledCountryImage
               countryCode={location.countryCode}
               width={16}
               height={16}
+              className="inline mt-0.5"
             />
-            <p>{location.title}</p>
+            <span className="text-wrap">{location.title}</span>
           </div>
         }
       />
