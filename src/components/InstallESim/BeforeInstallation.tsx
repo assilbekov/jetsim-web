@@ -71,8 +71,8 @@ export const BeforeInstallationContent = () => {
         />
         <InfoElement
           src="/icons/primary/language.svg"
-          alt="Activate Data Roaming"
-          title="Activate Data Roaming"
+          alt="Activate data roaming"
+          title="Activate data roaming"
           description="to start using the internet"
         />
         <InfoElement

@@ -93,7 +93,7 @@ export const LandingFooterContent = async ({
           <LinksBlock>
             <Title>Legal</Title>
             <ListBlock>
-              <ListElement href="/privacy-policy">Privacy policy</ListElement>
+              <ListElement href="/privacy-policy">Privacy Policy</ListElement>
               <ListElement href="/terms-of-service">
                 Terms of Service
               </ListElement>

@@ -72,7 +72,7 @@ export const ManualInstall = ({
           "mt-3 text-center text-text-600"
         )}
       >
-        Copy this code when you manully adding eSIM
+        Copy this code when manually adding eSIM
       </p>
       <PrimaryButton className="mt-4 w-full" onClick={onSeeInstructionsClick}>
         See instructions

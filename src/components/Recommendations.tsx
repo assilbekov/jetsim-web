@@ -68,7 +68,7 @@ export const Recommendations = async () => {
     <LandingContainer>
       <Card>
         <Typography variant={TypographyVariants.H2}>
-          Where do you want to go?
+          Where are you going?
         </Typography>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 md:mt-6 lg:mt-8">
           {topCountries.data.slice(0, 11).map((country, index) => (

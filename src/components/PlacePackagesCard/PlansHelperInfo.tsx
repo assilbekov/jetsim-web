@@ -39,7 +39,7 @@ export const PlansHelperInfo = ({ tag }: PlansHelperInfoProps) => {
             <div>
               <h6 className={getTypographyClass(TypographyVariants.Caption)}>
                 {tag === PackageTagEnum.STANDARD
-                  ? "Calculated on the basis of"
+                  ? "Calculated based on"
                   : "Unlimited plans"}
               </h6>
               {tag === PackageTagEnum.STANDARD ? (

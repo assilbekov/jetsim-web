@@ -35,7 +35,7 @@ export const CookieInfo = () => {
         >
           privacy policy
         </Link>
-        . We use cookies for personalisation, and for analytics.
+        . We use cookies for personalisation and analytics.
       </p>
       <SecondaryButton
         className="pt-3 pb-3 text-sm leading-[18px] md:text-sm md:leading-[18px]"

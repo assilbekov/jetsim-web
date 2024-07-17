@@ -79,7 +79,7 @@ export const QRCodeInstall = ({
           "mt-3 w-full text-text-600 text-center"
         )}
       >
-        Share this QR code to other phone or laptop and scan it from there
+        Share this QR code to another phone or laptop and scan it from there
       </p>
       {!deviceTypeAndVerion.isDesktop && (
         <PrimaryButton className="mt-4" onClick={handleShare}>

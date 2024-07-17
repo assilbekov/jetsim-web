@@ -96,7 +96,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           </div>
           <Title>Press and hold on a QR code and select Add eSIM</Title>
           <Description>
-            Share this QR code to other phone or laptop and scan it from there
+            Share this QR code to another phone or laptop and scan it from there
           </Description>
           <SeeInstructionsButton card={card} />
         </div>
@@ -109,7 +109,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <QRCodeElement url={url} size={size} />
           <Title>Scan this QR code from other device</Title>
           <Description>
-            Share this QR code to other phone or laptop and scan it from there
+            Share this QR code to another phone or laptop and scan it from there
           </Description>
           <ShareQRCodeButton />
           <SeeInstructionsButton card={card} />
@@ -133,7 +133,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
         <QRCodeElement url={url} size={size} />
         <Title>Scan this QR code from other device</Title>
         <Description>
-          Share this QR code to other phone or laptop and scan it from there
+          Share this QR code to another phone or laptop and scan it from there
         </Description>
         <ShareQRCodeButton />
         <SeeInstructionsButton card={card} />

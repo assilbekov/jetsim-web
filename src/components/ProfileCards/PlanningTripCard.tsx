@@ -18,7 +18,7 @@ export function PlanningTripCard() {
         />
         <div className="text-center">
           <h5 className={getTypographyClass(TypographyVariants.Subheader)}>
-            Planning new trip?
+            Planning a new trip?
           </h5>
           <p
             className={clsx(
@@ -26,12 +26,12 @@ export function PlanningTripCard() {
               "mt-2 text-text-600"
             )}
           >
-            Buy a new plan at affordable price
+            Buy new plan at affordable price
           </p>
         </div>
         <Link href="/all-destinations">
           <SecondaryButton className="w-[190px] py-[14px] mx-auto">
-            Buy a new plan
+            Buy new plan
           </SecondaryButton>
         </Link>
       </div>

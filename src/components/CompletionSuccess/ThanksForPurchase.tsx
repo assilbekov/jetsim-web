@@ -29,7 +29,7 @@ export const ThanksForPurchase = () => {
             "md:text-xl md:leading-[26px] mt-2 md:mt-3 text-center text-text-600"
           )}
         >
-          Check your email for the receipt.
+          The check will be sent to your email
         </p>
       </Card>
     </LandingContainer>

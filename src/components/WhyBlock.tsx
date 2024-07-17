@@ -65,7 +65,7 @@ export const WhyBlock = ({
       <Card size="md" className="xxs:p-8 xs:p-6 md:p-8">
         <div className="flex flex-col gap-6 md:gap-10">
           <div>
-            <p
+            {/* <p
               className={clsx(
                 "mb-1 md:mb-[10px] text-text-600",
                 matchTypographyMediaQuery({
@@ -75,9 +75,9 @@ export const WhyBlock = ({
               )}
             >
               Why JetSim?
-            </p>
+            </p> */}
             <Typography variant={TypographyVariants.H2}>
-            Internet everywhere with JetSim
+              Use internet everywhere with JetSim
             </Typography>
           </div>
           <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
@@ -85,7 +85,7 @@ export const WhyBlock = ({
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
               title="Affordable"
-              description="Data plans tailored for you"
+              description="Data plans tailored to&nbsp; your needs"
             />
             <FeatureBlock
               iconSrc="/done.svg"
@@ -119,7 +119,7 @@ export const WhyBlock = ({
                     })
                   )}
                 >
-                  Secure Payment Methods
+                  Secure payment methods
                 </p>
                 <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between lg:min-w-[646px] flex-wrap w-full items-center">
                   <Image

@@ -58,7 +58,7 @@ export const Navbar = ({
           {!hideNav && (
             <>
               <StyledLink href="/all-destinations">Destinations</StyledLink>
-              <StyledLink href={howToHref}>How to</StyledLink>
+              <StyledLink href={howToHref}>How it works</StyledLink>
               <SupportButton>
                 <StyledLink href="#">Support</StyledLink>
               </SupportButton>

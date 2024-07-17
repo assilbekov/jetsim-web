@@ -165,7 +165,7 @@ const DetailsContent = ({
         <DetailsItem
           src="/icons/black/no_calls.svg"
           alt="no calls icon"
-          content="No calls and SMS, its only for data plan"
+          content="Only data plans, without calls and SMS"
         />
         <DetailsItem
           src="/icons/black/cell_tower.svg"

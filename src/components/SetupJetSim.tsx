@@ -127,7 +127,7 @@ export const SetupJetSim = () => {
           <div className="flex flex-col sm:flex-row gap-5 md:gap-8">
             <Step
               step="01"
-              title="Choose destination and select data plan"
+              title="Choose your destination and select a data plan"
               content={
                 <StepContent>
                   <SelectDataPlan label="5 gb" selected />
@@ -138,7 +138,7 @@ export const SetupJetSim = () => {
             />
             <Step
               step="02"
-              title="Follow the instruction and install eSIM"
+              title="Follow the instructions to install your eSIM"
               content={
                 <StepContent>
                   <InstructionStep step="1" />
@@ -165,7 +165,7 @@ export const SetupJetSim = () => {
         <div className="bg-[#F8F9FB] p-4 xxs:p-6 md:px-8 rounded-xl relative overflow-visible">
           <div className="flex flex-col lg:flex-row gap-4 md:gap-4 lg:gap-8 w-full md:w-[60%] lg:w-3/4">
             <h3 className={getTypographyClass(TypographyVariants.Subheader)}>
-              Ensure your phone is compatible with eSIM technology
+              See if your phone supports eSIM technology
             </h3>
             <div>
               <p
@@ -174,8 +174,8 @@ export const SetupJetSim = () => {
                   getTypographyClass(TypographyVariants.Caption)
                 )}
               >
-                Most current phones, tablets, and watches support eSIM, its
-                possible your device only supports physical SIM cards
+                Most phones, tablets, and watches support eSIM. However, your
+                device might only support physical SIM cards.
               </p>
               <CheckCompatibility
                 label="Check compatibility"

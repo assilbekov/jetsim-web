@@ -47,7 +47,7 @@ export const FeatureAndTechDetails = () => {
           <Feature
             imageSrc="/icons/no-calls.svg"
             imageAlt="no-calls icon"
-            content="No calls and SMS, its only for data plan"
+            content="Only data plans, without calls and SMS"
           />
           <Feature
             imageSrc="/icons/cell-tower.svg"

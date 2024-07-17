@@ -137,7 +137,7 @@ export const Search = () => {
             setQuery(e.target.value);
           }}
           onFocus={() => setOpen(true)}
-          placeholder="Where do you go?"
+          placeholder="Enter your destination"
           autoComplete="off"
         />
       </div>

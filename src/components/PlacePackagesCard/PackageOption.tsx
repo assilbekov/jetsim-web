@@ -92,10 +92,7 @@ export const PackageOption = ({
             <SecondaryText>
               {tag === PackageTagEnum.UNLIMITED
                 ? "Unlimited GB"
-                : `${convertPrice(
-                    packageEntity.traffic.unit.costPerUnit.price,
-                    packageEntity.cost.currency
-                  )} / ${packageEntity.traffic.unit.label}`}
+                : convertDaysText(packageEntity.days)}
             </SecondaryText>
           </TextContainer>
           <TextContainer className="xxs:min-w-20">
@@ -106,7 +103,12 @@ export const PackageOption = ({
               )}
             </BoldText>
             {tag === PackageTagEnum.STANDARD && (
-              <SecondaryText>{convertDaysText(packageEntity.days)}</SecondaryText>
+              <SecondaryText>
+                {`${convertPrice(
+                  packageEntity.traffic.unit.costPerUnit.price,
+                  packageEntity.cost.currency
+                )} / ${packageEntity.traffic.unit.label}`}
+              </SecondaryText>
             )}
           </TextContainer>
         </div>
