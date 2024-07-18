@@ -11,19 +11,20 @@ type IOSContentProps = {
 
 export const IOSContent = ({ card }: IOSContentProps) => {
   return (
-    <div className="w-full">
-      <div
-        className={clsx(
-          getTypographyClass(TypographyVariants.Body2),
-          "flex flex-col gap-8 justify-center self-stretch text-center py-8 mx-auto w-full rounded-2xl bg-slate-50"
-        )}
-      >
+    <div
+      className={clsx(
+        getTypographyClass(TypographyVariants.Body2),
+        "w-full text-center"
+      )}
+    >
+      <div className="flex flex-col gap-8 justify-center self-stretch py-8 mx-auto w-full rounded-2xl bg-slate-50">
         <ScanQRStep step={1} card={card} />
         <PlanTextStep step={2}>
           Follow screen instructions to install eSIM
         </PlanTextStep>
         <TurnOnDataRoamingStep step={3} />
       </div>
+      <p>Or use alternative option</p>
     </div>
   );
 };
