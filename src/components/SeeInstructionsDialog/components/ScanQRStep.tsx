@@ -4,6 +4,12 @@ import { RoundedLabel } from "./RoundedLabel";
 import { Card } from "@/models/Card";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { ArrowRightImage } from "./ArrowRightImage";
+import { ShareQRCodeButton } from "@/components/QRCodeBlock/ShareQRCodeButton";
+import { clsx } from "@/utils";
+import {
+  TypographyVariants,
+  getTypographyClass,
+} from "@/components/Typography";
 
 type ScanQRStepProps = {
   step: number;
@@ -25,6 +31,23 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
           <ArrowRightImage />
           <span>Add eSIM</span>
         </>
+      );
+    }
+
+    if (!deviceTypeAndVerion.isDesktop) {
+      return (
+        <div>
+          <p>Share the QR code to a different screen</p>
+          <p
+            className={clsx(
+              getTypographyClass(TypographyVariants.Caption),
+              "mt-1 w-full text-text-600 text-center"
+            )}
+          >
+            Or use alternative method bellow
+          </p>
+          <ShareQRCodeButton />
+        </div>
       );
     }
 
