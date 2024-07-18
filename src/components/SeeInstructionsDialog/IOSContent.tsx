@@ -4,6 +4,9 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { ScanQRStep } from "./components/ScanQRStep";
 import { PlanTextStep } from "./components/PlanTextStep";
 import { TurnOnDataRoamingStep } from "../InstallESimInstructionsDialog/TurnOnDataRoamingStep";
+import { StyledContent } from "./components/StyledContent";
+import { EnterDetailsManuallyStep } from "./components/EnterDetailsManuallyStep";
+import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
 
 type IOSContentProps = {
   card: Card;
@@ -17,14 +20,22 @@ export const IOSContent = ({ card }: IOSContentProps) => {
         "w-full text-center"
       )}
     >
-      <div className="flex flex-col gap-8 justify-center self-stretch py-8 mx-auto w-full rounded-2xl bg-slate-50">
+      <StyledContent>
         <ScanQRStep step={1} card={card} />
         <PlanTextStep step={2}>
           Follow screen instructions to install eSIM
         </PlanTextStep>
         <TurnOnDataRoamingStep step={3} />
-      </div>
-      <p>Or use alternative option</p>
+      </StyledContent>
+      <p className="mt-5 mb-4">Or use alternative option</p>
+      <StyledContent>
+        <EnterDetailsManuallyStep step={1} />
+        <EnterFollowingDataStep step={2} card={card} />
+        <PlanTextStep step={3}>
+          Follow screen instructions to install eSIM
+        </PlanTextStep>
+        <TurnOnDataRoamingStep step={4} />
+      </StyledContent>
     </div>
   );
 };
