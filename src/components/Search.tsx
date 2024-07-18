@@ -107,7 +107,7 @@ export const Search = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <div className="relative z-50">
         <label
           className="flex items-center justify-center h-[54px] w-[84px] md:py-4 md:px-6 px-4 py-3 bg-secondary-500 rounded-[32px] absolute right-2 md:right-4 top-[50%] translate-y-[-50%] hover:bg-secondary-700 active:bg-[#620] cursor-pointer transition duration-150 ease-in-out"
