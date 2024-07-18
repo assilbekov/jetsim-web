@@ -10,6 +10,7 @@ import {
   FacebookNoScript,
 } from "@/components/anylitics-scripts/Facebook";
 import { UTMProvider } from "@/contexts/UTMContext";
+import { YA, YANoScript } from "@/components/anylitics-scripts/YA";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -30,11 +31,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <GA4 />
         <GTM />
         <Facebook />
+        <YA />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </head>
       <body>
         <FacebookNoScript />
         <GTMNoScript />
+        <YANoScript />
         <QueryContext>
           <ZendeskProvider>
             <UTMProvider>{children}</UTMProvider>
