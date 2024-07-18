@@ -8,6 +8,7 @@ import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { TagButton, TagButtonsProps } from "../PlacePackagesCard/TagButton";
 import { clsx } from "@/utils";
 import Image from "next/image";
+import { IOSContent } from "./IOSContent";
 
 const StyledTagButton = (props: TagButtonsProps) => {
   return (
@@ -48,7 +49,7 @@ export const SeeInstructionsDialog = ({
           active={deviceType === DeviceType.iOS}
           onClick={() => setDeviceType(DeviceType.iOS)}
         >
-          <Image 
+          <Image
             src="/icons/black/apple.svg"
             alt="apple icon"
             height={20}
@@ -60,7 +61,7 @@ export const SeeInstructionsDialog = ({
           active={deviceType === DeviceType.android}
           onClick={() => setDeviceType(DeviceType.android)}
         >
-          <Image 
+          <Image
             src="/icons/black/android.svg"
             alt="android icon"
             height={20}
@@ -69,6 +70,7 @@ export const SeeInstructionsDialog = ({
           Android
         </StyledTagButton>
       </div>
+      {deviceType === DeviceType.iOS ? <IOSContent card={card} /> : null}
     </Dialog>
   );
 };
