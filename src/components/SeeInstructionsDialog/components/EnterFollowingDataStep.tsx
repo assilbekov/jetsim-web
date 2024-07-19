@@ -24,11 +24,13 @@ const CopyBlock = ({ text, label }: CopyBlockProps) => {
 type EnterFollowingDataStepProps = {
   step: number;
   card: Card;
+  isAndroid?: boolean;
 };
 
 export const EnterFollowingDataStep = ({
   step,
   card,
+  isAndroid,
 }: EnterFollowingDataStepProps) => {
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const [smdp, addr, lpaCode] = card.lpaCode.split("$");
@@ -41,7 +43,7 @@ export const EnterFollowingDataStep = ({
       <InfoRow>
         <span>Enter the following data</span>
       </InfoRow>
-      {deviceTypeAndVerion.isAndroid ? (
+      {deviceTypeAndVerion.isAndroid || isAndroid ? (
         <CopyBlock text={card.lpaCode} label="Activation Code" />
       ) : (
         <>

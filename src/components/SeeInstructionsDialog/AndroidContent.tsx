@@ -12,6 +12,7 @@ import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
 import { useState } from "react";
+import { PixelManualStep } from "./components/PixelManualStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -75,6 +76,10 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
           )
         )}
       </select>
+      <StyledContent>
+        <PixelManualStep step={1} />
+        <EnterFollowingDataStep step={2} card={card} isAndroid />
+      </StyledContent>
       {renderQRInstallation()}
       <p className="mt-5 mb-4">Or use alternative option</p>
       <StyledContent>
