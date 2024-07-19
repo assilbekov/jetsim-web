@@ -19,6 +19,7 @@ import { TurnOnQRPixelStep } from "./components/TurnOnQRPixelStep";
 import { SamsungManualStep } from "./components/SamsungComponents/SamsungManualStep";
 import { TurnOnSamsungStep } from "./components/SamsungComponents/TurnOnSamsungStep";
 import { SamsungQRStep } from "./components/SamsungComponents/SamsungQRStep";
+import { SamsungMobileDataStep } from "./components/SamsungComponents/SamsungMobileDataStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -121,7 +122,11 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
             Scan this QR code and follow screen instructions to install eSIM
           </PlanTextStep>
         )}
-        <TurnOnQRPixelStep step={4} />
+        {type === AndroidType.Samsung ? (
+          <SamsungMobileDataStep step={4} />
+        ) : (
+          <TurnOnQRPixelStep step={4} />
+        )}
       </StyledContent>
     </div>
   );
