@@ -16,6 +16,7 @@ import { PixelManualStep } from "./components/PixelManualStep";
 import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
 import { PixelQRStep } from "./components/PixelQRStep";
 import { TurnOnQRPixelStep } from "./components/TurnOnQRPixelStep";
+import { SamsungManualStep } from "./components/SamsungComponents/SamsungManualStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -86,7 +87,11 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
             </option>
           ))}
         </select>
-        <PixelManualStep step={1} />
+        {type === AndroidType.Samsung ? (
+          <SamsungManualStep step={1} />
+        ) : (
+          <PixelManualStep step={1} />
+        )}
         <EnterFollowingDataStep step={2} card={card} isAndroid />
         <PlanTextStep step={3}>
           Follow screen instructions to install eSIM
