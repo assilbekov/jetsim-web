@@ -20,6 +20,7 @@ import { SamsungManualStep } from "./components/SamsungComponents/SamsungManualS
 import { TurnOnSamsungStep } from "./components/SamsungComponents/TurnOnSamsungStep";
 import { SamsungQRStep } from "./components/SamsungComponents/SamsungQRStep";
 import { SamsungMobileDataStep } from "./components/SamsungComponents/SamsungMobileDataStep";
+import { SamsungTurnOnStep } from "./components/SamsungComponents/SamsungTurnOnStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -127,6 +128,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         ) : (
           <TurnOnQRPixelStep step={4} />
         )}
+        {type === AndroidType.Samsung && <SamsungTurnOnStep step={5} />}
       </StyledContent>
     </div>
   );
