@@ -13,6 +13,7 @@ import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
 import { useState } from "react";
 import { PixelManualStep } from "./components/PixelManualStep";
+import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -63,9 +64,13 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         "w-full text-center"
       )}
     >
-      <select className="w-full py-3 px-6 border-solid border-[1px] border-[#E9F0F2] rounded-full">
-        {[AndroidType.Samsung, AndroidType.GooglePixel, AndroidType.Other].map(
-          (type) => (
+      <StyledContent>
+        <select className="w-full py-3 px-6 border-solid border-[1px] border-[#E9F0F2] rounded-full">
+          {[
+            AndroidType.Samsung,
+            AndroidType.GooglePixel,
+            AndroidType.Other,
+          ].map((type) => (
             <option
               key={type}
               value={type}
@@ -73,12 +78,14 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
             >
               {type}
             </option>
-          )
-        )}
-      </select>
-      <StyledContent>
+          ))}
+        </select>
         <PixelManualStep step={1} />
         <EnterFollowingDataStep step={2} card={card} isAndroid />
+        <PlanTextStep step={3}>
+          Follow screen instructions to install eSIM
+        </PlanTextStep>
+        <TurnOnPixelStep step={4} />
       </StyledContent>
       {renderQRInstallation()}
       <p className="mt-5 mb-4">Or use alternative option</p>
