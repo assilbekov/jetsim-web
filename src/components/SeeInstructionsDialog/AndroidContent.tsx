@@ -14,6 +14,7 @@ import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
 import { useState } from "react";
 import { PixelManualStep } from "./components/PixelManualStep";
 import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
+import { PixelQRStep } from "./components/PixelQRStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -65,7 +66,11 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       )}
     >
       <StyledContent>
-        <select className="w-full py-3 px-6 border-solid border-[1px] border-[#E9F0F2] rounded-full">
+        <select
+          className="w-full py-3 px-6 border-solid border-[1px] border-[#E9F0F2] rounded-full"
+          value={type}
+          onChange={(e) => setType(e.target.value as AndroidType)}
+        >
           {[
             AndroidType.Samsung,
             AndroidType.GooglePixel,
@@ -87,15 +92,10 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         </PlanTextStep>
         <TurnOnPixelStep step={4} />
       </StyledContent>
-      {renderQRInstallation()}
       <p className="mt-5 mb-4">Or use alternative option</p>
       <StyledContent>
-        <EnterDetailsManuallyStep step={1} />
-        <EnterFollowingDataStep step={2} card={card} />
-        <PlanTextStep step={3}>
-          Follow screen instructions to install eSIM
-        </PlanTextStep>
-        <TurnOnDataRoamingStep step={4} />
+        <ScanQRStep step={1} card={card} />
+        <PixelQRStep step={2} />
       </StyledContent>
     </div>
   );
