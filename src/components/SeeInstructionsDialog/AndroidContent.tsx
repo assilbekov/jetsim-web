@@ -18,6 +18,7 @@ import { PixelQRStep } from "./components/PixelQRStep";
 import { TurnOnQRPixelStep } from "./components/TurnOnQRPixelStep";
 import { SamsungManualStep } from "./components/SamsungComponents/SamsungManualStep";
 import { TurnOnSamsungStep } from "./components/SamsungComponents/TurnOnSamsungStep";
+import { SamsungQRStep } from "./components/SamsungComponents/SamsungQRStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -106,10 +107,20 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       <p className="mt-5 mb-4">Or use alternative option</p>
       <StyledContent>
         <ScanQRStep step={1} card={card} />
-        <PixelQRStep step={2} />
-        <PlanTextStep step={3}>
-          Scan this QR code and follow screen instructions to install eSIM
-        </PlanTextStep>
+        {type === AndroidType.Samsung ? (
+          <SamsungQRStep step={2} />
+        ) : (
+          <PixelQRStep step={2} />
+        )}
+        {type === AndroidType.Samsung ? (
+          <PlanTextStep step={3}>
+            Scan shared QR code and follow screen instructions to install eSIM
+          </PlanTextStep>
+        ) : (
+          <PlanTextStep step={3}>
+            Scan this QR code and follow screen instructions to install eSIM
+          </PlanTextStep>
+        )}
         <TurnOnQRPixelStep step={4} />
       </StyledContent>
     </div>
