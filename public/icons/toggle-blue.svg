@@ -1,0 +1,35 @@
+<svg width="33" height="21" viewBox="0 0 33 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_106_19692)">
+<rect x="0.0488281" y="0.878906" width="32.9032" height="20" rx="10" fill="#326EE6"/>
+<g filter="url(#filter0_ddd_106_19692)">
+<rect x="14.3389" y="1.84766" width="17.4194" height="17.4194" rx="8.70968" fill="white"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_ddd_106_19692" x="9.17758" y="-1.37815" width="27.7415" height="27.7405" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1.93548"/>
+<feGaussianBlur stdDeviation="0.322581"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_106_19692"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="1.93548"/>
+<feGaussianBlur stdDeviation="2.58065"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_106_19692" result="effect2_dropShadow_106_19692"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feMorphology radius="0.645161" operator="dilate" in="SourceAlpha" result="effect3_dropShadow_106_19692"/>
+<feOffset/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="effect2_dropShadow_106_19692" result="effect3_dropShadow_106_19692"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect3_dropShadow_106_19692" result="shape"/>
+</filter>
+<clipPath id="clip0_106_19692">
+<rect x="0.0488281" y="0.878906" width="32.9032" height="20" rx="10" fill="white"/>
+</clipPath>
+</defs>
+</svg>
