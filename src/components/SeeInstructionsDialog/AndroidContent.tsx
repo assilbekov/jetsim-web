@@ -15,6 +15,7 @@ import { useState } from "react";
 import { PixelManualStep } from "./components/PixelManualStep";
 import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
 import { PixelQRStep } from "./components/PixelQRStep";
+import { TurnOnQRPixelStep } from "./components/TurnOnQRPixelStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -96,6 +97,10 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       <StyledContent>
         <ScanQRStep step={1} card={card} />
         <PixelQRStep step={2} />
+        <PlanTextStep step={3}>
+          Scan this QR code and follow screen instructions to install eSIM
+        </PlanTextStep>
+        <TurnOnQRPixelStep step={4} />
       </StyledContent>
     </div>
   );
