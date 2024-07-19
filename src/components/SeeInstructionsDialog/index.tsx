@@ -9,6 +9,7 @@ import { TagButton, TagButtonsProps } from "../PlacePackagesCard/TagButton";
 import { clsx } from "@/utils";
 import Image from "next/image";
 import { IOSContent } from "./IOSContent";
+import { AndroidContent } from "./AndroidContent";
 
 const StyledTagButton = (props: TagButtonsProps) => {
   return (
@@ -70,7 +71,11 @@ export const SeeInstructionsDialog = ({
           Android
         </StyledTagButton>
       </div>
-      {deviceType === DeviceType.iOS ? <IOSContent card={card} /> : null}
+      {deviceType === DeviceType.iOS ? (
+        <IOSContent card={card} />
+      ) : (
+        <AndroidContent card={card} />
+      )}
     </Dialog>
   );
 };
