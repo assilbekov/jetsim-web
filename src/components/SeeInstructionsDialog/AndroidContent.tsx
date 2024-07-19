@@ -17,6 +17,7 @@ import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
 import { PixelQRStep } from "./components/PixelQRStep";
 import { TurnOnQRPixelStep } from "./components/TurnOnQRPixelStep";
 import { SamsungManualStep } from "./components/SamsungComponents/SamsungManualStep";
+import { TurnOnSamsungStep } from "./components/SamsungComponents/TurnOnSamsungStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -96,7 +97,11 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         <PlanTextStep step={3}>
           Follow screen instructions to install eSIM
         </PlanTextStep>
-        <TurnOnPixelStep step={4} />
+        {type === AndroidType.Samsung ? (
+          <TurnOnSamsungStep step={4} />
+        ) : (
+          <TurnOnPixelStep step={4} />
+        )}
       </StyledContent>
       <p className="mt-5 mb-4">Or use alternative option</p>
       <StyledContent>
