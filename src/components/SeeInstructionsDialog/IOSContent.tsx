@@ -11,6 +11,7 @@ import { EnterDetailsManuallyStep } from "./components/EnterDetailsManuallyStep"
 import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
+import { OpenMyEsim } from "./components/DesktopComponents/OpenMyEsim";
 
 type IOSContentProps = {
   card: Card;
@@ -77,6 +78,17 @@ export const IOSContent = ({ card }: IOSContentProps) => {
         </PlanTextStep>
         <TurnOnDataRoamingStep step={4} />
       </StyledContent>
+      {deviceTypeAndVerion.isDesktop && (
+        <>
+          <p className="mt-5 mb-4">
+            Or if you have Apple iPhone with iOS 17.5 or later
+          </p>
+          <StyledContent>
+            <OpenMyEsim step={1} />
+            <TurnOnDataRoamingStep step={2} />
+          </StyledContent>
+        </>
+      )}
     </div>
   );
 };
