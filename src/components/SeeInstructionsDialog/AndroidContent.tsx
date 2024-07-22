@@ -38,6 +38,59 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const [type, setType] = useState<AndroidType>(AndroidType.Samsung);
 
+  const renderManualBlockMobile = () => {
+    if (type === AndroidType.Samsung) {
+      return (
+        <>
+          <SamsungManualStep step={1} />
+          <EnterFollowingDataStep step={2} card={card} isAndroid />
+          <PlanTextStep step={3}>
+            Follow screen instructions to install eSIM
+          </PlanTextStep>
+          <SamsungManualMobileStep step={4} />
+        </>
+      );
+    }
+
+    return (
+      <>
+        <PixelManualStep step={1} />
+        <EnterFollowingDataStep step={2} card={card} isAndroid />
+        <PlanTextStep step={3}>
+          Follow screen instructions to install eSIM
+        </PlanTextStep>
+        <TurnOnPixelStep step={4} />
+      </>
+    );
+  };
+
+  const renderQRBlockMobile = () => {
+    if (type === AndroidType.Samsung) {
+      return (
+        <>
+          <ScanQRStep step={1} card={card} />
+          <SamsungQRStep step={2} />
+          <PlanTextStep step={3}>
+            Scan shared QR code and follow screen instructions to install eSIM
+          </PlanTextStep>
+          <SamsungMobileDataStep step={4} />
+          <SamsungTurnOnStep step={5} />
+        </>
+      );
+    }
+
+    return (
+      <>
+        <ScanQRStep step={1} card={card} />
+        <PixelQRStep step={2} />
+        <PlanTextStep step={3}>
+          Scan this QR code and follow screen instructions to install eSIM
+        </PlanTextStep>
+        <TurnOnQRPixelStep step={4} />
+      </>
+    );
+  };
+
   const manualBlock = (
     <>
       {type === AndroidType.Samsung ? (
@@ -89,6 +142,22 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       {type === AndroidType.Samsung && <SamsungTurnOnStep step={5} />}
     </>
   );
+
+  const renderTopBlock = () => {
+    if (deviceTypeAndVerion.isDesktop) {
+      return (
+        <>
+          {type === AndroidType.Samsung ? (
+            <SamsungQRStep step={2} />
+          ) : (
+            <PixelQRStep step={2} />
+          )}
+          <ScanQRStep step={1} card={card} />
+        </>
+      );
+    }
+    return manualBlock;
+  };
 
   return (
     <div

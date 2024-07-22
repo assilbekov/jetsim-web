@@ -39,7 +39,6 @@ export const SamsungQRStep = ({ step }: SamsungQRStepProps) => {
           />
           <ArrowRightImage />
           <span>Scan QR code</span>
-          <ArrowRightImage />
         </InfoRow>
       </div>
     </div>
