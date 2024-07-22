@@ -87,7 +87,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <QRCodeElement url={url} size={size} />
           <div className="flex justify-center">
             <Image
-              src="/icons/black/union.svg"
+              src="/icons/black/union.png"
               alt="union icon"
               height={52}
               width={37}
