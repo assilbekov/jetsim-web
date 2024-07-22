@@ -1,6 +1,7 @@
 import { RoundedLabel } from "../RoundedLabel";
 import { InfoRow } from "../InfoRow";
 import { CopyButton } from "@/components/buttons/CopyButton";
+import Link from "next/link";
 
 type CopyBlockProps = {
   text: string;
@@ -11,8 +12,8 @@ const CopyBlock = ({ text, label }: CopyBlockProps) => {
   return (
     <div className="flex flex-col gap-4 items-center p-4 bg-white rounded-xl">
       <div>
-        <p className="text-text-600">{label}</p>
-        {text}
+        <p className="text-text-600 mb-2">{label}</p>
+        <Link href={text}>{text}</Link>
       </div>
       <CopyButton text={text} />
     </div>
