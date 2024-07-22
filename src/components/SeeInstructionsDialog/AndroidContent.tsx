@@ -21,6 +21,8 @@ import { TurnOnSamsungStep } from "./components/SamsungComponents/TurnOnSamsungS
 import { SamsungQRStep } from "./components/SamsungComponents/SamsungQRStep";
 import { SamsungMobileDataStep } from "./components/SamsungComponents/SamsungMobileDataStep";
 import { SamsungTurnOnStep } from "./components/SamsungComponents/SamsungTurnOnStep";
+import { SamsungManualMobileStep } from "./components/DesktopComponents/SamsungManualMobileStep";
+import { SamsungManualRoamingStep } from "./components/DesktopComponents/SamsungManualRoamingStep";
 
 type AndroidContentProps = {
   card: Card;
@@ -36,33 +38,57 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const [type, setType] = useState<AndroidType>(AndroidType.Samsung);
 
-  const renderQRInstallation = () => {
-    if (deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "16") {
-      return (
-        <StyledContent>
-          <ScanQRStep step={1} card={card} />
-          <PlanTextStep step={2}>
-            Follow screen instructions to install eSIM
-          </PlanTextStep>
-          <TurnOnDataRoamingStep step={3} />
-        </StyledContent>
-      );
-    }
+  const manualBlock = (
+    <>
+      {type === AndroidType.Samsung ? (
+        <SamsungManualStep step={1} />
+      ) : (
+        <PixelManualStep step={1} />
+      )}
+      <EnterFollowingDataStep step={2} card={card} isAndroid />
+      <PlanTextStep step={3}>
+        Follow screen instructions to install eSIM
+      </PlanTextStep>
+      {type === AndroidType.Samsung ? (
+        deviceTypeAndVerion.isDesktop ? (
+          <SamsungManualMobileStep step={4} />
+        ) : (
+          <TurnOnSamsungStep step={4} />
+        )
+      ) : (
+        <TurnOnPixelStep step={4} />
+      )}
+      {type === AndroidType.Samsung && deviceTypeAndVerion.isDesktop && (
+        <SamsungManualRoamingStep step={5} />
+      )}
+    </>
+  );
 
-    return (
-      <StyledContent>
-        <ScanQRStep step={1} card={card} />
-        <UseQRDetailsStep step={2} />
+  const qRBlock = (
+    <>
+      <ScanQRStep step={1} card={card} />
+      {type === AndroidType.Samsung ? (
+        <SamsungQRStep step={2} />
+      ) : (
+        <PixelQRStep step={2} />
+      )}
+      {type === AndroidType.Samsung ? (
         <PlanTextStep step={3}>
-          Scan shared QR code from other screen with this phone
+          Scan shared QR code and follow screen instructions to install eSIM
         </PlanTextStep>
-        <PlanTextStep step={4}>
-          Follow screen instructions to install eSIM
+      ) : (
+        <PlanTextStep step={3}>
+          Scan this QR code and follow screen instructions to install eSIM
         </PlanTextStep>
-        <TurnOnDataRoamingStep step={5} />
-      </StyledContent>
-    );
-  };
+      )}
+      {type === AndroidType.Samsung ? (
+        <SamsungMobileDataStep step={4} />
+      ) : (
+        <TurnOnQRPixelStep step={4} />
+      )}
+      {type === AndroidType.Samsung && <SamsungTurnOnStep step={5} />}
+    </>
+  );
 
   return (
     <div
@@ -91,45 +117,10 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
             </option>
           ))}
         </select>
-        {type === AndroidType.Samsung ? (
-          <SamsungManualStep step={1} />
-        ) : (
-          <PixelManualStep step={1} />
-        )}
-        <EnterFollowingDataStep step={2} card={card} isAndroid />
-        <PlanTextStep step={3}>
-          Follow screen instructions to install eSIM
-        </PlanTextStep>
-        {type === AndroidType.Samsung ? (
-          <TurnOnSamsungStep step={4} />
-        ) : (
-          <TurnOnPixelStep step={4} />
-        )}
+        {manualBlock}
       </StyledContent>
       <p className="mt-5 mb-4">Or use alternative option</p>
-      <StyledContent>
-        <ScanQRStep step={1} card={card} />
-        {type === AndroidType.Samsung ? (
-          <SamsungQRStep step={2} />
-        ) : (
-          <PixelQRStep step={2} />
-        )}
-        {type === AndroidType.Samsung ? (
-          <PlanTextStep step={3}>
-            Scan shared QR code and follow screen instructions to install eSIM
-          </PlanTextStep>
-        ) : (
-          <PlanTextStep step={3}>
-            Scan this QR code and follow screen instructions to install eSIM
-          </PlanTextStep>
-        )}
-        {type === AndroidType.Samsung ? (
-          <SamsungMobileDataStep step={4} />
-        ) : (
-          <TurnOnQRPixelStep step={4} />
-        )}
-        {type === AndroidType.Samsung && <SamsungTurnOnStep step={5} />}
-      </StyledContent>
+      <StyledContent>{qRBlock}</StyledContent>
     </div>
   );
 };
