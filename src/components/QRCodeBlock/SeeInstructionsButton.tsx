@@ -3,6 +3,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
 import { Card } from "@/models/Card";
 import { handleSuccessPaymentInstructionClick } from "@/gtm-events";
+import { SeeInstructionsDialog } from "../SeeInstructionsDialog";
 
 type SeeInstructionsButtonProps = {
   card: Card;
@@ -21,12 +22,18 @@ export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
       >
         See instructions
       </SecondaryButton>
-      {instructionsDialogShow && (
+      {/* {instructionsDialogShow && (
         <InstallESimInstructionsDialog
           card={card}
           onClose={() => setInstructionsDialogShow(false)}
         />
-      )}
+      )} */}
+      {instructionsDialogShow && (
+        <SeeInstructionsDialog
+          card={card}
+          onClose={() => setInstructionsDialogShow(false)}
+        />
+      )} 
     </>
   );
 };

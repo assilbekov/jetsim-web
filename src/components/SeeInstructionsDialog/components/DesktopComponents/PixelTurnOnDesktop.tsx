@@ -3,11 +3,11 @@ import { IconWithText } from "../IconWithText";
 import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
 
-type PixelQRRoamingStepProps = {
+type PixelTurnOnDesktopProps = {
   step: number;
 };
 
-export const PixelQRRoamingStep = ({ step }: PixelQRRoamingStepProps) => {
+export const PixelTurnOnDesktop = ({ step }: PixelTurnOnDesktopProps) => {
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
@@ -28,19 +28,12 @@ export const PixelQRRoamingStep = ({ step }: PixelQRRoamingStepProps) => {
             text="Network & Internet"
           />
           <ArrowRightImage />
-          <span>SIM</span>
+          <span>SIMs</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <span>JetSim</span>
           <ArrowRightImage />
-          <IconWithText src="/icons/toggle-blue.svg" alt="toggle icon" text="Use SIM" />
-          <ArrowRightImage />
-          <span>Yes</span>
-          <ArrowRightImage />
-          <span>Use JetSim</span>
-        </InfoRow>
-        <InfoRow>
           <span>Scroll and enable</span>
           <IconWithText
             src="/icons/toggle-blue.svg"

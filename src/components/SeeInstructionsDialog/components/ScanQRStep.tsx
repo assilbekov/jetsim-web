@@ -14,13 +14,16 @@ import {
 type ScanQRStepProps = {
   step: number;
   card: Card;
+  helperText?: string;
 };
 
-export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
+export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 
   const renderHelperText = () => {
+    if (helperText) return helperText;
+
     if (deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "16") {
       return (
         <>

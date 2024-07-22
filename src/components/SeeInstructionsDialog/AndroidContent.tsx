@@ -5,19 +5,15 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { ScanQRStep } from "./components/ScanQRStep";
 import { PlanTextStep } from "./components/PlanTextStep";
-import { TurnOnDataRoamingStep } from "../InstallESimInstructionsDialog/TurnOnDataRoamingStep";
 import { StyledContent } from "./components/StyledContent";
-import { EnterDetailsManuallyStep } from "./components/EnterDetailsManuallyStep";
 import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
-import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
 import { useState } from "react";
 import { PixelManualStep } from "./components/PixelManualStep";
 import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
 import { PixelQRStep } from "./components/PixelQRStep";
 import { TurnOnQRPixelStep } from "./components/TurnOnQRPixelStep";
 import { SamsungManualStep } from "./components/SamsungComponents/SamsungManualStep";
-import { TurnOnSamsungStep } from "./components/SamsungComponents/TurnOnSamsungStep";
 import { SamsungQRStep } from "./components/SamsungComponents/SamsungQRStep";
 import { SamsungMobileDataStep } from "./components/SamsungComponents/SamsungMobileDataStep";
 import { SamsungTurnOnStep } from "./components/SamsungComponents/SamsungTurnOnStep";
@@ -27,6 +23,7 @@ import { SamsungScanQRDesktopStep } from "./components/DesktopComponents/Samsung
 import { PixelScanQRDesktopStep } from "./components/DesktopComponents/PixelScanQRDesktopStep";
 import { SamsungQRRoamingStep } from "./components/DesktopComponents/SamsungQRRoamingStep";
 import { PixelQRRoamingStep } from "./components/DesktopComponents/PixelQRRoamingStep";
+import { PixelTurnOnDesktop } from "./components/DesktopComponents/PixelTurnOnDesktop";
 
 type AndroidContentProps = {
   card: Card;
@@ -35,7 +32,6 @@ type AndroidContentProps = {
 enum AndroidType {
   Samsung = "Samsung",
   GooglePixel = "GooglePixel",
-  //Other = "Other",
 }
 
 export const AndroidContent = ({ card }: AndroidContentProps) => {
@@ -117,7 +113,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         <PlanTextStep step={3}>
           Follow screen instructions to install eSIM
         </PlanTextStep>
-        <TurnOnPixelStep step={4} />
+        <PixelTurnOnDesktop step={4} />
       </>
     );
   };
@@ -127,7 +123,11 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       return (
         <>
           <SamsungScanQRDesktopStep step={1} />
-          <ScanQRStep step={2} card={card} />
+          <ScanQRStep
+            step={2}
+            card={card}
+            helperText="Scan this QR code and follow screen instructions to install eSIM"
+          />
           <SamsungQRRoamingStep step={3} />
         </>
       );
@@ -135,78 +135,26 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
     return (
       <>
         <PixelScanQRDesktopStep step={1} />
-        <ScanQRStep step={2} card={card} />
+        <ScanQRStep
+          step={2}
+          card={card}
+          helperText="Scan this QR code and follow screen instructions to install eSIM"
+        />
         <PixelQRRoamingStep step={3} />
       </>
     );
   };
 
-  const manualBlock = (
-    <>
-      {type === AndroidType.Samsung ? (
-        <SamsungManualStep step={1} />
-      ) : (
-        <PixelManualStep step={1} />
-      )}
-      <EnterFollowingDataStep step={2} card={card} isAndroid />
-      <PlanTextStep step={3}>
-        Follow screen instructions to install eSIM
-      </PlanTextStep>
-      {type === AndroidType.Samsung ? (
-        deviceTypeAndVerion.isDesktop ? (
-          <SamsungManualMobileStep step={4} />
-        ) : (
-          <TurnOnSamsungStep step={4} />
-        )
-      ) : (
-        <TurnOnPixelStep step={4} />
-      )}
-      {type === AndroidType.Samsung && deviceTypeAndVerion.isDesktop && (
-        <SamsungManualRoamingStep step={5} />
-      )}
-    </>
-  );
-
-  const qRBlock = (
-    <>
-      <ScanQRStep step={1} card={card} />
-      {type === AndroidType.Samsung ? (
-        <SamsungQRStep step={2} />
-      ) : (
-        <PixelQRStep step={2} />
-      )}
-      {type === AndroidType.Samsung ? (
-        <PlanTextStep step={3}>
-          Scan shared QR code and follow screen instructions to install eSIM
-        </PlanTextStep>
-      ) : (
-        <PlanTextStep step={3}>
-          Scan this QR code and follow screen instructions to install eSIM
-        </PlanTextStep>
-      )}
-      {type === AndroidType.Samsung ? (
-        <SamsungMobileDataStep step={4} />
-      ) : (
-        <TurnOnQRPixelStep step={4} />
-      )}
-      {type === AndroidType.Samsung && <SamsungTurnOnStep step={5} />}
-    </>
-  );
-
   const renderTopBlock = () => {
-    if (deviceTypeAndVerion.isDesktop) {
-      return (
-        <>
-          {type === AndroidType.Samsung ? (
-            <SamsungQRStep step={2} />
-          ) : (
-            <PixelQRStep step={2} />
-          )}
-          <ScanQRStep step={1} card={card} />
-        </>
-      );
-    }
-    return manualBlock;
+    return deviceTypeAndVerion.isDesktop
+      ? renderQRBlockDesktop()
+      : renderManualBlockMobile();
+  };
+
+  const renderBottomBlock = () => {
+    return deviceTypeAndVerion.isDesktop
+      ? renderManualDesktop()
+      : renderQRBlockMobile();
   };
 
   return (
@@ -222,11 +170,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
           value={type}
           onChange={(e) => setType(e.target.value as AndroidType)}
         >
-          {[
-            AndroidType.Samsung,
-            AndroidType.GooglePixel,
-            // AndroidType.Other,
-          ].map((type) => (
+          {[AndroidType.Samsung, AndroidType.GooglePixel].map((type) => (
             <option
               key={type}
               value={type}
@@ -236,10 +180,10 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
             </option>
           ))}
         </select>
-        {manualBlock}
+        {renderTopBlock()}
       </StyledContent>
       <p className="mt-5 mb-4">Or use alternative option</p>
-      <StyledContent>{qRBlock}</StyledContent>
+      <StyledContent>{renderBottomBlock()}</StyledContent>
     </div>
   );
 };
