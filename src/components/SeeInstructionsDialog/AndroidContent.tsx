@@ -29,7 +29,7 @@ type AndroidContentProps = {
 enum AndroidType {
   Samsung = "Samsung",
   GooglePixel = "GooglePixel",
-  Other = "Other",
+  //Other = "Other",
 }
 
 export const AndroidContent = ({ card }: AndroidContentProps) => {
@@ -80,7 +80,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
           {[
             AndroidType.Samsung,
             AndroidType.GooglePixel,
-            AndroidType.Other,
+            // AndroidType.Other,
           ].map((type) => (
             <option
               key={type}
