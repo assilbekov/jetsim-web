@@ -12,7 +12,7 @@ export const CookieInfo = () => {
   useEffect(() => {
     const isCookieAccepted = localStorage.getItem("isCookieAccepted");
     if (!isCookieAccepted) {
-      setIsCookieAccepted(false);
+      // setIsCookieAccepted(false);
     }
   }, []);
 
