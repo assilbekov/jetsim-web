@@ -42,7 +42,7 @@ export const SelectPackagesBuyForm = ({
   });
   const [selectedTag, setSelectedTag] = useState<PackageTagEnum>(() => {
     return (
-      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.UNLIMITED
+      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.STANDARD
     );
   });
 
@@ -101,10 +101,10 @@ export const SelectPackagesBuyForm = ({
     packagesUnlimitedQuery.data?.length === 0;
 
   useEffect(() => {
-    if (!isStandardEmpty && isUnlimitedEmpty) {
-      setSelectedTag(PackageTagEnum.STANDARD);
-    }
-  }, [isUnlimitedEmpty]);
+    setSelectedTag(
+      isStandardEmpty ? PackageTagEnum.UNLIMITED : PackageTagEnum.STANDARD
+    );
+  }, [isStandardEmpty, isUnlimitedEmpty]);
 
   useEffect(() => {
     if (selectedPackageId) return;
@@ -121,17 +121,6 @@ export const SelectPackagesBuyForm = ({
       ? packagesStandardQuery.data
       : packagesUnlimitedQuery.data) ?? [];
   const selectedPackage = packagesList.find((p) => p.id === selectedPackageId);
-
-  console.log({
-    selectedPackage,
-    packagesList,
-    packagesStandardQuery,
-    packagesUnlimitedQuery,
-    selectedTag,
-    selectedPackageId,
-    isStandardEmpty,
-    isUnlimitedEmpty,
-  });
 
   const handleTagChange = (tag: PackageTagEnum) => {
     if (tag === selectedTag) return;
