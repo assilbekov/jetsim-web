@@ -106,7 +106,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
     if (deviceTypeAndVerion.isIOS) {
       return (
         <div>
-          <QRCodeElement url={url} size={size} />
+          <QRCodeElement url={card.lpaCode} size={size} />
           <Title>Scan this QR code from other device</Title>
           <Description>
             Share this QR code to another phone or laptop and scan it from there
@@ -120,7 +120,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
     if (deviceTypeAndVerion.isDesktop) {
       return (
         <div>
-          <QRCodeElement url={url} size={size} />
+          <QRCodeElement url={card.lpaCode} size={size} />
           <Title>Install eSIM with QR code</Title>
           <Description>Scan this QR code with your device</Description>
           <SeeInstructionsButton card={card} />
@@ -130,7 +130,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
 
     return (
       <div>
-        <QRCodeElement url={url} size={size} />
+        <QRCodeElement url={card.lpaCode} size={size} />
         <Title>Scan this QR code from other device</Title>
         <Description>
           Share this QR code to another phone or laptop and scan it from there
