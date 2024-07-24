@@ -36,8 +36,10 @@ export const Navbar = ({
 }: NavbarProps) => {
   useEffect(() => {
     const hash = window.location.hash;
-    if (hash) {
-      const element = document.querySelector(hash);
+    let validID = hash?.split('?')?.[0];
+
+    if (validID) {
+      const element = document.querySelector(validID);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
