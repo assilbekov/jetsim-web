@@ -71,7 +71,7 @@ export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
           </a>
         ) : (
           <QRCodeCanvas
-            value={url}
+            value={card.lpaCode}
             size={140}
             className="self-center w-full aspect-square fill-white max-w-[140px]"
           />

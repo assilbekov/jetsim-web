@@ -84,7 +84,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
     if (deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "16.0") {
       return (
         <div>
-          <QRCodeElement url={url} size={size} />
+          <QRCodeElement url={card.lpaCode} size={size} />
           <div className="flex justify-center">
             <Image
               src="/icons/black/union.png"
