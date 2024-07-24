@@ -1,5 +1,6 @@
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
+import { HowToGetBonusFromInvitingFriends } from "@/components/HowToGetBonusFromInvitingFriends";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
@@ -29,6 +30,7 @@ export default function Index() {
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
+        <HowToGetBonusFromInvitingFriends />
         <Recommendations />
         <WhyBlock />
         <FAQ />
