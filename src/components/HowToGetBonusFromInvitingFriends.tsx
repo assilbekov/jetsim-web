@@ -66,20 +66,20 @@ export const HowToGetBonusFromInvitingFriends = () => {
             <InfoBlock
               imgSrc="/icons/primary/travel_explore.svg"
               imgAlt="Travel explore icon"
-              title="Share link with a friend"
+              title="Select country"
               content="Where you want to go and user internet"
             />
             <InfoBlock
               imgSrc="/icons/primary/account_balance_wallet.svg"
               imgAlt="Account balance wallet icon"
-              title="Friend will get $5"
-              content="But no more than 30% of total purchase"
+              title="Discount already here"
+              content="You'll get a $5 discount, but no more than 30%"
             />
             <InfoBlock
               imgSrc="/icons/primary/mood.svg"
               imgAlt="Mood icon"
-              title="You will get $5"
-              content="After your friend buys an eSIM"
+              title="Refer more friends"
+              content="Share your link to your friend to get another $5"
             />
           </div>
         </div>
