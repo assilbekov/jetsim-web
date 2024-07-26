@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Skeleton } from "../Skeleton";
+import { clsx } from "@/utils";
 
 type ArchProps = {
   fill: string;
@@ -43,6 +44,8 @@ type BackgroundImageProps = {
   url: string;
   alt: string;
   imageLoaded: boolean;
+  archFill: string;
+  visibilityClassName?: string;
 };
 
 export const BackgroundImage = ({
@@ -50,10 +53,16 @@ export const BackgroundImage = ({
   alt,
   imageLoaded,
   archFill,
-}: BackgroundImageProps & { archFill: string }) => {
+  visibilityClassName,
+}: BackgroundImageProps) => {
   return (
-    <div className="relative -ml-14 -mr-14">
-      <div className="absolute top-0 left-0 hidden md:block">
+    <div className={clsx("relative -ml-14 -mr-14", visibilityClassName || "")}>
+      <div
+        className={clsx(
+          "absolute top-[-1px] left-[-1px] hidden md:block",
+          visibilityClassName || ""
+        )}
+      >
         <LeftArch fill={archFill} />
       </div>
       {imageLoaded ? (
@@ -62,13 +71,26 @@ export const BackgroundImage = ({
           alt={alt}
           width={1200}
           height={796}
-          className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5"
+          className={clsx(
+            "w-full h-[796px] hidden md:block pb-0.5 pr-0.5",
+            visibilityClassName || ""
+          )}
           style={{ objectFit: "cover" }}
         />
       ) : (
-        <Skeleton className="w-full h-[796px] hidden md:block pb-0.5 pr-0.5" />
+        <Skeleton
+          className={clsx(
+            "w-full h-[796px] hidden md:block pb-0.5 pr-0.5",
+            visibilityClassName || ""
+          )}
+        />
       )}
-      <div className="absolute top-0 right-0 hidden md:block">
+      <div
+        className={clsx(
+          "absolute top-[-1px] right-0 hidden md:block",
+          visibilityClassName || ""
+        )}
+      >
         <RightArch fill={archFill} />
       </div>
     </div>
