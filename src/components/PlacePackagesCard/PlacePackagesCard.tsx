@@ -143,6 +143,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
         imageLoaded={locationCoverQuery.isFetched}
         url={locationCoverQuery.data?.url || "/images/no-location-cover.png"}
         alt={`${placeId} cover image`}
+        archFill="#F8F9FB"
       />
       {loginRedirectUrl && (
         <LoginDialog
