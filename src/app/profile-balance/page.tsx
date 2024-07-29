@@ -1,9 +1,12 @@
 import { FAQ } from "@/components/FAQ";
+import { HowToGetBonusFromInvitingFriends } from "@/components/HowToGetBonusFromInvitingFriends";
+import { InviteFriendsHero } from "@/components/InviteFriendsHero";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { ProfileCards } from "@/components/ProfileCards";
+import { ProfileInviteFriends } from "@/components/ProfileInviteFriends";
 import { Recommendations } from "@/components/Recommendations";
 import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
 import { Metadata } from "next";
@@ -26,6 +29,7 @@ export default function Index({
       </LandingContainer>
       <ProfileScreenEvent />
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
+        <ProfileInviteFriends />
         <ProfileCards />
         <LandingSupport />
         <Recommendations />
