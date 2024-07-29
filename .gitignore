@@ -37,7 +37,7 @@ yarn-error.log*
 next-env.d.ts
 
 bun.lockb
-package-lock.json
+# package-lock.json
 /test-results/
 /playwright-report/
 /blob-report/
