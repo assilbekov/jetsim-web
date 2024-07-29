@@ -33,7 +33,7 @@ export const createCard = async (
 };
 
 export const fetchClientOptions = async (): Promise<ClientOptionsResponse> => {
-  const res = await fetch(
+  const res = await fetchProtected(
     "https://payment.jetsim.app/public/gw/stripe/client-options"
   );
   const json: ApiResponse<ClientOptionsResponse> = await res.json();
