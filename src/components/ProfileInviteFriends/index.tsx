@@ -26,6 +26,7 @@ const InfoBox = ({
   return (
     <div
       className={clsx(
+        getTypographyClass(TypographyVariants.Caption),
         "px-3 py-[10px] border-2 rounded-xl border-solid border-[#E9F0F2]",
         rootClassName || ""
       )}
@@ -45,7 +46,7 @@ const InfoBox = ({
 export const ProfileInviteFriends = () => {
   return (
     <LandingContainer>
-      <Card className="p-6 pt-0 xxs:pt-0">
+      <Card className="p-6 pt-0 xxs:pt-0 sm:hidden">
         <Image
           src="/images/invite-friends-bg.jpg"
           alt="Invite friends hero image"
@@ -88,6 +89,28 @@ export const ProfileInviteFriends = () => {
         </div>
         <CopyInput value="jetsim.app/invite/12345" />
       </Card>
+      <div className="hidden sm:block">
+        <div className="grid grid-cols-2 xxs:grid-cols-3 gap-3 mt-5 mb-4">
+          <InfoBox
+            label="Pending"
+            value={0}
+            valuePrefix="$"
+            rootClassName="bg-text-900"
+          />
+          <InfoBox
+            label="Pending"
+            value={10}
+            valuePrefix="$"
+            helperText="It's how much you will earn if your friend buys a plan. Remind your friend to get their $5 reward to buy an eSIM with a discount!"
+            rootClassName="bg-text-900"
+          />
+          <InfoBox
+            label="Pending"
+            value={2}
+            rootClassName="col-span-2 xxs:col-span-1 bg-text-900"
+          />
+        </div>
+      </div>
     </LandingContainer>
   );
 };
