@@ -5,6 +5,8 @@ import { LandingContainer } from "../LandingContainer";
 import { Card } from "../Card";
 import { HelperText } from "../HelperText";
 import { clsx } from "@/utils";
+import { TypographyVariants, getTypographyClass } from "../Typography";
+import { CopyInput } from "./CopyInput";
 
 type InfoBoxProps = {
   label: React.ReactNode;
@@ -51,7 +53,7 @@ export const ProfileInviteFriends = () => {
           height={168}
           className="w-full rounded-xl"
         />
-        <div className="grid grid-cols-2 xxs:grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 xxs:grid-cols-3 gap-3 mt-5 mb-4">
           <InfoBox label="Pending" value={0} valuePrefix="$" />
           <InfoBox
             label="Pending"
@@ -65,6 +67,26 @@ export const ProfileInviteFriends = () => {
             rootClassName="col-span-2 xxs:col-span-1"
           />
         </div>
+        <div className="mb-5">
+          <h5
+            className={clsx(
+              getTypographyClass(TypographyVariants.Subheader),
+              "xxs:font-interTight xxs:text-[34px] xxs:leading-[38px] xxs:font-medium xxs:tracking-[0.68px]"
+            )}
+          >
+            Invite a friend and get $5 for you and $5 your friend
+          </h5>
+          <p
+            className={clsx(
+              getTypographyClass(TypographyVariants.Body2),
+              "text-text-600 mt-3 xs:mt-4"
+            )}
+          >
+            He will get $5 too. This offer can only be applied to up to 30% of
+            your total purchase
+          </p>
+        </div>
+        <CopyInput value="jetsim.app/invite/12345" />
       </Card>
     </LandingContainer>
   );
