@@ -43,7 +43,7 @@ export const CopyInput = ({ value }: CopyInputProps) => {
         )}
       </label>
       <input
-        className="py-[18px] xxs:py-[22px] pl-[24px] xxs:pl-8 pr-[76px] md:py-[26px] md:pl-[76px] md:pr-[90px] w-full text-base md:text-xl leading-5 md:leading-6 font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600"
+        className="py-[18px] xxs:py-[22px] pl-[24px] xxs:pl-8 pr-[76px] md:py-[26px] md:pr-[90px] w-full text-base md:text-xl leading-5 md:leading-6 font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600"
         type="text"
         id="copy-invite-link"
         placeholder={value}

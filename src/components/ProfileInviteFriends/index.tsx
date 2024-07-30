@@ -110,6 +110,30 @@ export const ProfileInviteFriends = () => {
             rootClassName="col-span-2 xxs:col-span-1 bg-text-900"
           />
         </div>
+        <Card>
+          <div className="flex flex-col justify-between gap-4">
+            <div>
+              <h5
+                className={clsx(
+                  getTypographyClass(TypographyVariants.H2),
+                  "lg:font-interTight lg:text-[56px] lg:leading-[64px] lg:font-medium lg:tracking-[1.12px]"
+                )}
+              >
+                Invite a friend and get $5 for you and $5 your friend
+              </h5>
+              <p
+                className={clsx(
+                  getTypographyClass(TypographyVariants.Body),
+                  "text-text-600 mt-3 lg:mt-6"
+                )}
+              >
+                He will get $5 too. This offer can only be applied to up to 30%
+                of your total purchase
+              </p>
+            </div>
+            <CopyInput value="jetsim.app/invite/12345" />
+          </div>
+        </Card>
       </div>
     </LandingContainer>
   );
