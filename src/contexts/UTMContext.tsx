@@ -20,6 +20,17 @@ export const UTMContext = createContext<UTMContextType>({
   utmsSearchParams: "",
 });
 
+const getUtmParam = (urlParams: URLSearchParams, utmTag: string) => {
+  let utmVal = urlParams.get(utmTag);
+
+  if (utmVal) {
+    sessionStorage.setItem(utmTag, utmVal);
+    return utmVal;
+  }
+
+  return sessionStorage.getItem(utmTag) || "";
+};
+
 export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
   const [utms] = useState<UTM | null>(() => {
     if (typeof window === "undefined") {
@@ -27,18 +38,13 @@ export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
     }
 
     const urlParams = new URLSearchParams(window?.location.search);
-    const utm_source =
-      urlParams.get("utm_source") || sessionStorage.getItem("utm_source") || "";
-    const utm_medium =
-      urlParams.get("utm_medium") || sessionStorage.getItem("utm_medium") || "";
-    const utm_campaign =
-      urlParams.get("utm_campaign") ||
-      sessionStorage.getItem("utm_campaign") ||
-      "";
-    const utm_term =
-      urlParams.get("utm_term") || sessionStorage.getItem("utm_term") || "";
 
-    return { utm_source, utm_medium, utm_campaign, utm_term };
+    return {
+      utm_source: getUtmParam(urlParams, "utm_source"),
+      utm_medium: getUtmParam(urlParams, "utm_medium"),
+      utm_campaign: getUtmParam(urlParams, "utm_campaign"),
+      utm_term: getUtmParam(urlParams, "utm_term"),
+    };
   });
 
   const utmsSearchParams = utms
