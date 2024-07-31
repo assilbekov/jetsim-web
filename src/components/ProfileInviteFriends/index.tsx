@@ -7,6 +7,7 @@ import { HelperText } from "../HelperText";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { CopyInput } from "./CopyInput";
+import { ProfileInviteImage } from "./ProfileInviteImage";
 
 type InfoBoxProps = {
   label: React.ReactNode;
@@ -110,8 +111,8 @@ export const ProfileInviteFriends = () => {
             rootClassName="col-span-2 xxs:col-span-1 bg-text-900"
           />
         </div>
-        <Card>
-          <div className="flex flex-col justify-between gap-4">
+        <Card className="flex justify-between gap-6 lg:gap-8">
+          <div className="flex flex-col justify-between gap-4 w-[calc(100%-600px)]">
             <div>
               <h5
                 className={clsx(
@@ -133,6 +134,14 @@ export const ProfileInviteFriends = () => {
             </div>
             <CopyInput value="jetsim.app/invite/12345" />
           </div>
+          <div className="w-[400px] h-[400px]">
+          <ProfileInviteImage
+            imageLoaded={true}
+            url="/images/invite-friends-bg.jpg"
+            alt="Invite friends cover image"
+            archFill="#fff"
+            //visibilityClassName="hidden sm:block mr-10"a
+          /></div>
         </Card>
       </div>
     </LandingContainer>
