@@ -75,7 +75,7 @@ export const Navbar = ({
 
   return (
     <header className="flex justify-between items-center h-[54px]">
-      <HomeLogo />
+      <HomeLogo onClick={handleMenuClose} href="/" />
       <HumburgerButton onClick={handleButtonClick} />
       <nav
         id="primary-navigation"
