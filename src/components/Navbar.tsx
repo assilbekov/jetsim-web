@@ -36,7 +36,7 @@ export const Navbar = ({
 }: NavbarProps) => {
   useEffect(() => {
     const hash = window.location.hash;
-    let validID = hash?.split('?')?.[0];
+    let validID = hash?.split("?")?.[0];
 
     if (validID) {
       const element = document.querySelector(validID);
@@ -46,10 +46,37 @@ export const Navbar = ({
     }
   }, []);
 
+  // TODO: Refactor to use refs.
+  const handleMenuOpenChange = (open: boolean) => {
+    const button = document.getElementById("mobile-nav-toggle");
+    const navigation = document.getElementById("primary-navigation");
+    const navIcon = document.getElementById("humburger-icon");
+    const body = document.body;
+
+    if (button && navigation && navIcon) {
+      button.setAttribute("aria-expanded", String(open));
+      navigation.setAttribute("data-visible", String(open));
+      navIcon?.classList.toggle("open", open);
+      body.classList.toggle("overflow-hidden", open);
+    }
+  };
+
+  const handleButtonClick = () => {
+    const button = document.getElementById("mobile-nav-toggle");
+    if (button) {
+      const expanded = button.getAttribute("aria-expanded") === "true";
+      handleMenuOpenChange(!expanded);
+    }
+  };
+
+  const handleMenuClose = () => {
+    handleMenuOpenChange(false);
+  };
+
   return (
     <header className="flex justify-between items-center h-[54px]">
       <HomeLogo />
-      <HumburgerButton />
+      <HumburgerButton onClick={handleButtonClick} />
       <nav
         id="primary-navigation"
         data-visible="false"
@@ -59,12 +86,20 @@ export const Navbar = ({
           {/* <CheckCompatibilityFromHeader label="Check compatability" /> */}
           {!hideNav && (
             <>
-              <StyledLink href="/all-destinations">Destinations</StyledLink>
-              <StyledLink href={howToHref}>How it works</StyledLink>
+              <StyledLink href="/all-destinations" onClick={handleMenuClose}>
+                Destinations
+              </StyledLink>
+              <StyledLink href={howToHref} onClick={handleMenuClose}>
+                How it works
+              </StyledLink>
               <SupportButton>
-                <StyledLink href="#">Support</StyledLink>
+                <StyledLink href="#" onClick={handleMenuClose}>
+                  Support
+                </StyledLink>
               </SupportButton>
-              <StyledLink href={faqHref}>FAQ</StyledLink>
+              <StyledLink href={faqHref} onClick={handleMenuClose}>
+                FAQ
+              </StyledLink>
             </>
           )}
         </div>
