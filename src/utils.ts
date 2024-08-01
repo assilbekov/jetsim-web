@@ -37,3 +37,15 @@ export const convertDateDiffToText = (d1: Date, d2: Date): string => {
 
   return `${diffHours} hour${diffHours > 1 ? "s" : ""}`;
 };
+
+export const convertLPACodeToBlocks = (
+  lpaCode: string
+): {
+  addr: string;
+  activationCodeIOS: string;
+  activationCodeAndroid: string;
+} => {
+  const [smdp, addr, activationCodeIOS] = lpaCode.split("$");
+
+  return { addr, activationCodeIOS, activationCodeAndroid: lpaCode };
+};

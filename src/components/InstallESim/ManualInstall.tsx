@@ -1,7 +1,7 @@
 import { Card } from "@/models/Card";
 import { CopyButton } from "../buttons/CopyButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
-import { clsx } from "@/utils";
+import { clsx, convertLPACodeToBlocks } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 
@@ -40,19 +40,21 @@ export const ManualInstall = ({
   onSeeInstructionsClick,
 }: ManualInstallProps) => {
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
-  const [smdp, addr, lpaCode] = card.lpaCode.split("$");
-  const smdpAddr = `${smdp}$${addr}`;
-  const lpaActivationCode = `$${lpaCode}`;
+  //const [smdp, addr, lpaCode] = card.lpaCode.split("$");
+  //const smdpAddr = `${smdp}$${addr}`;
+  //const lpaActivationCode = `$${lpaCode}`;
+  const { addr, activationCodeAndroid, activationCodeIOS } =
+    convertLPACodeToBlocks(card.lpaCode);
 
   return (
     <div>
       {deviceTypeAndVerion.isAndroid ? (
-        <CopyCard text={card.lpaCode} label="Activation Code" />
+        <CopyCard text={activationCodeAndroid} label="Activation Code" />
       ) : (
         <>
-          <CopyCard text={smdpAddr} label="SM-DP+ Address" />
+          <CopyCard text={addr} label="SM-DP+ Address" />
           <CopyCard
-            text={lpaActivationCode}
+            text={activationCodeIOS}
             label="Activation Code"
             className="mt-4"
           />
