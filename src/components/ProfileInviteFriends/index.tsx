@@ -140,6 +140,8 @@ export const ProfileInviteFriends = () => {
             url="/images/invite-friends-bg.jpg"
             alt="Invite friends cover image"
             archFill="#fff"
+            imgWidth={400}
+            imgHeight={400}
             //visibilityClassName="hidden sm:block mr-10"a
           /></div>
         </Card>
