@@ -8,8 +8,8 @@ import {
   matchTypographyMediaQuery,
 } from "./Typography";
 import { fetchTopCountries } from "@/api/locations";
-import Link from "next/link";
 import { CountryCard } from "./CountryCard";
+import { Link } from "@/navigation";
 
 const ALL_COUNTRIES_NUMBER = 150;
 

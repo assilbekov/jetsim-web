@@ -2,7 +2,7 @@ import { clsx } from "@/utils";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { SecondaryButton } from "../buttons/SecondaryButton";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 export function PlanningTripCard() {
   return (

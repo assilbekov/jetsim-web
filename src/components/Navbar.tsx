@@ -1,6 +1,5 @@
 "use client";
 
-import Link, { LinkProps } from "next/link";
 import { HumburgerButton } from "./HumburgerButton";
 
 import "./navbar.css";
@@ -9,11 +8,11 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { HomeLogo } from "./HomeLogo";
 import { CookieInfo } from "./CookieInfo";
-import { CheckCompatibilityFromHeader } from "./CheckCompatibility";
 import { SupportButton } from "./SupportButton";
 import { useEffect } from "react";
+import { Link, LinkProps } from "@/navigation";
 
-const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
+const StyledLink = (props: LinkProps) => (
   <Link
     {...props}
     className={clsx(
@@ -83,7 +82,6 @@ export const Navbar = ({
         className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between sm:min-w-[750px]"
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
-          {/* <CheckCompatibilityFromHeader label="Check compatability" /> */}
           {!hideNav && (
             <>
               <StyledLink href="/all-destinations" onClick={handleMenuClose}>

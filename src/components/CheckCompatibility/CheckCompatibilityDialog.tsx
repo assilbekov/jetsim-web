@@ -3,7 +3,7 @@ import { AccordionPanel } from "../AccordionPanel";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import Link, { LinkProps } from "next/link";
+import { Link, LinkProps } from "@/navigation";
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => (
   <p
@@ -27,7 +27,7 @@ const Subheader = ({ children }: { children: React.ReactNode }) => (
   </h6>
 );
 
-const LinkText = (props: LinkProps & { children: React.ReactNode }) => (
+const LinkText = (props: LinkProps) => (
   <Link
     {...props}
     className="text-primary-500 underline hover:text-primary-300 transition-colors duration-200 ease-in-out"

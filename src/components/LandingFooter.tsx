@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { Card } from "./Card";
 import { LandingContainer } from "./LandingContainer";
-import Link from "next/link";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { fetchTopCountries } from "@/api/locations";
+import { Link } from "@/navigation";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (

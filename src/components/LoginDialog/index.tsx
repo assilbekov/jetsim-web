@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SocialLoginButton } from "./SocialLoginButton";
 import { EmailLogin } from "./EmailLogin";
 import { useRouter } from "next/navigation";
@@ -7,6 +6,7 @@ import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { createPortal } from "react-dom";
 import { handleLoginGoogleClickEvent } from "@/gtm-events";
+import { Link } from "@/navigation";
 
 const StyledLink = ({
   children,

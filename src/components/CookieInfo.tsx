@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 export const CookieInfo = () => {
   const [isCookieAccepted, setIsCookieAccepted] = useState(true);

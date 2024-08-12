@@ -4,7 +4,6 @@ import { fetchLocations, fetchTopCountries } from "@/api/locations";
 import { Location } from "@/models/Location";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
 import { convertLocationBestCost } from "@/converters/location";
@@ -12,6 +11,7 @@ import { Skeleton } from "./Skeleton";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { handleMainPageCountryClickEvent } from "@/gtm-events";
+import { Link } from "@/navigation";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo

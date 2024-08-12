@@ -1,7 +1,7 @@
 "use client";
 
+import { Link } from "@/navigation";
 import { Location } from "@/models/Location";
-import Link from "next/link";
 import {
   TypographyVariants,
   getTypographyClass,

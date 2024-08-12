@@ -1,3 +1,5 @@
+import { useTranslations } from "next-intl";
+
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
 import { LandingContainer } from "@/components/LandingContainer";
@@ -8,7 +10,7 @@ import { NoPlasticWaste } from "@/components/NoPlasticWaste";
 import { Recommendations } from "@/components/Recommendations";
 import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
-import { MainScreenEvent } from "./_components/MainScreenEvent";
+import { MainScreenEvent } from "../_components/MainScreenEvent";
 import { Metadata } from "next";
 
 export function generateMetadata(): Metadata {
@@ -43,3 +45,4 @@ export default function Index() {
     </main>
   );
 }
+

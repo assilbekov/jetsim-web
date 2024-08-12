@@ -13,8 +13,8 @@ import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { SecondaryButton } from "../buttons/SecondaryButton";
-import Link from "next/link";
 import { Location } from "@/models/Location";
+import { Link } from "@/navigation";
 
 type SelectPackagesBuyFormProps = {
   placeId: string;

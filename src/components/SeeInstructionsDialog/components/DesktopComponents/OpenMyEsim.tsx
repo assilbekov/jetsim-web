@@ -1,7 +1,7 @@
 import { RoundedLabel } from "../RoundedLabel";
 import { InfoRow } from "../InfoRow";
 import { CopyButton } from "@/components/buttons/CopyButton";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 type CopyBlockProps = {
   text: string;

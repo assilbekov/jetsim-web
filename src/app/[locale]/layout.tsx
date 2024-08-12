@@ -1,3 +1,6 @@
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
+
 import "./globals.css";
 import { QueryContext } from "@/contexts/QueryContext";
 import { Inter_Tight, Inter } from "next/font/google";
@@ -24,9 +27,20 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function LocaleLayout({
+  children,
+  params: { locale },
+}: {
+  children: React.ReactNode;
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(locale);
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={clsx(interTight.variable, inter.variable)}>
+    <html lang={locale} className={clsx(interTight.variable, inter.variable)}>
       <head>
         <GA4 />
         <GTM />
@@ -38,12 +52,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <FacebookNoScript />
         <GTMNoScript />
         <YANoScript />
-        <QueryContext>
-          <ZendeskProvider>
-            <UTMProvider>{children}</UTMProvider>
-          </ZendeskProvider>
-        </QueryContext>
+        <NextIntlClientProvider messages={messages}>
+          <QueryContext>
+            <ZendeskProvider>
+              <UTMProvider>{children}</UTMProvider>
+            </ZendeskProvider>
+          </QueryContext>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
+}
+
+// Can be imported from a shared config
+const locales = ["en", "pl"];
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
