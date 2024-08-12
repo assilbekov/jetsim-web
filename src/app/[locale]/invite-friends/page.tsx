@@ -21,7 +21,7 @@ export function generateMetadata(): Metadata {
 export default function Index() {
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
-      <InviteFriendsHero />
+      {/* <InviteFriendsHero /> */}
       {/* <MainScreenEvent /> */}
       <div className="bg-text-900 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] mb-4 md:mb-5 mt-10">
         <LandingContainer className="px-4 xxs:px-6">
@@ -32,7 +32,7 @@ export default function Index() {
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
-        <HowToGetBonusFromInvitingFriends />
+        {/* <HowToGetBonusFromInvitingFriends /> */}
         <Recommendations />
         <WhyBlock />
         <FAQ />
