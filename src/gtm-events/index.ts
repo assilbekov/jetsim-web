@@ -1,3 +1,5 @@
+import { sendAnalyticsEvent } from "@/api/analytics";
+
 export const getUserIP = () => {
   let ip = localStorage.getItem("user_ip");
   if (!ip) {
@@ -84,11 +86,16 @@ export const getDefaultFields = () => {
 // - country/country_id - string
 export const handleGTMEvent = (eventName: string, event?: any) => {
   setTimeout(() => {
-    (window as any)?.dataLayer.push({
-      event: eventName,
+    const eventData = {
       ...getDefaultFields(),
       ...event,
+    } as any;
+
+    (window as any)?.dataLayer.push({
+      event: eventName,
+      ...eventData,
     });
+    sendAnalyticsEvent(eventName, eventData);
   }, 0);
 };
 
