@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Card } from "./Card";
 import { LandingContainer } from "./LandingContainer";
 import { clsx } from "@/utils";
@@ -45,6 +46,7 @@ const LinksBlock = ({ children }: { children: React.ReactNode }) => {
 };
 
 const AddressBlock = ({ className }: { className: string }) => {
+  const t = useTranslations("Footer");
   return (
     <p
       className={clsx(
@@ -53,10 +55,23 @@ const AddressBlock = ({ className }: { className: string }) => {
         className ?? ""
       )}
     >
-      <p>GIBCO LTD,</p>
-      <p>27 OLD GLOUCESTER STREET LONDON UNITED KINGDOM WC1N 3AX</p>
-      <p>Company number 14246904</p>
+      <p>{t("company_name")}</p>
+      <p>{t("company_address")}</p>
+      <p>{t("company_number")}</p>
     </p>
+  );
+};
+
+const TopCountries = async () => {
+  const topCountriesRes = await fetchTopCountries(5);
+  return (
+    <ListBlock>
+      {topCountriesRes.data.map((country) => (
+        <ListElement key={country.placeID} href={`/places/${country.placeID}`}>
+          {country.title}
+        </ListElement>
+      ))}
+    </ListBlock>
   );
 };
 
@@ -65,10 +80,9 @@ type LandingFooterProps = {
   cardClassName?: string;
 };
 
-export const LandingFooterContent = async ({
-  cardClassName,
-}: LandingFooterProps) => {
-  const topCountriesRes = await fetchTopCountries(5);
+export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
+  const t = useTranslations("Footer");
+
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
       <div className="flex gap-8 flex-col lg:flex-row lg:justify-between">
@@ -78,24 +92,17 @@ export const LandingFooterContent = async ({
         </div>
         <div className="flex gap-8 flex-col sm:flex-row">
           <LinksBlock>
-            <Title>Top destinations</Title>
-            <ListBlock>
-              {topCountriesRes.data.map((country) => (
-                <ListElement
-                  key={country.placeID}
-                  href={`/places/${country.placeID}`}
-                >
-                  {country.title}
-                </ListElement>
-              ))}
-            </ListBlock>
+            <Title>{t("top_destinations")}</Title>
+            <TopCountries />
           </LinksBlock>
           <LinksBlock>
-            <Title>Legal</Title>
+            <Title>{t("legal")}</Title>
             <ListBlock>
-              <ListElement href="/privacy-policy">Privacy Policy</ListElement>
+              <ListElement href="/privacy-policy">
+                {t("privacy_policy")}
+              </ListElement>
               <ListElement href="/terms-of-service">
-                Terms of Service
+                {t("terms_of_service")}
               </ListElement>
             </ListBlock>
           </LinksBlock>

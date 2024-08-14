@@ -1,4 +1,13 @@
 {
+  "Footer": {
+    "top_destinations": "Top destinations",
+    "legal": "Legal",
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Privacy Policy",
+    "company_name": "Gibco Ltd",
+    "company_address": "27 OLD GLOUCESTER STREET LONDON UNITED KINGDOM WC1N 3AX",
+    "company_number": "Company number 14246904"
+  },
   "HomePage": {
     "title": "404: Not found"
   },
