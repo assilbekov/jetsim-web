@@ -85,6 +85,14 @@
       "link2": "contact JetSim support."
     }
   },
+  "NoPlasticWasteTitle": {
+    "title": "No more plastic waste",
+    "noPlasticWasteSubtitle": "Join us in our mission to save the planet",
+    "noPlasticSimCards": "No plastic SIM cards",
+    "noPackaging": "No packaging",
+    "noTransportFees": "No transport fees",
+    "noPhysicalAdvertising": "No physical advertising"
+  },
   "HomePage": {
     "title": "404: Not found"
   },
