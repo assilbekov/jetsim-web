@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { clsx } from "@/utils";
 
 type DialogTitleProps = {
   title: React.ReactNode;
@@ -9,7 +10,12 @@ type DialogTitleProps = {
 export const DialogTitle = ({ title, onClose }: DialogTitleProps) => {
   return (
     <div className="flex justify-between items-center h-[30px] w-full">
-      <h5 className={getTypographyClass(TypographyVariants.Subheader)}>
+      <h5
+        className={clsx(
+          getTypographyClass(TypographyVariants.Subheader),
+          "text-text-100"
+        )}
+      >
         {title}
       </h5>
       <div

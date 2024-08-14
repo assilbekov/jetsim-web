@@ -11,6 +11,7 @@ import { CookieInfo } from "./CookieInfo";
 import { SupportButton } from "./SupportButton";
 import { useEffect } from "react";
 import { Link, LinkProps } from "@/navigation";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -101,7 +102,10 @@ export const Navbar = ({
             </>
           )}
         </div>
-        <LoginLink />
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          <LoginLink />
+        </div>
       </nav>
       <CookieInfo />
     </header>
