@@ -7,6 +7,7 @@ import { ProfileCards } from "@/components/ProfileCards";
 import { Recommendations } from "@/components/Recommendations";
 import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "User Profile | JetSim eSIM Cards",
@@ -19,6 +20,7 @@ export default function Index({
 }: {
   params: { placeId: string; locale: string };
 }) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <ProfileScreenEvent />

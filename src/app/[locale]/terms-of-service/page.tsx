@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
 import { TermsScreenEvent } from "./_components/TermsScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Terms of Service | JetSim eSIM Cards",
@@ -11,7 +12,12 @@ export const metadata: Metadata = {
     "Explore JetSim's terms of service governing the use of our eSIM cards for seamless global connectivity. Understand our guidelines and obligations to ensure a secure and enjoyable user experience.",
 };
 
-export default function Index() {
+export default function Index({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] overflow-hidden">
       <TermsScreenEvent />

@@ -10,6 +10,7 @@ import { ProfileInviteFriends } from "@/components/ProfileInviteFriends";
 import { Recommendations } from "@/components/Recommendations";
 import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "User Profile | JetSim eSIM Cards",
@@ -22,6 +23,7 @@ export default function Index({
 }: {
   params: { placeId: string; locale: string };
 }) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <LandingContainer className="p-6 bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">

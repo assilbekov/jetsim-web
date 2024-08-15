@@ -12,6 +12,7 @@ import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { MainScreenEvent } from "../_components/MainScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export function generateMetadata(): Metadata {
   return {
@@ -21,7 +22,12 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Index() {
+export default function Index({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <MainScreenEvent />

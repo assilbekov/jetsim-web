@@ -3,6 +3,7 @@ import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Global eSIM Cards for All Destinations | JetSim",
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
     "Discover JetSim's global eSIM cards for seamless connectivity to all destinations. Explore our diverse eSIM plans designed for international travelers, ensuring reliable internet access wherever you roam. Stay connected effortlessly with JetSim's innovative eSIM solutions.",
 };
 
-export default function Index() {
+export default function Index({ params }: { params: { locale: string } }) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
