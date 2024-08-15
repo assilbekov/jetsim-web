@@ -9,8 +9,11 @@ import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
+import { useTranslations } from "next-intl";
 
 export const LoginLink = () => {
+  const t = useTranslations("Login");
+
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -78,7 +81,7 @@ export const LoginLink = () => {
   }, []);
 
   const handleLoginClick = () => {
-    // This should be tracked on the BE. Maybe 
+    // This should be tracked on the BE. Maybe
     // (window as any)?.dataLayer.push({ event: "registration" });
     setIsLoginDialogOpen(true);
     handleLoginScreenEvent();
@@ -91,7 +94,7 @@ export const LoginLink = () => {
           <div className="flex flex-col gap-4 md:flex-row">
             <Link href="/profile" className="w-full">
               <SecondaryButton className="pl-1 pr-1 min-w-[140px] w-full">
-                My eSIMs
+                {t("myEsims")}
               </SecondaryButton>
             </Link>
             <SecondaryButton
@@ -104,12 +107,12 @@ export const LoginLink = () => {
                 width={20}
                 height={20}
               />
-              <span className="md:hidden">Log out</span>
+              <span className="md:hidden">{t("logout")}</span>
             </SecondaryButton>
           </div>
         ) : (
           <SecondaryButton className="w-full" onClick={handleLoginClick}>
-            Login
+            {t("login")}
           </SecondaryButton>
         )}
       </div>

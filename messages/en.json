@@ -137,40 +137,9 @@
     "support": "Support",
     "faq": "FAQ"
   },
-  "HomePage": {
-    "title": "404: Not found"
-  },
-  "Index": {
-    "title": "Hello world!"
-  },
-  "NotFoundPage": {
-    "title": "404: Not found"
-  },
-  "MainPage": {
-    "title": "Stay connected anywhere with eSIM",
-    "subtitle": "Get reliable worldwide internet with JetSim eSIM, all at an affordable rate",
-    "check_compatability": "Check compatability",
-    "how_to": "How to",
-    "support": "Support",
-    "faq": "FAQ",
+  "Login": {
     "login": "Login",
-    "subheader": "Stay connected anywhere with eSIM",
-    "header": "Reliable, affordable worldwide internet with JetSim eSIM",
-    "timer_feature": "1 min setup",
-    "sim_feature": "Keep current SIM",
-    "support_feature": "24/7 support",
-    "where_do_you_want_to_go": "Where do you want to go?",
-    "set_up_your_esim_in_1_minute": "Set up your JetSim eSIM in 1 minute",
-    "why_jetsim": "Why JetSim?",
-    "internet_everywhere_with": "Internet everywhere with JetSim",
-    "affordable": "Affordable",
-    "data_plans_tailored_for_you": "Data plans tailored for you",
-    "no_hidden_fees": "No hidden fees",
-    "internet_without_extra_costs": "Internet without extra costs",
-    "no_plastic_sim": "No plastic SIM",
-    "hassle_free_online_installation": "hassle-free online installation",
-    "no_id_required": "No ID required",
-    "just_buy_and_start_using": "Just buy and start using",
-    "secure_payment_methods": "Secure Payment Methods"
+    "logout": "Log out",
+    "myEsims": "My eSIMs"
   }
 }
