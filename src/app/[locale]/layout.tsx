@@ -42,6 +42,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={clsx(interTight.variable, inter.variable)}>
       <head>
+        <script type="text/javascript">
+          {`var _jipt = []; _jipt.push(['project', 'jetsim']);`}
+        </script>
+        <script
+          type="text/javascript"
+          src="//cdn.crowdin.com/jipt/jipt.js"
+        ></script>
         <GA4 />
         <GTM />
         <Facebook />
