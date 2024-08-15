@@ -141,5 +141,12 @@
     "login": "Login",
     "logout": "Log out",
     "myEsims": "My eSIMs"
+  },
+  "Hero": {
+    "title": "Stay connected anywhere with eSIM",
+    "description": "Reliable, affordable worldwide internet with JetSim eSIM",
+    "feature1": "1 min setup",
+    "feature2": "Keep current SIM",
+    "feature3": "24/7 support"
   }
 }
