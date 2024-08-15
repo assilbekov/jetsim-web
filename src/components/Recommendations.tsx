@@ -10,6 +10,7 @@ import {
 import { fetchTopCountries } from "@/api/locations";
 import { CountryCard } from "./CountryCard";
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 const ALL_COUNTRIES_NUMBER = 150;
 
@@ -32,6 +33,7 @@ const ArrowRightIcon = () => (
 );
 
 const ViewAllCard = ({ count }: { count: number }) => {
+  const t = useTranslations("Recommendations");
   return (
     <Link href="/all-destinations">
       <div className="flex gap-4 px-5 py-[14px] items-center justify-between border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] rounded-2xl cursor-pointer transition duration-200 ease-in-out">
@@ -42,7 +44,7 @@ const ViewAllCard = ({ count }: { count: number }) => {
               md: TypographyVariants.Body,
             })}
           >
-            View all
+            {t("viewAll")}
           </p>
           <p
             className={clsx(
@@ -50,7 +52,7 @@ const ViewAllCard = ({ count }: { count: number }) => {
               getTypographyClass(TypographyVariants.Caption)
             )}
           >
-            {count || ALL_COUNTRIES_NUMBER} countries
+            {t("countries", { count: count || ALL_COUNTRIES_NUMBER })}
           </p>
         </div>
         <div className="w-[34px] h-[34px] flex items-center justify-end rounded-full">
@@ -61,15 +63,18 @@ const ViewAllCard = ({ count }: { count: number }) => {
   );
 };
 
+const Title = () => {
+  const t = useTranslations("Recommendations");
+  return <Typography variant={TypographyVariants.H2}>{t("title")}</Typography>;
+};
+
 export const Recommendations = async () => {
   const topCountries = await fetchTopCountries(11);
 
   return (
     <LandingContainer>
       <Card>
-        <Typography variant={TypographyVariants.H2}>
-          Where are you going?
-        </Typography>
+        <Title />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4 md:mt-6 lg:mt-8">
           {topCountries.data.slice(0, 11).map((country, index) => (
             <CountryCard

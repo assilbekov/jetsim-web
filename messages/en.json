@@ -126,6 +126,11 @@
     "checkCompatibilityButtonLabel": "Check compatibility",
     "dataRoaming": "Data roaming"
   },
+  "Recommendations": {
+    "title": "Where are you going?",
+    "viewAll": "View all",
+    "countries": "{count} countries"
+  },
   "HomePage": {
     "title": "404: Not found"
   },
