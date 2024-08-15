@@ -1,7 +1,9 @@
 "use client";
 
-import { HumburgerButton } from "./HumburgerButton";
+import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
+import { HumburgerButton } from "./HumburgerButton";
 import "./navbar.css";
 import { LoginLink } from "./LoginLink";
 import { clsx } from "@/utils";
@@ -9,7 +11,6 @@ import { TypographyVariants, getTypographyClass } from "./Typography";
 import { HomeLogo } from "./HomeLogo";
 import { CookieInfo } from "./CookieInfo";
 import { SupportButton } from "./SupportButton";
-import { useEffect } from "react";
 import { Link, LinkProps } from "@/navigation";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -34,6 +35,8 @@ export const Navbar = ({
   faqHref = "#faq",
   hideNav = false,
 }: NavbarProps) => {
+  const t = useTranslations("Navbar");
+
   useEffect(() => {
     const hash = window.location.hash;
     let validID = hash?.split("?")?.[0];
@@ -86,18 +89,18 @@ export const Navbar = ({
           {!hideNav && (
             <>
               <StyledLink href="/all-destinations" onClick={handleMenuClose}>
-                Destinations
+                {t("destinations")}
               </StyledLink>
               <StyledLink href={howToHref} onClick={handleMenuClose}>
-                How it works
+                {t("howItWorks")}
               </StyledLink>
               <SupportButton>
                 <StyledLink href="#" onClick={handleMenuClose}>
-                  Support
+                  {t("support")}
                 </StyledLink>
               </SupportButton>
               <StyledLink href={faqHref} onClick={handleMenuClose}>
-                FAQ
+                {t("faq")}
               </StyledLink>
             </>
           )}

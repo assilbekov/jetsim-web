@@ -131,6 +131,12 @@
     "viewAll": "View all",
     "countries": "{count} countries"
   },
+  "Navbar": {
+    "destinations": "Destinations",
+    "howItWorks": "How it works",
+    "support": "Support",
+    "faq": "FAQ"
+  },
   "HomePage": {
     "title": "404: Not found"
   },
