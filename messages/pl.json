@@ -1,5 +1,152 @@
 {
-  "HomePage": {
-    "title": "234: Not found"
+  "Footer": {
+    "top_destinations": "Top destinations",
+    "legal": "Legal",
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Privacy Policy",
+    "company_name": "Gibco Ltd",
+    "company_address": "27 OLD GLOUCESTER STREET LONDON UNITED KINGDOM WC1N 3AX",
+    "company_number": "Company number 14246904"
+  },
+  "FAQ": {
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "whatIsAnEsimAndHowDoYouUseIt": {
+      "title": "What is an eSIM and how do you use it?",
+      "description": "An eSIM is an electronic, or virtual, SIM card. You can use it along with your physical SIM card, if necessary. To start using an eSIM, activate it by scanning a provided QR code (or use manual setup)."
+    },
+    "howDoIInstallMyEsimFromJetSim": {
+      "title": "How do I install my eSIM from JetSim?",
+      "description1": "Once you complete a purchase, you receive a QR code. Then, follow these steps:",
+      "description2": "Scan the QR code to activate an eSIM or use an instruction for manual setup.",
+      "description3": "Turn on data roaming on your eSIM upon arrival.",
+      "description4": "Use your cellular plan!",
+      "description5": "If you can't scan the QR code, try sending it to another device or install it manually (instructions are provided along with the code)."
+    },
+    "canIUseMyEsimOnAnyDevice": {
+      "title": "Can I use my eSIM on any device?",
+      "description1": "JetSim eSIM is compatible with the majority of smartphones, smartwatches, and tablets. However, if you have any doubts, please check compatibility before buying an eSIM. You can check it ",
+      "link": "here",
+      "description2": " or contact your cellular provider to learn more."
+    },
+    "howIsEsimBetterThanTraditionalSimCards": {
+      "title": "How is eSIM better than traditional SIM cards?",
+      "description": "With an eSIM, you can start using local mobile networks right upon arrival, even before going through passport control. You can buy and install an eSIM in a few minutes, without standing in long lines at the airport shops to buy a physical SIM card, and it is usually a more pocket-friendly solution. Also, no need to provide your passport for verification."
+    },
+    "onceEsimExpiresCanISwitchBackToAPhysicalSimCard": {
+      "title": "Once eSIM expires, can I switch back to a physical SIM card?",
+      "description": "Yes, you can switch back to a physical SIM whenever you need it. Don't uninstall an active eSIM if you want to use it later because you can only install it once."
+    },
+    "isEsimSecure": {
+      "title": "Is eSIM secure?",
+      "description": "JetSim uses modern encryption technologies to secure the connection between your device and a cellular network."
+    },
+    "canIUseBothMySimCardAndAnEsimDuringInternationalTravel": {
+      "title": "Can I use both my SIM card and an eSIM during international travel?",
+      "description": "Yes, you can use your physical SIM card and an eSIM simultaneously. Your primary phone number will remain active, and you'll be able to receive calls and SMS. However, note that you'll be charged according to your mobile operator's pricing in this case, which is why eSIM can be a more suitable option."
+    },
+    "shouldIInstallMyEsimInAdvanceBeforeTheTrip": {
+      "title": "Should I install my eSIM in advance, before the trip?",
+      "description1": "Note that JetSim's data plan becomes active once you purchase it even if you don't start using it right away, so plan the use accordingly. We recommend purchasing and installing your eSIM once you arrive at your destination.",
+      "description2": "Note that you need to connect to Wi-Fi or mobile data to install an eSIM. If you believe you may not have access to Wi-Fi when you arrive, it's better to activate your eSIM in advance."
+    },
+    "doINeedToProvideMyIdToUseAJetSimEsim": {
+      "title": "Do I need to provide my ID to use a JetSim eSIM?",
+      "description": "JetSim doesn't request your ID before or after a purchase. You can buy an eSIM and start using it right away."
+    },
+    "howManyTimesCanIUseMyEsim": {
+      "title": "How many times can I use my eSIM?",
+      "description": "You can use your QR code to install an eSIM only once and only on any device."
+    },
+    "canIReinstallMyEsim": {
+      "title": "Can I reinstall my eSIM?",
+      "description": "No, you can only scan the QR code once. If you uninstall your eSIM, you have to buy a new plan and install it from scratch."
+    },
+    "canICallOrTextWithJetSimEsim": {
+      "title": "Can I call or text with JetSim eSIM?",
+      "description": "JetSim offers only data plans for you to access the internet anywhere. Our eSIMs do not support phone calls or SMS messages."
+    },
+    "canIShareInternetAccessWithOtherDevices": {
+      "title": "Can I share internet access with other devices?",
+      "description": "Yes, you can use your phone as a personal hotspot. However, you can't install one eSIM on several devices."
+    },
+    "whatHappensIfIUseAllMyDataBeforeTheEsimPlanExpires": {
+      "title": "What happens if I use all my data before the eSIM plan expires?",
+      "description1": "If you use a standard plan, your eSIM gets deactivated once you use all the data included. If you need more data, you have to buy another plan.",
+      "description2": "If you purchase an unlimited eSIM, you can use it during the whole plan's duration. You might experience a slightly lower internet speed after a certain threshold, but it may happen only after significant data use."
+    },
+    "myQrCodeIsntWorkingWhatShouldIDo": {
+      "title": "My QR code isn't working. What should I do?",
+      "description1": "Here are a few things to check if your QR code isn't working:",
+      "description2": "Check device compatibility with an eSIM. You can do it",
+      "link1": "here.",
+      "description3": "Check your connection to Wi-Fi or mobile data. You need it to install your eSIM.",
+      "description4": "Try to install your eSIM manually (instructions are provided along with the QR code).",
+      "description5": "If none of the above solutions work, please ",
+      "link2": "contact JetSim support."
+    }
+  },
+  "NoPlasticWasteTitle": {
+    "title": "No more plastic waste",
+    "noPlasticWasteSubtitle": "Join us in our mission to save the planet",
+    "noPlasticSimCards": "No plastic SIM cards",
+    "noPackaging": "No packaging",
+    "noTransportFees": "No transport fees",
+    "noPhysicalAdvertising": "No physical advertising"
+  },
+  "WhyBlock": {
+    "title": "Use internet everywhere with JetSim",
+    "featureAffordableTitle": "Affordable",
+    "featureAffordableDescription": "Data plans tailored to your needs",
+    "featureNoHiddenFeesTitle": "No hidden fees",
+    "featureNoHiddenFeesDescription": "Internet without extra costs",
+    "featureNoPlasticSimTitle": "No plastic SIM",
+    "featureNoPlasticSimDescription": "hassle-free online installation",
+    "featureNoIdRequiredTitle": "No ID required",
+    "featureNoIdRequiredDescription": "Just buy and start using",
+    "securePaymentMethodsTitle": "Secure payment methods"
+  },
+  "LandingSupport": {
+    "title": "Support",
+    "description": "Reach out to us anytime, were available 24/7",
+    "buttonLabel": "Send a message"
+  },
+  "SetupJetSim": {
+    "title": "Set up your JetSim eSIM in 1 minute",
+    "step01Title": "Choose your destination and select a data plan",
+    "step01Option1": "5 gb",
+    "step01Option2": "15 gb",
+    "step01Option3": "30 gb",
+    "step02Title": "Follow the instructions to install your eSIM",
+    "step02Instruction1": "1",
+    "step02Instruction2": "2",
+    "step02Instruction3": "3",
+    "step03Title": "Activate your data roaming on arrival",
+    "checkCompatibilityTitle": "See if your phone supports eSIM technology",
+    "checkCompatibilityDescription": "Most phones, tablets, and watches support eSIM. However, your device might only support physical SIM cards.",
+    "checkCompatibilityButtonLabel": "Check compatibility",
+    "dataRoaming": "Data roaming"
+  },
+  "Recommendations": {
+    "title": "Where are you going?",
+    "viewAll": "View all",
+    "countries": "{count} countries"
+  },
+  "Navbar": {
+    "destinations": "Destinations",
+    "howItWorks": "How it works",
+    "support": "Support",
+    "faq": "FAQ"
+  },
+  "Login": {
+    "login": "Login",
+    "logout": "Log out",
+    "myEsims": "My eSIMs"
+  },
+  "Hero": {
+    "title": "Stay connected anywhere with eSIM",
+    "description": "Reliable, affordable worldwide internet with JetSim eSIM",
+    "feature1": "1 min setup",
+    "feature2": "Keep current SIM",
+    "feature3": "24/7 support"
   }
 }
