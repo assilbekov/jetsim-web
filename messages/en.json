@@ -93,6 +93,18 @@
     "noTransportFees": "No transport fees",
     "noPhysicalAdvertising": "No physical advertising"
   },
+  "WhyBlock": {
+    "title": "Use internet everywhere with JetSim",
+    "featureAffordableTitle": "Affordable",
+    "featureAffordableDescription": "Data plans tailored to your needs",
+    "featureNoHiddenFeesTitle": "No hidden fees",
+    "featureNoHiddenFeesDescription": "Internet without extra costs",
+    "featureNoPlasticSimTitle": "No plastic SIM",
+    "featureNoPlasticSimDescription": "hassle-free online installation",
+    "featureNoIdRequiredTitle": "No ID required",
+    "featureNoIdRequiredDescription": "Just buy and start using",
+    "securePaymentMethodsTitle": "Secure payment methods"
+  },
   "HomePage": {
     "title": "404: Not found"
   },
