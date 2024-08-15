@@ -105,6 +105,11 @@
     "featureNoIdRequiredDescription": "Just buy and start using",
     "securePaymentMethodsTitle": "Secure payment methods"
   },
+  "LandingSupport": {
+    "title": "Support",
+    "description": "Reach out to us anytime, were available 24/7",
+    "buttonLabel": "Send a message"
+  },
   "HomePage": {
     "title": "404: Not found"
   },

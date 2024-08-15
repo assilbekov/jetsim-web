@@ -1,14 +1,16 @@
 import { clsx } from "@/utils";
+import { useTranslations } from "next-intl";
 import { LandingContainer } from "./LandingContainer";
 import {
   TypographyVariants,
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
-import Image from "next/image";
 import { SupportButton } from "./SupportButton";
 
 export const LandingSupport = () => {
+  const t = useTranslations("LandingSupport");
+
   return (
     <LandingContainer>
       <div className="w-full h-[208px] sm:h-[272px] md:h-[276px] lg:h-[340px] xxl:h-[416px] relative bg-[url('/support-background.png')] bg-[bottom_30%_right_55%] bg-cover rounded-none sm:rounded-3xl md:rounded-xl">
@@ -25,7 +27,7 @@ export const LandingSupport = () => {
                   "xxl:text-2xl xxl:leading-[30px]"
                 )}
               >
-                Support
+                {t("title")}
               </p>
               <h3
                 className={clsx(
@@ -37,7 +39,7 @@ export const LandingSupport = () => {
                   "xxl:font-interTight xxl:text-[56px] xxl:leading-[64px] xxl:tracking-[1.12px]"
                 )}
               >
-                Reach out to us anytime, were available 24/7
+                {t("description")}
               </h3>
             </div>
             <div className="text-center sm:text-start">
@@ -48,7 +50,7 @@ export const LandingSupport = () => {
                     getTypographyClass(TypographyVariants.Caption)
                   )}
                 >
-                  Send a message
+                  {t("buttonLabel")}
                 </button>
               </SupportButton>
             </div>
