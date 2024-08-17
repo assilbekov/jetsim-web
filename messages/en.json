@@ -153,5 +153,9 @@
     "placeholder": "Enter your destination",
     "noResults": "No results found",
     "showAllCountries": "Show all countries"
+  },
+  "AllDestinations": {
+    "title": "All destinations",
+    "description": "Explore data plans across 150+ countries for seamless and secure internet access on the go"
   }
 }
