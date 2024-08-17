@@ -12,10 +12,12 @@ import { SecondaryButton } from "./buttons/SecondaryButton";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { handleMainPageCountryClickEvent } from "@/gtm-events";
 import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
 export const Search = () => {
+  const t = useTranslations("Search");
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
@@ -66,14 +68,14 @@ export const Search = () => {
       return (
         <li className="flex items-center justify-between gap-2 py-3 px-6">
           <p className={getTypographyClass(TypographyVariants.Body)}>
-            No results found
+            {t("noResults")}
           </p>
           <Link href="all-destinations">
             <SecondaryButton
               onClick={() => setOpen(false)}
               className="pt-3 pb-3"
             >
-              Show all countries
+              {t("showAllCountries")}
             </SecondaryButton>
           </Link>
         </li>
@@ -137,7 +139,7 @@ export const Search = () => {
             setQuery(e.target.value);
           }}
           onFocus={() => setOpen(true)}
-          placeholder="Enter your destination"
+          placeholder={t("placeholder")}
           autoComplete="off"
         />
       </div>

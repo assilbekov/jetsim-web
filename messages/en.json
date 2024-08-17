@@ -148,5 +148,10 @@
     "feature1": "1 min setup",
     "feature2": "Keep current SIM",
     "feature3": "24/7 support"
+  },
+  "Search": {
+    "placeholder": "Enter your destination",
+    "noResults": "No results found",
+    "showAllCountries": "Show all countries"
   }
 }
