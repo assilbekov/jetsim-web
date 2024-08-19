@@ -1,7 +1,11 @@
-export const convertDaysText = (days: number) => {
+export const convertDaysText = (
+  days: number,
+  unitSingle: string,
+  unitPlural: string
+) => {
   if (days === 1) {
-    return "1 day";
+    return `${days} ${unitSingle}`;
   }
 
-  return `${days} days`;
+  return `${days} ${unitPlural}`;
 };

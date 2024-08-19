@@ -170,5 +170,26 @@
     "title": "Planning a trip?",
     "description": "Buy new plan at affordable price",
     "buyNewPlan": "Buy new plan"
+  },
+  "CardDialog": {
+    "installESIM": "Install eSIM",
+    "esimFor": "eSIM for {location}",
+    "unlimitedData": "Unlimited data",
+    "data": "Data {data}",
+    "day": "day",
+    "days": "days",
+    "validity": "Validity",
+    "purchased": "Purchased {date}",
+    "price": "Price {price}",
+    "noHiddenFees": "No hidden fees, extra costs",
+    "onlyDataPlans": "Only data plans, without calls and SMS",
+    "networkTypes": "3G/4G/LTE/5G depends on the network",
+    "deleteESim": "Delete eSIM",
+    "buyNewPlan": "Buy new plan",
+    "unlimitedPlans": "Unlimited and standard plans for travellers and remote workers",
+    "deleteESimQuestionTitle": "Delete eSIM?",
+    "deleteESimQuestionDescription": "It will remove it from the history",
+    "deleteESimQuestionCancel": "Cancel",
+    "deleteESimQuestionConfirm": "Confirm"
   }
 }
