@@ -165,5 +165,10 @@
     "installESim": "Install eSIM",
     "buyNewPlan": "Buy new plan",
     "viewDetails": "View details"
+  },
+  "PlanningTripCard": {
+    "title": "Planning a trip?",
+    "description": "Buy new plan at affordable price",
+    "buyNewPlan": "Buy new plan"
   }
 }
