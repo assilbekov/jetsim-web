@@ -1,6 +1,4 @@
 import { FAQ } from "@/components/FAQ";
-import { HowToGetBonusFromInvitingFriends } from "@/components/HowToGetBonusFromInvitingFriends";
-import { InviteFriendsHero } from "@/components/InviteFriendsHero";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
@@ -27,7 +25,7 @@ export default function Index({
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <LandingContainer className="p-6 bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
-        <Navbar howToHref="/#how-to" />
+        <Navbar howToHref="/#how-to" locale={params.locale} />
       </LandingContainer>
       <ProfileScreenEvent />
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">

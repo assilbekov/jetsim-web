@@ -11,7 +11,11 @@ import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
 import { useTranslations } from "next-intl";
 
-export const LoginLink = () => {
+type LoginLink = {
+  locale: string;
+};
+
+export const LoginLink = ({ locale }: LoginLink) => {
   const t = useTranslations("Login");
 
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
@@ -118,7 +122,7 @@ export const LoginLink = () => {
       </div>
       {isLoginDialogOpen && (
         <LoginDialog
-          redirectUrl="/profile"
+          redirectUrl={`/${locale}/profile`}
           onClose={() => setIsLoginDialogOpen(false)}
         />
       )}

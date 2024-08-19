@@ -12,13 +12,21 @@ export const metadata: Metadata = {
     "Oops! The page you are looking for cannot be found. Explore JetSim for the best global travel eSIM solutions and stay connected worldwide.",
 };
 
-export default function NotFoundPage() {
+export default function NotFoundPage({
+  params,
+}: {
+  params: { locale: string };
+}) {
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
-            <Navbar howToHref="/#how-to" faqHref="/#faq" />
+            <Navbar
+              howToHref="/#how-to"
+              faqHref="/#faq"
+              locale={params.locale}
+            />
           </div>
         </LandingContainer>
       </div>

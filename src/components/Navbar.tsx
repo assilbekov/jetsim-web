@@ -28,12 +28,14 @@ type NavbarProps = {
   howToHref?: string;
   faqHref?: string;
   hideNav?: boolean;
+  locale: string;
 };
 
 export const Navbar = ({
   howToHref = "#how-to",
   faqHref = "#faq",
   hideNav = false,
+  locale,
 }: NavbarProps) => {
   const t = useTranslations("Navbar");
 
@@ -107,7 +109,7 @@ export const Navbar = ({
         </div>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <LoginLink />
+          <LoginLink locale={locale} />
         </div>
       </nav>
       <CookieInfo />
