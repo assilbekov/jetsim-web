@@ -208,5 +208,28 @@
     "descriptionDefault": "Share this QR code to another phone or laptop and scan it from there",
     "seeInstructions": "See instructions",
     "shareQRCode": "Share a QR code"
+  },
+  "SeeInstructionsDialog": {
+    "ios": "iOS",
+    "android": "Android",
+    "samsungOption": "Samsung",
+    "googlePixelOption": "Google Pixel",
+    "alternativeOptionText": "Or use alternative option",
+    "manualStep1Samsung": "Follow screen instructions to install eSIM",
+    "manualStep2Samsung": "Follow screen instructions to install eSIM",
+    "manualStep3Samsung": "Follow screen instructions to install eSIM",
+    "qrStep1Samsung": "Scan shared QR code and follow screen instructions to install eSIM",
+    "qrStep2Samsung": "Scan shared QR code and follow screen instructions to install eSIM",
+    "qrStep3Samsung": "Scan shared QR code and follow screen instructions to install eSIM",
+    "manualStep1GooglePixel": "Follow screen instructions to install eSIM",
+    "manualStep2GooglePixel": "Follow screen instructions to install eSIM",
+    "manualStep3GooglePixel": "Follow screen instructions to install eSIM",
+    "qrStep1GooglePixel": "Scan this QR code and follow screen instructions to install eSIM",
+    "qrStep2GooglePixel": "Scan this QR code and follow screen instructions to install eSIM",
+    "qrStep3GooglePixel": "Scan this QR code and follow screen instructions to install eSIM",
+    "helperTextQRScan": "Scan this QR code and follow screen instructions to install eSIM",
+    "followScreenInstructionsESIM": "Follow screen instructions to install eSIM",
+    "scanSharedQRCode": "Scan shared QR code from other screen with this phone",
+    "ios175LaterText": "Or if you have Apple iPhone with iOS 17.5 or later"
   }
 }
