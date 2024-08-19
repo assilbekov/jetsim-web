@@ -157,5 +157,13 @@
   "AllDestinations": {
     "title": "All destinations",
     "description": "Explore data plans across 150+ countries for seamless and secure internet access on the go"
+  },
+  "ProfileCard": {
+    "dataIsOver": "Data is over",
+    "expiredAgo": "Expired {expiredText} ago",
+    "expiresIn": "Expires in {expiresText}",
+    "installESim": "Install eSIM",
+    "buyNewPlan": "Buy new plan",
+    "viewDetails": "View details"
   }
 }
