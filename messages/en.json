@@ -249,7 +249,7 @@
     "addESIMText": "Add eSIM",
     "shareQRCodeText": "Share the QR code to a different screen",
     "alternativeMethodText": "Or use alternative method below",
-    "scanQRCodeText": "Scan this QR code",
+    "scanQRCodeText": "Scan QR code",
     "simText": "SIM",
     "clickOnText": "Click on",
     "downloadSIMText": "Download a SIM instead",
@@ -260,6 +260,14 @@
     "activationCodeLabelText": "Activation Code",
     "smdpAddressLabelText": "SM-DP+ Address",
     "mobileServiceText": "Mobile Service",
-    "useQRCodeText": "Use QR Code"
+    "useQRCodeText": "Use QR Code",
+    "connectionsText": "Connections",
+    "simManagerText": "SIM manager",
+    "enterActivationCodeText": "Enter activation code",
+    "addText": "Add",
+    "mobileDataText": "Mobile Data",
+    "mobileNetworksText": "Mobile Networks",
+    "selectInstalledESIMText": "Select installed eSIM",
+    "dataRoamingText": "Data Roaming"
   }
 }

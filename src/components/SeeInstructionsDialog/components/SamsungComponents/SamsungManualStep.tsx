@@ -2,22 +2,25 @@ import { ArrowRightImage } from "../ArrowRightImage";
 import { IconWithText } from "../IconWithText";
 import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type PixelManualStepProps = {
   step: number;
 };
 
 export const SamsungManualStep = ({ step }: PixelManualStepProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goToText")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
             alt="settings icon"
-            text="Settings"
+            text={t("settingsText")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -25,26 +28,26 @@ export const SamsungManualStep = ({ step }: PixelManualStepProps) => {
           <IconWithText
             src="/icons/connection-blue.svg"
             alt="wifi icon"
-            text="Connections"
+            text={t("connectionsText")}
           />
           <ArrowRightImage />
-          <span>SIM manager</span>
+          <span>{t("simManagerText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/plus-green.svg"
             alt="add icon"
-            text="Add eSIM"
+            text={t("addESIMText")}
           />
           <ArrowRightImage />
-          <span>Scan QR code</span>
+          <span>{t("scanQRCodeText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>Enter activation code</span>
+          <span>{t("enterActivationCodeText")}</span>
           <ArrowRightImage />
-          <span>Add</span>
+          <span>{t("addText")}</span>
         </InfoRow>
       </div>
     </div>
