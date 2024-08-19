@@ -269,5 +269,33 @@
     "mobileNetworksText": "Mobile Networks",
     "selectInstalledESIMText": "Select installed eSIM",
     "dataRoamingText": "Data Roaming"
+  },
+  "InstructionsDesktopComponents": {
+    "openMyEsimsText": "Open “My eSIMs” page from your phone and click “Install eSIM“",
+    "smDpAddressLabelText": "SM-DP+ Address",
+    "goToText": "Go to",
+    "settingsText": "Settings",
+    "networkInternetText": "Network & Internet",
+    "simText": "SIM",
+    "jetSimText": "JetSim",
+    "useSimText": "Use SIM",
+    "yesText": "Yes",
+    "useJetSimText": "Use JetSim",
+    "scrollAndEnableText": "Scroll and enable",
+    "roamingText": "Roaming",
+    "clickOnText": "Click on",
+    "downloadSimText": "Download a SIM instead",
+    "nextText": "Next",
+    "simsText": "SIMs",
+    "connectionsText": "Connections",
+    "simManagerText": "SIM manager",
+    "mobileDataText": "Mobile Data",
+    "jetSimEsimText": "JetSim eSIM",
+    "mobileNetworksText": "Mobile Networks",
+    "selectInstalledEsimText": "Select installed eSIM",
+    "turnOnText": "Turn on",
+    "dataRoamingText": "Data Roaming",
+    "addEsimText": "Add eSIM",
+    "scanQrCodeText": "Scan QR code"
   }
 }

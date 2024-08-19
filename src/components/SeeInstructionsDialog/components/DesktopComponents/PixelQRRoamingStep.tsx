@@ -2,22 +2,25 @@ import { ArrowRightImage } from "../ArrowRightImage";
 import { IconWithText } from "../IconWithText";
 import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type PixelQRRoamingStepProps = {
   step: number;
 };
 
 export const PixelQRRoamingStep = ({ step }: PixelQRRoamingStepProps) => {
+  const t = useTranslations("InstructionsDesktopComponents");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goToText")}</span>
           <IconWithText
             src="/icons/settings-pixel.svg"
             alt="settings icon"
-            text="Settings"
+            text={t("settingsText")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -25,27 +28,31 @@ export const PixelQRRoamingStep = ({ step }: PixelQRRoamingStepProps) => {
           <IconWithText
             src="/icons/wifi-pixel.svg"
             alt="network and internet icon"
-            text="Network & Internet"
+            text={t("networkInternetText")}
           />
           <ArrowRightImage />
-          <span>SIM</span>
+          <span>{t("simText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>JetSim</span>
+          <span>{t("jetSimText")}</span>
           <ArrowRightImage />
-          <IconWithText src="/icons/toggle-blue.svg" alt="toggle icon" text="Use SIM" />
-          <ArrowRightImage />
-          <span>Yes</span>
-          <ArrowRightImage />
-          <span>Use JetSim</span>
-        </InfoRow>
-        <InfoRow>
-          <span>Scroll and enable</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
             alt="toggle icon"
-            text="Roaming"
+            text={t("useSimText")}
+          />
+          <ArrowRightImage />
+          <span>{t("yesText")}</span>
+          <ArrowRightImage />
+          <span>{t("useJetSimText")}</span>
+        </InfoRow>
+        <InfoRow>
+          <span>{t("scrollAndEnableText")}</span>
+          <IconWithText
+            src="/icons/toggle-blue.svg"
+            alt="toggle icon"
+            text={t("roamingText")}
           />
         </InfoRow>
       </div>

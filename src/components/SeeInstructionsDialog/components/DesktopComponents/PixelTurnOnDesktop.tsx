@@ -2,22 +2,25 @@ import { ArrowRightImage } from "../ArrowRightImage";
 import { IconWithText } from "../IconWithText";
 import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type PixelTurnOnDesktopProps = {
   step: number;
 };
 
 export const PixelTurnOnDesktop = ({ step }: PixelTurnOnDesktopProps) => {
+  const t = useTranslations("InstructionsDesktopComponents");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goToText")}</span>
           <IconWithText
             src="/icons/settings-pixel.svg"
             alt="settings icon"
-            text="Settings"
+            text={t("settingsText")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -25,20 +28,20 @@ export const PixelTurnOnDesktop = ({ step }: PixelTurnOnDesktopProps) => {
           <IconWithText
             src="/icons/wifi-pixel.svg"
             alt="network and internet icon"
-            text="Network & Internet"
+            text={t("networkInternetText")}
           />
           <ArrowRightImage />
-          <span>SIMs</span>
+          <span>{t("simsText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>JetSim</span>
+          <span>{t("jetSimText")}</span>
           <ArrowRightImage />
-          <span>Scroll and enable</span>
+          <span>{t("scrollAndEnableText")}</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
             alt="toggle icon"
-            text="Roaming"
+            text={t("roamingText")}
           />
         </InfoRow>
       </div>

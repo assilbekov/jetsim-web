@@ -2,22 +2,25 @@ import { ArrowRightImage } from "../ArrowRightImage";
 import { IconWithText } from "../IconWithText";
 import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type SamsungQRRoamingStepProps = {
   step: number;
 };
 
 export const SamsungQRRoamingStep = ({ step }: SamsungQRRoamingStepProps) => {
+  const t = useTranslations("InstructionsDesktopComponents");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goToText")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
             alt="settings icon"
-            text="Settings"
+            text={t("settingsText")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -25,22 +28,22 @@ export const SamsungQRRoamingStep = ({ step }: SamsungQRRoamingStepProps) => {
           <IconWithText
             src="/icons/connection-blue.svg"
             alt="wifi icon"
-            text="Connections"
+            text={t("connectionsText")}
           />
           <ArrowRightImage />
-          <span>Mobile Networks</span>
+          <span>{t("mobileNetworksText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>Select installed eSIM</span>
+          <span>{t("selectInstalledEsimText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>Turn on</span>
+          <span>{t("turnOnText")}</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
             alt="toggle icon"
-            text="Data Roaming"
+            text={t("dataRoamingText")}
           />
         </InfoRow>
       </div>
