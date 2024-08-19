@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { ArrowRightImage } from "./ArrowRightImage";
 import { IconWithText } from "./IconWithText";
 import { InfoRow } from "./InfoRow";
@@ -8,12 +9,13 @@ type UseQRDetailsStepProps = {
 };
 
 export const UseQRDetailsStep = ({ step }: UseQRDetailsStepProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goto")}</span>
           <IconWithText
             src="/icons/settings.png"
             alt="settings icon"
@@ -28,7 +30,7 @@ export const UseQRDetailsStep = ({ step }: UseQRDetailsStepProps) => {
             text="Mobile Service"
           />
           <ArrowRightImage />
-          <span>Add eSIM</span>
+          <span>{t("addESim")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>

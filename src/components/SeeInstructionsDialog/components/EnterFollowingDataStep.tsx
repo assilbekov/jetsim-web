@@ -4,6 +4,7 @@ import { InfoRow } from "./InfoRow";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { CopyButton } from "@/components/buttons/CopyButton";
 import { convertLPACodeToBlocks } from "@/utils";
+import { useTranslations } from "next-intl";
 
 type CopyBlockProps = {
   text: string;
@@ -33,10 +34,8 @@ export const EnterFollowingDataStep = ({
   card,
   isAndroid,
 }: EnterFollowingDataStepProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
-  //const [smdp, addr, lpaCode] = card.lpaCode.split("$");
-  //const smdpAddr = `${smdp}$${addr}`;
-  //const lpaActivationCode = `$${lpaCode}`;
   const { addr, activationCodeAndroid, activationCodeIOS } =
     convertLPACodeToBlocks(card.lpaCode);
 
@@ -44,14 +43,20 @@ export const EnterFollowingDataStep = ({
     <div className="flex flex-col gap-4">
       <RoundedLabel>{step}</RoundedLabel>
       <InfoRow>
-        <span>Enter the following data</span>
+        <span>{t("enterFollowingDataText")}</span>
       </InfoRow>
       {deviceTypeAndVerion.isAndroid || isAndroid ? (
-        <CopyBlock text={activationCodeAndroid} label="Activation Code" />
+        <CopyBlock
+          text={activationCodeAndroid}
+          label={t("activationCodeLabelText")}
+        />
       ) : (
         <>
-          <CopyBlock text={addr} label="SM-DP+ Address" />
-          <CopyBlock text={activationCodeIOS} label="Activation Code" />
+          <CopyBlock text={addr} label={t("smdpAddressLabelText")} />
+          <CopyBlock
+            text={activationCodeIOS}
+            label={t("activationCodeLabelText")}
+          />
         </>
       )}
     </div>
