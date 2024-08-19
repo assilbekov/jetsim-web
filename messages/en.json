@@ -193,5 +193,20 @@
     "deleteESimQuestionDescription": "It will remove it from the history",
     "deleteESimQuestionCancel": "Cancel",
     "deleteESimQuestionConfirm": "Confirm"
+  },
+  "QRCodeBlock": {
+    "titleIOS175": "Click on the QR code to install eSIM",
+    "descriptionIOS175": "or click on the button below",
+    "installESIMButton": "Install eSIM",
+    "titleIOS16": "Press and hold on a QR code and select Add eSIM",
+    "descriptionIOS16": "Share this QR code to another phone or laptop and scan it from there",
+    "titleIOSOther": "Scan this QR code from other device",
+    "descriptionIOSOther": "Share this QR code to another phone or laptop and scan it from there",
+    "titleDesktop": "Install eSIM with QR code",
+    "descriptionDesktop": "Scan this QR code with your device",
+    "titleDefault": "Scan this QR code from other device",
+    "descriptionDefault": "Share this QR code to another phone or laptop and scan it from there",
+    "seeInstructions": "See instructions",
+    "shareQRCode": "Share a QR code"
   }
 }

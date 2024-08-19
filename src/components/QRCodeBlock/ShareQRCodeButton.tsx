@@ -1,8 +1,11 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 
 export const ShareQRCodeButton = () => {
+  const t = useTranslations("QRCodeBlock");
+
   const handleShare = () => {
     const canvas = document
       .getElementById("qr-code-id")
@@ -18,7 +21,7 @@ export const ShareQRCodeButton = () => {
 
   return (
     <PrimaryButton className="mt-4 w-full" onClick={handleShare}>
-      Share a QR code
+      {t("shareQRCode")}
     </PrimaryButton>
   );
 };

@@ -4,13 +4,16 @@ import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog"
 import { Card } from "@/models/Card";
 import { handleSuccessPaymentInstructionClick } from "@/gtm-events";
 import { SeeInstructionsDialog } from "../SeeInstructionsDialog";
+import { useTranslations } from "next-intl";
 
 type SeeInstructionsButtonProps = {
   card: Card;
 };
 
 export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
+  const t = useTranslations("QRCodeBlock");
   const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
+
   return (
     <>
       <SecondaryButton
@@ -20,7 +23,7 @@ export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
           handleSuccessPaymentInstructionClick();
         }}
       >
-        See instructions
+        {t("seeInstructions")}
       </SecondaryButton>
       {/* {instructionsDialogShow && (
         <InstallESimInstructionsDialog
@@ -33,7 +36,7 @@ export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
           card={card}
           onClose={() => setInstructionsDialogShow(false)}
         />
-      )} 
+      )}
     </>
   );
 };
