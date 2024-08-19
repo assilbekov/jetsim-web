@@ -164,6 +164,8 @@
     "expiresIn": "Expires in {expiresText}",
     "installESim": "Install eSIM",
     "buyNewPlan": "Buy new plan",
+    "day": "day",
+    "days": "days",
     "viewDetails": "View details"
   },
   "PlanningTripCard": {

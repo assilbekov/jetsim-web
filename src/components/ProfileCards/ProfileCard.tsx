@@ -72,7 +72,7 @@ export function ProfileCard({
         return (
           <p>
             {card.package.traffic.isUnlimited
-              ? convertDaysText(selectedPackage.days)
+              ? convertDaysText(selectedPackage.days, t("day"), t("days"))
               : formatBytes(card.trafficTotalBytes)}
           </p>
         );
@@ -81,7 +81,7 @@ export function ProfileCard({
           return (
             <>
               <p className={clsx(isDaysLeftLow ? "text-secondary-500" : "")}>
-                {convertDaysText(selectedPackage.days)}
+                {convertDaysText(selectedPackage.days, t("day"), t("days"))}
               </p>
               <p className="text-text-600">∞ GB</p>
             </>
