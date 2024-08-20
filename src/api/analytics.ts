@@ -20,5 +20,4 @@ export const sendAnalyticsEvent = async (eventName: string, event?: any) => {
       params: event,
     }),
   });
-  debugger
 };

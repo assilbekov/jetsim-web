@@ -90,7 +90,6 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
   };
 
   const handleCodeSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
-    debugger
     const response = await fetch(
       `https://auth.jetsim.app/api/v1/email/check-code${
         utmsSearchParams ? `?${utmsSearchParams}` : ""
