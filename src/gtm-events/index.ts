@@ -136,11 +136,11 @@ export const handleMainPageScreenEvent = () => {
 };
 
 export const handleMainPageCountryClickEvent = (countryId: string) => {
-  handleGTMEvent("main_country_click", { counry_page: countryId });
+  handleGTMEvent("main_country_click", { country_page: countryId });
 };
 
 export const handleCountryPageScreenEvent = (countryId: string) => {
-  handleGTMEvent("country_screen", { counry_page: countryId });
+  handleGTMEvent("country_screen", { country_page: countryId });
 };
 
 export const handleCountryPageCheckoutEvent = (
@@ -148,7 +148,7 @@ export const handleCountryPageCheckoutEvent = (
   package_id: string
 ) => {
   handleGTMEvent("country_checkout_click", {
-    counry_page: countryId,
+    country_page: countryId,
     tariff: package_id,
   });
 };
