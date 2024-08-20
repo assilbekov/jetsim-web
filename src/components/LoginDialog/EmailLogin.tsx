@@ -103,6 +103,10 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
     if (response.ok) {
       const json: ApiResponse<Tokens> = await response.json();
 
+      if (json.payload?.meta?.newUser) {
+        (window as any)?.dataLayer.push({ event: "registration" });
+      }
+
       localStorage.setItem("accessToken", json.payload?.accessToken);
       localStorage.setItem("refreshToken", json.payload?.refreshToken);
       localStorage.setItem("user_email", email);
