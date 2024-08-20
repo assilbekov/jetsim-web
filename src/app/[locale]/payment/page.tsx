@@ -37,9 +37,10 @@ const ListElement = ({
 
 type PageProps = {
   searchParams: { packageID: string; placeID: string };
+  params: { locale: string };
 };
 
-export default function Index({ searchParams }: PageProps) {
+export default function Index({ searchParams, params }: PageProps) {
   return (
     <div className="bg-[#F2F4F7]">
       <PaymentScreenEvent />
@@ -52,6 +53,7 @@ export default function Index({ searchParams }: PageProps) {
             <OrderSummary
               {...searchParams}
               className="sm:max-w-[300px] sm:h-full"
+              locale={params.locale}
             />
             <StripePayment {...searchParams} />
           </div>

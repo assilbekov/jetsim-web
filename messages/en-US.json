@@ -297,5 +297,15 @@
     "dataRoamingText": "Data Roaming",
     "addEsimText": "Add eSIM",
     "scanQrCodeText": "Scan QR code"
+  },
+  "OrderSummary": {
+    "orderSummaryTitle": "Order Summary",
+    "countryTitle": "Country",
+    "dataTitle": "Data",
+    "durationTitle": "Duration",
+    "priceTitle": "Price",
+    "unlimitedText": "∞",
+    "day": "day",
+    "days": "days"
   }
 }

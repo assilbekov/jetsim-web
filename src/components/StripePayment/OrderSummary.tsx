@@ -12,6 +12,7 @@ import { Skeleton } from "../Skeleton";
 import { Card } from "../Card";
 import { clsx } from "@/utils";
 import { convertDaysText } from "@/converters/texts";
+import { useTranslations } from "next-intl";
 
 type OrderElementProps = {
   title: React.ReactNode;
@@ -42,8 +43,9 @@ export const OrderSummary = ({
   packageID,
   placeID,
   className,
-  locale
+  locale,
 }: OrderSummaryProps) => {
+  const t = useTranslations("OrderSummary");
   const [location, setLocation] = useState<Location | null>(null);
   const [packageData, setPackageData] = useState<Package | null>(null);
 
@@ -73,10 +75,10 @@ export const OrderSummary = ({
       )}
     >
       <h3 className={getTypographyClass(TypographyVariants.Body)}>
-        Order Summary
+        {t("orderSummaryTitle")}
       </h3>
       <OrderElement
-        title="Country"
+        title={t("countryTitle")}
         value={
           <div className="flex gap-2 items-start">
             <CircledCountryImage
@@ -90,19 +92,19 @@ export const OrderSummary = ({
         }
       />
       <OrderElement
-        title="Data"
+        title={t("dataTitle")}
         value={
           packageData.traffic.isUnlimited
-            ? "∞"
+            ? t("unlimitedText")
             : `${packageData.traffic.unit.count} ${packageData.traffic.unit.label}`
         }
       />
       <OrderElement
-        title="Duration"
-        value={convertDaysText(packageData.days)}
+        title={t("durationTitle")}
+        value={convertDaysText(packageData.days, t("day"), t("days"))}
       />
       <OrderElement
-        title="Price"
+        title={t("priceTitle")}
         value={convertPrice(packageData.cost.price, packageData.cost.currency)}
       />
     </Card>
