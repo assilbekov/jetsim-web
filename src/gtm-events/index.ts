@@ -206,7 +206,7 @@ export const handleProfileScreenEvent = () => {
 };
 
 export const handleAllDestinationsScreenEvent = () => {
-  handleGTMEvent("profile_screen");
+  handleGTMEvent("add_destinations_screen");
 };
 
 export const handleProfileInstallClickEvent = () => {
