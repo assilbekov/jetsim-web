@@ -20,22 +20,37 @@ const languagesList: Language[] = [
   {
     country: "United States",
     language: "English",
-    code: "en",
+    code: "en-US",
   },
   {
-    country: "Germany",
-    language: "German",
-    code: "de",
+    country: "France",
+    language: "Français",
+    code: "fr-FR",
   },
   {
-    country: "Poland",
-    language: "Polish",
-    code: "pl",
+    country: "Deutschland",
+    language: "Deutsch",
+    code: "de-DE",
   },
   {
-    country: "Switzerland",
-    language: "German",
-    code: "de-ch",
+    country: "Polska",
+    language: "Polski",
+    code: "pl-PL",
+  },
+  {
+    country: "Portugal",
+    language: "Português",
+    code: "pt-PT",
+  },
+  {
+    country: "Србија",
+    language: "Српски",
+    code: "sr-RS",
+  },
+  {
+    country: "España",
+    language: "Español",
+    code: "es-ES",
   },
 ];
 

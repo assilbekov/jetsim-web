@@ -65,7 +65,15 @@ export default async function LocaleLayout({
 }
 
 // Can be imported from a shared config
-const locales = ["en", "pl"];
+const locales = [
+  "en-US",
+  "fr-FR",
+  "de-DE",
+  "pl-PL",
+  "pt-PT",
+  "sr-RS",
+  "es-ES",
+];
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

@@ -1,7 +1,15 @@
 import { createSharedPathnamesNavigation } from "next-intl/navigation";
 // import {locales, /* ... */} from './config';
 
-export const locales = ["en", "pl"] as const;
+export const locales = [
+  "en-US",
+  "fr-FR",
+  "de-DE",
+  "pl-PL",
+  "pt-PT",
+  "sr-RS",
+  "es-ES",
+] as const;
 
 export type LinkProps = {
   href: string | import("url").UrlObject;
