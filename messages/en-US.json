@@ -307,5 +307,19 @@
     "unlimitedText": "∞",
     "day": "day",
     "days": "days"
+  },
+  "LoginDialog": {
+    "loginTitle": "Log in or sign up",
+    "orText": "or",
+    "continueWithGoogle": "Continue with Google",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy policy",
+    "byContinuing": "By continuing you agree to our",
+    "changeEmail": "Change email",
+    "enterEmail": "Enter email",
+    "enterVerificationCode": "Enter the verification code",
+    "wrongCode": "Wrong code",
+    "continue": "Continue",
+    "continueWithCode": "Continue with code"
   }
 }

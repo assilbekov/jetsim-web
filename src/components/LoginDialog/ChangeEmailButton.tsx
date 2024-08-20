@@ -1,9 +1,11 @@
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { useTranslations } from "next-intl";
 
 export const ChangeEmailButton = (
   props: React.ButtonHTMLAttributes<HTMLButtonElement>
 ) => {
+  const t = useTranslations("LoginDialog");
   return (
     <button
       {...props}
@@ -13,7 +15,7 @@ export const ChangeEmailButton = (
         props.className ?? ""
       )}
     >
-      Change email
+      {t("changeEmail")}
     </button>
   );
 };
