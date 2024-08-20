@@ -62,8 +62,8 @@ const AddressBlock = ({ className }: { className: string }) => {
   );
 };
 
-const TopCountries = async () => {
-  const topCountriesRes = await fetchTopCountries(5);
+const TopCountries = async ({ locale }: { locale: string }) => {
+  const topCountriesRes = await fetchTopCountries(5, locale);
   return (
     <ListBlock>
       {topCountriesRes.data.map((country) => (
@@ -78,9 +78,13 @@ const TopCountries = async () => {
 type LandingFooterProps = {
   containerClassName?: string;
   cardClassName?: string;
+  locale: string;
 };
 
-export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
+export const LandingFooterContent = ({
+  cardClassName,
+  locale,
+}: LandingFooterProps) => {
   const t = useTranslations("Footer");
 
   return (
@@ -93,7 +97,7 @@ export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
         <div className="flex gap-8 flex-col sm:flex-row">
           <LinksBlock>
             <Title>{t("top_destinations")}</Title>
-            <TopCountries />
+            <TopCountries locale={locale} />
           </LinksBlock>
           <LinksBlock>
             <Title>{t("legal")}</Title>
@@ -116,6 +120,7 @@ export const LandingFooterContent = ({ cardClassName }: LandingFooterProps) => {
 export const LandingFooter = ({
   cardClassName,
   containerClassName,
+  locale,
 }: LandingFooterProps) => {
   return (
     <LandingContainer
@@ -124,7 +129,7 @@ export const LandingFooter = ({
         containerClassName ?? ""
       )}
     >
-      <LandingFooterContent cardClassName={cardClassName} />
+      <LandingFooterContent cardClassName={cardClassName} locale={locale} />
     </LandingContainer>
   );
 };

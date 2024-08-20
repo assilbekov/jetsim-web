@@ -98,7 +98,10 @@ export default function Index({ params }: { params: { locale: string } }) {
               },
             ]}
           />
-          <LandingFooterContent cardClassName="border border-[#E6EFF2] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-[20px]" />
+          <LandingFooterContent
+            locale={params.locale}
+            cardClassName="border border-[#E6EFF2] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-[20px]"
+          />
         </div>
       </LandingContainer>
     </main>

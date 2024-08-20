@@ -16,7 +16,7 @@ import { useTranslations } from "next-intl";
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
-export const Search = () => {
+export const Search = ({ locale }: { locale: string }) => {
   const t = useTranslations("Search");
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -31,7 +31,7 @@ export const Search = () => {
   const topCountriesInfo = useQuery({
     queryKey: ["topCountries"],
     queryFn: async () => {
-      return fetchTopCountries(11);
+      return fetchTopCountries(11, locale);
     },
     staleTime: 1000 * 60 * 60,
   });

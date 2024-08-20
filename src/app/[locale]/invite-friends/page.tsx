@@ -29,7 +29,7 @@ export default function Index({ params }: { params: { locale: string } }) {
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
             <Navbar locale={params.locale} />
-            <Hero />
+            <Hero locale={params.locale} />
           </div>
         </LandingContainer>
       </div>
@@ -38,7 +38,7 @@ export default function Index({ params }: { params: { locale: string } }) {
         <Recommendations />
         <WhyBlock />
         <FAQ />
-        <LandingFooter />
+        <LandingFooter locale={params.locale} />
       </div>
     </main>
   );

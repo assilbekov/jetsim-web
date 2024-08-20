@@ -6,7 +6,7 @@ import { Search } from "../Search";
 import { AllDestinationsList } from "./AllDestinationsList";
 import { useTranslations } from "next-intl";
 
-export const AllDestinations = () => {
+export const AllDestinations = ({ locale }: { locale: string }) => {
   const t = useTranslations("AllDestinations");
   return (
     <LandingContainer>
@@ -28,9 +28,9 @@ export const AllDestinations = () => {
           >
             {t("description")}
           </h3>
-          <Search />
+          <Search locale={locale} />
         </div>
-        <AllDestinationsList />
+        <AllDestinationsList locale={locale} />
       </Card>
     </LandingContainer>
   );

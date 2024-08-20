@@ -18,7 +18,7 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const location = await fetchLocation(params.placeId);
+  const location = await fetchLocation(params.placeId, params.locale);
   return {
     title: `${location.title} eSIM for Tourists | Unlimited Mobile Data Plans - JetSim`,
     description: `eSIM for ${location.title} A vast array of virtual SIM cards available for iPhone and Android devices. Get unlimited mobile data plans from leading eSIM providers worldwide.`,
@@ -43,7 +43,7 @@ export default function Index({ params }: PageProps) {
         <SetupJetSim />
         <LandingSupport />
         <FAQ />
-        <LandingFooter />
+        <LandingFooter locale={params.locale} />
       </div>
     </main>
   );

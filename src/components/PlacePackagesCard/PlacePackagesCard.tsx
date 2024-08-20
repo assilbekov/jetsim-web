@@ -28,7 +28,10 @@ type PlacePackagesCardProps = {
   locale: string;
 };
 
-export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
+export const PlacePackagesCard = ({
+  placeId,
+  locale,
+}: PlacePackagesCardProps) => {
   const searchParams = useSearchParams();
 
   const [loginRedirectUrl, setLoginRedirectUrl] = useState<string>("");
@@ -57,7 +60,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
     queryFn: async () => {
-      const locs = await fetchLocation(placeId);
+      const locs = await fetchLocation(placeId, locale);
       return locs;
     },
     staleTime: 1000 * 60 * 5,

@@ -25,7 +25,7 @@ export default function NotFoundPage({
             <Navbar
               howToHref="/#how-to"
               faqHref="/#faq"
-              locale={params.locale}
+              locale={params?.locale}
             />
           </div>
         </LandingContainer>
@@ -34,7 +34,7 @@ export default function NotFoundPage({
         <PageNotFoundBlock />
         <Recommendations />
         <LandingSupport />
-        <LandingFooter />
+        <LandingFooter locale={params?.locale} />
       </div>
     </main>
   );

@@ -9,7 +9,7 @@ import {
 import { clsx } from "@/utils";
 import { useTranslations } from "next-intl";
 
-export const Hero = () => {
+export const Hero = ({ locale }: { locale: string }) => {
   const t = useTranslations("Hero");
 
   return (
@@ -43,7 +43,7 @@ export const Hero = () => {
           </Typography>
         </div>
         <div>
-          <Search />
+          <Search locale={locale} />
         </div>
         <div className="sm:justify-center flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 lg:gap-6 md:m-auto">
           <Feature

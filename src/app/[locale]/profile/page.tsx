@@ -32,11 +32,11 @@ export default function Index({
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
-        <ProfileCards />
+        <ProfileCards locale={params.locale} />
         <LandingSupport />
         <Recommendations />
         <FAQ />
-        <LandingFooter />
+        <LandingFooter locale={params.locale} />
       </div>
     </main>
   );

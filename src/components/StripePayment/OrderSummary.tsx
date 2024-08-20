@@ -35,18 +35,20 @@ type OrderSummaryProps = {
   placeID: string;
   packageID: string;
   className?: string;
+  locale: string;
 };
 
 export const OrderSummary = ({
   packageID,
   placeID,
   className,
+  locale
 }: OrderSummaryProps) => {
   const [location, setLocation] = useState<Location | null>(null);
   const [packageData, setPackageData] = useState<Package | null>(null);
 
   useEffect(() => {
-    fetchLocation(placeID).then((res) => {
+    fetchLocation(placeID, locale).then((res) => {
       setLocation(res);
     });
   }, [placeID]);

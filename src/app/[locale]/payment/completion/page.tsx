@@ -40,7 +40,7 @@ export default function Completion({
         <BeforeInstallation />
         <LandingSupport />
         <FAQ />
-        <LandingFooter />
+        <LandingFooter locale={params.locale} />
       </div>
     </main>
   );

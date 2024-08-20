@@ -35,7 +35,7 @@ export const Navbar = ({
   howToHref = "#how-to",
   faqHref = "#faq",
   hideNav = false,
-  locale,
+  locale = "en-US",
 }: NavbarProps) => {
   const t = useTranslations("Navbar");
 

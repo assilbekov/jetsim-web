@@ -17,24 +17,43 @@ export const fetchLocations = async (query: string): Promise<Location[]> => {
 };
 
 export const fetchTopCountries = async (
-  limit: number
+  limit: number,
+  locale: string
 ): Promise<DestinationsResponse> => {
   const res = await fetch(
     `${geoServiceURL}places/lists/q/top-countries?limit=${limit}`,
+    {
+      headers: {
+        "Accept-Language": locale,
+      },
+    }
     //{ cache: "force-cache" }
   );
   const json: ApiResponse<DestinationsResponse> = await res.json();
   return json.payload;
 };
 
-export const fetchAllDestinations = async (): Promise<Location[]> => {
-  const res = await fetch(`${geoServiceURL}places/lists/q/top-countries`);
+export const fetchAllDestinations = async (
+  locale: string
+): Promise<Location[]> => {
+  const res = await fetch(`${geoServiceURL}places/lists/q/top-countries`, {
+    headers: {
+      "Accept-Language": locale,
+    },
+  });
   const json: ApiResponse<DestinationsResponse> = await res.json();
   return json.payload.data.sort((l1, l2) => (l1.title > l2.title ? 1 : -1));
 };
 
-export const fetchLocation = async (placeId: string): Promise<Location> => {
-  const res = await fetch(`${geoServiceURL}places/${placeId}`);
+export const fetchLocation = async (
+  placeId: string,
+  locale: string
+): Promise<Location> => {
+  const res = await fetch(`${geoServiceURL}places/${placeId}`, {
+    headers: {
+      "Accept-Language": locale,
+    },
+  });
   const json: ApiResponse<Location> = await res.json();
   return json.payload;
 };
