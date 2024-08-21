@@ -27,13 +27,13 @@ export default function Index() {
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
             <Navbar />
-            <Hero />
+            <Hero page="Main" />
           </div>
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
         <HowToGetBonusFromInvitingFriends />
-        <Recommendations />
+        <Recommendations page="Main" />
         <WhyBlock />
         <FAQ />
         <LandingFooter />

@@ -32,7 +32,7 @@ export default function Index({
         <ProfileInviteFriends />
         <ProfileCards />
         <LandingSupport />
-        <Recommendations />
+        <Recommendations page="Main" />
         <FAQ />
         <LandingFooter />
       </div>
