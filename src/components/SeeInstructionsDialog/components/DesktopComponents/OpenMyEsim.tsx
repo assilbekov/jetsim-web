@@ -35,7 +35,7 @@ export const OpenMyEsim = ({ step }: OpenMyEsimProps) => {
         <span>{t("openMyEsimsText")}</span>
       </InfoRow>
       <CopyBlock
-        text="https://www.jetsim.app/profile"
+        text="https://www.jetsim.app/en-US/profile"
         label={t("smDpAddressLabelText")}
       />
     </div>

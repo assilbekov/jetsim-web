@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { LoginDialog } from "./LoginDialog";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "@/models/ApiResponse";
@@ -10,6 +9,7 @@ import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
 import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 type LoginLink = {
   locale: string;
