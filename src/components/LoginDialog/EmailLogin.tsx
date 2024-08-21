@@ -36,12 +36,14 @@ const StyledInput = ({
   onChange,
   placeholder,
   className,
+  ...restProps
 }: DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >) => {
   return (
     <input
+      {...restProps}
       className={clsx(
         getTypographyClass(TypographyVariants.Caption),
         "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full",
@@ -143,6 +145,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
         {step === LoginStep.Email ? (
           <StyledInput
             key="email"
+            type="email"
             placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
