@@ -61,7 +61,11 @@ const ViewAllCard = ({ count }: { count: number }) => {
   );
 };
 
-export const Recommendations = async () => {
+export const Recommendations = async ({
+  page,
+}: {
+  page: "Main" | "All-Destinations";
+}) => {
   const topCountries = await fetchTopCountries(11);
 
   return (
@@ -75,6 +79,7 @@ export const Recommendations = async () => {
             <CountryCard
               key={country.title}
               country={country}
+              page={page}
               className={(() => {
                 switch (true) {
                   case index >= 0 && index < 4:

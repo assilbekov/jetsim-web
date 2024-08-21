@@ -23,7 +23,7 @@ export default function Index() {
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] sm:gap-[10px] md:gap-6 lg:gap-[10px]">
-        <AllDestinations />
+        <AllDestinations page="All-Destinations" />
         <LandingFooter />
       </div>
     </main>

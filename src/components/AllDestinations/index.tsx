@@ -5,7 +5,11 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Search } from "../Search";
 import { AllDestinationsList } from "./AllDestinationsList";
 
-export const AllDestinations = () => {
+export const AllDestinations = ({
+  page,
+}: {
+  page: "Main" | "All-Destinations";
+}) => {
   return (
     <LandingContainer>
       <Card className="xxxs:px-6 xxs:py-4 xs:py-6 lg:pt-12">
@@ -27,9 +31,9 @@ export const AllDestinations = () => {
             Explore data plans across 150+ countries for seamless and secure
             internet access on the go
           </h3>
-          <Search />
+          <Search page={page} />
         </div>
-        <AllDestinationsList />
+        <AllDestinationsList page={page} />
       </Card>
     </LandingContainer>
   );

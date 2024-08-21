@@ -220,3 +220,19 @@ export const handleProfileBuyClickEvent = () => {
 export const handleProfileCountryClickEvent = (countryId: string) => {
   handleGTMEvent("profile_country_click", { county_page: countryId });
 };
+
+export const handleCountrySelectMainEvent = () => {
+  handleGTMEvent("country_select_main");
+};
+
+export const handleCountrySelectCatalogEvent = () => {
+  handleGTMEvent("country_select_catalog");
+};
+
+export const handleCheckoutClickEvent = () => {
+  handleGTMEvent("checkout");
+};
+
+export const handlePaymentAttemptEvent = () => {
+  handleGTMEvent("payment_attempt");
+};

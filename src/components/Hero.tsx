@@ -8,7 +8,7 @@ import {
 } from "./Typography";
 import { clsx } from "@/utils";
 
-export const Hero = () => {
+export const Hero = ({ page }: { page: "Main" | "All-Destinations"; }) => {
   return (
     <div className="flex items-center sm:mx-auto xxs:pb-4 md:pb-10 md:px-8">
       <Image
@@ -40,7 +40,7 @@ export const Hero = () => {
           </Typography>
         </div>
         <div>
-          <Search />
+          <Search page={page} />
         </div>
         <div className="sm:justify-center flex flex-wrap flex-col xxs:flex-row gap-y-2 xxs:gap-y-3 gap-x-4 lg:gap-6 md:m-auto">
           <Feature icon="/timer.svg" iconAlt="timer icon" title="1 min setup" />
