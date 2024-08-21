@@ -11,14 +11,23 @@ export const getSocialAuthLink = async (
   provider: string
 ): Promise<SocialAuthLinkResponse> => {
   const res = await fetch(
-    `${authServiceURL}${provider}/login-link?redirect=${authRedirect}`
+    `${authServiceURL}${provider}/login-link?redirect=${authRedirect}`,
+    {
+      headers: {
+        "Accept-Language": "en-US",
+      },
+    }
   );
   const json: ApiResponse<SocialAuthLinkResponse> = await res.json();
   return json.payload;
 };
 
 export const getProfile = async (): Promise<Profile> => {
-  const res = await fetchProtected(`${authServiceURL}user`);
+  const res = await fetchProtected(`${authServiceURL}user`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<Profile> = await res.json();
   return json.payload;
 };

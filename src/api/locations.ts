@@ -11,7 +11,11 @@ export const fetchLocations = async (query: string): Promise<Location[]> => {
     return [];
   }
 
-  const res = await fetch(`${geoServiceURL}places/suggest?query=${query}`);
+  const res = await fetch(`${geoServiceURL}places/suggest?query=${query}`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<Location[]> = await res.json();
   return json.payload;
 };
@@ -21,6 +25,11 @@ export const fetchTopCountries = async (
 ): Promise<DestinationsResponse> => {
   const res = await fetch(
     `${geoServiceURL}places/lists/q/top-countries?limit=${limit}`,
+    {
+      headers: {
+        "Accept-Language": "en-US",
+      },
+    }
     //{ cache: "force-cache" }
   );
   const json: ApiResponse<DestinationsResponse> = await res.json();
@@ -28,13 +37,21 @@ export const fetchTopCountries = async (
 };
 
 export const fetchAllDestinations = async (): Promise<Location[]> => {
-  const res = await fetch(`${geoServiceURL}places/lists/q/top-countries`);
+  const res = await fetch(`${geoServiceURL}places/lists/q/top-countries`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<DestinationsResponse> = await res.json();
   return json.payload.data.sort((l1, l2) => (l1.title > l2.title ? 1 : -1));
 };
 
 export const fetchLocation = async (placeId: string): Promise<Location> => {
-  const res = await fetch(`${geoServiceURL}places/${placeId}`);
+  const res = await fetch(`${geoServiceURL}places/${placeId}`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<Location> = await res.json();
   return json.payload;
 };
@@ -42,7 +59,11 @@ export const fetchLocation = async (placeId: string): Promise<Location> => {
 export const fetchLocationCover = async (
   placeId: string
 ): Promise<LocationCover> => {
-  const res = await fetch(`${geoServiceURL}places/${placeId}/cover`);
+  const res = await fetch(`${geoServiceURL}places/${placeId}/cover`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<LocationCover> = await res.json();
   return json.payload;
 };

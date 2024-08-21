@@ -9,13 +9,21 @@ import { simServiceURL } from "@/config";
 import { ApiResponse } from "@/models/ApiResponse";
 
 export const fetchCards = async (): Promise<CardsResponse> => {
-  const res = await fetchProtected(`${simServiceURL}cards`);
+  const res = await fetchProtected(`${simServiceURL}cards`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<CardsResponse> = await res.json();
   return json.payload;
 };
 
 export const fetchCard = async (id: string): Promise<Card> => {
-  const res = await fetchProtected(`${simServiceURL}cards/${id}`);
+  const res = await fetchProtected(`${simServiceURL}cards/${id}`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<Card> = await res.json();
   return json.payload;
 };
@@ -27,6 +35,9 @@ export const createCard = async (
   const res = await fetchProtected(`${simServiceURL}cards`, {
     method: "POST",
     body: JSON.stringify({ packageID, placeID }),
+    headers: {
+      "Accept-Language": "en-US",
+    },
   });
   const json: ApiResponse<CreateCardResponse> = await res.json();
   return json.payload;
@@ -34,7 +45,12 @@ export const createCard = async (
 
 export const fetchClientOptions = async (): Promise<ClientOptionsResponse> => {
   const res = await fetchProtected(
-    "https://payment.jetsim.app/public/gw/stripe/client-options"
+    "https://payment.jetsim.app/public/gw/stripe/client-options",
+    {
+      headers: {
+        "Accept-Language": "en-US",
+      },
+    }
   );
   const json: ApiResponse<ClientOptionsResponse> = await res.json();
   return json.payload;
@@ -43,5 +59,8 @@ export const fetchClientOptions = async (): Promise<ClientOptionsResponse> => {
 export const deleteCard = async (id: string): Promise<void> => {
   await fetchProtected(`${simServiceURL}cards/${id}`, {
     method: "DELETE",
+    headers: {
+      "Accept-Language": "en-US",
+    },
   });
 };
