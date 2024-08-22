@@ -1,12 +1,17 @@
+"use client";
+
 import { clsx } from "@/utils";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { useTranslations } from "next-intl";
 
 type ReinstallESimProps = {
   className?: string;
 };
 
 export const ReinstallESim = ({ className }: ReinstallESimProps) => {
+  const t = useTranslations("InstallESim");
+
   return (
     <div
       className={clsx(
@@ -17,13 +22,13 @@ export const ReinstallESim = ({ className }: ReinstallESimProps) => {
       <Image
         loading="lazy"
         src="/icons/info.svg"
-        alt="info icon"
+        alt={t("image_alt")}
         width={40}
         height={40}
       />
       <div>
         <h6 className={getTypographyClass(TypographyVariants.Body2)}>
-          You need to install eSIM again
+          {t("title")}
         </h6>
         <p
           className={clsx(
@@ -31,7 +36,7 @@ export const ReinstallESim = ({ className }: ReinstallESimProps) => {
             "text-text-600 mt-0.5"
           )}
         >
-          Current eSIM will remain active until it expires
+          {t("message")}
         </p>
       </div>
     </div>

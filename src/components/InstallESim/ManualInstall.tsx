@@ -1,9 +1,12 @@
+"use client";
+
 import { Card } from "@/models/Card";
 import { CopyButton } from "../buttons/CopyButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { clsx, convertLPACodeToBlocks } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useTranslations } from "next-intl";
 
 type CopyCardProps = {
   text: string;
@@ -39,23 +42,24 @@ export const ManualInstall = ({
   card,
   onSeeInstructionsClick,
 }: ManualInstallProps) => {
+  const t = useTranslations("InstallESim");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
-  //const [smdp, addr, lpaCode] = card.lpaCode.split("$");
-  //const smdpAddr = `${smdp}$${addr}`;
-  //const lpaActivationCode = `$${lpaCode}`;
   const { addr, activationCodeAndroid, activationCodeIOS } =
     convertLPACodeToBlocks(card.lpaCode);
 
   return (
     <div>
       {deviceTypeAndVerion.isAndroid ? (
-        <CopyCard text={activationCodeAndroid} label="Activation Code" />
+        <CopyCard
+          text={activationCodeAndroid}
+          label={t("CopyCard_activation_code_label")}
+        />
       ) : (
         <>
-          <CopyCard text={addr} label="SM-DP+ Address" />
+          <CopyCard text={addr} label={t("CopyCard_smdp_address_label")} />
           <CopyCard
             text={activationCodeIOS}
-            label="Activation Code"
+            label={t("CopyCard_activation_code_label")}
             className="mt-4"
           />
         </>
@@ -66,7 +70,7 @@ export const ManualInstall = ({
           "mt-6 text-2xl text-center text-black"
         )}
       >
-        Use this codes to add eSIM
+        {t("ManualInstall_use_codes_title")}
       </p>
       <p
         className={clsx(
@@ -74,10 +78,10 @@ export const ManualInstall = ({
           "mt-3 text-center text-text-600"
         )}
       >
-        Copy this code when manually adding eSIM
+        {t("ManualInstall_copy_code_instructions")}
       </p>
       <PrimaryButton className="mt-4 w-full" onClick={onSeeInstructionsClick}>
-        See instructions
+        {t("ManualInstall_see_instructions_button")}
       </PrimaryButton>
     </div>
   );

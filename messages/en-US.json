@@ -469,5 +469,27 @@
     "ThanksForPurchase_image_alt": "success icon",
     "ThanksForPurchase_title": "Thank you for purchase!",
     "ThanksForPurchase_message": "The check will be sent to your email"
+  },
+  "InstallESim": {
+    "ReinstallESim_image_alt": "info icon",
+    "ReinstallESim_title": "You need to install eSIM again",
+    "ReinstallESim_message": "Current eSIM will remain active until it expires",
+    "CopyCard_activation_code_label": "Activation Code",
+    "CopyCard_smdp_address_label": "SM-DP+ Address",
+    "ManualInstall_use_codes_title": "Use these codes to add eSIM",
+    "ManualInstall_copy_code_instructions": "Copy this code when manually adding eSIM",
+    "ManualInstall_see_instructions_button": "See instructions",
+    "InstallToggleButtons_qr_code_install": "QR code install",
+    "InstallToggleButtons_manual_install": "Manual install",
+    "section_title": "What you need to know",
+    "section_subheader": "Before installation",
+    "info_elements": {
+      "do_not_interrupt_title": "Don't interrupt installation",
+      "do_not_interrupt_description": "Ensure stable internet connection for activation",
+      "activate_roaming_title": "Activate data roaming",
+      "activate_roaming_description": "to start using the internet",
+      "do_not_delete_title": "Don't delete the eSIM",
+      "do_not_delete_description": "You can only scan the code once"
+    }
   }
 }
