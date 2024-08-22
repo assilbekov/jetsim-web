@@ -1,11 +1,11 @@
-import QRCode, { QRCodeSVG, QRCodeCanvas } from "qrcode.react";
+"use client";
 
-//import QRCode from "react-qr-code";
+import QRCode, { QRCodeCanvas } from "qrcode.react";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
 import { Card } from "@/models/Card";
-import {} from "react-device-detect";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useTranslations } from "next-intl";
 
 type ScanQRStepProps = {
   step: number;
@@ -14,7 +14,9 @@ type ScanQRStepProps = {
 
 export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const t = useTranslations("InstallESimInstructionsDialog");
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
+
   return (
     <div className="flex flex-col gap-5">
       <RoundedLabel>{step}</RoundedLabel>
@@ -33,7 +35,7 @@ export const ScanQRStep = ({ step, card }: ScanQRStepProps) => {
           className="self-center w-full aspect-square fill-white max-w-[140px]"
         />
       )}
-      <InfoRow>Scan this QR code</InfoRow>
+      <InfoRow>{t("ScanQRStep_scanInstruction")}</InfoRow>
     </div>
   );
 };
