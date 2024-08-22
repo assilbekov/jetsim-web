@@ -34,7 +34,7 @@ export default function Index({
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <ProfileCards locale={params.locale} />
         <LandingSupport />
-        <Recommendations />
+        <Recommendations locale={params.locale} />
         <FAQ />
         <LandingFooter locale={params.locale} />
       </div>

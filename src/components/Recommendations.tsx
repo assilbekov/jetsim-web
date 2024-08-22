@@ -68,8 +68,8 @@ const Title = () => {
   return <Typography variant={TypographyVariants.H2}>{t("title")}</Typography>;
 };
 
-export const Recommendations = async () => {
-  const topCountries = await fetchTopCountries(11);
+export const Recommendations = async ({locale}: {locale: string}) => {
+  const topCountries = await fetchTopCountries(11, locale);
 
   return (
     <LandingContainer>

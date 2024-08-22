@@ -1,5 +1,3 @@
-import { useTranslations } from "next-intl";
-
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
 import { LandingContainer } from "@/components/LandingContainer";
@@ -40,7 +38,7 @@ export default function Index({
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
-        <Recommendations />
+        <Recommendations locale={params.locale} />
         <SetupJetSim />
         <LandingSupport />
         <WhyBlock />

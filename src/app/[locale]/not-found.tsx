@@ -32,7 +32,7 @@ export default function NotFoundPage({
       </div>
       <div className="flex flex-col bg-[#F8F9FB] sm:gap-[10px] md:gap-6 lg:gap-[10px]">
         <PageNotFoundBlock />
-        <Recommendations />
+        <Recommendations locale={params.locale} />
         <LandingSupport />
         <LandingFooter locale={params?.locale} />
       </div>

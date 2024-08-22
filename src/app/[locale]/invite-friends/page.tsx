@@ -35,7 +35,7 @@ export default function Index({ params }: { params: { locale: string } }) {
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
         {/* <HowToGetBonusFromInvitingFriends /> */}
-        <Recommendations />
+        <Recommendations locale={params.locale} />
         <WhyBlock />
         <FAQ />
         <LandingFooter locale={params.locale} />
