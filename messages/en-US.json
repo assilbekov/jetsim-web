@@ -321,5 +321,32 @@
     "wrongCode": "Wrong code",
     "continue": "Continue",
     "continueWithCode": "Continue with code"
+  },
+  "PlacePackagesCard": {
+    "dayText": "day",
+    "daysText": "days",
+    "noPackagesAvailable": "There are no available data plans for {location} at the moment",
+    "chooseAnotherCountry": "Choose another country",
+    "goToCheckout": "Go to checkout",
+    "standard": "Standard",
+    "unlimited": "Unlimited",
+    "unlimitedGB": "Unlimited GB",
+    "days": "{count} days",
+    "day": "1 day",
+    "currencyPrice": "{price} {currency}",
+    "calculatedBasedOn": "Calculated based on",
+    "unlimitedPlans": "Unlimited plans",
+    "browsing": "50 mb / hour for browsing",
+    "music": "75 mb / hour for music",
+    "video": "500 mb / hour for video",
+    "unlimitedPlansInfo": "Unlimited plans are subject to ISP policies and fair use policies, which may include data throttling and usage restrictions after a certain threshold",
+    "eSIMFor": "eSIM for",
+    "travellersAndRemoteWorkers": "Unlimited and standard plans for travellers and remote workers",
+    "browsingHours": "{hours}h browsing",
+    "musicHours": "{hours}h music",
+    "videoHours": "{hours}h video",
+    "browsingUnlimited": "∞ browsing",
+    "musicUnlimited": "∞ music",
+    "videoUnlimited": "∞ video"
   }
 }

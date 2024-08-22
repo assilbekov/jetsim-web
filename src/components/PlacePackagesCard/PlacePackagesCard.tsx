@@ -22,6 +22,7 @@ import { SelectPackagesBuyForm } from "./SelectPackagesBuyForm";
 import { PackageTagEnum } from "@/models/Package";
 import { fetchPackages } from "@/api/packages";
 import { handleCountryPageCheckoutEvent } from "@/gtm-events";
+import { useTranslations } from "next-intl";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -32,6 +33,7 @@ export const PlacePackagesCard = ({
   placeId,
   locale,
 }: PlacePackagesCardProps) => {
+  const t = useTranslations("PlacePackagesCard");
   const searchParams = useSearchParams();
 
   const [loginRedirectUrl, setLoginRedirectUrl] = useState<string>("");
@@ -106,7 +108,7 @@ export const PlacePackagesCard = ({
                   "w-full flex gap-2"
                 )}
               >
-                eSIM for{" "}
+                {t("eSIMFor")}{" "}
                 {locationQuery.isFetched ? (
                   locationQuery.data?.title
                 ) : (
@@ -130,7 +132,7 @@ export const PlacePackagesCard = ({
                 "text-text-600"
               )}
             >
-              Unlimited and standard plans for travellers and remote workers
+              {t("travellersAndRemoteWorkers")}
             </p>
           </div>
         )}
