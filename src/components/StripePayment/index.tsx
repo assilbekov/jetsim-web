@@ -9,6 +9,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Card } from "../Card";
 import { clsx } from "@/utils";
 import { Skeleton } from "../Skeleton";
+import { useTranslations } from "next-intl";
 
 type StripePaymentProps = {
   packageID: string;
@@ -19,6 +20,7 @@ export const StripePayment = ({
   placeID = "",
   packageID = "",
 }: StripePaymentProps) => {
+  const t = useTranslations("OrderSummary");
   const [stripePromise, setStripePromise] = useState<
     Stripe | PromiseLike<Stripe | null> | null
   >(null);
@@ -50,7 +52,7 @@ export const StripePayment = ({
           "mb-5 sm:text-2xl sm:leading-[30px]"
         )}
       >
-        Select a payment method
+        {t("StripePayment_selectPaymentMethod")}
       </h3>
       {stripePromise && clientSecret ? (
         <Elements

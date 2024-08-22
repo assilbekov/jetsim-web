@@ -306,7 +306,11 @@
     "priceTitle": "Price",
     "unlimitedText": "∞",
     "day": "day",
-    "days": "days"
+    "days": "days",
+    "CheckoutForm_processing": "Processing...",
+    "CheckoutForm_pay": "Pay",
+    "ErrorMessage_paymentFailed": "Payment failed",
+    "StripePayment_selectPaymentMethod": "Select a payment method"
   },
   "LoginDialog": {
     "loginTitle": "Log in or sign up",
