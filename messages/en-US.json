@@ -530,5 +530,10 @@
     "UseQRDetailsStep_mobileService": "Mobile Service",
     "UseQRDetailsStep_addESIM": "Add eSIM",
     "UseQRDetailsStep_useQRCode": "Use QR Code"
+  },
+  "CookieInfo": {
+    "CookieInfo_message": "By using JetSim services, you agree to our {privacyPolicy}. We use cookies for personalisation and analytics.",
+    "CookieInfo_privacyPolicy": "privacy policy",
+    "CookieInfo_closeButton": "Close"
   }
 }
