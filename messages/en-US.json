@@ -464,5 +464,10 @@
     "CheckCompatibilityDialog_other_title": "Other",
     "CheckCompatibilityDialog_other_content_1": "To check if a specific device supports eSIM, visit the official website of the device's manufacturer. Look for specifications or features of the device to see if eSIM is mentioned.",
     "CheckCompatibilityDialog_other_content_2": "Additionally, you can refer to user manuals or contact customer support for confirmation. Keep in mind that eSIM compatibility may vary depending on the device model, region, and carrier, so it's essential to verify this information before making a purchase or activation."
+  },
+  "CompletionSuccess": {
+    "ThanksForPurchase_image_alt": "success icon",
+    "ThanksForPurchase_title": "Thank you for purchase!",
+    "ThanksForPurchase_message": "The check will be sent to your email"
   }
 }
