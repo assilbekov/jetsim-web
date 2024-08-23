@@ -113,9 +113,9 @@
   "SetupJetSim": {
     "title": "Configurez votre eSIM JetSim en 1 minute",
     "step01Title": "Choisissez votre destination et sélectionnez un forfait de données",
-    "step01Option1": "5 gb",
-    "step01Option2": "15 gb",
-    "step01Option3": "30 gb",
+    "step01Option1": "5 GB",
+    "step01Option2": "15 GB",
+    "step01Option3": "30 GB",
     "step02Title": "Suivez les instructions pour installer votre eSIM",
     "step02Instruction1": "1",
     "step02Instruction2": "2",

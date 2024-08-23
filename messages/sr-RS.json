@@ -113,9 +113,9 @@
   "SetupJetSim": {
     "title": "Подесите свој JetSim eSIM за 1 минут",
     "step01Title": "Изаберите одредиште и одаберите план података",
-    "step01Option1": "5 gb",
-    "step01Option2": "15 gb",
-    "step01Option3": "30 gb",
+    "step01Option1": "5 GB",
+    "step01Option2": "15 GB",
+    "step01Option3": "30 GB",
     "step02Title": "Следите упутства за инсталирање eSIM-а",
     "step02Instruction1": "1",
     "step02Instruction2": "2",
