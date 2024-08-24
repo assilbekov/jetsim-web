@@ -4,7 +4,7 @@ import { clsx } from "@/utils";
 import { TagButton, TagButtonsProps } from "../PlacePackagesCard/TagButton";
 import { useTranslations } from "next-intl";
 
-enum InstallMethod {
+export enum InstallMethod {
   QR = "qr",
   MANUAL = "manual",
 }

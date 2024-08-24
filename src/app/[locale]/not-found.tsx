@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { PageNotFoundBlock } from "@/components/PageNotFoundBlock";
 import { Recommendations } from "@/components/Recommendations";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Page Not Found | JetSim eSIM Cards",
@@ -17,6 +18,7 @@ export default function NotFoundPage({
 }: {
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">

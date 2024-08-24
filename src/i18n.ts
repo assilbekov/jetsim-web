@@ -20,3 +20,7 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (await import(`../messages/${locale}.json`)).default,
   };
 });
+
+export const isSupportedLocale = (locale: string): boolean => {
+  return locales.includes(locale);
+};

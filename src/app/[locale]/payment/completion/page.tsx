@@ -8,6 +8,7 @@ import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { FinishedScreenEvent } from "./_components/FinishedScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Successful Order Completion | JetSim eSIM Cards",
@@ -22,6 +23,7 @@ export default function Completion({
   searchParams: { cardID: string };
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(params.locale);
   const cardID = searchParams.cardID ?? "";
 
   return (

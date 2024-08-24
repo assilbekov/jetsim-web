@@ -9,6 +9,7 @@ import { clsx } from "@/utils";
 import Link from "next/link";
 import { PaymentScreenEvent } from "./_components/PaymentScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Checkout | JetSim eSIM Cards",
@@ -41,6 +42,7 @@ type PageProps = {
 };
 
 export default function Index({ searchParams, params }: PageProps) {
+  unstable_setRequestLocale(params.locale);
   return (
     <div className="bg-[#F2F4F7]">
       <PaymentScreenEvent />

@@ -10,6 +10,7 @@ import { WhyBlock } from "@/components/WhyBlock";
 import { CountryScreenEvent } from "./_components/CountryScreenEvent";
 import { Metadata } from "next";
 import { fetchLocation } from "@/api/locations";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 type PageProps = {
   params: { placeId: string; locale: string };
@@ -26,6 +27,7 @@ export async function generateMetadata({
 }
 
 export default function Index({ params }: PageProps) {
+  unstable_setRequestLocale(params.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 md:overflow-x-hidden sm:pb-11">
       <CountryScreenEvent countryId={params.placeId} />

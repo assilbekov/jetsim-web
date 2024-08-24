@@ -14,6 +14,7 @@ import {
 } from "@/components/anylitics-scripts/Facebook";
 import { UTMProvider } from "@/contexts/UTMContext";
 import { YA, YANoScript } from "@/components/anylitics-scripts/YA";
+import { locales } from "@/navigation";
 
 const interTight = Inter_Tight({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ const inter = Inter({
 export default async function LocaleLayout({
   children,
   params: { locale },
+  ...restProps
 }: {
   children: React.ReactNode;
   params: { locale: string };
@@ -52,7 +54,7 @@ export default async function LocaleLayout({
         <FacebookNoScript />
         <GTMNoScript />
         <YANoScript />
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <QueryContext>
             <ZendeskProvider>
               <UTMProvider>{children}</UTMProvider>
@@ -64,17 +66,14 @@ export default async function LocaleLayout({
   );
 }
 
-// Can be imported from a shared config
-const locales = [
-  "en-US",
-  "fr-FR",
-  "de-DE",
-  "pl-PL",
-  "pt-PT",
-  "sr-RS",
-  "es-ES",
-];
-
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  //const locales = ['en', 'es', 'fr']; // List your supported locales
+  const paths = [];
+
+  for (const locale of locales) {
+    // Generate paths for each locale
+    paths.push({ locale });
+  }
+
+  return paths;
 }
