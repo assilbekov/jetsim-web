@@ -1,3 +1,5 @@
+"use client";
+
 import { Package, PackageTagEnum } from "@/models/Package";
 import Image from "next/image";
 import { Checkbox } from "../Checkbox";
@@ -7,6 +9,7 @@ import { PlansHelperInfo } from "./PlansHelperInfo";
 import { convertPrice } from "@/converters/prices";
 import { convertSecondsToHours } from "@/converters/times";
 import { convertDaysText } from "@/converters/texts";
+import { useTranslations } from "next-intl";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -75,6 +78,8 @@ export const PackageOption = ({
   selected,
   tag,
 }: PackageOptionProps) => {
+  const t = useTranslations("PackageOption");
+
   return (
     <label
       aria-selected={selected}
@@ -86,13 +91,21 @@ export const PackageOption = ({
           <TextContainer>
             <BoldText>
               {tag === PackageTagEnum.UNLIMITED
-                ? convertDaysText(packageEntity.days)
+                ? convertDaysText(
+                    packageEntity.days,
+                    t("dayText"),
+                    t("daysText")
+                  )
                 : `${packageEntity.traffic.unit.count} ${packageEntity.traffic.unit.label}`}
             </BoldText>
             <SecondaryText>
               {tag === PackageTagEnum.UNLIMITED
-                ? "Unlimited GB"
-                : convertDaysText(packageEntity.days)}
+                ? t("unlimitedGB")
+                : convertDaysText(
+                    packageEntity.days,
+                    t("dayText"),
+                    t("daysText")
+                  )}
             </SecondaryText>
           </TextContainer>
           <TextContainer className="xxs:min-w-20">
@@ -131,10 +144,12 @@ export const PackageOption = ({
                 imageSrc="/icons/browse.svg"
                 label={
                   tag === PackageTagEnum.UNLIMITED
-                    ? "∞ browsing"
-                    : `${convertSecondsToHours(
-                        packageEntity.traffic.browsingSec
-                      )}h browsing`
+                    ? t("browsingUnlimited")
+                    : t("browsingHours", {
+                        hours: convertSecondsToHours(
+                          packageEntity.traffic.browsingSec
+                        ),
+                      })
                 }
               />
               <BrowsingFeature
@@ -142,10 +157,12 @@ export const PackageOption = ({
                 imageSrc="/icons/music.svg"
                 label={
                   tag === PackageTagEnum.UNLIMITED
-                    ? "∞ music"
-                    : `${convertSecondsToHours(
-                        packageEntity.traffic.musicSec
-                      )}h music`
+                    ? t("musicUnlimited")
+                    : t("musicHours", {
+                        hours: convertSecondsToHours(
+                          packageEntity.traffic.musicSec
+                        ),
+                      })
                 }
               />
               <BrowsingFeature
@@ -153,10 +170,12 @@ export const PackageOption = ({
                 imageSrc="/icons/video.svg"
                 label={
                   tag === PackageTagEnum.UNLIMITED
-                    ? "∞ video"
-                    : `${convertSecondsToHours(
-                        packageEntity.traffic.videoSec
-                      )}h video`
+                    ? t("videoUnlimited")
+                    : t("videoHours", {
+                        hours: convertSecondsToHours(
+                          packageEntity.traffic.videoSec
+                        ),
+                      })
                 }
               />
             </div>

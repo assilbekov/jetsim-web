@@ -12,12 +12,14 @@ import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
 import { OpenMyEsim } from "./components/DesktopComponents/OpenMyEsim";
+import { useTranslations } from "next-intl";
 
 type IOSContentProps = {
   card: Card;
 };
 
 export const IOSContent = ({ card }: IOSContentProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
 
   const renderQRInstallation = () => {
@@ -26,7 +28,7 @@ export const IOSContent = ({ card }: IOSContentProps) => {
         <StyledContent>
           <ScanQRStep step={1} card={card} />
           <PlanTextStep step={2}>
-            Follow screen instructions to install eSIM
+            {t("followScreenInstructionsESIM")}
           </PlanTextStep>
           <TurnOnDataRoamingStep step={3} />
         </StyledContent>
@@ -39,7 +41,7 @@ export const IOSContent = ({ card }: IOSContentProps) => {
           <UseQRDetailsStep step={1} />
           <ScanQRStep step={2} card={card} />
           <PlanTextStep step={3}>
-            Follow screen instructions to install eSIM
+            {t("followScreenInstructionsESIM")}
           </PlanTextStep>
           <TurnOnDataRoamingStep step={4} />
         </StyledContent>
@@ -50,11 +52,9 @@ export const IOSContent = ({ card }: IOSContentProps) => {
       <StyledContent>
         <ScanQRStep step={1} card={card} />
         <UseQRDetailsStep step={2} />
-        <PlanTextStep step={3}>
-          Scan shared QR code from other screen with this phone
-        </PlanTextStep>
+        <PlanTextStep step={3}>{t("scanSharedQRCode")}</PlanTextStep>
         <PlanTextStep step={4}>
-          Follow screen instructions to install eSIM
+          {t("followScreenInstructionsESIM")}
         </PlanTextStep>
         <TurnOnDataRoamingStep step={5} />
       </StyledContent>
@@ -69,20 +69,18 @@ export const IOSContent = ({ card }: IOSContentProps) => {
       )}
     >
       {renderQRInstallation()}
-      <p className="mt-5 mb-4">Or use alternative option</p>
+      <p className="mt-5 mb-4">{t("alternativeOptionText")}</p>
       <StyledContent>
         <EnterDetailsManuallyStep step={1} />
         <EnterFollowingDataStep step={2} card={card} />
         <PlanTextStep step={3}>
-          Follow screen instructions to install eSIM
+          {t("followScreenInstructionsESIM")}
         </PlanTextStep>
         <TurnOnDataRoamingStep step={4} />
       </StyledContent>
       {deviceTypeAndVerion.isDesktop && (
         <>
-          <p className="mt-5 mb-4">
-            Or if you have Apple iPhone with iOS 17.5 or later
-          </p>
+          <p className="mt-5 mb-4">{t("ios175LaterText")}</p>
           <StyledContent>
             <OpenMyEsim step={1} />
             <TurnOnDataRoamingStep step={2} />

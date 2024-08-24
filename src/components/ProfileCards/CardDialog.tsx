@@ -24,6 +24,7 @@ import { TertiaryButton } from "../buttons/TertiaryButton";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCard } from "@/api/cards";
 import { handleProfileCountryClickEvent } from "@/gtm-events";
+import { useTranslations } from "next-intl";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -49,9 +50,10 @@ const InstallContent = ({
   setDialog,
   onSeeInstructionsClick,
 }: CardDialogProps) => {
+  const t = useTranslations("CardDialog");
   return (
     <>
-      <DialogTitle onClose={() => setDialog(null)} title="Install eSIM" />
+      <DialogTitle onClose={() => setDialog(null)} title={t("installESIM")} />
       <ReinstallESim />
       <InstallESimToggle
         QRContent={
@@ -110,11 +112,13 @@ const DetailsContent = ({
   setDialog,
   selectedPackage,
 }: CardDialogProps) => {
+  const t = useTranslations("CardDialog");
+
   return (
     <>
       <DialogTitle
         onClose={() => setDialog(null)}
-        title={`eSIM for ${location.title}`}
+        title={t("esimFor", { location: location.title })}
       />
       <InfoCard className="flex flex-col gap-3 pt-4 pb-4 pl-4 pr-4">
         <DetailsItem
@@ -122,10 +126,10 @@ const DetailsContent = ({
           alt="globe icon"
           content={
             selectedPackage.traffic.isUnlimited ? (
-              "Unlimited data"
+              t("unlimitedData")
             ) : (
               <>
-                Data {formatBytes(card.trafficTotalBytes)}
+                {t("data", { data: formatBytes(card.trafficTotalBytes) })}
                 <p className="text-text-600 mt-1">
                   {convertPrice(
                     selectedPackage.traffic.unit.costPerUnit.price,
@@ -140,37 +144,43 @@ const DetailsContent = ({
         <DetailsItem
           src="/icons/black/calendar_clock.svg"
           alt="calendar clock icon"
-          content={`Validity ${convertDaysText(selectedPackage.days)}`}
+          content={`${t("validity")} ${convertDaysText(
+            selectedPackage.days,
+            t("day"),
+            t("days")
+          )}`}
         />
         <DetailsItem
           src="/icons/black/calendar_today.svg"
           alt="calendar today icon"
-          content={`Purchased ${convertDateToISO(card.activatedAt)}`}
+          content={t("purchased", { date: convertDateToISO(card.activatedAt) })}
         />
         <DetailsItem
           src="/icons/black/wallet.svg"
           alt="Wallet icon"
-          content={`Price ${convertPrice(
-            selectedPackage.cost.price,
-            selectedPackage.cost.currency
-          )}`}
+          content={t("price", {
+            price: convertPrice(
+              selectedPackage.cost.price,
+              selectedPackage.cost.currency
+            ),
+          })}
         />
       </InfoCard>
       <InfoCard className="flex flex-col gap-3 pt-4 pb-4 pl-4 pr-4">
         <DetailsItem
           src="/icons/black/shield.svg"
           alt="shield icon"
-          content="No hidden fees, extra costs"
+          content={t("noHiddenFees")}
         />
         <DetailsItem
           src="/icons/black/no_calls.svg"
           alt="no calls icon"
-          content="Only data plans, without calls and SMS"
+          content={t("onlyDataPlans")}
         />
         <DetailsItem
           src="/icons/black/cell_tower.svg"
           alt="cell tower icon"
-          content="3G/4G/LTE/5G depends on the network"
+          content={t("networkTypes")}
         />
       </InfoCard>
       <div className="flex flex-col gap-3 xxs:flex-row xxs:gap-4">
@@ -193,7 +203,7 @@ const DetailsContent = ({
                 height={20}
                 width={20}
               />
-              Delete eSIM
+              {t("deleteESim")}
             </div>
           </SecondaryButton>
         )}
@@ -208,7 +218,7 @@ const DetailsContent = ({
             })
           }
         >
-          Buy new plan
+          {t("buyNewPlan")}
         </PrimaryButton>
       </div>
     </>
@@ -217,6 +227,7 @@ const DetailsContent = ({
 
 const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
   const router = useRouter();
+  const t = useTranslations("CardDialog");
 
   const handleCheckout = (selectedPackageId: string) => {
     handleProfileCountryClickEvent(location.placeID);
@@ -229,7 +240,7 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
       <div>
         <DialogTitle
           onClose={() => setDialog(null)}
-          title={`eSIM for ${location.title}`}
+          title={t("esimFor", { location: location.title })}
         />
         <p
           className={clsx(
@@ -237,7 +248,7 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
             "text-text-600 pt-2 w-11/12"
           )}
         >
-          Unlimited and standard plans for travellers and remote workers
+          {t("unlimitedPlans")}
         </p>
       </div>
       <SelectPackagesBuyForm
@@ -254,6 +265,7 @@ const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
 };
 
 const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
+  const t = useTranslations("CardDialog");
   const queryClient = useQueryClient();
   const { mutate } = useMutation({
     mutationFn: deleteCard,
@@ -266,7 +278,7 @@ const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
   return (
     <div>
       <h5 className={getTypographyClass(TypographyVariants.Body2)}>
-        Delete eSIM?
+        {t("deleteESimQuestionTitle")}
       </h5>
       <p
         className={clsx(
@@ -274,15 +286,15 @@ const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
           "text-text-600 mt-2"
         )}
       >
-        It will remove it from the history
+        {t("deleteESimQuestionDescription")}
       </p>
       <div className="flex gap-1 justify-end mt-8">
         <TertiaryButton onClick={() => setDialog(null)}>
-          <span>Cancel</span>
+          <span>{t("deleteESimQuestionCancel")}</span>
         </TertiaryButton>
         <TertiaryButton>
           <span className="text-secondary-500" onClick={() => mutate(card.id)}>
-            Confirm
+            {t("deleteESimQuestionConfirm")}
           </span>
         </TertiaryButton>
       </div>

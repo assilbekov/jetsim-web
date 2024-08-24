@@ -4,12 +4,16 @@ import { LandingContainer } from "../LandingContainer";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Search } from "../Search";
 import { AllDestinationsList } from "./AllDestinationsList";
+import { useTranslations } from "next-intl";
 
 export const AllDestinations = ({
+  locale,
   page,
 }: {
+  locale: string;
   page: "Main" | "All-Destinations";
 }) => {
+  const t = useTranslations("AllDestinations");
   return (
     <LandingContainer>
       <Card className="xxxs:px-6 xxs:py-4 xs:py-6 lg:pt-12">
@@ -20,7 +24,7 @@ export const AllDestinations = ({
               "md:font-interTight md:text-[56px] md:leading-[64px] md:font-medium md:tracking-[1.12px] text-center"
             )}
           >
-            All destinations
+            {t("title")}
           </h1>
           <h3
             className={clsx(
@@ -28,12 +32,11 @@ export const AllDestinations = ({
               "md:text-2xl md:leading-[30px] text-center mt-4 mb-6 md:mb-9 text-text-600"
             )}
           >
-            Explore data plans across 150+ countries for seamless and secure
-            internet access on the go
+            {t("description")}
           </h3>
-          <Search page={page} />
+          <Search locale={locale} page={page} />
         </div>
-        <AllDestinationsList page={page} />
+        <AllDestinationsList locale={locale} page={page} />
       </Card>
     </LandingContainer>
   );

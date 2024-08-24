@@ -1,9 +1,12 @@
+"use client";
+
 import { clsx } from "@/utils";
 import { AccordionPanel } from "../AccordionPanel";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import Link, { LinkProps } from "next/link";
+import { Link, LinkProps } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => (
   <p
@@ -27,7 +30,7 @@ const Subheader = ({ children }: { children: React.ReactNode }) => (
   </h6>
 );
 
-const LinkText = (props: LinkProps & { children: React.ReactNode }) => (
+const LinkText = (props: LinkProps) => (
   <Link
     {...props}
     className="text-primary-500 underline hover:text-primary-300 transition-colors duration-200 ease-in-out"
@@ -68,263 +71,238 @@ type CheckCompatibilityDialogProps = {
 export const CheckCompatibilityDialog = ({
   onClose,
 }: CheckCompatibilityDialogProps) => {
+  const t = useTranslations("CheckCompatibilityDialog");
+
   return (
     <Dialog onClose={onClose}>
-      <DialogTitle title="Compatible smartphones with eSIM" onClose={onClose} />
+      <DialogTitle title={t("title")} onClose={onClose} />
       <div className="flex flex-col gap-4">
-        <AccordionPanel title="iOS" index={0}>
+        <AccordionPanel title={t("ios_title")} index={0}>
           <div className="w-full flex flex-col gap-4">
             <Paragraph>
-              Visit the{" "}
+              {t("ios_linkText")}{" "}
               <LinkText href="https://support.apple.com/en-jo/guide/deployment/dep36c581d6x/web">
-                Apple website
-              </LinkText>{" "}
-              to learn more about eSIM
+                {t("ios_linkText")}
+              </LinkText>
             </Paragraph>
 
             <ListBlock
-              title="iPhones"
+              title={t("ios_iPhones_title")}
               elements={[
-                "iPhone 15 models",
-                "iPhone 14 models",
-                "iPhone 13 models",
-                "iPhone 12 models",
-                "iPhone 11 models",
-                "iPhone X models",
-                "iPhone SE (2nd generation) and up",
+                t("ios_iPhones_list_0"),
+                t("ios_iPhones_list_1"),
+                t("ios_iPhones_list_2"),
+                t("ios_iPhones_list_3"),
+                t("ios_iPhones_list_4"),
+                t("ios_iPhones_list_5"),
+                t("ios_iPhones_list_6"),
               ]}
             />
 
             <ListBlock
-              title="iPads"
+              title={t("ios_iPads_title")}
               elements={[
-                "iPad Pro 13-inch and 11-inch (M4) models",
-                "iPad Air 13-inch and 11-inch (M2) models",
-                "iPad Pro (3rd generation) or later 11-inch, 12.9-inch models",
-                "iPad mini (5th generation) or later",
-                "iPad Air (3rd generation) or later",
-                "iPad (7th generation) or later",
+                t("ios_iPads_list_0"),
+                t("ios_iPads_list_1"),
+                t("ios_iPads_list_2"),
+                t("ios_iPads_list_3"),
+                t("ios_iPads_list_4"),
+                t("ios_iPads_list_5"),
               ]}
             />
 
             <ListBlock
-              title="Not supported"
+              title={t("ios_notSupported_title")}
               elements={[
-                "All iPhones bellow iPhone 8 and iPhone SE (1st generation)",
-                "WiFi only iPads",
+                t("ios_notSupported_list_0"),
+                t("ios_notSupported_list_1"),
                 <>
-                  Not all Dual SIM phones are supported. Learn more on the{" "}
+                  {t("ios_notSupported_list_2")}{" "}
                   <LinkText href="https://support.apple.com/en-us/108898">
-                    Apple Support website
+                    {t("ios_notSupported_linkText")}
                   </LinkText>
                 </>,
               ]}
             />
 
-            <Paragraph>
-              Your device must be unlocked and the iOS version must be updated
-              to 14.1 or newer. You can check with your carrier to see if there
-              is anything you can do to unlock the eSIM in your device.
-            </Paragraph>
+            <Paragraph>{t("ios_deviceUnlocked")}</Paragraph>
 
             <Paragraph>
-              If you have a Turkish-produced device refer to{" "}
+              {t("ios_turkishDevice")}{" "}
               <LinkText href="https://support.apple.com/en-us/109343">
-                this instructions
+                {t("ios_turkishDevice_linkText")}
               </LinkText>
             </Paragraph>
           </div>
         </AccordionPanel>
 
-        <AccordionPanel title="Android" index={1}>
+        <AccordionPanel title={t("android_title")} index={1}>
           <div className="w-full flex flex-col gap-4">
-            <Paragraph>
-              Your device must be unlocked. You can check with your carrier to
-              see if there is anything you can do to unlock the eSIM in your
-              device. Within one device model there can be devices both with
-              eSIM technology and without. Please check your device before the
-              purchase.
-            </Paragraph>
+            <Paragraph>{t("android_deviceUnlocked")}</Paragraph>
 
             <ListBlock
-              title="Samsung"
+              title={t("android_samsung_title")}
               elements={[
-                "Galaxy A55",
-                "Galaxy A54",
-                "Galaxy A35",
-                "Galaxy S24, S24+, S24 Ultra",
-                "Galaxy S23, S23+, S23 Ultra, S23 FE",
-                "Galaxy S22 5G, S22+ 5G, S22 Ultra 5G",
-                "Galaxy S21 5G, S21+ 5G, S21 Ultra 5G (US versions of S21 are not compatible with eSIM)",
-                "Galaxy S20, S20 5G, S20+, S20+ 5G, S20 Ultra, S20 Ultra 5G (US versions of S20 and S20 FE 4G/5G are not compatible with eSIM)",
-                "Galaxy Note20, Note20 5G, Note20 Ultra 5G (US and Hong Kong versions of Note 20 Ultra are not compatible with eSIM)",
-                "Galaxy Xcover7",
-                "Galaxy Fold",
-                "Galaxy Z Fold4",
-                "Galaxy Z Fold3 5G",
-                "Galaxy Z Fold2 5G",
-                "Galaxy Z Flip4",
-                "Galaxy Z Flip3 5G",
-                "Galaxy Z Flip and Z Flip 5G (US versions of Z Flip 5G are not compatible with eSIM)",
+                t("android_samsung_list_0"),
+                t("android_samsung_list_1"),
+                t("android_samsung_list_2"),
+                t("android_samsung_list_3"),
+                t("android_samsung_list_4"),
+                t("android_samsung_list_5"),
+                t("android_samsung_list_6"),
+                t("android_samsung_list_7"),
+                t("android_samsung_list_8"),
+                t("android_samsung_list_9"),
+                t("android_samsung_list_10"),
+                t("android_samsung_list_11"),
+                t("android_samsung_list_12"),
+                t("android_samsung_list_13"),
+                t("android_samsung_list_14"),
+                t("android_samsung_list_15"),
+                t("android_samsung_list_16"),
               ]}
             />
 
             <ListBlock
-              title="Google Pixel"
+              title={t("android_googlePixel_title")}
               elements={[
-                "Pixel 7, 7 Pro",
-                "Pixel 6, 6a, 6 Pro",
-                "Pixel 5, 5a 5G",
-                "Pixel 4, 4a, 4 XL, 4a 5G",
-                "Pixel 3, 3a*, 3 XL, 3a XL",
+                t("android_googlePixel_list_0"),
+                t("android_googlePixel_list_1"),
+                t("android_googlePixel_list_2"),
+                t("android_googlePixel_list_3"),
+                t("android_googlePixel_list_4"),
               ]}
               postText={
                 <>
-                  Visit{" "}
+                  {t("android_googlePixel_linkText")}{" "}
                   <LinkText href="https://support.google.com/pixelphone/answer/9449293?hl=en">
-                    Google website
-                  </LinkText>{" "}
-                  to learn more about eSIM
+                    {t("android_googlePixel_linkText")}
+                  </LinkText>
                 </>
               }
             />
 
             <ListBlock
-              title="Xiaomi"
+              title={t("android_xiaomi_title")}
               elements={[
-                "Xiaomi 12T Pro",
-                "Xiaomi 13 Pro",
-                "Xiaomi 13",
-                "Xiaomi 13 Lite",
-                "Xiaomi 13T",
-                "Xiaomi 13T Pro",
-                "Redmi Note 13 Pro 5G",
-                "Redmi Note 13 Pro+ 5G",
-                "Xiaomi 14",
+                t("android_xiaomi_list_0"),
+                t("android_xiaomi_list_1"),
+                t("android_xiaomi_list_2"),
+                t("android_xiaomi_list_3"),
+                t("android_xiaomi_list_4"),
+                t("android_xiaomi_list_5"),
+                t("android_xiaomi_list_6"),
+                t("android_xiaomi_list_7"),
+                t("android_xiaomi_list_8"),
               ]}
               postText={
                 <>
-                  Visit{" "}
+                  {t("android_xiaomi_linkText")}{" "}
                   <LinkText href="https://www.mi.com/global/support/esim/">
-                    Xiaomi website
-                  </LinkText>{" "}
-                  to learn more about eSIM
+                    {t("android_xiaomi_linkText")}
+                  </LinkText>
                 </>
               }
             />
 
             <ListBlock
-              title="Huawei"
+              title={t("android_huawei_title")}
               elements={[
-                "P40",
-                "P40 Pro (not including P40 Pro +)",
-                "Mate 40 Pro",
+                t("android_huawei_list_0"),
+                t("android_huawei_list_1"),
+                t("android_huawei_list_2"),
               ]}
               postText={
                 <>
-                  Visit{" "}
+                  {t("android_huawei_linkText")}{" "}
                   <LinkText href="https://consumer.huawei.com/za/community/details/How-to-use-eSIM-on-your-eligible-Huawei-Phone/topicId_172574/">
-                    Huawei website
-                  </LinkText>{" "}
-                  to learn more about eSIM
+                    {t("android_huawei_linkText")}
+                  </LinkText>
                 </>
               }
             />
 
             <ListBlock
-              title="Sony"
+              title={t("android_sony_title")}
               elements={[
-                "Xperia 10 V",
-                "Xperia 5 V",
-                "Xperia 1 V",
-                "Xperia 10 IV",
-                "Xperia 5 IV",
-                "Xperia 1 IV",
+                t("android_sony_list_0"),
+                t("android_sony_list_1"),
+                t("android_sony_list_2"),
+                t("android_sony_list_3"),
+                t("android_sony_list_4"),
               ]}
               postText={
                 <>
-                  Visit{" "}
+                  {t("android_sony_linkText")}{" "}
                   <LinkText href="https://www.sony.co.uk/electronics/support/articles/00300757">
-                    Sony website
-                  </LinkText>{" "}
-                  to learn more about eSIM
+                    {t("android_sony_linkText")}
+                  </LinkText>
                 </>
               }
             />
 
             <ListBlock
-              title="Motorola"
+              title={t("android_motorola_title")}
               elements={[
-                "Moto G Stylus 5G (2024)",
-                "Edge 50 Ultra",
-                "Edge 50 Fusion",
-                "Edge 50 Pro",
-                "Moto G Power (2024)",
-                "Moto G (2024)",
-                "Moto G34",
-                "Edge (2023)",
-                "Edge 40 Neo",
-                "Moto G54",
-                "Razr 40 Ultra",
-                "Razr 40",
-                "Edge 40",
-                "Edge+ (2023)",
-                "Edge 40 Pro",
-                "Moto G53",
-                "Edge (2022)",
-                "Razr 2022",
-                "Razr 5G",
-                "Razr 2019",
+                t("android_motorola_list_0"),
+                t("android_motorola_list_1"),
+                t("android_motorola_list_2"),
+                t("android_motorola_list_3"),
+                t("android_motorola_list_4"),
+                t("android_motorola_list_5"),
+                t("android_motorola_list_6"),
+                t("android_motorola_list_7"),
+                t("android_motorola_list_8"),
+                t("android_motorola_list_9"),
+                t("android_motorola_list_10"),
+                t("android_motorola_list_11"),
+                t("android_motorola_list_12"),
+                t("android_motorola_list_13"),
+                t("android_motorola_list_14"),
+                t("android_motorola_list_15"),
+                t("android_motorola_list_16"),
+                t("android_motorola_list_17"),
+                t("android_motorola_list_18"),
+                t("android_motorola_list_19"),
               ]}
             />
 
             <ListBlock
-              title="Oppo"
+              title={t("android_oppo_title")}
               elements={[
-                "OPPO Find X3, X3 Pro",
-                "Find X5, X5 Pro",
-                "Oppo Find N2 Flip",
-                "Oppo Reno A",
+                t("android_oppo_list_0"),
+                t("android_oppo_list_1"),
+                t("android_oppo_list_2"),
+                t("android_oppo_list_3"),
               ]}
             />
 
             <ListBlock
-              title="Honor"
+              title={t("android_honor_title")}
               elements={[
-                "HONOR Magic4 Pro",
-                "HONOR Magic5 Pro",
-                "HONOR Magic6 Pro",
-                "HONOR Magic Vs",
-                "HONOR Magic V2",
-                "HONOR 90",
+                t("android_honor_list_0"),
+                t("android_honor_list_1"),
+                t("android_honor_list_2"),
+                t("android_honor_list_3"),
+                t("android_honor_list_4"),
+                t("android_honor_list_5"),
               ]}
               postText={
                 <>
-                  Visit the{" "}
+                  {t("android_honor_linkText")}{" "}
                   <LinkText href="https://www.honor.com/global/tech/honor-esim/">
-                    Honor website
-                  </LinkText>{" "}
-                  to learn more about eSIM
+                    {t("android_honor_linkText")}
+                  </LinkText>
                 </>
               }
             />
           </div>
         </AccordionPanel>
 
-        <AccordionPanel title="Other" index={2}>
+        <AccordionPanel title={t("other_title")} index={2}>
           <div className="flex flex-col gap-4">
-            <Paragraph>
-              To check if a specific device supports eSIM, visit the official
-              website of the device&apos;s manufacturer. Look for specifications
-              or features of the device to see if eSIM is mentioned.
-            </Paragraph>
-            <Paragraph>
-              Additionally, you can refer to user manuals or contact customer
-              support for confirmation. Keep in mind that eSIM compatibility may
-              vary depending on the device model, region, and carrier, so
-              it&apos;s essential to verify this information before making a
-              purchase or activation.
-            </Paragraph>
+            <Paragraph>{t("other_content_1")}</Paragraph>
+            <Paragraph>{t("other_content_2")}</Paragraph>
           </div>
         </AccordionPanel>
       </div>

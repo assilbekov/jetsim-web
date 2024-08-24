@@ -7,6 +7,7 @@ import {
   TypographyVariants,
   matchTypographyMediaQuery,
 } from "./Typography";
+import { useTranslations } from "next-intl";
 
 type FeatureBlockProps = {
   iconSrc: string;
@@ -60,50 +61,41 @@ type WhyBlockProps = {
 export const WhyBlock = ({
   showSecurePaymentMethods = true,
 }: WhyBlockProps) => {
+  const t = useTranslations("WhyBlock");
+
   return (
     <LandingContainer>
       <Card size="md" className="xxs:p-8 xs:p-6 md:p-8">
         <div className="flex flex-col gap-6 md:gap-10">
           <div>
-            {/* <p
-              className={clsx(
-                "mb-1 md:mb-[10px] text-text-600",
-                matchTypographyMediaQuery({
-                  default: TypographyVariants.Caption,
-                  md: TypographyVariants.Body,
-                })
-              )}
-            >
-              Why JetSim?
-            </p> */}
             <Typography variant={TypographyVariants.H2}>
-              Use internet everywhere with JetSim
+              {t("title")}
             </Typography>
           </div>
           <div className="grid grid-cols-1 xxs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             <FeatureBlock
               iconSrc="/wallet.svg"
               iconAlt="wallet icon"
-              title="Affordable"
-              description="Data plans tailored to&nbsp; your needs"
+              title={t("featureAffordableTitle")}
+              description={t("featureAffordableDescription")}
             />
             <FeatureBlock
               iconSrc="/done.svg"
               iconAlt="done icon"
-              title="No hidden fees"
-              description="Internet without extra costs"
+              title={t("featureNoHiddenFeesTitle")}
+              description={t("featureNoHiddenFeesDescription")}
             />
             <FeatureBlock
               iconSrc="/no-sim.svg"
               iconAlt="no sim icon"
-              title="No plastic SIM"
-              description="hassle-free online installation"
+              title={t("featureNoPlasticSimTitle")}
+              description={t("featureNoPlasticSimDescription")}
             />
             <FeatureBlock
               iconSrc="/no-id.svg"
               iconAlt="no id icon"
-              title="No ID required"
-              description="Just buy and start using"
+              title={t("featureNoIdRequiredTitle")}
+              description={t("featureNoIdRequiredDescription")}
             />
           </div>
           {showSecurePaymentMethods && (
@@ -119,7 +111,7 @@ export const WhyBlock = ({
                     })
                   )}
                 >
-                  Secure payment methods
+                  {t("securePaymentMethodsTitle")}
                 </p>
                 <div className="flex gap-4 sm:gap-5 md:gap-12 md:justify-between lg:min-w-[646px] flex-wrap w-full items-center">
                   <Image

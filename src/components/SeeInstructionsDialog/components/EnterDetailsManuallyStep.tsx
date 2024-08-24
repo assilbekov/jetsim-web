@@ -2,24 +2,27 @@ import { ArrowRightImage } from "./ArrowRightImage";
 import { IconWithText } from "./IconWithText";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
+import { useTranslations } from "next-intl";
 
-type EnterDetailsManuallyStep = {
+type EnterDetailsManuallyStepProps = {
   step: number;
 };
 
 export const EnterDetailsManuallyStep = ({
   step,
-}: EnterDetailsManuallyStep) => {
+}: EnterDetailsManuallyStepProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goToText")}</span>
           <IconWithText
             src="/icons/settings.png"
             alt="settings icon"
-            text="Settings"
+            text={t("settingsText")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -27,22 +30,22 @@ export const EnterDetailsManuallyStep = ({
           <IconWithText
             src="/icons/mobile-service.svg"
             alt="mobile service icon"
-            text="Mobile Service"
+            text={t("mobileServiceText")}
           />
           <ArrowRightImage />
-          <span>Add eSIM</span>
+          <span>{t("addESIMText")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/primary/qr.svg"
             alt="QR code icon"
-            text="Use QR Code"
+            text={t("useQRCodeText")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>Enter Details Manually</span>
+          <span>{t("enterDetailsManuallyText")}</span>
         </InfoRow>
       </div>
     </div>

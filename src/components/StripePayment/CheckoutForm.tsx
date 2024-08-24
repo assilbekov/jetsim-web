@@ -13,6 +13,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { handlePaymentAttemptEvent, handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPackage } from "@/api/packages";
+import { useTranslations } from "next-intl";
 
 type CheckoutFormProps = {
   packageID: string;
@@ -33,6 +34,7 @@ export const CheckoutForm = ({
     queryKey: ["packages", packageID],
     queryFn: () => fetchPackage(packageID),
   });
+  const t = useTranslations("OrderSummary");
 
   const [err, setErr] = useState<StripeError | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -83,7 +85,6 @@ export const CheckoutForm = ({
             price: paymentIntent.amount / 100,
           },
         ],
-        //items: [packageInfo.data],
       });
 
       router.push(
@@ -109,7 +110,7 @@ export const CheckoutForm = ({
       <PaymentElement />
       {err && <ErrorMessage err={err} />}
       <PrimaryButton disabled={isProcessing} id="submit" className="w-full">
-        {isProcessing ? "Processing..." : "Pay"}
+        {isProcessing ? t("CheckoutForm_processing") : t("CheckoutForm_pay")}
       </PrimaryButton>
     </form>
   );

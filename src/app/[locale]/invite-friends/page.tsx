@@ -9,6 +9,7 @@ import { Recommendations } from "@/components/Recommendations";
 import { WhyBlock } from "@/components/WhyBlock";
 //import { MainScreenEvent } from "./_components/MainScreenEvent";
 import { Metadata } from "next";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 export function generateMetadata(): Metadata {
   return {
@@ -18,25 +19,26 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function Index() {
+export default function Index({ params }: { params: { locale: string } }) {
+  unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
-      <InviteFriendsHero />
+      {/* <InviteFriendsHero /> */}
       {/* <MainScreenEvent /> */}
       <div className="bg-text-900 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] mb-4 md:mb-5 mt-10">
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
-            <Navbar />
-            <Hero page="Main" />
+            <Navbar locale={params?.locale} />
+            <Hero locale={params?.locale} page="Main" />
           </div>
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
-        <HowToGetBonusFromInvitingFriends />
-        <Recommendations page="Main" />
+        {/* <HowToGetBonusFromInvitingFriends /> */}
+        <Recommendations locale={params?.locale} page="Main" />
         <WhyBlock />
         <FAQ />
-        <LandingFooter />
+        <LandingFooter locale={params?.locale} />
       </div>
     </main>
   );

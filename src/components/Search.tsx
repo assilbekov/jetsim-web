@@ -4,13 +4,14 @@ import { fetchLocations, fetchTopCountries } from "@/api/locations";
 import { Location } from "@/models/Location";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
 import { convertLocationBestCost } from "@/converters/location";
 import { Skeleton } from "./Skeleton";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { TypographyVariants, getTypographyClass } from "./Typography";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 import {
   handleCountrySelectCatalogEvent,
   handleCountrySelectMainEvent,
@@ -19,11 +20,13 @@ import {
 
 type SearchProps = {
   page: "Main" | "All-Destinations";
+  locale: string;
 };
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
-export const Search = ({ page }: SearchProps) => {
+export const Search = ({ page, locale }: SearchProps) => {
+  const t = useTranslations("Search")
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
@@ -37,7 +40,7 @@ export const Search = ({ page }: SearchProps) => {
   const topCountriesInfo = useQuery({
     queryKey: ["topCountries"],
     queryFn: async () => {
-      return fetchTopCountries(11);
+      return fetchTopCountries(11, locale);
     },
     staleTime: 1000 * 60 * 60,
   });
@@ -79,14 +82,14 @@ export const Search = ({ page }: SearchProps) => {
       return (
         <li className="flex items-center justify-between gap-2 py-3 px-6">
           <p className={getTypographyClass(TypographyVariants.Body)}>
-            No results found
+            {t("noResults")}
           </p>
           <Link href="all-destinations">
             <SecondaryButton
               onClick={() => setOpen(false)}
               className="pt-3 pb-3"
             >
-              Show all countries
+              {t("showAllCountries")}
             </SecondaryButton>
           </Link>
         </li>
@@ -150,7 +153,7 @@ export const Search = ({ page }: SearchProps) => {
             setQuery(e.target.value);
           }}
           onFocus={() => setOpen(true)}
-          placeholder="Enter your destination"
+          placeholder={t("placeholder")}
           autoComplete="off"
         />
       </div>

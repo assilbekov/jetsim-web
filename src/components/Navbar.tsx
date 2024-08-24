@@ -1,19 +1,20 @@
 "use client";
 
-import Link, { LinkProps } from "next/link";
-import { HumburgerButton } from "./HumburgerButton";
+import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
+import { HumburgerButton } from "./HumburgerButton";
 import "./navbar.css";
 import { LoginLink } from "./LoginLink";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { HomeLogo } from "./HomeLogo";
 import { CookieInfo } from "./CookieInfo";
-import { CheckCompatibilityFromHeader } from "./CheckCompatibility";
 import { SupportButton } from "./SupportButton";
-import { useEffect } from "react";
+import { Link, LinkProps } from "@/navigation";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
-const StyledLink = (props: LinkProps & { children: React.ReactNode }) => (
+const StyledLink = (props: LinkProps) => (
   <Link
     {...props}
     className={clsx(
@@ -27,13 +28,17 @@ type NavbarProps = {
   howToHref?: string;
   faqHref?: string;
   hideNav?: boolean;
+  locale: string;
 };
 
 export const Navbar = ({
   howToHref = "#how-to",
   faqHref = "#faq",
   hideNav = false,
+  locale = "en-US",
 }: NavbarProps) => {
+  const t = useTranslations("Navbar");
+
   useEffect(() => {
     const hash = window.location.hash;
     let validID = hash?.split("?")?.[0];
@@ -87,27 +92,29 @@ export const Navbar = ({
         className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between sm:min-w-[750px]"
       >
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
-          {/* <CheckCompatibilityFromHeader label="Check compatability" /> */}
           {!hideNav && (
             <>
               <StyledLink href="/all-destinations" onClick={handleMenuClose}>
-                Destinations
+                {t("destinations")}
               </StyledLink>
               <StyledLink href={howToHref} onClick={handleMenuClose}>
-                How it works
+                {t("howItWorks")}
               </StyledLink>
               <SupportButton>
                 <StyledLink href="#" onClick={handleMenuClose}>
-                  Support
+                  {t("support")}
                 </StyledLink>
               </SupportButton>
               <StyledLink href={faqHref} onClick={handleMenuClose}>
-                FAQ
+                {t("faq")}
               </StyledLink>
             </>
           )}
         </div>
-        <LoginLink />
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          <LoginLink locale={locale} />
+        </div>
       </nav>
       <CookieInfo />
     </header>

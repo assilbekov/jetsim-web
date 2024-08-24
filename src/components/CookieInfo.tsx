@@ -4,15 +4,17 @@ import { useEffect, useState } from "react";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 export const CookieInfo = () => {
+  const t = useTranslations("CookieInfo");
   const [isCookieAccepted, setIsCookieAccepted] = useState(true);
 
   useEffect(() => {
     const isCookieAccepted = localStorage.getItem("isCookieAccepted");
     if (!isCookieAccepted) {
-      // setIsCookieAccepted(false);
+      setIsCookieAccepted(false);
     }
   }, []);
 
@@ -28,14 +30,16 @@ export const CookieInfo = () => {
           "text-text-600"
         )}
       >
-        By using JetSim services, you agree to our{" "}
-        <Link
-          href="/privacy-policy"
-          className="underline text-text-600 hover:text-text-300 transition-colors duration-200 ease-in-out"
-        >
-          privacy policy
-        </Link>
-        . We use cookies for personalisation and analytics.
+        {t.rich("CookieInfo_message", {
+          privacyPolicy: (
+            <Link
+              href="/privacy-policy"
+              className="underline text-text-600 hover:text-text-300 transition-colors duration-200 ease-in-out"
+            >
+              {t("CookieInfo_privacyPolicy")}
+            </Link>
+          ) as any,
+        })}
       </p>
       <SecondaryButton
         className="pt-3 pb-3 text-sm leading-[18px] md:text-sm md:leading-[18px]"
@@ -44,7 +48,7 @@ export const CookieInfo = () => {
           setIsCookieAccepted(true);
         }}
       >
-        Close
+        {t("CookieInfo_closeButton")}
       </SecondaryButton>
     </div>
   );

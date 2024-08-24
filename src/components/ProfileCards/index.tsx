@@ -18,7 +18,7 @@ import {
 } from "@/gtm-events";
 import { MockCards } from "./mockCards";
 
-export const ProfileCards = () => {
+export const ProfileCards = ({ locale }: { locale: string }) => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
   const [instructionsDialog, setInstructionsDialog] =
     useState<CardDialogModel | null>(null);
@@ -52,7 +52,7 @@ export const ProfileCards = () => {
     queryKey: ["locations", ...locationIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
-        locationIds.map((locationId) => fetchLocation(locationId)) || []
+        locationIds.map((locationId) => fetchLocation(locationId, locale)) || []
       );
 
       return await promiseAll;

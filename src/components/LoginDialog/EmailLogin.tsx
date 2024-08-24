@@ -20,6 +20,7 @@ import {
 } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
+import { useTranslations } from "next-intl";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -67,6 +68,7 @@ type EmailLoginProps = {
 
 export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
   const router = useRouter();
+  const t = useTranslations("LoginDialog");
   const { utmsSearchParams } = useContext(UTMContext);
 
   const [email, setEmail] = useState("");
@@ -145,15 +147,15 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
         {step === LoginStep.Email ? (
           <StyledInput
             key="email"
+            placeholder={t("enterEmail")}
             type="email"
-            placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         ) : (
           <StyledInput
             key="code"
-            placeholder="Enter the verification code"
+            placeholder={t("enterVerificationCode")}
             value={code}
             onChange={(e) => setCode(e.target.value)}
             className={isCodeInvalid ? "border-[#F00]" : ""}
@@ -168,7 +170,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
                   "text-[#F00]"
                 )}
               >
-                Wrong code
+                {t("wrongCode")}
               </p>
             )}
             <ChangeEmailButton
@@ -190,7 +192,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
         type="submit"
         className="w-full mt-4"
       >
-        Continue{step === LoginStep.Email ? " with code" : ""}
+        {t(step === LoginStep.Email ? "continueWithCode" : "continue")}
       </PrimaryButton>
     </form>
   );

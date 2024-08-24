@@ -24,6 +24,7 @@ import { PixelScanQRDesktopStep } from "./components/DesktopComponents/PixelScan
 import { SamsungQRRoamingStep } from "./components/DesktopComponents/SamsungQRRoamingStep";
 import { PixelQRRoamingStep } from "./components/DesktopComponents/PixelQRRoamingStep";
 import { PixelTurnOnDesktop } from "./components/DesktopComponents/PixelTurnOnDesktop";
+import { useTranslations } from "next-intl";
 
 type AndroidContentProps = {
   card: Card;
@@ -35,6 +36,7 @@ enum AndroidType {
 }
 
 export const AndroidContent = ({ card }: AndroidContentProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const [type, setType] = useState<AndroidType>(AndroidType.Samsung);
 
@@ -44,9 +46,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         <>
           <SamsungManualStep step={1} />
           <EnterFollowingDataStep step={2} card={card} isAndroid />
-          <PlanTextStep step={3}>
-            Follow screen instructions to install eSIM
-          </PlanTextStep>
+          <PlanTextStep step={3}>{t("manualStep1Samsung")}</PlanTextStep>
           <SamsungManualMobileStep step={4} />
         </>
       );
@@ -56,9 +56,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       <>
         <PixelManualStep step={1} />
         <EnterFollowingDataStep step={2} card={card} isAndroid />
-        <PlanTextStep step={3}>
-          Follow screen instructions to install eSIM
-        </PlanTextStep>
+        <PlanTextStep step={3}>{t("manualStep1GooglePixel")}</PlanTextStep>
         <TurnOnPixelStep step={4} />
       </>
     );
@@ -70,9 +68,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         <>
           <ScanQRStep step={1} card={card} />
           <SamsungQRStep step={2} />
-          <PlanTextStep step={3}>
-            Scan shared QR code and follow screen instructions to install eSIM
-          </PlanTextStep>
+          <PlanTextStep step={3}>{t("qrStep1Samsung")}</PlanTextStep>
           <SamsungMobileDataStep step={4} />
           <SamsungTurnOnStep step={5} />
         </>
@@ -83,9 +79,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       <>
         <ScanQRStep step={1} card={card} />
         <PixelQRStep step={2} />
-        <PlanTextStep step={3}>
-          Scan this QR code and follow screen instructions to install eSIM
-        </PlanTextStep>
+        <PlanTextStep step={3}>{t("qrStep1GooglePixel")}</PlanTextStep>
         <TurnOnQRPixelStep step={4} />
       </>
     );
@@ -97,9 +91,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
         <>
           <SamsungManualStep step={1} />
           <EnterFollowingDataStep step={2} card={card} isAndroid />
-          <PlanTextStep step={3}>
-            Follow screen instructions to install eSIM
-          </PlanTextStep>
+          <PlanTextStep step={3}>{t("manualStep2Samsung")}</PlanTextStep>
           <SamsungManualMobileStep step={4} />
           <SamsungManualRoamingStep step={5} />
         </>
@@ -110,9 +102,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       <>
         <PixelManualStep step={1} />
         <EnterFollowingDataStep step={2} card={card} isAndroid />
-        <PlanTextStep step={3}>
-          Follow screen instructions to install eSIM
-        </PlanTextStep>
+        <PlanTextStep step={3}>{t("manualStep2GooglePixel")}</PlanTextStep>
         <PixelTurnOnDesktop step={4} />
       </>
     );
@@ -123,11 +113,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
       return (
         <>
           <SamsungScanQRDesktopStep step={1} />
-          <ScanQRStep
-            step={2}
-            card={card}
-            helperText="Scan this QR code and follow screen instructions to install eSIM"
-          />
+          <ScanQRStep step={2} card={card} helperText={t("helperTextQRScan")} />
           <SamsungQRRoamingStep step={3} />
         </>
       );
@@ -135,11 +121,7 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
     return (
       <>
         <PixelScanQRDesktopStep step={1} />
-        <ScanQRStep
-          step={2}
-          card={card}
-          helperText="Scan this QR code and follow screen instructions to install eSIM"
-        />
+        <ScanQRStep step={2} card={card} helperText={t("helperTextQRScan")} />
         <PixelQRRoamingStep step={3} />
       </>
     );
@@ -170,19 +152,22 @@ export const AndroidContent = ({ card }: AndroidContentProps) => {
           value={type}
           onChange={(e) => setType(e.target.value as AndroidType)}
         >
-          {[AndroidType.Samsung, AndroidType.GooglePixel].map((type) => (
-            <option
-              key={type}
-              value={type}
-              className="px-6 py-3 w-full border-solid border-[1px] border-[#E9F0F2]"
-            >
-              {type}
-            </option>
-          ))}
+          <option
+            value={AndroidType.Samsung}
+            className="px-6 py-3 w-full border-solid border-[1px] border-[#E9F0F2]"
+          >
+            {t("samsungOption")}
+          </option>
+          <option
+            value={AndroidType.GooglePixel}
+            className="px-6 py-3 w-full border-solid border-[1px] border-[#E9F0F2]"
+          >
+            {t("googlePixelOption")}
+          </option>
         </select>
         {renderTopBlock()}
       </StyledContent>
-      <p className="mt-5 mb-4">Or use alternative option</p>
+      <p className="mt-5 mb-4">{t("alternativeOptionText")}</p>
       <StyledContent>{renderBottomBlock()}</StyledContent>
     </div>
   );

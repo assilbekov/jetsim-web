@@ -1,7 +1,8 @@
 import { RoundedLabel } from "../RoundedLabel";
 import { InfoRow } from "../InfoRow";
 import { CopyButton } from "@/components/buttons/CopyButton";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 type CopyBlockProps = {
   text: string;
@@ -25,15 +26,18 @@ type OpenMyEsimProps = {
 };
 
 export const OpenMyEsim = ({ step }: OpenMyEsimProps) => {
+  const t = useTranslations("InstructionsDesktopComponents");
+
   return (
     <div className="flex flex-col gap-4">
       <RoundedLabel>{step}</RoundedLabel>
       <InfoRow>
-        <span>
-          Open “My eSIMs” page from your phone and click “Install eSIM“
-        </span>
+        <span>{t("openMyEsimsText")}</span>
       </InfoRow>
-      <CopyBlock text="https://www.jetsim.app/profile" label="SM-DP+ Address" />
+      <CopyBlock
+        text="https://www.jetsim.app/en-US/profile"
+        label={t("smDpAddressLabelText")}
+      />
     </div>
   );
 };
