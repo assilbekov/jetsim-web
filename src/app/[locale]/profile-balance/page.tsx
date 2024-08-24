@@ -21,20 +21,20 @@ export default function Index({
 }: {
   params: { placeId: string; locale: string };
 }) {
-  unstable_setRequestLocale(params.locale);
+  unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <LandingContainer className="p-6 bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
-        <Navbar howToHref="/#how-to" locale={params.locale} />
+        <Navbar howToHref="/#how-to" locale={params?.locale} />
       </LandingContainer>
       <ProfileScreenEvent />
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <ProfileInviteFriends />
-        <ProfileCards locale={params.locale} />
+        <ProfileCards locale={params?.locale} />
         <LandingSupport />
-        <Recommendations locale={params.locale} />
+        <Recommendations locale={params?.locale} />
         <FAQ />
-        <LandingFooter locale={params.locale} />
+        <LandingFooter locale={params?.locale} />
       </div>
     </main>
   );

@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode,
   params: {locale: string}
 }) {
-  unstable_setRequestLocale(params.locale);
+  unstable_setRequestLocale(params?.locale);
   return (
     <html lang="en">
       <body>{children}</body>

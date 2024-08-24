@@ -116,7 +116,7 @@ export const LanguageSwitcher = () => {
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">
             {languagesList.map((language) => (
               <LanguageBlock
-                active={params.locale === language.code}
+                active={params?.locale === language.code}
                 key={language.code}
                 language={language}
               />

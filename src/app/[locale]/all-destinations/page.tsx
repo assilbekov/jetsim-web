@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function Index({ params }: { params: { locale: string } }) {
-  unstable_setRequestLocale(params.locale);
+  unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
       <div className="bg-text-900 sm:bg-[#F8F9FB] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] pb-4 md:pb-5">
@@ -21,14 +21,14 @@ export default function Index({ params }: { params: { locale: string } }) {
             <Navbar
               howToHref="/#how-to"
               faqHref="/#faq"
-              locale={params.locale}
+              locale={params?.locale}
             />
           </div>
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] sm:gap-[10px] md:gap-6 lg:gap-[10px]">
-        <AllDestinations locale={params.locale} />
-        <LandingFooter locale={params.locale} />
+        <AllDestinations locale={params?.locale} />
+        <LandingFooter locale={params?.locale} />
       </div>
     </main>
   );

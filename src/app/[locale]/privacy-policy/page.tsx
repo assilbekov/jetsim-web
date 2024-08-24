@@ -16,12 +16,12 @@ const TableCell = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function Index({ params }: { params: { locale: string } }) {
-  unstable_setRequestLocale(params.locale);
+  unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] overflow-hidden">
       <LandingContainer className="px-6 sm:px-8 pb-11">
         <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
-          <Navbar howToHref="/#how-to" faqHref="/#faq" locale={params.locale} />
+          <Navbar howToHref="/#how-to" faqHref="/#faq" locale={params?.locale} />
         </div>
         <div className="flex flex-col gap-4 md:gap-6 mt-4 sm:mt-6">
           <TermsTextBlock
@@ -599,7 +599,7 @@ export default function Index({ params }: { params: { locale: string } }) {
             ]}
           />
           <LandingFooterContent
-            locale={params.locale}
+            locale={params?.locale}
             cardClassName="border border-[#E6EFF2] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] rounded-[20px]"
           />
         </div>
