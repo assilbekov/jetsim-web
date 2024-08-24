@@ -8,7 +8,7 @@ import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
 
 export const CookieInfo = () => {
-  const t = useTranslations();
+  const t = useTranslations("CookieInfo");
   const [isCookieAccepted, setIsCookieAccepted] = useState(true);
 
   useEffect(() => {
