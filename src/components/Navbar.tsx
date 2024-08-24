@@ -43,11 +43,15 @@ export const Navbar = ({
     const hash = window.location.hash;
     let validID = hash?.split("?")?.[0];
 
-    if (validID) {
-      const element = document.querySelector(validID);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+    try {
+      if (validID) {
+        const element = document.querySelector(validID);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
+    } catch (error) {
+      console.error(error);
     }
   }, []);
 

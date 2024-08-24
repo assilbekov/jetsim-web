@@ -22,9 +22,14 @@ export default function CallbackPage() {
         }`
       );
       const {
-        payload: { accessToken, refreshToken },
+        payload: { accessToken, refreshToken, meta },
       }: ApiResponse<Tokens> = await res.json();
       const lastPage = localStorage.getItem("last_page");
+
+      if (meta?.newUser) {
+        (window as any)?.dataLayer.push({ event: "registration" });
+      }
+
       router.push(lastPage ?? "/");
 
       localStorage.setItem("accessToken", accessToken);

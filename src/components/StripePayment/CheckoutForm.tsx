@@ -10,7 +10,7 @@ import { PrimaryButton } from "../buttons/PrimaryButton";
 import { StripeError } from "@stripe/stripe-js";
 import { ErrorMessage } from "./ErrorMessage";
 import { useRouter, useSearchParams } from "next/navigation";
-import { handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
+import { handlePaymentAttemptEvent, handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPackage } from "@/api/packages";
 import { useTranslations } from "next-intl";
@@ -41,6 +41,7 @@ export const CheckoutForm = ({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    handlePaymentAttemptEvent();
     // TODO: Refactor stripe payment methods.
     handlePaymentMethodClickEvent("stripe");
 

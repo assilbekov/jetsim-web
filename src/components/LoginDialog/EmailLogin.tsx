@@ -37,12 +37,14 @@ const StyledInput = ({
   onChange,
   placeholder,
   className,
+  ...restProps
 }: DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
 >) => {
   return (
     <input
+      {...restProps}
       className={clsx(
         getTypographyClass(TypographyVariants.Caption),
         "px-6 py-4 mt-6 whitespace-nowrap border-2 border-solid border-slate-200 rounded-[32px] w-full",
@@ -105,6 +107,10 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
     if (response.ok) {
       const json: ApiResponse<Tokens> = await response.json();
 
+      if (json.payload?.meta?.newUser) {
+        (window as any)?.dataLayer.push({ event: "registration" });
+      }
+
       localStorage.setItem("accessToken", json.payload?.accessToken);
       localStorage.setItem("refreshToken", json.payload?.refreshToken);
       localStorage.setItem("user_email", email);
@@ -142,6 +148,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
           <StyledInput
             key="email"
             placeholder={t("enterEmail")}
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />

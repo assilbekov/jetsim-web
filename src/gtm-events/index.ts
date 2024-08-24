@@ -136,11 +136,11 @@ export const handleMainPageScreenEvent = () => {
 };
 
 export const handleMainPageCountryClickEvent = (countryId: string) => {
-  handleGTMEvent("main_country_click", { counry_page: countryId });
+  handleGTMEvent("main_country_click", { country_page: countryId });
 };
 
 export const handleCountryPageScreenEvent = (countryId: string) => {
-  handleGTMEvent("country_screen", { counry_page: countryId });
+  handleGTMEvent("country_screen", { country_page: countryId });
 };
 
 export const handleCountryPageCheckoutEvent = (
@@ -148,7 +148,7 @@ export const handleCountryPageCheckoutEvent = (
   package_id: string
 ) => {
   handleGTMEvent("country_checkout_click", {
-    counry_page: countryId,
+    country_page: countryId,
     tariff: package_id,
   });
 };
@@ -205,6 +205,10 @@ export const handleProfileScreenEvent = () => {
   handleGTMEvent("profile_screen");
 };
 
+export const handleAllDestinationsScreenEvent = () => {
+  handleGTMEvent("add_destinations_screen");
+};
+
 export const handleProfileInstallClickEvent = () => {
   handleGTMEvent("profile_install_click");
 };
@@ -215,4 +219,20 @@ export const handleProfileBuyClickEvent = () => {
 
 export const handleProfileCountryClickEvent = (countryId: string) => {
   handleGTMEvent("profile_country_click", { county_page: countryId });
+};
+
+export const handleCountrySelectMainEvent = () => {
+  handleGTMEvent("country_select_main");
+};
+
+export const handleCountrySelectCatalogEvent = () => {
+  handleGTMEvent("country_select_catalog");
+};
+
+export const handleCheckoutClickEvent = () => {
+  handleGTMEvent("checkout");
+};
+
+export const handlePaymentAttemptEvent = () => {
+  handleGTMEvent("payment_attempt");
 };

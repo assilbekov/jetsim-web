@@ -11,7 +11,11 @@ export const fetchLocations = async (query: string): Promise<Location[]> => {
     return [];
   }
 
-  const res = await fetch(`${geoServiceURL}places/suggest?query=${query}`);
+  const res = await fetch(`${geoServiceURL}places/suggest?query=${query}`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<Location[]> = await res.json();
   return json.payload;
 };
@@ -61,7 +65,11 @@ export const fetchLocation = async (
 export const fetchLocationCover = async (
   placeId: string
 ): Promise<LocationCover> => {
-  const res = await fetch(`${geoServiceURL}places/${placeId}/cover`);
+  const res = await fetch(`${geoServiceURL}places/${placeId}/cover`, {
+    headers: {
+      "Accept-Language": "en-US",
+    },
+  });
   const json: ApiResponse<LocationCover> = await res.json();
   return json.payload;
 };

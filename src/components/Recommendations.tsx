@@ -68,7 +68,13 @@ const Title = () => {
   return <Typography variant={TypographyVariants.H2}>{t("title")}</Typography>;
 };
 
-export const Recommendations = async ({locale}: {locale: string}) => {
+export const Recommendations = async ({
+  locale,
+  page,
+}: {
+  locale: string;
+  page: "Main" | "All-Destinations";
+}) => {
   const topCountries = await fetchTopCountries(11, locale);
 
   return (
@@ -80,6 +86,7 @@ export const Recommendations = async ({locale}: {locale: string}) => {
             <CountryCard
               key={country.title}
               country={country}
+              page={page}
               className={(() => {
                 switch (true) {
                   case index >= 0 && index < 4:

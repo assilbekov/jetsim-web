@@ -16,6 +16,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { Location } from "@/models/Location";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
+import { handleCheckoutClickEvent } from "@/gtm-events";
 
 type SelectPackagesBuyFormProps = {
   placeId: string;
@@ -152,6 +153,7 @@ export const SelectPackagesBuyForm = ({
   };
 
   const handleCheckout = () => {
+    handleCheckoutClickEvent();
     onSubmit(selectedPackageId);
   };
 

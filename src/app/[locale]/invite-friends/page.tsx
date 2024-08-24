@@ -29,13 +29,13 @@ export default function Index({ params }: { params: { locale: string } }) {
         <LandingContainer className="px-4 xxs:px-6">
           <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
             <Navbar locale={params?.locale} />
-            <Hero locale={params?.locale} />
+            <Hero locale={params?.locale} page="Main" />
           </div>
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
         {/* <HowToGetBonusFromInvitingFriends /> */}
-        <Recommendations locale={params?.locale} />
+        <Recommendations locale={params?.locale} page="Main" />
         <WhyBlock />
         <FAQ />
         <LandingFooter locale={params?.locale} />

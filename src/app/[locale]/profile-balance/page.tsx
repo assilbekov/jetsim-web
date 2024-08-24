@@ -32,7 +32,7 @@ export default function Index({
         <ProfileInviteFriends />
         <ProfileCards locale={params?.locale} />
         <LandingSupport />
-        <Recommendations locale={params?.locale} />
+        <Recommendations locale={params?.locale} page="Main" />
         <FAQ />
         <LandingFooter locale={params?.locale} />
       </div>

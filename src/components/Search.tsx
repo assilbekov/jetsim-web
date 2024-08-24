@@ -10,14 +10,23 @@ import { convertLocationBestCost } from "@/converters/location";
 import { Skeleton } from "./Skeleton";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { TypographyVariants, getTypographyClass } from "./Typography";
-import { handleMainPageCountryClickEvent } from "@/gtm-events";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
+import {
+  handleCountrySelectCatalogEvent,
+  handleCountrySelectMainEvent,
+  handleMainPageCountryClickEvent,
+} from "@/gtm-events";
+
+type SearchProps = {
+  page: "Main" | "All-Destinations";
+  locale: string;
+};
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
-export const Search = ({ locale }: { locale: string }) => {
-  const t = useTranslations("Search");
+export const Search = ({ page, locale }: SearchProps) => {
+  const t = useTranslations("Search")
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
@@ -47,6 +56,11 @@ export const Search = ({ locale }: { locale: string }) => {
   const handleElementClick = (location: Location) => {
     setOpen(false);
     handleMainPageCountryClickEvent(location.placeID);
+    if (page === "All-Destinations") {
+      handleCountrySelectCatalogEvent();
+    } else {
+      handleCountrySelectMainEvent();
+    }
   };
 
   const renderList = () => {

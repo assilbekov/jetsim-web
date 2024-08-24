@@ -7,6 +7,7 @@ export const refreshToken = async (refreshToken: string): Promise<Tokens> => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Accept-Language": "en-US",
     },
     body: JSON.stringify({ refreshToken }),
   });
@@ -18,7 +19,12 @@ export const getAuthSocialCallback = async (
   provider: string
 ): Promise<Tokens> => {
   const res = await fetch(
-    `${authServiceURL}${provider}/callback${window.location.search}&redirect=${authRedirect}`
+    `${authServiceURL}${provider}/callback${window.location.search}&redirect=${authRedirect}`,
+    {
+      headers: {
+        "Accept-Language": "en-US",
+      },
+    }
   );
   const json: ApiResponse<Tokens> = await res.json();
   return json.payload;

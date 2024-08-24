@@ -10,21 +10,33 @@ import {
 import { clsx } from "@/utils";
 import { CircledCountryImage } from "./CircledCountryImage";
 import { convertLocationBestCost } from "@/converters/location";
-import { handleMainPageCountryClickEvent } from "@/gtm-events";
+import {
+  handleCountrySelectCatalogEvent,
+  handleCountrySelectMainEvent,
+  handleMainPageCountryClickEvent,
+} from "@/gtm-events";
 
 type CountryCardProps = {
   country: Location;
   className?: string;
+  page: "Main" | "All-Destinations";
 };
 
 // Fix navigation issue.
-export const CountryCard = ({ country, className }: CountryCardProps) => {
+export const CountryCard = ({ country, className, page }: CountryCardProps) => {
   return (
     <Link
       key={country.title}
       className={className}
       href={`/places/${country.placeID}`}
-      onClick={() => handleMainPageCountryClickEvent(country.placeID)}
+      onClick={() => {
+        handleMainPageCountryClickEvent(country.placeID);
+        if (page === "All-Destinations") {
+          handleCountrySelectCatalogEvent();
+        } else {
+          handleCountrySelectMainEvent();
+        }
+      }}
     >
       <div className="flex h-full gap-4 px-5 py-[14px] items-center border-2 border-[#E9F0F2] hover:bg-[#EBEFF0] active:bg-[#C3D4D9] rounded-xl cursor-pointer active:border-[#C3D4D9] transition duration-200 ease-in-out">
         <div className="w-[34px] h-[34px] md:min-w-10 md:min-h-10 flex items-center rounded-full">
