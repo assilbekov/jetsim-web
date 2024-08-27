@@ -78,7 +78,7 @@ export const PackageOption = ({
   selected,
   tag,
 }: PackageOptionProps) => {
-  const t = useTranslations("PackageOption");
+  const t = useTranslations("PlacePackagesCard");
 
   return (
     <label

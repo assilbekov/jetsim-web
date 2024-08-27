@@ -26,8 +26,8 @@ export const LoginLink = ({ locale }: LoginLink) => {
     localStorage.removeItem("refreshToken");
     setIsLoggedIn(false);
 
-    if (window.location.pathname === "/profile") {
-      window.location.href = "/";
+    if (window.location.pathname === `/${locale}/profile`) {
+      window.location.href = `/${locale}`;
     }
   };
 

@@ -71,7 +71,7 @@ type CheckCompatibilityDialogProps = {
 export const CheckCompatibilityDialog = ({
   onClose,
 }: CheckCompatibilityDialogProps) => {
-  const t = useTranslations("CheckCompatibilityDialog");
+  const t = useTranslations("CheckCompatibility");
 
   return (
     <Dialog onClose={onClose}>
