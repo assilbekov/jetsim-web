@@ -10,7 +10,11 @@ import { PrimaryButton } from "../buttons/PrimaryButton";
 import { StripeError } from "@stripe/stripe-js";
 import { ErrorMessage } from "./ErrorMessage";
 import { useRouter, useSearchParams } from "next/navigation";
-import { handlePaymentAttemptEvent, handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
+import {
+  handlePaymentAttemptEvent,
+  handlePaymentMethodClickEvent,
+  trackPurchase,
+} from "@/gtm-events";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPackage } from "@/api/packages";
 import { useTranslations } from "next-intl";
@@ -19,12 +23,14 @@ type CheckoutFormProps = {
   packageID: string;
   placeID: string;
   cardID: string;
+  locale: string;
 };
 
 export const CheckoutForm = ({
   cardID,
   packageID,
   placeID,
+  locale,
 }: CheckoutFormProps) => {
   const router = useRouter();
   const stripe = useStripe();
@@ -58,7 +64,7 @@ export const CheckoutForm = ({
       confirmParams: {
         return_url: `${
           window.location.origin
-        }/payment/completion?cardID=${cardID}${
+        }/${locale}/payment/completion?cardID=${cardID}${
           isReinstall ? `&reinstall=true` : ``
         }`,
       },
@@ -88,7 +94,7 @@ export const CheckoutForm = ({
       });
 
       router.push(
-        `/payment/completion?cardID=${cardID}${
+        `/${locale}/payment/completion?cardID=${cardID}${
           isReinstall ? `&reinstall=true` : ``
         }`
       );

@@ -14,11 +14,13 @@ import { useTranslations } from "next-intl";
 type StripePaymentProps = {
   packageID: string;
   placeID: string;
+  locale: string;
 };
 
 export const StripePayment = ({
   placeID = "",
   packageID = "",
+  locale
 }: StripePaymentProps) => {
   const t = useTranslations("OrderSummary");
   const [stripePromise, setStripePromise] = useState<
@@ -64,6 +66,7 @@ export const StripePayment = ({
             cardID={cardID}
             packageID={packageID}
             placeID={placeID}
+            locale={locale}
           />
         </Elements>
       ) : (

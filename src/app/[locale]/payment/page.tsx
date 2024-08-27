@@ -62,7 +62,7 @@ export default function Index({ searchParams, params }: PageProps) {
               className="sm:max-w-[300px] sm:h-full"
               locale={params?.locale}
             />
-            <StripePayment {...searchParams} />
+            <StripePayment {...searchParams} locale={params?.locale} />
           </div>
         </div>
         <div className="flex flex-col sm:flex-row sm:justify-between gap-6 mt-6">
