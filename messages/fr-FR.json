@@ -543,5 +543,8 @@
     "FeatureAndTechDetails_network": "3G/4G/LTE/5G selon le réseau",
     "FeatureAndTechDetails_compatibleDevices": "Compatible avec tous les appareils avec eSIM",
     "FeatureAndTechDetails_checkCompatibility": "Vérifiez la compatibilité ici"
+  },
+  "LanguageSwitcher": {
+    "title": "Choisissez une langue et une région"
   }
 }

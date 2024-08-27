@@ -10,6 +10,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Link, usePathname } from "@/navigation";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type Language = {
   country: string;
@@ -96,6 +97,7 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
 
 export const LanguageSwitcher = () => {
   const params = useParams();
+  const t = useTranslations("LanguageSwitcher");
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -114,7 +116,7 @@ export const LanguageSwitcher = () => {
       {isOpen && (
         <Dialog onClose={() => setIsOpen(false)}>
           <DialogTitle
-            title="Choose a language and region"
+            title={t("title")}
             onClose={() => setIsOpen(false)}
           />
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">

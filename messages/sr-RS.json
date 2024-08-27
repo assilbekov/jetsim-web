@@ -543,5 +543,8 @@
     "FeatureAndTechDetails_network": "3G/4G/LTE/5G зависи од мреже",
     "FeatureAndTechDetails_compatibleDevices": "Компатибилан са свим уређајима са eSIM",
     "FeatureAndTechDetails_checkCompatibility": "Проверите компатибилност овде"
+  },
+  "LanguageSwitcher": {
+    "title": "Изаберите језик и регион"
   }
 }
