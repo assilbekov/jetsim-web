@@ -3,23 +3,33 @@ import { LandingFooterContent } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
 import { TermsScreenEvent } from "./_components/TermsScreenEvent";
-import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { PageProps } from "@/models/PageProps";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | JetSim eSIM Cards",
-  description:
-    "Explore JetSim's terms of service governing the use of our eSIM cards for seamless global connectivity. Understand our guidelines and obligations to ensure a secure and enjoyable user experience.",
-};
+export async function generateMetadata({ params }: PageProps) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
 
-export default function Index({ params }: { params: { locale: string } }) {
+  return {
+    title: t("termsOfServiceTitle"),
+    description: t("termsOfServiceDescription"),
+  };
+}
+
+export default function Index({ params }: PageProps) {
   unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] overflow-hidden">
       <TermsScreenEvent />
       <LandingContainer className="px-6 sm:px-8 pb-11">
         <div className="flex flex-col gap-6 pt-2 md:gap-9 xxs:pt-4 md:pt-6">
-          <Navbar howToHref="/#how-to" faqHref="/#faq" locale={params?.locale} />
+          <Navbar
+            howToHref="/#how-to"
+            faqHref="/#faq"
+            locale={params?.locale}
+          />
         </div>
         <div className="flex flex-col gap-4 md:gap-6 mt-4 sm:mt-6">
           <TermsTextBlock

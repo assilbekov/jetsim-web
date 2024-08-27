@@ -1,4 +1,4 @@
-import { NextIntlClientProvider, IntlProviderr } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 
 import "./globals.css";

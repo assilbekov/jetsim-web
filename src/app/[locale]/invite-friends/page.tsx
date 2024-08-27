@@ -1,21 +1,22 @@
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
-import { HowToGetBonusFromInvitingFriends } from "@/components/HowToGetBonusFromInvitingFriends";
-import { InviteFriendsHero } from "@/components/InviteFriendsHero";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { Recommendations } from "@/components/Recommendations";
 import { WhyBlock } from "@/components/WhyBlock";
-//import { MainScreenEvent } from "./_components/MainScreenEvent";
-import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { PageProps } from "@/models/PageProps";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export function generateMetadata(): Metadata {
+export async function generateMetadata({ params }: PageProps) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
+
   return {
-    title: "Invite your friends | Global Travel Internet - JetSim",
-    description:
-      "Discover JetSim's eSIM cards for seamless global travel internet. Buy international eSIMs for reliable connectivity wherever you go.",
+    title: t("inviteFriendsTitle"),
+    description: t("inviteFriendsDescription"),
   };
 }
 

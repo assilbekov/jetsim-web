@@ -546,5 +546,29 @@
   },
   "LanguageSwitcher": {
     "title": "Escolha um idioma e uma região"
+  },
+  "PagesMetadata": {
+    "homeTitle": "Comprar eSIM Internacional | Internet Global de Viagens - JetSim",
+    "homeDescription": "Descubra os cartões eSIM da JetSim para internet global de viagens sem falhas. Compre eSIMs internacionais para conectividade confiável onde quer que vá.",
+    "notFoundTitle": "Página Não Encontrada | Cartões eSIM JetSim",
+    "notFoundDescription": "Oops! A página que você está procurando não pode ser encontrada. Explore a JetSim para as melhores soluções eSIM para viagens globais e mantenha-se conectado em todo o mundo.",
+    "termsOfServiceTitle": "Termos de Serviço | Cartões eSIM JetSim",
+    "termsOfServiceDescription": "Explore os termos de serviço da JetSim que regem o uso dos nossos cartões eSIM para uma conectividade global sem falhas. Compreenda as nossas diretrizes e obrigações para garantir uma experiência de usuário segura e agradável.",
+    "profilePageTitle": "Perfil do Usuário | Cartões eSIM JetSim",
+    "profilePageDescription": "Gerencie a sua conta JetSim e as suas preferências pessoais com facilidade na nossa página de perfil do usuário. Atualize as suas informações e explore os nossos serviços eSIM concebidos para viajantes globais.",
+    "privacyPolicyTitle": "Política de Privacidade | Cartões eSIM JetSim",
+    "privacyPolicyDescription": "Saiba mais sobre o compromisso da JetSim com a sua privacidade através da nossa política de privacidade abrangente. Descubra como protegemos as suas informações pessoais enquanto fornecemos soluções eSIM confiáveis para conectividade global.",
+    "placePageTitle": "{title} eSIM para Turistas | Planos de Dados Móveis Ilimitados - JetSim",
+    "placePageDescription": "eSIM para {title}. Uma vasta gama de cartões SIM virtuais disponíveis para dispositivos iPhone e Android. Obtenha planos de dados móveis ilimitados dos principais fornecedores de eSIM em todo o mundo.",
+    "paymentPageTitle": "Finalizar Compra | Cartões eSIM JetSim",
+    "paymentPageDescription": "Conclua a sua compra de cartões eSIM JetSim e desfrute de internet global de viagens sem falhas. Processo de pagamento seguro e rápido para mantê-lo conectado em todo o mundo.",
+    "paymentCompletionTitle": "Pedido Concluído com Sucesso | Cartões eSIM JetSim",
+    "paymentCompletionDescription": "Obrigado por escolher os cartões eSIM da JetSim! O seu pedido foi processado com sucesso. Fique atento para uma conectividade global sem falhas com as nossas soluções eSIM confiáveis.",
+    "inviteFriendsTitle": "Convide os seus amigos | Internet Global de Viagens - JetSim",
+    "inviteFriendsDescription": "Descubra os cartões eSIM da JetSim para internet global de viagens sem falhas. Compre eSIMs internacionais para conectividade confiável onde quer que vá.",
+    "allDestinationsTitle": "Cartões eSIM Globais para Todos os Destinos | JetSim",
+    "allDestinationsDescription": "Descubra os cartões eSIM globais da JetSim para conectividade sem falhas para todos os destinos. Explore os nossos diversos planos eSIM concebidos para viajantes internacionais, garantindo acesso confiável à internet onde quer que vá. Mantenha-se conectado sem esforço com as soluções eSIM inovadoras da JetSim.",
+    "profileBalanceTitle": "Perfil do Usuário | Cartões eSIM JetSim",
+    "profileBalanceDescription": "Gerencie a sua conta JetSim e as suas preferências pessoais com facilidade na nossa página de perfil do usuário. Atualize as suas informações e explore os nossos serviços eSIM concebidos para viajantes globais."
   }
 }
