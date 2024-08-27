@@ -570,5 +570,8 @@
     "allDestinationsDescription": "Odkryj globalne karty eSIM JetSim, zapewniające bezproblemową łączność z wszystkimi miejscami docelowymi. Poznaj nasze różnorodne plany eSIM, zaprojektowane z myślą o międzynarodowych podróżnikach, zapewniające niezawodny dostęp do internetu, gdziekolwiek się udasz. Pozostań w kontakcie bez wysiłku dzięki innowacyjnym rozwiązaniom eSIM JetSim.",
     "profileBalanceTitle": "Profil użytkownika | Karty eSIM JetSim",
     "profileBalanceDescription": "Zarządzaj swoim kontem JetSim i preferencjami osobistymi z łatwością na naszej stronie profilu użytkownika. Aktualizuj swoje informacje i odkrywaj nasze usługi eSIM dostosowane do potrzeb globalnych podróżników."
+  },
+  "CountryCard": {
+    "from": "z"
   }
 }
