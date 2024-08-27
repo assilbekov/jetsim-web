@@ -7,8 +7,8 @@ import { Recommendations } from "@/components/Recommendations";
 import { PageProps } from "@/models/PageProps";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export async function generateMetadata({ params }: PageProps) {
-  const locale = params?.locale || "en-US";
+export async function generateMetadata() {
+  const locale = "en-US";
 
   const t = await getTranslations({
     locale,
@@ -21,12 +21,8 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function NotFoundPage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  const locale = params?.locale || "en-US";
+export default function NotFoundPage() {
+  const locale = "en-US";
   unstable_setRequestLocale(locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
