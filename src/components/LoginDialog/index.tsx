@@ -73,7 +73,7 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
           <StyledLink href="/terms-of-service">
             {t("termsOfService")}
           </StyledLink>
-          <span> {t("and")} </span>
+          <span> {t("andText")} </span>
           <StyledLink href="/privacy-policy">{t("privacyPolicy")}</StyledLink>
         </div>
       </div>

@@ -324,7 +324,8 @@
     "enterVerificationCode": "Inserir código de verificação",
     "wrongCode": "Código incorreto",
     "continue": "Continuar",
-    "continueWithCode": "Continuar com código"
+    "continueWithCode": "Continuar com código",
+    "andText": "e"
   },
   "PlacePackagesCard": {
     "dayText": "dia",
