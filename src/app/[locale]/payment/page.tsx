@@ -8,14 +8,19 @@ import {
 import { clsx } from "@/utils";
 import Link from "next/link";
 import { PaymentScreenEvent } from "./_components/PaymentScreenEvent";
-import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Checkout | JetSim eSIM Cards",
-  description:
-    "Complete your purchase of JetSim eSIM cards and enjoy seamless global travel internet. Secure and fast checkout process to keep you connected worldwide.",
-};
+export async function generateMetadata({ params }: PageProps) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
+
+  return {
+    title: t("paymentPageTitle"),
+    description: t("paymentPageDescription"),
+  };
+}
 
 const ListElement = ({
   children,
@@ -57,7 +62,7 @@ export default function Index({ searchParams, params }: PageProps) {
               className="sm:max-w-[300px] sm:h-full"
               locale={params?.locale}
             />
-            <StripePayment {...searchParams} />
+            <StripePayment {...searchParams} locale={params?.locale} />
           </div>
         </div>
         <div className="flex flex-col sm:flex-row sm:justify-between gap-6 mt-6">

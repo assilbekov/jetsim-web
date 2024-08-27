@@ -10,7 +10,7 @@ import { WhyBlock } from "@/components/WhyBlock";
 import { CountryScreenEvent } from "./_components/CountryScreenEvent";
 import { Metadata } from "next";
 import { fetchLocation } from "@/api/locations";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
 type PageProps = {
   params: { placeId: string; locale: string };
@@ -19,10 +19,15 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
   const location = await fetchLocation(params.placeId, params?.locale);
+
   return {
-    title: `${location.title} eSIM for Tourists | Unlimited Mobile Data Plans - JetSim`,
-    description: `eSIM for ${location.title} A vast array of virtual SIM cards available for iPhone and Android devices. Get unlimited mobile data plans from leading eSIM providers worldwide.`,
+    title: t("placePageTitle", { title: location.title }),
+    description: t("placePageDescription", { title: location.title }),
   };
 }
 

@@ -7,14 +7,20 @@ import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar";
 import { FinishedScreenEvent } from "./_components/FinishedScreenEvent";
-import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { PageProps } from "@/models/PageProps";
 
-export const metadata: Metadata = {
-  title: "Successful Order Completion | JetSim eSIM Cards",
-  description:
-    "Thank you for choosing JetSim eSIM cards! Your order has been successfully processed. Stay tuned for seamless global connectivity with our reliable eSIM solutions.",
-};
+export async function generateMetadata({ params }: PageProps) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
+
+  return {
+    title: t("paymentCompletionTitle"),
+    description: t("paymentCompletionDescription"),
+  };
+}
 
 export default function Completion({
   searchParams,

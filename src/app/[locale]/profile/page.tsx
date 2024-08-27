@@ -6,14 +6,20 @@ import { Navbar } from "@/components/Navbar";
 import { ProfileCards } from "@/components/ProfileCards";
 import { Recommendations } from "@/components/Recommendations";
 import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
-import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { PageProps } from "@/models/PageProps";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "User Profile | JetSim eSIM Cards",
-  description:
-    "Manage your JetSim account and personal preferences with ease on our user profile page. Update your information and explore our eSIM services tailored for global travelers.",
-};
+export async function generateMetadata({ params }: PageProps) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
+
+  return {
+    title: t("profilePageTitle"),
+    description: t("profilePageDescription"),
+  };
+}
 
 export default function Index({
   params,

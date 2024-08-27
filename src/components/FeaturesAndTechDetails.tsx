@@ -8,6 +8,7 @@ import {
 } from "./Typography";
 import { clsx } from "@/utils";
 import { CheckCompatibility } from "./CheckCompatibility";
+import { useTranslations } from "next-intl";
 
 type FeatureProps = {
   imageSrc: string;
@@ -32,35 +33,40 @@ const Feature = ({ imageSrc, imageAlt, content }: FeatureProps) => {
 };
 
 export const FeatureAndTechDetails = () => {
+  const t = useTranslations("FeatureAndTechDetails");
+
   return (
     <LandingContainer>
       <Card>
         <Typography variant={TypographyVariants.H2}>
-          Features and technical details
+          {t("FeatureAndTechDetails_title")}
         </Typography>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xxs:gap-5 sm:gap-y-4 sm:gap-x-8 mt-4 md:mt-6 lg:mt-8">
           <Feature
             imageSrc="/icons/shield.svg"
             imageAlt="shield icon"
-            content="No hidden fees, extra costs"
+            content={t("FeatureAndTechDetails_noHiddenFees")}
           />
           <Feature
             imageSrc="/icons/no-calls.svg"
             imageAlt="no-calls icon"
-            content="Only data plans, without calls and SMS"
+            content={t("FeatureAndTechDetails_onlyDataPlans")}
           />
           <Feature
             imageSrc="/icons/cell-tower.svg"
             imageAlt="cell tower icon"
-            content="3G/4G/LTE/5G depends on the network"
+            content={t("FeatureAndTechDetails_network")}
           />
           <Feature
             imageSrc="/icons/sim.svg"
             imageAlt="sim icon"
             content={
               <>
-                Compatible with all devices with eSIM
-                <CheckCompatibility label="Check  compatibility here" className="mt-0.5" />
+                {t("FeatureAndTechDetails_compatibleDevices")}
+                <CheckCompatibility
+                  label={t("FeatureAndTechDetails_checkCompatibility")}
+                  className="mt-0.5"
+                />
               </>
             }
           />

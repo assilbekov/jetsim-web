@@ -3,14 +3,20 @@ import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar";
 import { AllDestinationsScreenEvent } from "@/components/ScreenEvents/AllDestinationsEvent";
-import { Metadata } from "next";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { PageProps } from "@/models/PageProps";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Global eSIM Cards for All Destinations | JetSim",
-  description:
-    "Discover JetSim's global eSIM cards for seamless connectivity to all destinations. Explore our diverse eSIM plans designed for international travelers, ensuring reliable internet access wherever you roam. Stay connected effortlessly with JetSim's innovative eSIM solutions.",
-};
+export async function generateMetadata({ params }: PageProps) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "PagesMetadata",
+  });
+
+  return {
+    title: t("allDestinationsTitle"),
+    description: t("allDestinationsDescription"),
+  };
+}
 
 export default function Index({ params }: { params: { locale: string } }) {
   unstable_setRequestLocale(params?.locale);

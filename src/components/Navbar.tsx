@@ -55,6 +55,32 @@ export const Navbar = ({
     }
   }, []);
 
+  useEffect(() => {
+    window.onerror = function (message, source, lineno, colno, error) {
+      const maxReloads = 3;
+      const reloadKey = "reload_attempts";
+
+      // Get the current reload count from localStorage
+      let reloadAttempts = parseInt(localStorage.getItem(reloadKey) || "") || 0;
+
+      if (reloadAttempts < maxReloads) {
+        // Increment the reload count
+        reloadAttempts += 1;
+        localStorage.setItem(reloadKey, String(reloadAttempts));
+
+        console.warn(
+          `Reloading the page. Attempt ${reloadAttempts} of ${maxReloads}`
+        );
+        // Reload the page
+        window.location.reload();
+      } else {
+        console.error("Maximum reload attempts reached. Not reloading.");
+        // Optional: Show a message to the user
+        alert("Something went wrong. Please try again later.");
+      }
+    };
+  }, []);
+
   // TODO: Refactor to use refs.
   const handleMenuOpenChange = (open: boolean) => {
     const button = document.getElementById("mobile-nav-toggle");

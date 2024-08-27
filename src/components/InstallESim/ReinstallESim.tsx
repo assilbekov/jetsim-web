@@ -28,7 +28,7 @@ export const ReinstallESim = ({ className }: ReinstallESimProps) => {
       />
       <div>
         <h6 className={getTypographyClass(TypographyVariants.Body2)}>
-          {t("title")}
+          {t("ReinstallESim_title")}
         </h6>
         <p
           className={clsx(
@@ -36,7 +36,7 @@ export const ReinstallESim = ({ className }: ReinstallESimProps) => {
             "text-text-600 mt-0.5"
           )}
         >
-          {t("message")}
+          {t("ReinstallESim_message")}
         </p>
       </div>
     </div>

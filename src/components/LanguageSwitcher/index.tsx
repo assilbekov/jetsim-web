@@ -7,8 +7,10 @@ import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import { Link } from "@/navigation";
+import { Link, usePathname } from "@/navigation";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type Language = {
   country: string;
@@ -60,11 +62,14 @@ type LanguageBlockProps = {
 };
 
 const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
+  const pathname = usePathname();
+
   return (
     <Link
       // TODO: Remove typecasting and root navigation.
       locale={language.code as any}
-      href="/"
+      href={pathname}
+      //href="/"
       className={clsx(
         "px-5 py-4 rounded-2xl border-2 border-solid border-transparent hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
         active ? "border-[#E9F0F2] bg-[#E9F0F2]" : ""
@@ -92,6 +97,7 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
 
 export const LanguageSwitcher = () => {
   const params = useParams();
+  const t = useTranslations("LanguageSwitcher");
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -110,7 +116,7 @@ export const LanguageSwitcher = () => {
       {isOpen && (
         <Dialog onClose={() => setIsOpen(false)}>
           <DialogTitle
-            title="Choose a language and region"
+            title={t("title")}
             onClose={() => setIsOpen(false)}
           />
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">
