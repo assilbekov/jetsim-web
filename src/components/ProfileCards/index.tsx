@@ -141,6 +141,7 @@ export const ProfileCards = ({ locale }: { locale: string }) => {
           <CardDialog
             key={dialog.type}
             {...dialog}
+            locale={locale}
             setDialog={setDialog}
             onSeeInstructionsClick={() => {
               handleSuccessPaymentInstructionClick();

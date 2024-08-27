@@ -23,6 +23,7 @@ import { PackageTagEnum } from "@/models/Package";
 import { fetchPackages } from "@/api/packages";
 import { handleCountryPageCheckoutEvent } from "@/gtm-events";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/navigation";
 
 type PlacePackagesCardProps = {
   placeId: string;
@@ -33,6 +34,7 @@ export const PlacePackagesCard = ({
   placeId,
   locale,
 }: PlacePackagesCardProps) => {
+  const router = useRouter();
   const t = useTranslations("PlacePackagesCard");
   const searchParams = useSearchParams();
 
@@ -84,7 +86,7 @@ export const PlacePackagesCard = ({
     const accessToken = localStorage.getItem("accessToken");
     const redirectUrl = `${
       window.location.origin
-    }/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
+    }/${locale}/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
 
     if (!accessToken) {
       return setLoginRedirectUrl(redirectUrl);

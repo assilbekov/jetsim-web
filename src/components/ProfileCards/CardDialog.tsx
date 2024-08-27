@@ -41,6 +41,7 @@ export type CardDialogModel = {
 };
 
 type CardDialogProps = {
+  locale: string;
   setDialog: (model: CardDialogModel | null) => void;
   onSeeInstructionsClick: () => void;
 } & CardDialogModel;
@@ -225,13 +226,13 @@ const DetailsContent = ({
   );
 };
 
-const BuyNewPlanContent = ({ location, setDialog }: CardDialogProps) => {
+const BuyNewPlanContent = ({ location, setDialog, locale }: CardDialogProps) => {
   const router = useRouter();
   const t = useTranslations("CardDialog");
 
   const handleCheckout = (selectedPackageId: string) => {
     handleProfileCountryClickEvent(location.placeID);
-    const redirectUrl = `${window.location.origin}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}&reinstall=true`;
+    const redirectUrl = `${window.location.origin}${locale}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}&reinstall=true`;
     router.push(redirectUrl);
   };
 
