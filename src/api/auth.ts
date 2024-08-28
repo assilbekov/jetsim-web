@@ -2,6 +2,7 @@ import { authServiceURL, authRedirect } from "@/config";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Profile } from "@/models/Profile";
 import { fetchProtected } from "./protected-apis";
+import { isoLanguagesMap } from "@/i18n";
 
 export type SocialAuthLinkResponse = {
   link: string;
@@ -30,4 +31,20 @@ export const getProfile = async (): Promise<Profile> => {
   });
   const json: ApiResponse<Profile> = await res.json();
   return json.payload;
+};
+
+export const setUserLanguage = async (locale: string): Promise<void> => {
+  await fetchProtected(
+    "https://auth.jetsim.app/api/v1/user/settings/language",
+    {
+      body: JSON.stringify({
+        languageISOCode:
+          isoLanguagesMap[locale as keyof typeof isoLanguagesMap] ?? "",
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+    }
+  );
 };

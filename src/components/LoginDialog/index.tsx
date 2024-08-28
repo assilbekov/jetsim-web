@@ -9,7 +9,7 @@ import { DialogTitle } from "../Dialog/DialogTitle";
 import { createPortal } from "react-dom";
 import { handleLoginGoogleClickEvent } from "@/gtm-events";
 import { Link } from "@/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const StyledLink = ({
   children,
@@ -35,6 +35,7 @@ type LoginDialogProps = {
 
 export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
   const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations("LoginDialog");
 
   return createPortal(
@@ -63,6 +64,7 @@ export const LoginDialog = ({ onClose, redirectUrl }: LoginDialogProps) => {
               "last_page",
               redirectUrl || window.location.origin
             );
+            localStorage.setItem("last_locale", locale);
             const json: ApiResponse<{ link: string }> = await res.json();
             router.push(json.payload.link);
           }}

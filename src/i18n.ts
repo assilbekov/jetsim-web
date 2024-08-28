@@ -12,6 +12,16 @@ export const locales = [
   "es-ES",
 ];
 
+export const isoLanguagesMap = {
+  "en-US": "eng",
+  "fr-FR": "fra",
+  "de-DE": "deu",
+  "pl-PL": "pol",
+  "pt-PT": "por",
+  "sr-RS": "srp",
+  "es-ES": "spa",
+};
+
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();

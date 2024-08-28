@@ -18,9 +18,9 @@ import {
   handleLoginEmailClickEvent,
   handleLoginEmailCodeClickEvent,
 } from "@/gtm-events";
-import { getProfile } from "@/api/auth";
+import { getProfile, setUserLanguage } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -68,6 +68,7 @@ type EmailLoginProps = {
 
 export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
   const router = useRouter();
+  const locale = useLocale();
   const t = useTranslations("LoginDialog");
   const { utmsSearchParams } = useContext(UTMContext);
 
@@ -106,6 +107,8 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
     );
     if (response.ok) {
       const json: ApiResponse<Tokens> = await response.json();
+
+      setUserLanguage(locale);
 
       if (json.payload?.meta?.newUser) {
         (window as any)?.dataLayer.push({ event: "registration" });
