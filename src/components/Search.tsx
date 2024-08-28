@@ -84,7 +84,7 @@ export const Search = ({ page, locale }: SearchProps) => {
           <p className={getTypographyClass(TypographyVariants.Body)}>
             {t("noResults")}
           </p>
-          <Link href="all-destinations">
+          <Link href="/all-destinations">
             <SecondaryButton
               onClick={() => setOpen(false)}
               className="pt-3 pb-3"
