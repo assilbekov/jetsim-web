@@ -166,6 +166,10 @@
     "buyNewPlan": "Купите нови план",
     "day": "дан",
     "days": "дана",
+    "hour": "сат",
+    "hours": "сати",
+    "month": "месец",
+    "months": "месеци",
     "viewDetails": "Погледајте детаље"
   },
   "PlanningTripCard": {

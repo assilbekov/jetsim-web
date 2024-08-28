@@ -166,6 +166,10 @@
     "buyNewPlan": "Neuen Plan kaufen",
     "day": "Tag",
     "days": "Tage",
+    "hour": "Stunde",
+    "hours": "Stunden",
+    "month": "Monat",
+    "months": "Monate",
     "viewDetails": "Details ansehen"
   },
   "PlanningTripCard": {
@@ -340,7 +344,7 @@
     "day": "1 Tag",
     "currencyPrice": "{price} {currency}",
     "calculatedBasedOn": "Berechnet basierend auf",
-    "unlimitedPlans": "Unbegrenzte Pläne unterliegen den Richtlinien des Internetanbieters und den fairen Nutzungsrichtlinien, die Daten-Drosselung und Nutzungseinschränkungen nach einem bestimmten Schwellenwert umfassen können",
+    "unlimitedPlans": "Unbegrenzte Pläne",
     "eSIMFor": "eSIM für",
     "travellersAndRemoteWorkers": "Unbegrenzte und Standardpläne für Reisende und Remote-Arbeiter",
     "browsingHours": "{hours}h Surfen",

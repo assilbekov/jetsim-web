@@ -1,6 +1,6 @@
 "use client";
 
-import { getProfile } from "@/api/auth";
+import { getProfile, setUserLanguage } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
@@ -25,6 +25,7 @@ export default function CallbackPage() {
         payload: { accessToken, refreshToken, meta },
       }: ApiResponse<Tokens> = await res.json();
       const lastPage = localStorage.getItem("last_page");
+      const locale = localStorage.getItem("last_locale") || "en-US";
 
       if (meta?.newUser) {
         (window as any)?.dataLayer.push({ event: "registration" });
@@ -34,6 +35,9 @@ export default function CallbackPage() {
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
+
+      setUserLanguage(locale);
+
       getProfile().then((profile) => {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);

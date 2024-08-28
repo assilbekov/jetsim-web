@@ -11,12 +11,14 @@ import { useSearchParams } from "next/navigation";
 
 type InstallESimProps = {
   card: CardModel;
+  locale: string;
   onSeeInstructionsClick: () => void;
 };
 
 export const InstallESim = ({
   card,
   onSeeInstructionsClick,
+  locale,
 }: InstallESimProps) => {
   const searchParams = useSearchParams();
   const isReinstall = searchParams.get("reinstall");
@@ -29,6 +31,7 @@ export const InstallESim = ({
             QRContent={
               <QRCodeInstall
                 card={card}
+                locale={locale}
                 onSeeInstructionsClick={onSeeInstructionsClick}
               />
             }

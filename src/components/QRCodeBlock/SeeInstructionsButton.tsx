@@ -8,9 +8,13 @@ import { useTranslations } from "next-intl";
 
 type SeeInstructionsButtonProps = {
   card: Card;
+  locale: string;
 };
 
-export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
+export const SeeInstructionsButton = ({
+  card,
+  locale,
+}: SeeInstructionsButtonProps) => {
   const t = useTranslations("QRCodeBlock");
   const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
 
@@ -35,6 +39,7 @@ export const SeeInstructionsButton = ({ card }: SeeInstructionsButtonProps) => {
         <SeeInstructionsDialog
           card={card}
           onClose={() => setInstructionsDialogShow(false)}
+          locale={locale}
         />
       )}
     </>

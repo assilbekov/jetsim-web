@@ -19,7 +19,18 @@ export function convertDateToISO(dateTimeString: string) {
   return `${DD}.${MM}.${YYYY}`;
 }
 
-export const convertDateDiffToText = (d1: Date, d2: Date): string => {
+export const convertDateDiffToText = (
+  d1: Date,
+  d2: Date,
+  translations: {
+    hourSingular: string;
+    hourPlural: string;
+    daySingular: string;
+    dayPlural: string;
+    monthSingular: string;
+    monthPlural: string;
+  }
+): string => {
   const diffTime = Math.abs(d1.getTime() - d2.getTime());
   const diffHours = Math.round(diffTime / (1000 * 60 * 60));
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
@@ -28,14 +39,20 @@ export const convertDateDiffToText = (d1: Date, d2: Date): string => {
   if (!diffTime) return "";
 
   if (diffMonths >= 1) {
-    return `${diffMonths} month${diffMonths > 1 ? "s" : ""}`;
+    return `${diffMonths} ${
+      diffMonths > 1 ? translations.monthPlural : translations.monthSingular
+    }`;
   }
 
   if (diffDays >= 1) {
-    return `${diffDays} day${diffDays > 1 ? "s" : ""}`;
+    return `${diffDays} ${
+      diffMonths > 1 ? translations.dayPlural : translations.daySingular
+    }`;
   }
 
-  return `${diffHours} hour${diffHours > 1 ? "s" : ""}`;
+  return `${diffHours} ${
+    diffMonths > 1 ? translations.hourPlural : translations.hourSingular
+  }`;
 };
 
 export const convertLPACodeToBlocks = (

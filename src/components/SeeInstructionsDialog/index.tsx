@@ -27,6 +27,7 @@ const StyledTagButton = (props: TagButtonsProps) => {
 type SeeInstructionsDialogProps = {
   card: Card;
   onClose: () => void;
+  locale: string;
 };
 
 enum DeviceType {
@@ -37,6 +38,7 @@ enum DeviceType {
 export const SeeInstructionsDialog = ({
   card,
   onClose,
+  locale,
 }: SeeInstructionsDialogProps) => {
   const t = useTranslations("SeeInstructionsDialog");
   const { isAndroid } = useDeviceTypeAndVerion();
@@ -74,7 +76,7 @@ export const SeeInstructionsDialog = ({
         </StyledTagButton>
       </div>
       {deviceType === DeviceType.iOS ? (
-        <IOSContent card={card} />
+        <IOSContent card={card} locale={locale} />
       ) : (
         <AndroidContent card={card} />
       )}

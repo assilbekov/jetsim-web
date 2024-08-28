@@ -23,9 +23,10 @@ const CopyBlock = ({ text, label }: CopyBlockProps) => {
 
 type OpenMyEsimProps = {
   step: number;
+  locale: string;
 };
 
-export const OpenMyEsim = ({ step }: OpenMyEsimProps) => {
+export const OpenMyEsim = ({ step, locale }: OpenMyEsimProps) => {
   const t = useTranslations("InstructionsDesktopComponents");
 
   return (
@@ -35,7 +36,7 @@ export const OpenMyEsim = ({ step }: OpenMyEsimProps) => {
         <span>{t("openMyEsimsText")}</span>
       </InfoRow>
       <CopyBlock
-        text="https://www.jetsim.app/en-US/profile"
+        text={`https://www.jetsim.app/${locale || "en-US"}/profile`}
         label={t("smDpAddressLabelText")}
       />
     </div>

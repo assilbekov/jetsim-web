@@ -44,7 +44,7 @@ export default function Completion({
       </div>
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <ThanksForPurchase />
-        <CompletionSuccess cardID={cardID} />
+        <CompletionSuccess cardID={cardID} locale={params.locale} />
         <BeforeInstallation />
         <LandingSupport />
         <FAQ />
