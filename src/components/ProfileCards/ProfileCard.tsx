@@ -45,7 +45,14 @@ export function ProfileCard({
   const isDaysLeftLow = daysProgress < 20;
   const isTimeLeftLow = timeProgress < 80;
 
-  const expiredText = convertDateDiffToText(expirationDate, currentDate);
+  const expiredText = convertDateDiffToText(expirationDate, currentDate, {
+    hourSingular: t("hour"),
+    hourPlural: t("hours"),
+    daySingular: t("days"),
+    dayPlural: t("day"),
+    monthSingular: t("month"),
+    monthPlural: t("months"),
+  });
   const dataIsOver =
     !card.package.traffic.isUnlimited &&
     (!card.trafficRemainingBytes || card.trafficRemainingBytes < 1);

@@ -166,6 +166,10 @@
     "buyNewPlan": "Acheter un nouveau plan",
     "day": "jour",
     "days": "jours",
+    "hour": "heure",
+    "hours": "heures",
+    "month": "mois",
+    "months": "mois",
     "viewDetails": "Voir les détails"
   },
   "PlanningTripCard": {

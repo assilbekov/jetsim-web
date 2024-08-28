@@ -135,7 +135,7 @@
     "destinations": "Destinos",
     "howItWorks": "Cómo funciona",
     "support": "Soporte",
-    "faq": "Preguntas frecuentes"
+    "faq": "FAQ"
   },
   "Login": {
     "login": "Iniciar sesión",
@@ -166,6 +166,10 @@
     "buyNewPlan": "Comprar nuevo plan",
     "day": "día",
     "days": "días",
+    "hour": "hora",
+    "hours": "horas",
+    "month": "mes",
+    "months": "meses",
     "viewDetails": "Ver detalles"
   },
   "PlanningTripCard": {
