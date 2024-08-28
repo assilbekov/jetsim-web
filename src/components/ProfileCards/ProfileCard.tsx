@@ -58,7 +58,7 @@ export function ProfileCard({
     if (expirationDate < currentDate) {
       return t("expiredAgo", { expiredText });
     }
-    return t("expiresIn", { expiredText });
+    return t("expiresIn", { expiresText: expiredText });
   };
 
   const renderTrafficText = () => {
