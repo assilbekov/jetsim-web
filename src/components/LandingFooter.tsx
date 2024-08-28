@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Card } from "./Card";
 import { LandingContainer } from "./LandingContainer";
 import { clsx } from "@/utils";
@@ -62,11 +62,12 @@ const AddressBlock = ({ className }: { className: string }) => {
   );
 };
 
-const TopCountries = async ({ locale }: { locale: string }) => {
-  const topCountriesRes = await fetchTopCountries(5, locale);
+const TopCountries = async () => {
+  const locale = useLocale();
+  const topCountriesRes = await fetchTopCountries(6, locale);
   return (
     <ListBlock>
-      {topCountriesRes.data.map((country) => (
+      {topCountriesRes.data.splice(0, 5).map((country) => (
         <ListElement key={country.placeID} href={`/places/${country.placeID}`}>
           {country.title}
         </ListElement>
@@ -97,7 +98,7 @@ export const LandingFooterContent = ({
         <div className="flex gap-8 flex-col sm:flex-row">
           <LinksBlock>
             <Title>{t("top_destinations")}</Title>
-            <TopCountries locale={locale} />
+            <TopCountries />
           </LinksBlock>
           <LinksBlock>
             <Title>{t("legal")}</Title>
@@ -118,9 +119,9 @@ export const LandingFooterContent = ({
 };
 
 export const LandingFooter = ({
+  locale,
   cardClassName,
   containerClassName,
-  locale,
 }: LandingFooterProps) => {
   return (
     <LandingContainer
