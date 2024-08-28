@@ -5,7 +5,6 @@ import { UTMContext } from "@/contexts/UTMContext";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 import { useQuery } from "@tanstack/react-query";
-import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 
