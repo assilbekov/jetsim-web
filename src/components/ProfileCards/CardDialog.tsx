@@ -48,6 +48,7 @@ type CardDialogProps = {
 
 const InstallContent = ({
   card,
+  locale,
   setDialog,
   onSeeInstructionsClick,
 }: CardDialogProps) => {
@@ -61,6 +62,7 @@ const InstallContent = ({
           <InfoCard>
             <QRCodeInstall
               card={card}
+              locale={locale}
               onSeeInstructionsClick={onSeeInstructionsClick}
             />
           </InfoCard>

@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 type QRCodeBlockProps = {
   size: number;
   card: Card;
+  locale: string;
 };
 
 const Title = ({ children }: { children: React.ReactNode }) => {
@@ -52,7 +53,7 @@ const QRCodeElement = ({ url, size }: { url: string; size: number }) => {
   );
 };
 
-export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
+export const QRCodeBlock = ({ card, size, locale }: QRCodeBlockProps) => {
   const t = useTranslations("QRCodeBlock");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
 
@@ -100,7 +101,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           </div>
           <Title>{t("titleIOS16")}</Title>
           <Description>{t("descriptionIOS16")}</Description>
-          <SeeInstructionsButton card={card} />
+          <SeeInstructionsButton card={card} locale={locale} />
         </div>
       );
     }
@@ -112,7 +113,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <Title>{t("titleIOSOther")}</Title>
           <Description>{t("descriptionIOSOther")}</Description>
           <ShareQRCodeButton />
-          <SeeInstructionsButton card={card} />
+          <SeeInstructionsButton card={card} locale={locale} />
         </div>
       );
     }
@@ -123,7 +124,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
           <QRCodeElement url={card.lpaCode} size={size} />
           <Title>{t("titleDesktop")}</Title>
           <Description>{t("descriptionDesktop")}</Description>
-          <SeeInstructionsButton card={card} />
+          <SeeInstructionsButton card={card} locale={locale} />
         </div>
       );
     }
@@ -134,7 +135,7 @@ export const QRCodeBlock = ({ card, size }: QRCodeBlockProps) => {
         <Title>{t("titleDefault")}</Title>
         <Description>{t("descriptionDefault")}</Description>
         <ShareQRCodeButton />
-        <SeeInstructionsButton card={card} />
+        <SeeInstructionsButton card={card} locale={locale} />
       </div>
     );
   };

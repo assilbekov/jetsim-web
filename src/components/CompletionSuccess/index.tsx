@@ -47,7 +47,7 @@ function fetchCardWithRetry(
   return attemptFetch(retries);
 }
 
-export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
+export const CompletionSuccess = ({ cardID, locale }: { cardID: string; locale: string; }) => {
   const [card, setCard] = useState<CardModel | null>(null);
   const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
 
@@ -67,6 +67,7 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
         <>
           <InstallESim
             card={card}
+            locale={locale}
             onSeeInstructionsClick={() => {
               handleSuccessPaymentInstructionClick();
               setInstructionsDialogShow(true);

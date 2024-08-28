@@ -16,9 +16,10 @@ import { useTranslations } from "next-intl";
 
 type IOSContentProps = {
   card: Card;
+  locale: string;
 };
 
-export const IOSContent = ({ card }: IOSContentProps) => {
+export const IOSContent = ({ card, locale }: IOSContentProps) => {
   const t = useTranslations("SeeInstructionsDialog");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
 
@@ -82,7 +83,7 @@ export const IOSContent = ({ card }: IOSContentProps) => {
         <>
           <p className="mt-5 mb-4">{t("ios175LaterText")}</p>
           <StyledContent>
-            <OpenMyEsim step={1} />
+            <OpenMyEsim step={1} locale={locale} />
             <TurnOnDataRoamingStep step={2} />
           </StyledContent>
         </>
