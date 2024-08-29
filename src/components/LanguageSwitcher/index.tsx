@@ -9,7 +9,6 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Link, usePathname } from "@/navigation";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
 type Language = {
@@ -68,8 +67,7 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
     <Link
       // TODO: Remove typecasting and root navigation.
       locale={language.code as any}
-      href={pathname}
-      //href="/"
+      href={`${pathname}${window.location.search || ""}`}
       className={clsx(
         "px-5 py-4 rounded-2xl border-2 border-solid border-transparent hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
         active ? "border-[#E9F0F2] bg-[#E9F0F2]" : ""
@@ -115,10 +113,7 @@ export const LanguageSwitcher = () => {
       </TertiaryButton>
       {isOpen && (
         <Dialog onClose={() => setIsOpen(false)}>
-          <DialogTitle
-            title={t("title")}
-            onClose={() => setIsOpen(false)}
-          />
+          <DialogTitle title={t("title")} onClose={() => setIsOpen(false)} />
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">
             {languagesList.map((language) => (
               <LanguageBlock
