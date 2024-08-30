@@ -46,7 +46,7 @@ export const AccordionPanel = ({
       <div id={panelTitleId} className="flex gap-4 cursor-pointer">
         <h3
           className={clsx(
-            "w-full",
+            "w-full text-text-100",
             matchTypographyMediaQuery({
               default: TypographyVariants.Caption,
               md: TypographyVariants.Body,
