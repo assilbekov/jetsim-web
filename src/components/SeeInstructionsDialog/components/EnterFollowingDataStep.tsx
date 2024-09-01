@@ -34,7 +34,7 @@ export const EnterFollowingDataStep = ({
   card,
   isAndroid,
 }: EnterFollowingDataStepProps) => {
-  const t = useTranslations("SeeInstructionsDialog");
+  const t = useTranslations("SeeInstructions");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const { addr, activationCodeAndroid, activationCodeIOS } =
     convertLPACodeToBlocks(card.lpaCode);
@@ -43,20 +43,14 @@ export const EnterFollowingDataStep = ({
     <div className="flex flex-col gap-4">
       <RoundedLabel>{step}</RoundedLabel>
       <InfoRow>
-        <span>{t("enterFollowingDataText")}</span>
+        <span>{t("enterData")}</span>
       </InfoRow>
       {deviceTypeAndVerion.isAndroid || isAndroid ? (
-        <CopyBlock
-          text={activationCodeAndroid}
-          label={t("activationCodeLabelText")}
-        />
+        <CopyBlock text={activationCodeAndroid} label={t("activationCode")} />
       ) : (
         <>
-          <CopyBlock text={addr} label={t("smdpAddressLabelText")} />
-          <CopyBlock
-            text={activationCodeIOS}
-            label={t("activationCodeLabelText")}
-          />
+          <CopyBlock text={addr} label={t("smdpAddress")} />
+          <CopyBlock text={activationCodeIOS} label={t("activationCode")} />
         </>
       )}
     </div>

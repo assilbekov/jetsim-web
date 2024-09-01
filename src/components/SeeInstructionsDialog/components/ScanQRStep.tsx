@@ -19,7 +19,7 @@ type ScanQRStepProps = {
 };
 
 export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
-  const t = useTranslations("SeeInstructionsDialoga");
+  const t = useTranslations("SeeInstructions");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 
@@ -30,12 +30,14 @@ export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
       return (
         <>
           <span>
-            {t("tapText")}{" "}
-            {deviceTypeAndVerion.version >= "17.5" ? "" : t("andHoldText")}{" "}
-            {t("addESIMText")}
+            {t("tap")}
+            {deviceTypeAndVerion.version >= "17.5"
+              ? ""
+              : ` ${t("andHold")}`}{" "}
+            {t("onQR")}
           </span>
           <ArrowRightImage />
-          <span>{t("addESIMText")}</span>
+          <span>{t("addEsim")}</span>
         </>
       );
     }
@@ -43,21 +45,21 @@ export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
     if (!deviceTypeAndVerion.isDesktop) {
       return (
         <div>
-          <p>{t("shareQRCodeText")}</p>
+          <p>{t("shareQRCode")}</p>
           <p
             className={clsx(
               getTypographyClass(TypographyVariants.Caption),
               "mt-1 w-full text-text-600 text-center"
             )}
           >
-            {t("alternativeMethodText")}
+            {t("alternativeMethod")}
           </p>
           <ShareQRCodeButton />
         </div>
       );
     }
 
-    return t("scanQRCodeText");
+    return t("scanQRCode");
   };
 
   return (
