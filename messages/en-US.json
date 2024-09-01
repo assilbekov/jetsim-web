@@ -640,5 +640,26 @@
     "addESIM": "Add eSIM",
     "qrCodeAlt": "QR code icon",
     "useQRCode": "Use QR Code"
+  },
+  "SamsungInstructions": {
+    "goTo": "Go to",
+    "settingsAlt": "settings icon",
+    "settingsText": "Settings",
+    "wifiAlt": "wifi icon",
+    "connectionsText": "Connections",
+    "simManager": "SIM manager",
+    "addAlt": "add icon",
+    "addESIM": "Add eSIM",
+    "scanQRCode": "Scan QR code",
+    "enterActivationCode": "Enter activation code",
+    "add": "Add",
+    "mobileData": "Mobile Data",
+    "addIconAlt": "add icon",
+    "addEsimText": "Add eSIM",
+    "mobileNetworks": "Mobile Networks",
+    "turnOn": "Turn on",
+    "toggleAlt": "toggle icon",
+    "dataRoamingText": "Data Roaming",
+    "selectInstalledESIM": "Select installed eSIM"
   }
 }

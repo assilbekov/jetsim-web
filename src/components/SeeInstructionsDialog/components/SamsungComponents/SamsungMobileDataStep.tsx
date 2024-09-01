@@ -9,17 +9,17 @@ type SamsungMobileDataStepProps = {
 };
 
 export const SamsungMobileDataStep = ({ step }: SamsungMobileDataStepProps) => {
-  const t = useTranslations("SeeInstructionsDialog");
+  const t = useTranslations("SamsungInstructions"); // Hook for translations
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
-            alt="settings icon"
+            alt={t("settingsAlt")}
             text={t("settingsText")}
           />
           <ArrowRightImage />
@@ -27,17 +27,17 @@ export const SamsungMobileDataStep = ({ step }: SamsungMobileDataStepProps) => {
         <InfoRow>
           <IconWithText
             src="/icons/connection-blue.svg"
-            alt="wifi icon"
+            alt={t("wifiAlt")}
             text={t("connectionsText")}
           />
           <ArrowRightImage />
-          <span>{t("simManagerText")}</span>
+          <span>{t("simManager")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>{t("mobileDataText")}</span>
+          <span>{t("mobileData")}</span>
           <ArrowRightImage />
-          <span>{t("scanQRCodeText")}</span>
+          <span>{t("scanQRCode")}</span>
           <ArrowRightImage />
         </InfoRow>
       </div>
