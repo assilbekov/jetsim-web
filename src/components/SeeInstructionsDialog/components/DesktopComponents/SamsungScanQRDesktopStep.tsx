@@ -11,18 +11,18 @@ type SamsungScanQRDesktopStepProps = {
 export const SamsungScanQRDesktopStep = ({
   step,
 }: SamsungScanQRDesktopStepProps) => {
-  const t = useTranslations("InstructionsDesktopComponents");
+  const t = useTranslations("DesktopInstructions");
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
             alt="settings icon"
-            text={t("settingsText")}
+            text={t("settings")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -30,20 +30,20 @@ export const SamsungScanQRDesktopStep = ({
           <IconWithText
             src="/icons/connection-blue.svg"
             alt="wifi icon"
-            text={t("connectionsText")}
+            text={t("connections")}
           />
           <ArrowRightImage />
-          <span>{t("simManagerText")}</span>
+          <span>{t("simManager")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/plus-green.svg"
             alt="add icon"
-            text={t("addEsimText")}
+            text={t("addEsim")}
           />
           <ArrowRightImage />
-          <span>{t("scanQrCodeText")}</span>
+          <span>{t("scanQrCode")}</span>
           <ArrowRightImage />
         </InfoRow>
       </div>
