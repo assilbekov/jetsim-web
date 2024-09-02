@@ -33,7 +33,7 @@ export const Search = ({ page, locale }: SearchProps) => {
   const queryInfo = useQuery({
     queryKey: ["search", debouncedQuery],
     queryFn: async () => {
-      return fetchLocations(debouncedQuery);
+      return fetchLocations(debouncedQuery, locale);
     },
     staleTime: 1000 * 60 * 60,
   });
@@ -44,6 +44,8 @@ export const Search = ({ page, locale }: SearchProps) => {
     },
     staleTime: 1000 * 60 * 60,
   });
+
+  console.log({topCountriesInfo, locale, queryInfo, debouncedQuery, query, open, page})
 
   useEffect(() => {
     const timeout = setTimeout(() => {
