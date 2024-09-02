@@ -25,6 +25,7 @@ const CopyBlock = ({ text, label }: CopyBlockProps) => {
 
 type OpenMyEsimProps = {
   step: number;
+  locale: string;
 };
 
 export const OpenMyEsim = ({ step }: OpenMyEsimProps) => {
