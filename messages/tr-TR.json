@@ -331,6 +331,7 @@
     "changeEmail": "E-posta değiştir",
     "enterEmail": "E-posta gir",
     "enterVerificationCode": "Doğrulama kodunu girin",
+    "verificationCodeSent": "Altı haneli doğrulama kodu {email} adresine gönderildi.",
     "wrongCode": "Yanlış kod",
     "continue": "Devam et",
     "continueWithCode": "Kodla devam et",

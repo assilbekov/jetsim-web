@@ -331,6 +331,7 @@
     "changeEmail": "Change email",
     "enterEmail": "Enter email",
     "enterVerificationCode": "Enter the verification code",
+    "verificationCodeSent": "A six-digit verification code sent to {email}.",
     "wrongCode": "Wrong code",
     "continue": "Continue",
     "continueWithCode": "Continue with code",

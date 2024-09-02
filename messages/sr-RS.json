@@ -331,6 +331,7 @@
     "changeEmail": "Промените имејл",
     "enterEmail": "Унесите имејл",
     "enterVerificationCode": "Унесите верификациони код",
+    "verificationCodeSent": "Шестоцифрени верификациони код је послат на {email}.",
     "wrongCode": "Погрешан код",
     "continue": "Наставите",
     "continueWithCode": "Наставите са кодом",
