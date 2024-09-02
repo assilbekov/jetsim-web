@@ -690,5 +690,9 @@
     "turnOn": "Turn on",
     "addEsim": "Add eSIM",
     "scanQrCode": "Scan QR code"
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "description": "Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been moved or deleted, or perhaps the URL was mistyped"
   }
 }

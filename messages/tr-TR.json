@@ -690,5 +690,9 @@
     "turnOn": "Aç",
     "addEsim": "eSIM Ekle",
     "scanQrCode": "QR kodunu tara"
+  },
+  "NotFoundPage": {
+    "title": "Sayfa bulunamadı",
+    "description": "Hata! Aradığınız sayfa mevcut değil. Taşınmış veya silinmiş olabilir ya da URL yanlış girilmiş olabilir."
   }
 }
