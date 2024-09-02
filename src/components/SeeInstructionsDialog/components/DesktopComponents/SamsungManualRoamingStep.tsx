@@ -11,18 +11,18 @@ type SamsungManualRoamingStepProps = {
 export const SamsungManualRoamingStep = ({
   step,
 }: SamsungManualRoamingStepProps) => {
-  const t = useTranslations("InstructionsDesktopComponents");
+  const t = useTranslations("DesktopInstructions");
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
             alt="settings icon"
-            text={t("settingsText")}
+            text={t("settings")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -30,19 +30,19 @@ export const SamsungManualRoamingStep = ({
           <IconWithText
             src="/icons/connection-blue.svg"
             alt="wifi icon"
-            text={t("connectionsText")}
+            text={t("connections")}
           />
           <ArrowRightImage />
-          <span>{t("mobileNetworksText")}</span>
+          <span>{t("mobileNetworks")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>{t("selectInstalledEsimText")}</span>
+          <span>{t("selectEsim")}</span>
           <ArrowRightImage />
           <IconWithText
             src="/icons/toggle-blue.svg"
             alt="toggle icon"
-            text={t("dataRoamingText")}
+            text={t("dataRoaming")}
           />
         </InfoRow>
       </div>

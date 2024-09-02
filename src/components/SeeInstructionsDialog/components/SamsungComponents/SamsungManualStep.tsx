@@ -4,22 +4,22 @@ import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
 import { useTranslations } from "next-intl";
 
-type PixelManualStepProps = {
+type SamsungManualStepProps = {
   step: number;
 };
 
-export const SamsungManualStep = ({ step }: PixelManualStepProps) => {
-  const t = useTranslations("SeeInstructionsDialog");
+export const SamsungManualStep = ({ step }: SamsungManualStepProps) => {
+  const t = useTranslations("SamsungInstructions");
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
-            alt="settings icon"
+            alt={t("settingsAlt")}
             text={t("settingsText")}
           />
           <ArrowRightImage />
@@ -27,27 +27,27 @@ export const SamsungManualStep = ({ step }: PixelManualStepProps) => {
         <InfoRow>
           <IconWithText
             src="/icons/connection-blue.svg"
-            alt="wifi icon"
+            alt={t("wifiAlt")}
             text={t("connectionsText")}
           />
           <ArrowRightImage />
-          <span>{t("simManagerText")}</span>
+          <span>{t("simManager")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/plus-green.svg"
-            alt="add icon"
-            text={t("addESIMText")}
+            alt={t("addAlt")}
+            text={t("addESIM")}
           />
           <ArrowRightImage />
-          <span>{t("scanQRCodeText")}</span>
+          <span>{t("scanQRCode")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>{t("enterActivationCodeText")}</span>
+          <span>{t("enterActivationCode")}</span>
           <ArrowRightImage />
-          <span>{t("addText")}</span>
+          <span>{t("add")}</span>
         </InfoRow>
       </div>
     </div>

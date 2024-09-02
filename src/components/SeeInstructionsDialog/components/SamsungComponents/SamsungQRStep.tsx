@@ -9,17 +9,17 @@ type SamsungQRStepProps = {
 };
 
 export const SamsungQRStep = ({ step }: SamsungQRStepProps) => {
-  const t = useTranslations();
+  const t = useTranslations("SamsungInstructions");
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
-            alt="settings icon"
+            alt={t("settingsAlt")}
             text={t("settingsText")}
           />
           <ArrowRightImage />
@@ -27,21 +27,21 @@ export const SamsungQRStep = ({ step }: SamsungQRStepProps) => {
         <InfoRow>
           <IconWithText
             src="/icons/connection-blue.svg"
-            alt="wifi icon"
+            alt={t("wifiAlt")}
             text={t("connectionsText")}
           />
           <ArrowRightImage />
-          <span>{t("simManagerText")}</span>
+          <span>{t("simManager")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/plus-green.svg"
-            alt="add icon"
-            text={t("addESIMText")}
+            alt={t("addIconAlt")}
+            text={t("addEsimText")}
           />
           <ArrowRightImage />
-          <span>{t("scanQRCodeText")}</span>
+          <span>{t("scanQRCode")}</span>
         </InfoRow>
       </div>
     </div>

@@ -9,8 +9,8 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Link, usePathname } from "@/navigation";
 import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { setUserLanguage } from "@/api/auth";
 
 type Language = {
   country: string;
@@ -54,6 +54,16 @@ const languagesList: Language[] = [
     language: "Español",
     code: "es-ES",
   },
+  {
+    country: "Italia",
+    language: "Italiano",
+    code: "it-IT",
+  },
+  {
+    country: "Türkiye",
+    language: "Türkçe",
+    code: "tr-TR",
+  },
 ];
 
 type LanguageBlockProps = {
@@ -68,12 +78,18 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
     <Link
       // TODO: Remove typecasting and root navigation.
       locale={language.code as any}
-      href={pathname}
-      //href="/"
+      href={`${pathname}${window.location.search || ""}`}
       className={clsx(
         "px-5 py-4 rounded-2xl border-2 border-solid border-transparent hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
         active ? "border-[#E9F0F2] bg-[#E9F0F2]" : ""
       )}
+      onClick={() => {
+        // If user is logged in, set the user language
+        const accessToken = localStorage.getItem("accessToken");
+        if (accessToken) {
+          setUserLanguage(language.code);
+        }
+      }}
     >
       <h5
         className={clsx(
@@ -115,10 +131,7 @@ export const LanguageSwitcher = () => {
       </TertiaryButton>
       {isOpen && (
         <Dialog onClose={() => setIsOpen(false)}>
-          <DialogTitle
-            title={t("title")}
-            onClose={() => setIsOpen(false)}
-          />
+          <DialogTitle title={t("title")} onClose={() => setIsOpen(false)} />
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">
             {languagesList.map((language) => (
               <LanguageBlock

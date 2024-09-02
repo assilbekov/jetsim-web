@@ -1,7 +1,7 @@
 import { RoundedLabel } from "../RoundedLabel";
 import { InfoRow } from "../InfoRow";
 import { CopyButton } from "@/components/buttons/CopyButton";
-import { Link } from "@/navigation";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 type CopyBlockProps = {
@@ -10,10 +10,12 @@ type CopyBlockProps = {
 };
 
 const CopyBlock = ({ text, label }: CopyBlockProps) => {
+  const t = useTranslations("DesktopInstructions");
+
   return (
     <div className="flex flex-col gap-4 items-center p-4 bg-white rounded-xl">
       <div>
-        <p className="text-text-600 mb-2">{label}</p>
+        <p className="text-text-600 mb-2">{t(label)}</p>
         <Link href={text}>{text}</Link>
       </div>
       <CopyButton text={text} />
@@ -26,18 +28,18 @@ type OpenMyEsimProps = {
   locale: string;
 };
 
-export const OpenMyEsim = ({ step, locale }: OpenMyEsimProps) => {
-  const t = useTranslations("InstructionsDesktopComponents");
+export const OpenMyEsim = ({ step }: OpenMyEsimProps) => {
+  const t = useTranslations("DesktopInstructions");
 
   return (
     <div className="flex flex-col gap-4">
       <RoundedLabel>{step}</RoundedLabel>
       <InfoRow>
-        <span>{t("openMyEsimsText")}</span>
+        <span>{t("openEsimPage")}</span>
       </InfoRow>
       <CopyBlock
-        text={`https://www.jetsim.app/${locale || "en-US"}/profile`}
-        label={t("smDpAddressLabelText")}
+        text="https://www.jetsim.app/profile"
+        label={t("smdpAddressLabel")}
       />
     </div>
   );

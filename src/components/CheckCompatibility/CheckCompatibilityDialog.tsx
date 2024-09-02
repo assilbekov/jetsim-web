@@ -1,11 +1,9 @@
-"use client";
-
 import { clsx } from "@/utils";
 import { AccordionPanel } from "../AccordionPanel";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import { Link, LinkProps } from "@/navigation";
+import Link, { LinkProps } from "next/link";
 import { useTranslations } from "next-intl";
 
 const Paragraph = ({ children }: { children: React.ReactNode }) => (
@@ -30,12 +28,23 @@ const Subheader = ({ children }: { children: React.ReactNode }) => (
   </h6>
 );
 
-const LinkText = (props: LinkProps) => (
+const LinkText = (props: LinkProps & { children: React.ReactNode }) => (
   <Link
     {...props}
     className="text-primary-500 underline hover:text-primary-300 transition-colors duration-200 ease-in-out"
     target="_blank"
   />
+);
+
+const ListItem = ({ text }: { text: string }) => (
+  <li
+    className={clsx(
+      getTypographyClass(TypographyVariants.Body2),
+      "text-text-100"
+    )}
+  >
+    {text}
+  </li>
 );
 
 type ListBlockProps = {
@@ -49,15 +58,7 @@ const ListBlock = ({ title, elements, postText }: ListBlockProps) => (
     {title && <Subheader>{title}</Subheader>}
     <ul className="list-disc list-outside pl-5">
       {elements.map((element, index) => (
-        <li
-          key={index}
-          className={clsx(
-            getTypographyClass(TypographyVariants.Body2),
-            "text-text-100"
-          )}
-        >
-          {element}
-        </li>
+        <ListItem key={index} text={element as string} />
       ))}
     </ul>
     {postText && <Paragraph>{postText}</Paragraph>}
@@ -77,232 +78,237 @@ export const CheckCompatibilityDialog = ({
     <Dialog onClose={onClose}>
       <DialogTitle title={t("title")} onClose={onClose} />
       <div className="flex flex-col gap-4">
-        <AccordionPanel title={t("ios_title")} index={0}>
+        <AccordionPanel title={t("ios_accordion_title")} index={0}>
           <div className="w-full flex flex-col gap-4">
             <Paragraph>
-              {t("ios_linkText")}{" "}
+              {t("visit_apple_start")}
               <LinkText href="https://support.apple.com/en-jo/guide/deployment/dep36c581d6x/web">
-                {t("ios_linkText")}
+                {t("apple_website")}
               </LinkText>
+              {t("visit_apple_end")}
             </Paragraph>
 
             <ListBlock
-              title={t("ios_iPhones_title")}
+              title={t("iphones")}
               elements={[
-                t("ios_iPhones_list_0"),
-                t("ios_iPhones_list_1"),
-                t("ios_iPhones_list_2"),
-                t("ios_iPhones_list_3"),
-                t("ios_iPhones_list_4"),
-                t("ios_iPhones_list_5"),
-                t("ios_iPhones_list_6"),
+                t("iphone_model_1"),
+                t("iphone_model_2"),
+                t("iphone_model_3"),
+                t("iphone_model_4"),
+                t("iphone_model_5"),
+                t("iphone_model_6"),
+                t("iphone_model_7"),
               ]}
             />
 
             <ListBlock
-              title={t("ios_iPads_title")}
+              title={t("ipads")}
               elements={[
-                t("ios_iPads_list_0"),
-                t("ios_iPads_list_1"),
-                t("ios_iPads_list_2"),
-                t("ios_iPads_list_3"),
-                t("ios_iPads_list_4"),
-                t("ios_iPads_list_5"),
+                t("ipad_model_1"),
+                t("ipad_model_2"),
+                t("ipad_model_3"),
+                t("ipad_model_4"),
+                t("ipad_model_5"),
+                t("ipad_model_6"),
               ]}
             />
 
             <ListBlock
-              title={t("ios_notSupported_title")}
+              title={t("not_supported")}
               elements={[
-                t("ios_notSupported_list_0"),
-                t("ios_notSupported_list_1"),
+                t("not_supported_model_1"),
+                t("not_supported_model_2"),
                 <>
-                  {t("ios_notSupported_list_2")}{" "}
+                  {t("not_supported_model_3")}
                   <LinkText href="https://support.apple.com/en-us/108898">
-                    {t("ios_notSupported_linkText")}
+                    {t("apple_support")}
                   </LinkText>
                 </>,
               ]}
             />
 
-            <Paragraph>{t("ios_deviceUnlocked")}</Paragraph>
+            <Paragraph>{t("unlocked_ios")}</Paragraph>
 
             <Paragraph>
-              {t("ios_turkishDevice")}{" "}
+              {t("turkish_device_start")}
               <LinkText href="https://support.apple.com/en-us/109343">
-                {t("ios_turkishDevice_linkText")}
+                {t("instructions")}
               </LinkText>
             </Paragraph>
           </div>
         </AccordionPanel>
 
-        <AccordionPanel title={t("android_title")} index={1}>
+        <AccordionPanel title={t("android_accordion_title")} index={1}>
           <div className="w-full flex flex-col gap-4">
-            <Paragraph>{t("android_deviceUnlocked")}</Paragraph>
+            <Paragraph>{t("unlocked_android")}</Paragraph>
 
             <ListBlock
-              title={t("android_samsung_title")}
+              title={t("samsung")}
               elements={[
-                t("android_samsung_list_0"),
-                t("android_samsung_list_1"),
-                t("android_samsung_list_2"),
-                t("android_samsung_list_3"),
-                t("android_samsung_list_4"),
-                t("android_samsung_list_5"),
-                t("android_samsung_list_6"),
-                t("android_samsung_list_7"),
-                t("android_samsung_list_8"),
-                t("android_samsung_list_9"),
-                t("android_samsung_list_10"),
-                t("android_samsung_list_11"),
-                t("android_samsung_list_12"),
-                t("android_samsung_list_13"),
-                t("android_samsung_list_14"),
-                t("android_samsung_list_15"),
-                t("android_samsung_list_16"),
+                t("samsung_model_1"),
+                t("samsung_model_2"),
+                t("samsung_model_3"),
+                t("samsung_model_4"),
+                t("samsung_model_5"),
+                t("samsung_model_6"),
+                t("samsung_model_7"),
+                t("samsung_model_8"),
+                t("samsung_model_9"),
+                t("samsung_model_10"),
+                t("samsung_model_11"),
+                t("samsung_model_12"),
+                t("samsung_model_13"),
+                t("samsung_model_14"),
+                t("samsung_model_15"),
+                t("samsung_model_16"),
               ]}
             />
 
             <ListBlock
-              title={t("android_googlePixel_title")}
+              title={t("google_pixel")}
               elements={[
-                t("android_googlePixel_list_0"),
-                t("android_googlePixel_list_1"),
-                t("android_googlePixel_list_2"),
-                t("android_googlePixel_list_3"),
-                t("android_googlePixel_list_4"),
+                t("pixel_model_1"),
+                t("pixel_model_2"),
+                t("pixel_model_3"),
+                t("pixel_model_4"),
+                t("pixel_model_5"),
               ]}
               postText={
                 <>
-                  {t("android_googlePixel_linkText")}{" "}
+                  {t("visit_google_start")}
                   <LinkText href="https://support.google.com/pixelphone/answer/9449293?hl=en">
-                    {t("android_googlePixel_linkText")}
+                    {t("google_website")}
                   </LinkText>
+                  {t("visit_google_end")}
                 </>
               }
             />
 
             <ListBlock
-              title={t("android_xiaomi_title")}
+              title={t("xiaomi")}
               elements={[
-                t("android_xiaomi_list_0"),
-                t("android_xiaomi_list_1"),
-                t("android_xiaomi_list_2"),
-                t("android_xiaomi_list_3"),
-                t("android_xiaomi_list_4"),
-                t("android_xiaomi_list_5"),
-                t("android_xiaomi_list_6"),
-                t("android_xiaomi_list_7"),
-                t("android_xiaomi_list_8"),
+                t("xiaomi_model_1"),
+                t("xiaomi_model_2"),
+                t("xiaomi_model_3"),
+                t("xiaomi_model_4"),
+                t("xiaomi_model_5"),
+                t("xiaomi_model_6"),
+                t("xiaomi_model_7"),
+                t("xiaomi_model_8"),
+                t("xiaomi_model_9"),
               ]}
               postText={
                 <>
-                  {t("android_xiaomi_linkText")}{" "}
+                  {t("visit_xiaomi_start")}
                   <LinkText href="https://www.mi.com/global/support/esim/">
-                    {t("android_xiaomi_linkText")}
+                    {t("xiaomi_website")}
                   </LinkText>
+                  {t("visit_xiaomi_end")}
                 </>
               }
             />
 
             <ListBlock
-              title={t("android_huawei_title")}
+              title={t("huawei")}
               elements={[
-                t("android_huawei_list_0"),
-                t("android_huawei_list_1"),
-                t("android_huawei_list_2"),
+                t("huawei_model_1"),
+                t("huawei_model_2"),
+                t("huawei_model_3"),
               ]}
               postText={
                 <>
-                  {t("android_huawei_linkText")}{" "}
+                  {t("visit_huawei_start")}
                   <LinkText href="https://consumer.huawei.com/za/community/details/How-to-use-eSIM-on-your-eligible-Huawei-Phone/topicId_172574/">
-                    {t("android_huawei_linkText")}
+                    {t("huawei_website")}
                   </LinkText>
+                  {t("visit_huawei_end")}
                 </>
               }
             />
 
             <ListBlock
-              title={t("android_sony_title")}
+              title={t("sony")}
               elements={[
-                t("android_sony_list_0"),
-                t("android_sony_list_1"),
-                t("android_sony_list_2"),
-                t("android_sony_list_3"),
-                t("android_sony_list_4"),
+                t("sony_model_1"),
+                t("sony_model_2"),
+                t("sony_model_3"),
+                t("sony_model_4"),
+                t("sony_model_5"),
+                t("sony_model_6"),
               ]}
               postText={
                 <>
-                  {t("android_sony_linkText")}{" "}
+                  {t("visit_sony_start")}
                   <LinkText href="https://www.sony.co.uk/electronics/support/articles/00300757">
-                    {t("android_sony_linkText")}
+                    {t("sony_website")}
                   </LinkText>
+                  {t("visit_sony_end")}
                 </>
               }
             />
 
             <ListBlock
-              title={t("android_motorola_title")}
+              title={t("motorola")}
               elements={[
-                t("android_motorola_list_0"),
-                t("android_motorola_list_1"),
-                t("android_motorola_list_2"),
-                t("android_motorola_list_3"),
-                t("android_motorola_list_4"),
-                t("android_motorola_list_5"),
-                t("android_motorola_list_6"),
-                t("android_motorola_list_7"),
-                t("android_motorola_list_8"),
-                t("android_motorola_list_9"),
-                t("android_motorola_list_10"),
-                t("android_motorola_list_11"),
-                t("android_motorola_list_12"),
-                t("android_motorola_list_13"),
-                t("android_motorola_list_14"),
-                t("android_motorola_list_15"),
-                t("android_motorola_list_16"),
-                t("android_motorola_list_17"),
-                t("android_motorola_list_18"),
-                t("android_motorola_list_19"),
+                t("motorola_model_1"),
+                t("motorola_model_2"),
+                t("motorola_model_3"),
+                t("motorola_model_4"),
+                t("motorola_model_5"),
+                t("motorola_model_6"),
+                t("motorola_model_7"),
+                t("motorola_model_8"),
+                t("motorola_model_9"),
+                t("motorola_model_10"),
+                t("motorola_model_11"),
+                t("motorola_model_12"),
+                t("motorola_model_13"),
+                t("motorola_model_14"),
+                t("motorola_model_15"),
+                t("motorola_model_16"),
+                t("motorola_model_17"),
+                t("motorola_model_18"),
+                t("motorola_model_19"),
               ]}
             />
 
             <ListBlock
-              title={t("android_oppo_title")}
+              title={t("oppo")}
               elements={[
-                t("android_oppo_list_0"),
-                t("android_oppo_list_1"),
-                t("android_oppo_list_2"),
-                t("android_oppo_list_3"),
+                t("oppo_model_1"),
+                t("oppo_model_2"),
+                t("oppo_model_3"),
+                t("oppo_model_4"),
               ]}
             />
 
             <ListBlock
-              title={t("android_honor_title")}
+              title={t("honor")}
               elements={[
-                t("android_honor_list_0"),
-                t("android_honor_list_1"),
-                t("android_honor_list_2"),
-                t("android_honor_list_3"),
-                t("android_honor_list_4"),
-                t("android_honor_list_5"),
+                t("honor_model_1"),
+                t("honor_model_2"),
+                t("honor_model_3"),
+                t("honor_model_4"),
+                t("honor_model_5"),
+                t("honor_model_6"),
               ]}
               postText={
                 <>
-                  {t("android_honor_linkText")}{" "}
+                  {t("visit_honor_start")}
                   <LinkText href="https://www.honor.com/global/tech/honor-esim/">
-                    {t("android_honor_linkText")}
+                    {t("honor_website")}
                   </LinkText>
+                  {t("visit_honor_end")}
                 </>
               }
             />
           </div>
         </AccordionPanel>
 
-        <AccordionPanel title={t("other_title")} index={2}>
+        <AccordionPanel title={t("other_accordion_title")} index={2}>
           <div className="flex flex-col gap-4">
-            <Paragraph>{t("other_content_1")}</Paragraph>
-            <Paragraph>{t("other_content_2")}</Paragraph>
+            <Paragraph>{t("check_compatibility")}</Paragraph>
+            <Paragraph>{t("additional_info")}</Paragraph>
           </div>
         </AccordionPanel>
       </div>

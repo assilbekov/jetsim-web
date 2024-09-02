@@ -9,18 +9,18 @@ type PixelTurnOnDesktopProps = {
 };
 
 export const PixelTurnOnDesktop = ({ step }: PixelTurnOnDesktopProps) => {
-  const t = useTranslations("InstructionsDesktopComponents");
+  const t = useTranslations("DesktopInstructions"); // Hook for translations
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-pixel.svg"
             alt="settings icon"
-            text={t("settingsText")}
+            text={t("settings")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -28,20 +28,20 @@ export const PixelTurnOnDesktop = ({ step }: PixelTurnOnDesktopProps) => {
           <IconWithText
             src="/icons/wifi-pixel.svg"
             alt="network and internet icon"
-            text={t("networkInternetText")}
+            text={t("networkAndInternet")}
           />
           <ArrowRightImage />
-          <span>{t("simsText")}</span>
+          <span>{t("sims")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>{t("jetSimText")}</span>
+          <span>{t("jetsim")}</span>
           <ArrowRightImage />
-          <span>{t("scrollAndEnableText")}</span>
+          <span>{t("scrollAndEnable")}</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
             alt="toggle icon"
-            text={t("roamingText")}
+            text={t("roaming")}
           />
         </InfoRow>
       </div>

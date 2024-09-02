@@ -3,7 +3,7 @@
   display: none;
 }
 
-@media (max-width: 979px) {
+@media (max-width: 1200px) {
   .mobile-nav-toggle {
     display: flex;
     background-repeat: no-repeat;

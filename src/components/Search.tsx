@@ -33,7 +33,7 @@ export const Search = ({ page, locale }: SearchProps) => {
   const queryInfo = useQuery({
     queryKey: ["search", debouncedQuery],
     queryFn: async () => {
-      return fetchLocations(debouncedQuery);
+      return fetchLocations(debouncedQuery, locale);
     },
     staleTime: 1000 * 60 * 60,
   });

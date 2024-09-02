@@ -9,42 +9,42 @@ type TurnOnQRPixelStepProps = {
 };
 
 export const TurnOnQRPixelStep = ({ step }: TurnOnQRPixelStepProps) => {
-  const t = useTranslations("SeeInstructionsDialog");
+  const t = useTranslations("SeeInstructions");
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-pixel.svg"
-            alt="settings icon"
-            text={t("settingsText")}
+            alt={t("settingsIconAlt")}
+            text={t("settings_setting")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/wifi-pixel.svg"
-            alt="network and internet icon"
-            text={t("networkInternetText")}
+            alt={t("networkInternetIconAlt")}
+            text={t("networkInternet_setting")}
           />
           <ArrowRightImage />
-          <span>{t("simsText")}</span>
+          <span>{t("sims_setting")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>{t("jetsimText")}</span>
+          <span>{t("jetSim")}</span>
           <ArrowRightImage />
-          <span>{t("scrollEnableText")}</span>
+          <span>{t("scrollEnable")}</span>
         </InfoRow>
         <InfoRow>
-          <span>{t("turnOnText")}</span>
+          <span>{t("turnOn")}</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
-            alt="toggle icon"
-            text={t("roamingText")}
+            alt={t("toggleIconAlt")}
+            text={t("roaming_setting")}
           />
         </InfoRow>
       </div>

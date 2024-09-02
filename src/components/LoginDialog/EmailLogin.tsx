@@ -160,12 +160,18 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
             key="code"
             placeholder={t("enterVerificationCode")}
             value={code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(e) => {
+              const input = e.target.value;
+              // Allow only digits and limit to 6 characters
+              if (/^\d{0,6}$/.test(input)) {
+                setCode(input);
+              }
+            }}
             className={isCodeInvalid ? "border-[#F00]" : ""}
           />
         )}
         {step === LoginStep.Code && (
-          <div className="absolute bottom-0 right-0 flex gap-4 items-center">
+          <div className="absolute bottom-[17px] right-6 flex gap-4 items-center">
             {isCodeInvalid && (
               <p
                 className={clsx(
@@ -176,17 +182,28 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
                 {t("wrongCode")}
               </p>
             )}
-            <ChangeEmailButton
-              onClick={() => {
-                setStep(LoginStep.Email);
-                setCode("");
-                setIsCodeInvalid(false);
-              }}
-              type="button"
-            />
           </div>
         )}
       </div>
+
+      {step === LoginStep.Code && (
+        <p
+          className={clsx(
+            getTypographyClass(TypographyVariants.Body2),
+            "text-text-600 mt-2 w-full"
+          )}
+        >
+          {t("verificationCodeSent", { email })}{" "}
+          <ChangeEmailButton
+            onClick={() => {
+              setStep(LoginStep.Email);
+              setCode("");
+              setIsCodeInvalid(false);
+            }}
+            type="button"
+          />
+        </p>
+      )}
 
       <PrimaryButton
         disabled={

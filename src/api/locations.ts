@@ -6,14 +6,14 @@ import {
   LocationCover,
 } from "@/models/Location";
 
-export const fetchLocations = async (query: string): Promise<Location[]> => {
+export const fetchLocations = async (query: string, locale: string): Promise<Location[]> => {
   if (!query) {
     return [];
   }
 
   const res = await fetch(`${geoServiceURL}places/suggest?query=${query}`, {
     headers: {
-      "Accept-Language": "en-US",
+      "Accept-Language": locale,
     },
   });
   const json: ApiResponse<Location[]> = await res.json();

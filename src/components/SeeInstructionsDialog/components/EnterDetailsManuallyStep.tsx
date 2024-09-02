@@ -11,17 +11,17 @@ type EnterDetailsManuallyStepProps = {
 export const EnterDetailsManuallyStep = ({
   step,
 }: EnterDetailsManuallyStepProps) => {
-  const t = useTranslations("SeeInstructionsDialog");
+  const t = useTranslations("SeeInstructions");
 
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>{t("goToText")}</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings.png"
-            alt="settings icon"
+            alt={t("settingsAlt")}
             text={t("settingsText")}
           />
           <ArrowRightImage />
@@ -29,23 +29,23 @@ export const EnterDetailsManuallyStep = ({
         <InfoRow>
           <IconWithText
             src="/icons/mobile-service.svg"
-            alt="mobile service icon"
+            alt={t("mobileServiceAlt")}
             text={t("mobileServiceText")}
           />
           <ArrowRightImage />
-          <span>{t("addESIMText")}</span>
+          <span>{t("addESIM")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/primary/qr.svg"
-            alt="QR code icon"
-            text={t("useQRCodeText")}
+            alt={t("qrCodeAlt")}
+            text={t("useQRCode")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>{t("enterDetailsManuallyText")}</span>
+          <span>{t("enterDetailsManually")}</span>
         </InfoRow>
       </div>
     </div>

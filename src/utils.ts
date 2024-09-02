@@ -46,12 +46,12 @@ export const convertDateDiffToText = (
 
   if (diffDays >= 1) {
     return `${diffDays} ${
-      diffMonths > 1 ? translations.dayPlural : translations.daySingular
+      diffDays > 1 ? translations.dayPlural : translations.daySingular
     }`;
   }
 
   return `${diffHours} ${
-    diffMonths > 1 ? translations.hourPlural : translations.hourSingular
+    diffHours > 1 ? translations.hourPlural : translations.hourSingular
   }`;
 };
 
