@@ -45,8 +45,6 @@ export const Search = ({ page, locale }: SearchProps) => {
     staleTime: 1000 * 60 * 60,
   });
 
-  console.log({topCountriesInfo, locale, queryInfo, debouncedQuery, query, open, page})
-
   useEffect(() => {
     const timeout = setTimeout(() => {
       setDebouncedQuery(query);

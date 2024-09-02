@@ -10,6 +10,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Link, usePathname } from "@/navigation";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { setUserLanguage } from "@/api/auth";
 
 type Language = {
   country: string;
@@ -82,6 +83,13 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
         "px-5 py-4 rounded-2xl border-2 border-solid border-transparent hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
         active ? "border-[#E9F0F2] bg-[#E9F0F2]" : ""
       )}
+      onClick={() => {
+        // If user is logged in, set the user language
+        const accessToken = localStorage.getItem("accessToken");
+        if (accessToken) {
+          setUserLanguage(language.code);
+        }
+      }}
     >
       <h5
         className={clsx(
