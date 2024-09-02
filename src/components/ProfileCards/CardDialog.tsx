@@ -234,7 +234,7 @@ const BuyNewPlanContent = ({ location, setDialog, locale }: CardDialogProps) => 
 
   const handleCheckout = (selectedPackageId: string) => {
     handleProfileCountryClickEvent(location.placeID);
-    const redirectUrl = `${window.location.origin}${locale}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}&reinstall=true`;
+    const redirectUrl = `${window.location.origin}/${locale}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}&reinstall=true`;
     router.push(redirectUrl);
   };
 
