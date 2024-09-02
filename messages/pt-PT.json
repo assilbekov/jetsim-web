@@ -316,6 +316,11 @@
     "ErrorMessage_paymentFailed": "Pagamento falhou",
     "StripePayment_selectPaymentMethod": "Selecione um método de pagamento"
   },
+  "PaymentPageFooter": {
+    "allRightsReserved": "2024 JetSIM. Todos os direitos reservados",
+    "termsOfService": "Termos de Serviço",
+    "privacyPolicy": "Política de Privacidade"
+  },
   "LoginDialog": {
     "loginTitle": "Faça login ou cadastre-se",
     "orText": "ou",

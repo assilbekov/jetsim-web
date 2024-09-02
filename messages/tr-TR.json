@@ -316,6 +316,11 @@
     "ErrorMessage_paymentFailed": "Ödeme başarısız oldu",
     "StripePayment_selectPaymentMethod": "Bir ödeme yöntemi seçin"
   },
+  "PaymentPageFooter": {
+    "allRightsReserved": "2024 JetSIM. Tüm hakları saklıdır",
+    "termsOfService": "Hizmet Şartları",
+    "privacyPolicy": "Gizlilik Politikası"
+  },
   "LoginDialog": {
     "loginTitle": "Giriş yap veya kaydol",
     "orText": "veya",

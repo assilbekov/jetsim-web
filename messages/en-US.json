@@ -316,6 +316,11 @@
     "ErrorMessage_paymentFailed": "Payment failed",
     "StripePayment_selectPaymentMethod": "Select a payment method"
   },
+  "PaymentPageFooter": {
+    "allRightsReserved": "2024 JetSIM. All rights reserved",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
+  },
   "LoginDialog": {
     "loginTitle": "Log in or sign up",
     "orText": "or",

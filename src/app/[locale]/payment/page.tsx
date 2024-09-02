@@ -9,6 +9,7 @@ import { clsx } from "@/utils";
 import Link from "next/link";
 import { PaymentScreenEvent } from "./_components/PaymentScreenEvent";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 export async function generateMetadata({ params }: PageProps) {
   const t = await getTranslations({
@@ -48,6 +49,7 @@ type PageProps = {
 
 export default function Index({ searchParams, params }: PageProps) {
   unstable_setRequestLocale(params?.locale);
+  const t = useTranslations("PaymentPageFooter");
   return (
     <div className="bg-[#F2F4F7]">
       <PaymentScreenEvent />
@@ -72,11 +74,15 @@ export default function Index({ searchParams, params }: PageProps) {
               "text-text-600"
             )}
           >
-            2024 JetSIM. All rights reserved
+            {t("allRightsReserved")}
           </p>
           <ul className="flex flex-col sm:flex-row sm:gap-6 gap-3">
-            <ListElement href="/privacy-policy">Privacy policy</ListElement>
-            <ListElement href="/terms-of-service">Terms of Service</ListElement>
+            <ListElement href="/privacy-policy">
+              {t("privacyPolicy")}
+            </ListElement>
+            <ListElement href="/terms-of-service">
+              {t("termsOfService")}
+            </ListElement>
           </ul>
         </div>
       </div>

@@ -316,6 +316,11 @@
     "ErrorMessage_paymentFailed": "Плаћање није успело",
     "StripePayment_selectPaymentMethod": "Изаберите начин плаћања"
   },
+  "PaymentPageFooter": {
+    "allRightsReserved": "2024 JetSIM. Сва права задржана",
+    "termsOfService": "Услови коришћења",
+    "privacyPolicy": "Политика приватности"
+  },
   "LoginDialog": {
     "loginTitle": "Пријавите се или се региструјте",
     "orText": "или",
