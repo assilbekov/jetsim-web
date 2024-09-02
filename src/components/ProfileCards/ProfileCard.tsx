@@ -48,8 +48,8 @@ export function ProfileCard({
   const expiredText = convertDateDiffToText(expirationDate, currentDate, {
     hourSingular: t("hour"),
     hourPlural: t("hours"),
-    daySingular: t("days"),
-    dayPlural: t("day"),
+    daySingular: t("day"),
+    dayPlural: t("days"),
     monthSingular: t("month"),
     monthPlural: t("months"),
   });
