@@ -60,7 +60,8 @@ export const StripePayment = ({
         <Elements
           key={clientSecret}
           stripe={stripePromise}
-          options={{ clientSecret }}
+          // TODO: Remove typecasting
+          options={{ clientSecret, locale: locale as any }}
         >
           <CheckoutForm
             cardID={cardID}
