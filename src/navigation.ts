@@ -9,6 +9,8 @@ export const locales = [
   "pt-PT",
   "sr-RS",
   "es-ES",
+  "it-IT",
+  "tr-TR",
 ] as const;
 
 export type LinkProps = {

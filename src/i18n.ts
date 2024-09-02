@@ -10,6 +10,8 @@ export const locales = [
   "pt-PT",
   "sr-RS",
   "es-ES",
+  "it-IT",
+  "tr-TR"
 ];
 
 export const isoLanguagesMap = {
@@ -20,6 +22,8 @@ export const isoLanguagesMap = {
   "pt-PT": "por",
   "sr-RS": "srp",
   "es-ES": "spa",
+  "it-IT": "ita",
+  "tr-TR": "tur",
 };
 
 export default getRequestConfig(async ({ locale }) => {

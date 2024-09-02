@@ -53,6 +53,16 @@ const languagesList: Language[] = [
     language: "Español",
     code: "es-ES",
   },
+  {
+    country: "Italia",
+    language: "Italiano",
+    code: "it-IT",
+  },
+  {
+    country: "Türkiye",
+    language: "Türkçe",
+    code: "tr-TR",
+  },
 ];
 
 type LanguageBlockProps = {
