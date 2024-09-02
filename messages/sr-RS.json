@@ -50,8 +50,8 @@
       "description2": "Имајте на уму да морате бити повезани на Wi-Fi или мобилне податке да бисте инсталирали eSIM. Ако мислите да нећете имати приступ Wi-Fi-у по доласку, боље је да активирате ваш eSIM унапред."
     },
     "doINeedToProvideMyIdToUseAJetSimEsim": {
-      "title": "Да ли морам да доставим свој ИД за коришћење JetSim eSIM-а?",
-      "description": "JetSim не захтева ваш ИД пре или после куповине. Можете купити eSIM и одмах га почети користити."
+      "title": "Да ли морам да доставим свој ID за коришћење JetSim eSIM-а?",
+      "description": "JetSim не захтева ваш ID пре или после куповине. Можете купити eSIM и одмах га почети користити."
     },
     "howManyTimesCanIUseMyEsim": {
       "title": "Колико пута могу да користим свој eSIM?",
@@ -101,7 +101,7 @@
     "featureNoHiddenFeesDescription": "Интернет без додатних трошкова",
     "featureNoPlasticSimTitle": "Без пластичног SIM-а",
     "featureNoPlasticSimDescription": "без муке са онлајн инсталацијом",
-    "featureNoIdRequiredTitle": "Није потребан ИД",
+    "featureNoIdRequiredTitle": "Није потребан ID",
     "featureNoIdRequiredDescription": "Само купите и почните са коришћењем",
     "securePaymentMethodsTitle": "Безбедне методе плаћања"
   },
