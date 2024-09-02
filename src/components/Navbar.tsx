@@ -110,14 +110,19 @@ export const Navbar = ({
 
   return (
     <header className="flex justify-between items-center h-[54px]">
-      <HomeLogo onClick={handleMenuClose} />
+      <div className="block z-[1001] lg:hidden">
+        <HomeLogo onClick={handleMenuClose} />
+      </div>
       <HumburgerButton onClick={handleButtonClick} />
       <nav
         id="primary-navigation"
         data-visible="false"
-        className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-2/3 md:justify-between sm:min-w-[750px]"
+        className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-full md:justify-between sm:min-w-[750px]"
       >
-        <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
+        <div className="hidden lg:flex items-center">
+          <HomeLogo onClick={handleMenuClose} />
+        </div>
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
           {!hideNav && (
             <>
               <StyledLink href="/all-destinations" onClick={handleMenuClose}>

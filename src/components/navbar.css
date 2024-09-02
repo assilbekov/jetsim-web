@@ -2,7 +2,7 @@
   background: transparent;
 }
 
-@media (max-width: 979px) {
+@media (max-width: 1200px) {
   .primary-navigation {
     gap: 2em;
 
