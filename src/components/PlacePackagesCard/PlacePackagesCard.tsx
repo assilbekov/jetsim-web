@@ -43,14 +43,14 @@ export const PlacePackagesCard = ({
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
+      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
+      return await fetchPackages(placeId, PackageTagEnum.STANDARD, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
@@ -72,7 +72,7 @@ export const PlacePackagesCard = ({
   const locationCoverQuery = useQuery({
     queryKey: ["place-packages-cover", placeId],
     queryFn: async () => {
-      return await fetchLocationCover(placeId);
+      return await fetchLocationCover(placeId, locale);
     },
     staleTime: 1000 * 60 * 5,
     retry: 1,

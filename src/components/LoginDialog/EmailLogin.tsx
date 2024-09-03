@@ -84,7 +84,10 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
     const response = await fetch("https://auth.jetsim.app/api/v1/email", {
       method: "POST",
       body: JSON.stringify({ email }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Accept-Language": locale,
+      },
     });
     if (response.ok) {
       setStep(LoginStep.Code);
@@ -102,7 +105,10 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       {
         method: "POST",
         body: JSON.stringify({ code, email }),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Accept-Language": locale,
+        },
       }
     );
     if (response.ok) {
@@ -117,7 +123,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       localStorage.setItem("accessToken", json.payload?.accessToken);
       localStorage.setItem("refreshToken", json.payload?.refreshToken);
       localStorage.setItem("user_email", email);
-      getProfile().then((profile) => {
+      getProfile(locale).then((profile) => {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);
       });

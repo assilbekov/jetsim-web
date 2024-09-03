@@ -24,7 +24,7 @@ import { TertiaryButton } from "../buttons/TertiaryButton";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCard } from "@/api/cards";
 import { handleProfileCountryClickEvent } from "@/gtm-events";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export enum CardDialogType {
   INSTALL = "install",
@@ -228,7 +228,11 @@ const DetailsContent = ({
   );
 };
 
-const BuyNewPlanContent = ({ location, setDialog, locale }: CardDialogProps) => {
+const BuyNewPlanContent = ({
+  location,
+  setDialog,
+  locale,
+}: CardDialogProps) => {
   const router = useRouter();
   const t = useTranslations("CardDialog");
 
@@ -270,8 +274,9 @@ const BuyNewPlanContent = ({ location, setDialog, locale }: CardDialogProps) => 
 const DeleteContent = ({ card, location, setDialog }: CardDialogProps) => {
   const t = useTranslations("CardDialog");
   const queryClient = useQueryClient();
+  const locale = useLocale();
   const { mutate } = useMutation({
-    mutationFn: deleteCard,
+    mutationFn: (id: string) => deleteCard(id, locale),
     onSuccess: () => {
       setDialog(null);
       queryClient.invalidateQueries({ queryKey: ["cards"] });

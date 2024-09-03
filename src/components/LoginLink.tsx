@@ -8,7 +8,7 @@ import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 
 type LoginLink = {
@@ -32,7 +32,7 @@ export const LoginLink = ({ locale }: LoginLink) => {
   };
 
   const getUserProfile = async () => {
-    getProfile().then((profile) => {
+    getProfile(locale).then((profile) => {
       localStorage.setItem("user_email", profile.email);
       localStorage.setItem("user_id", profile.id);
     });
@@ -46,7 +46,10 @@ export const LoginLink = ({ locale }: LoginLink) => {
     }
 
     fetch("https://auth.jetsim.app/api/v1/check", {
-      headers: { Authorization: `Bearer ${accessToken}` },
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Accept-Language": locale,
+      },
     }).then((res) => {
       if (res.ok) {
         setIsLoggedIn(true);
@@ -61,7 +64,10 @@ export const LoginLink = ({ locale }: LoginLink) => {
       }
 
       fetch("https://auth.jetsim.app/api/v1/renew", {
-        headers: { Authorization: `Bearer ${refreshToken}` },
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+          "Accept-Language": locale,
+        },
         method: "POST",
       }).then(async (res) => {
         if (!res.ok) {

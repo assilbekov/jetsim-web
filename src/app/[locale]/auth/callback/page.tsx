@@ -5,12 +5,14 @@ import { UTMContext } from "@/contexts/UTMContext";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 import { useQuery } from "@tanstack/react-query";
+import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
 
 export default function CallbackPage() {
   const router = useRouter();
   const { utmsSearchParams } = useContext(UTMContext);
+  const locales = useLocale();
   useQuery({
     queryKey: ["callback"],
     queryFn: async () => {
@@ -19,7 +21,8 @@ export default function CallbackPage() {
           window.location.search
         }&redirect=${window.location.origin}/auth/callback${
           utmsSearchParams ? `&${utmsSearchParams}` : ""
-        }`
+        }`,
+        { headers: { "Accept-Language": locales } }
       );
       const {
         payload: { accessToken, refreshToken, meta },
@@ -38,7 +41,7 @@ export default function CallbackPage() {
 
       setUserLanguage(locale);
 
-      getProfile().then((profile) => {
+      getProfile(locale).then((profile) => {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);
       });

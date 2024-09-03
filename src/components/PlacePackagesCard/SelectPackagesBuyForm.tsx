@@ -15,7 +15,7 @@ import Image from "next/image";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { Location } from "@/models/Location";
 import { Link } from "@/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { handleCheckoutClickEvent } from "@/gtm-events";
 
 type SelectPackagesBuyFormProps = {
@@ -35,6 +35,7 @@ export const SelectPackagesBuyForm = ({
 }: SelectPackagesBuyFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
   const t = useTranslations("PlacePackagesCard");
+  const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -84,14 +85,14 @@ export const SelectPackagesBuyForm = ({
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
+      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
+      return await fetchPackages(placeId, PackageTagEnum.STANDARD, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
