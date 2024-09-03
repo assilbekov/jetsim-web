@@ -2,12 +2,15 @@ import { authServiceURL, authRedirect } from "@/config";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 
-export const refreshToken = async (refreshToken: string): Promise<Tokens> => {
+export const refreshToken = async (
+  refreshToken: string,
+  locale: string
+): Promise<Tokens> => {
   const res = await fetch(`${authServiceURL}refresh`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept-Language": "en-US",
+      "Accept-Language": locale || "en-US",
     },
     body: JSON.stringify({ refreshToken }),
   });
@@ -16,13 +19,14 @@ export const refreshToken = async (refreshToken: string): Promise<Tokens> => {
 };
 
 export const getAuthSocialCallback = async (
-  provider: string
+  provider: string,
+  locale: string
 ): Promise<Tokens> => {
   const res = await fetch(
     `${authServiceURL}${provider}/callback${window.location.search}&redirect=${authRedirect}`,
     {
       headers: {
-        "Accept-Language": "en-US",
+        "Accept-Language": locale || "en-US",
       },
     }
   );

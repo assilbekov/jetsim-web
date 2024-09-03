@@ -2,7 +2,7 @@ import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { Recommendations } from "@/components/Recommendations";
 import { WhyBlock } from "@/components/WhyBlock";
 import { PageProps } from "@/models/PageProps";

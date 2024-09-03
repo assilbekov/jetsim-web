@@ -17,6 +17,7 @@ import {
   handleSuccessPaymentInstructionClick,
 } from "@/gtm-events";
 import { MockCards } from "./mockCards";
+import { useLocale } from "next-intl";
 
 export const ProfileCards = ({ locale }: { locale: string }) => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
@@ -25,7 +26,7 @@ export const ProfileCards = ({ locale }: { locale: string }) => {
   const { data: cards, isFetched: isCardsFetched } = useQuery({
     queryKey: ["cards"],
     queryFn: async () => {
-      return await fetchCards();
+      return await fetchCards(locale);
       //const cardsRes = await fetchCards();
       //return MockCards//.concat(cardsRes);
     },
@@ -62,7 +63,7 @@ export const ProfileCards = ({ locale }: { locale: string }) => {
     queryKey: ["packages", ...packageIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
-        packageIds.map((packageId) => fetchPackage(packageId)) || []
+        packageIds.map((packageId) => fetchPackage(packageId, locale)) || []
       );
 
       return await promiseAll;

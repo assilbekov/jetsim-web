@@ -9,13 +9,14 @@ export type SocialAuthLinkResponse = {
 };
 
 export const getSocialAuthLink = async (
-  provider: string
+  provider: string,
+  locale: string
 ): Promise<SocialAuthLinkResponse> => {
   const res = await fetch(
     `${authServiceURL}${provider}/login-link?redirect=${authRedirect}`,
     {
       headers: {
-        "Accept-Language": "en-US",
+        "Accept-Language": locale || "en-US",
       },
     }
   );
@@ -23,10 +24,10 @@ export const getSocialAuthLink = async (
   return json.payload;
 };
 
-export const getProfile = async (): Promise<Profile> => {
+export const getProfile = async (locale: string): Promise<Profile> => {
   const res = await fetchProtected(`${authServiceURL}user`, {
     headers: {
-      "Accept-Language": "en-US",
+      "Accept-Language": locale || "en-US",
     },
   });
   const json: ApiResponse<Profile> = await res.json();
@@ -43,6 +44,7 @@ export const setUserLanguage = async (locale: string): Promise<void> => {
       }),
       headers: {
         "Content-Type": "application/json",
+        "Accept-Language": locale,
       },
       method: "PUT",
     }

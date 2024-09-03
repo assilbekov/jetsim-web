@@ -20,7 +20,7 @@ type StripePaymentProps = {
 export const StripePayment = ({
   placeID = "",
   packageID = "",
-  locale
+  locale,
 }: StripePaymentProps) => {
   const t = useTranslations("OrderSummary");
   const [stripePromise, setStripePromise] = useState<
@@ -30,7 +30,7 @@ export const StripePayment = ({
   const [cardID, setCardID] = useState("");
 
   useEffect(() => {
-    fetchClientOptions().then((res) => {
+    fetchClientOptions(locale).then((res) => {
       setStripePromise(loadStripe(res.stripePublishableKey));
     });
   }, []);
@@ -40,7 +40,7 @@ export const StripePayment = ({
       return;
     }
 
-    createCard(packageID, placeID).then((res) => {
+    createCard(packageID, placeID, locale).then((res) => {
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
       setCardID(res.cardID);
     });

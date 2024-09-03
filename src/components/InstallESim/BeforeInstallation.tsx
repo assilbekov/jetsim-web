@@ -65,7 +65,7 @@ export const BeforeInstallationContent = () => {
         {t("section_subheader")}
       </h5>
       <div className="shrink-0 my-6 md:my-10 h-0.5 border border-solid border-[#E9F0F2]" />
-      <div className="flex flex-col md:flex-row gap-8">
+      <div className="flex flex-col gap-6">
         <InfoElement
           src="/icons/primary/play_circle.svg"
           alt="Don't interrupt installation"

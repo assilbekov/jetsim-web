@@ -38,7 +38,7 @@ export const CheckoutForm = ({
   const searchParams = useSearchParams();
   const packageInfo = useQuery({
     queryKey: ["packages", packageID],
-    queryFn: () => fetchPackage(packageID),
+    queryFn: () => fetchPackage(packageID, locale),
   });
   const t = useTranslations("OrderSummary");
 

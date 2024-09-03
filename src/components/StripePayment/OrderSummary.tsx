@@ -56,7 +56,7 @@ export const OrderSummary = ({
   }, [placeID]);
 
   useEffect(() => {
-    fetchPackage(packageID).then((res) => {
+    fetchPackage(packageID, locale).then((res) => {
       setPackageData(res);
     });
   }, [packageID]);

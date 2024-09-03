@@ -1,23 +1,22 @@
 "use client";
 
-import { LoginDialog } from "./LoginDialog";
+import { LoginDialog } from "../LoginDialog";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
-import { SecondaryButton } from "./buttons/SecondaryButton";
-import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
-import { useTranslations } from "next-intl";
-import { Link } from "@/navigation";
 
-type LoginLink = {
+type AuthContainerProps = {
   locale: string;
+  renderProps: ({}: {
+    handleLogout: () => void;
+    handleLoginClick: () => void;
+    isLoggedIn: boolean;
+  }) => React.ReactNode;
 };
 
-export const LoginLink = ({ locale }: LoginLink) => {
-  const t = useTranslations("Login");
-
+export const AuthContainer = ({ locale, renderProps }: AuthContainerProps) => {
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -99,33 +98,7 @@ export const LoginLink = ({ locale }: LoginLink) => {
 
   return (
     <>
-      <div>
-        {isLoggedIn ? (
-          <div className="flex flex-col gap-4 md:flex-row">
-            <Link href="/profile" className="w-full">
-              <SecondaryButton className="pl-1 pr-1 min-w-[140px] w-full">
-                {t("myEsims")}
-              </SecondaryButton>
-            </Link>
-            <SecondaryButton
-              className="flex justify-center gap-2 pl-1 pr-1 md:min-w-[84px]"
-              onClick={handleLogout}
-            >
-              <Image
-                src="/icons/black/logout.svg"
-                alt="Logout icon"
-                width={20}
-                height={20}
-              />
-              <span className="md:hidden">{t("logout")}</span>
-            </SecondaryButton>
-          </div>
-        ) : (
-          <SecondaryButton className="w-full" onClick={handleLoginClick}>
-            {t("login")}
-          </SecondaryButton>
-        )}
-      </div>
+      {renderProps({ handleLoginClick, handleLogout, isLoggedIn })}
       {isLoginDialogOpen && (
         <LoginDialog
           redirectUrl={`/${locale}/profile`}
