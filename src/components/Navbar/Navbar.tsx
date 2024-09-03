@@ -126,7 +126,7 @@ export const Navbar = ({
       <nav
         id="primary-navigation"
         data-visible="false"
-        className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-full md:justify-between sm:min-w-[750px]"
+        className="primary-navigation lg:bg-[#F8F9FB] flex gap-8 text-text-600 lg:w-full lg:justify-between sm:min-w-[750px]"
       >
         <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl">
           {
@@ -137,7 +137,7 @@ export const Navbar = ({
                   <>
                     {isLoggedIn ? (
                       <Link href="/profile" className="w-full">
-                        <SettingsButton>
+                        <SettingsButton className="border-b-2 last:border-b-2 last:rounded-b-none">
                           <Image
                             src="/icons/black/sim.svg"
                             alt="sim icon"
@@ -149,7 +149,10 @@ export const Navbar = ({
                         </SettingsButton>
                       </Link>
                     ) : (
-                      <SettingsButton onClick={handleLoginClick}>
+                      <SettingsButton
+                        onClick={handleLoginClick}
+                        className="xxs:border-none"
+                      >
                         <Image
                           src="/icons/black/logout.svg"
                           alt="logout icon"
@@ -163,7 +166,10 @@ export const Navbar = ({
                     <LanguageSwitcher
                       renderProps={({ selectedLanguage, handleDialogOpen }) => {
                         return (
-                          <SettingsButton onClick={handleDialogOpen}>
+                          <SettingsButton
+                            onClick={handleDialogOpen}
+                            className="xxs:hidden"
+                          >
                             <Image
                               src="/icons/black/language.svg"
                               alt="language icon"
