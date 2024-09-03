@@ -1,6 +1,6 @@
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooterContent } from "@/components/LandingFooter";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { TermsTextBlock } from "@/components/TermsTextBlock";
 import { TermsScreenEvent } from "./_components/TermsScreenEvent";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";

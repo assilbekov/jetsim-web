@@ -8,7 +8,7 @@ import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 
 type LoginLink = {

@@ -2,7 +2,7 @@ import { FAQ } from "@/components/FAQ";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { ProfileCards } from "@/components/ProfileCards";
 import { ProfileInviteFriends } from "@/components/ProfileInviteFriends";
 import { Recommendations } from "@/components/Recommendations";

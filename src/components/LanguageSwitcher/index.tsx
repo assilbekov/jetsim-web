@@ -119,7 +119,7 @@ export const LanguageSwitcher = () => {
   return (
     <>
       <TertiaryButton
-        className="pt-3 pb-3 pl-3 pr-3"
+        className="pt-3 pb-3 pl-3 pr-3 h-11 w-11"
         onClick={() => setIsOpen(true)}
       >
         <Image

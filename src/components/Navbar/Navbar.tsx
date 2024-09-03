@@ -5,14 +5,15 @@ import { useTranslations } from "next-intl";
 
 import { HumburgerButton } from "./HumburgerButton";
 import "./navbar.css";
-import { LoginLink } from "./LoginLink";
+import { LoginLink } from "../LoginLink";
 import { clsx } from "@/utils";
-import { TypographyVariants, getTypographyClass } from "./Typography";
-import { HomeLogo } from "./HomeLogo";
-import { CookieInfo } from "./CookieInfo";
-import { SupportButton } from "./SupportButton";
+import { TypographyVariants, getTypographyClass } from "../Typography";
+import { HomeLogo } from "../HomeLogo";
+import { CookieInfo } from "../CookieInfo";
+import { SupportButton } from "../SupportButton";
 import { Link, LinkProps } from "@/navigation";
-import { LanguageSwitcher } from "./LanguageSwitcher";
+import { LanguageSwitcher } from "../LanguageSwitcher";
+import Image from "next/image";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -113,7 +114,10 @@ export const Navbar = ({
       <div className="block z-[1001] lg:hidden">
         <HomeLogo onClick={handleMenuClose} />
       </div>
-      <HumburgerButton onClick={handleButtonClick} />
+      <div className="flex items-center gap-2">
+        <LanguageSwitcher />
+        <HumburgerButton onClick={handleButtonClick} />
+      </div>
       <nav
         id="primary-navigation"
         data-visible="false"
@@ -122,26 +126,24 @@ export const Navbar = ({
         <div className="hidden lg:flex items-center">
           <HomeLogo onClick={handleMenuClose} />
         </div>
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
-          {!hideNav && (
-            <>
-              <StyledLink href="/all-destinations" onClick={handleMenuClose}>
-                {t("destinations")}
+        {!hideNav && (
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
+            <StyledLink href="/all-destinations" onClick={handleMenuClose}>
+              {t("destinations")}
+            </StyledLink>
+            <StyledLink href={howToHref} onClick={handleMenuClose}>
+              {t("howItWorks")}
+            </StyledLink>
+            <SupportButton>
+              <StyledLink href="#" onClick={handleMenuClose}>
+                {t("support")}
               </StyledLink>
-              <StyledLink href={howToHref} onClick={handleMenuClose}>
-                {t("howItWorks")}
-              </StyledLink>
-              <SupportButton>
-                <StyledLink href="#" onClick={handleMenuClose}>
-                  {t("support")}
-                </StyledLink>
-              </SupportButton>
-              <StyledLink href={faqHref} onClick={handleMenuClose}>
-                {t("faq")}
-              </StyledLink>
-            </>
-          )}
-        </div>
+            </SupportButton>
+            <StyledLink href={faqHref} onClick={handleMenuClose}>
+              {t("faq")}
+            </StyledLink>
+          </div>
+        )}
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <LoginLink locale={locale} />

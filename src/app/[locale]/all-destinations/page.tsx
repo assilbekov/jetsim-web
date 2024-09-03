@@ -1,7 +1,7 @@
 import { AllDestinations } from "@/components/AllDestinations";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { AllDestinationsScreenEvent } from "@/components/ScreenEvents/AllDestinationsEvent";
 import { PageProps } from "@/models/PageProps";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";

@@ -1,7 +1,7 @@
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { PageNotFoundBlock } from "@/components/PageNotFoundBlock";
 import { Recommendations } from "@/components/Recommendations";
 import { PageProps } from "@/models/PageProps";

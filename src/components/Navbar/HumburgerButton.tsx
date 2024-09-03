@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import "./HumburgerButton.css";
 
 type HumburgerButtonProps = {
   onClick: () => void;

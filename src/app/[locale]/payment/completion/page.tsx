@@ -5,7 +5,7 @@ import { BeforeInstallation } from "@/components/InstallESim/BeforeInstallation"
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "@/components/Navbar/Navbar";
 import { FinishedScreenEvent } from "./_components/FinishedScreenEvent";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { PageProps } from "@/models/PageProps";
