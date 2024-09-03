@@ -14,13 +14,15 @@ import { SupportButton } from "../SupportButton";
 import { Link, LinkProps } from "@/navigation";
 import { LanguageSwitcher } from "../LanguageSwitcher";
 import Image from "next/image";
+import { SettingsButton } from "./SettingsButton";
+import { AuthContainer } from "../Auth/AuthContainer";
 
 const StyledLink = (props: LinkProps) => (
   <Link
     {...props}
     className={clsx(
-      "text-text-600 hover:text-[#333D40] transition duration-200 ease-in-out",
-      getTypographyClass(TypographyVariants.Body)
+      "text-text-600 hover:text-[#333D40] transition duration-200 ease-in-out block",
+      getTypographyClass(TypographyVariants.Body2)
     )}
   />
 );
@@ -39,6 +41,7 @@ export const Navbar = ({
   locale = "en-US",
 }: NavbarProps) => {
   const t = useTranslations("Navbar");
+  const loginTranslations = useTranslations("Login");
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -110,12 +113,14 @@ export const Navbar = ({
   };
 
   return (
-    <header className="flex justify-between items-center h-[54px]">
+    <header className="flex justify-between items-center h-[54px] mt-2 lg:mt-0">
       <div className="block z-[1001] lg:hidden">
         <HomeLogo onClick={handleMenuClose} />
       </div>
       <div className="flex items-center gap-2">
-        <LanguageSwitcher />
+        <div className="hidden xxs:block z-[1001] lg:hidden">
+          <LanguageSwitcher />
+        </div>
         <HumburgerButton onClick={handleButtonClick} />
       </div>
       <nav
@@ -123,11 +128,77 @@ export const Navbar = ({
         data-visible="false"
         className="primary-navigation md:bg-[#F8F9FB] flex gap-8 text-text-600 md:w-full md:justify-between sm:min-w-[750px]"
       >
+        <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl">
+          {
+            <AuthContainer
+              locale={locale}
+              renderProps={({ isLoggedIn, handleLoginClick, handleLogout }) => {
+                return (
+                  <>
+                    {isLoggedIn ? (
+                      <Link href="/profile" className="w-full">
+                        <SettingsButton>
+                          <Image
+                            src="/icons/black/sim.svg"
+                            alt="sim icon"
+                            width={12}
+                            height={16}
+                            className="w-5 h-5"
+                          />
+                          {loginTranslations("myEsims")}
+                        </SettingsButton>
+                      </Link>
+                    ) : (
+                      <SettingsButton onClick={handleLoginClick}>
+                        <Image
+                          src="/icons/black/logout.svg"
+                          alt="logout icon"
+                          width={14}
+                          height={14}
+                          className="w-5 h-5"
+                        />
+                        {loginTranslations("login")}
+                      </SettingsButton>
+                    )}
+                    <LanguageSwitcher
+                      renderProps={({ selectedLanguage, handleDialogOpen }) => {
+                        return (
+                          <SettingsButton onClick={handleDialogOpen}>
+                            <Image
+                              src="/icons/black/language.svg"
+                              alt="language icon"
+                              width={17}
+                              height={17}
+                              className="w-5 h-5"
+                            />
+                            {selectedLanguage.language}
+                          </SettingsButton>
+                        );
+                      }}
+                    />
+                    {isLoggedIn && (
+                      <SettingsButton onClick={handleLogout}>
+                        <Image
+                          src="/icons/black/logout.svg"
+                          alt="logout icon"
+                          width={14}
+                          height={14}
+                          className="w-5 h-5"
+                        />
+                        {loginTranslations("logout")}
+                      </SettingsButton>
+                    )}
+                  </>
+                );
+              }}
+            />
+          }
+        </div>
         <div className="hidden lg:flex items-center">
           <HomeLogo onClick={handleMenuClose} />
         </div>
         {!hideNav && (
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
+          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center">
             <StyledLink href="/all-destinations" onClick={handleMenuClose}>
               {t("destinations")}
             </StyledLink>
@@ -144,7 +215,7 @@ export const Navbar = ({
             </StyledLink>
           </div>
         )}
-        <div className="flex items-center gap-2">
+        <div className="lg:flex items-center gap-2 hidden">
           <LanguageSwitcher />
           <LoginLink locale={locale} />
         </div>

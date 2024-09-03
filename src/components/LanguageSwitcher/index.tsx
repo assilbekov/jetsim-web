@@ -111,24 +111,43 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
   );
 };
 
-export const LanguageSwitcher = () => {
+type LanguageSwitcherProps = {
+  renderProps?: ({
+    selectedLanguage,
+    handleDialogOpen,
+  }: {
+    selectedLanguage: Language;
+    handleDialogOpen: () => void;
+  }) => React.ReactNode;
+};
+
+export const LanguageSwitcher = ({ renderProps }: LanguageSwitcherProps) => {
   const params = useParams();
   const t = useTranslations("LanguageSwitcher");
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <TertiaryButton
-        className="pt-3 pb-3 pl-3 pr-3 h-11 w-11"
-        onClick={() => setIsOpen(true)}
-      >
-        <Image
-          src="/icons/black/language.svg"
-          alt="language icon"
-          width={20}
-          height={20}
-        />
-      </TertiaryButton>
+      {renderProps ? (
+        renderProps({
+          handleDialogOpen: () => setIsOpen(true),
+          selectedLanguage:
+            languagesList.find((l) => l.code === params?.locale) ??
+            languagesList[0],
+        })
+      ) : (
+        <TertiaryButton
+          className="pt-3 pb-3 pl-3 pr-3 h-11 w-11"
+          onClick={() => setIsOpen(true)}
+        >
+          <Image
+            src="/icons/black/language.svg"
+            alt="language icon"
+            width={20}
+            height={20}
+          />
+        </TertiaryButton>
+      )}
       {isOpen && (
         <Dialog onClose={() => setIsOpen(false)}>
           <DialogTitle title={t("title")} onClose={() => setIsOpen(false)} />
