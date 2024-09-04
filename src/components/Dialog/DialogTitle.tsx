@@ -9,7 +9,7 @@ type DialogTitleProps = {
 
 export const DialogTitle = ({ title, onClose }: DialogTitleProps) => {
   return (
-    <div className="flex justify-between items-center h-[30px] w-full">
+    <div className="flex justify-between items-center w-full">
       <h5
         className={clsx(
           getTypographyClass(TypographyVariants.Subheader),
@@ -27,7 +27,7 @@ export const DialogTitle = ({ title, onClose }: DialogTitleProps) => {
           alt="close icon"
           width={24}
           height={24}
-          className="w-6 h-6 md:w-6 md:h-6"
+          className="min-w-6 min-h-6 w-6 h-6"
         />
       </div>
     </div>

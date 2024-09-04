@@ -80,7 +80,7 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
       locale={language.code as any}
       href={`${pathname}${window.location.search || ""}`}
       className={clsx(
-        "px-5 py-4 rounded-2xl border-2 border-solid border-transparent hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
+        "px-5 py-4 rounded-2xl border-2 border-solid border-[#E9F0F2] md:border-none hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
         active ? "border-[#E9F0F2] bg-[#E9F0F2]" : ""
       )}
       onClick={() => {
@@ -149,7 +149,7 @@ export const LanguageSwitcher = ({ renderProps }: LanguageSwitcherProps) => {
         </TertiaryButton>
       )}
       {isOpen && (
-        <Dialog onClose={() => setIsOpen(false)}>
+        <Dialog onClose={() => setIsOpen(false)} mdHeightAuto>
           <DialogTitle title={t("title")} onClose={() => setIsOpen(false)} />
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">
             {languagesList.map((language) => (
