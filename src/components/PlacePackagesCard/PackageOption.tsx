@@ -86,7 +86,7 @@ export const PackageOption = ({
       className="flex flex-col gap-3 py-[14px] px-4 rounded-2xl border-[2px] border-[#E9F0F2] hover:border-[#C3D4D9] aria-selected:border-secondary-500 cursor-pointer transition duration-200 ease-in-out"
       htmlFor={packageEntity.id}
     >
-      <div className="flex gap-6">
+      <div className="flex gap-2">
         <div className="flex gap-6 w-full">
           <TextContainer>
             <BoldText>
@@ -125,7 +125,12 @@ export const PackageOption = ({
             )}
           </TextContainer>
         </div>
-        <div className="flex gap-3 items-start">
+        <div
+          className={clsx(
+            "flex gap-3 items-start",
+            packageEntity.bestChoice ? "min-w-[68px] xxs:min-w-[96px]" : ""
+          )}
+        >
           {packageEntity.bestChoice && <BestBadge />}
           <Checkbox
             id={packageEntity.id}

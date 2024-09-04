@@ -23,7 +23,7 @@ export const CookieInfo = () => {
   }
 
   return (
-    <div className="fixed bottom-0 right-0 bg-white w-full md:w-[650px] md:right-6 md:bottom-6 md:border-[1px] md:rounded-xl flex justify-between items-center gap-4 border-t-[1px] border-[#E6EFF2] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] px-6 py-4 z-[10]">
+    <div className="fixed bottom-0 right-0 bg-white w-full md:w-[650px] md:right-6 md:bottom-6 md:border-[1px] md:rounded-xl flex justify-between items-center gap-4 border-t-[1px] border-[#E6EFF2] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] px-6 py-4 z-[9999]">
       <p
         className={clsx(
           getTypographyClass(TypographyVariants.Caption),

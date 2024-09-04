@@ -80,7 +80,7 @@ const LanguageBlock = ({ active, language }: LanguageBlockProps) => {
       locale={language.code as any}
       href={`${pathname}${window.location.search || ""}`}
       className={clsx(
-        "px-5 py-4 rounded-2xl border-2 border-solid border-transparent hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
+        "px-5 py-4 rounded-2xl border-2 border-solid border-[#E9F0F2] md:border-none hover:border-[#E9F0F2] transition duration-200 ease-in-out cursor-pointer",
         active ? "border-[#E9F0F2] bg-[#E9F0F2]" : ""
       )}
       onClick={() => {
@@ -126,11 +126,46 @@ export const LanguageSwitcher = ({ renderProps }: LanguageSwitcherProps) => {
   const t = useTranslations("LanguageSwitcher");
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleOpen = () => {
+    setIsOpen(true);
+
+    // Get the navigation element by ID
+    const navElement = document.getElementById("primary-navigation");
+
+    if (navElement) {
+      // Toggle classes
+      navElement.classList.remove("overflow-auto");
+      navElement.classList.add("overflow-hidden");
+    }
+  };
+
+  // TODO: Too many workarounds to handle the overflow of the body.
+  // Find a better way to handle this.
+  const handleClose = () => {
+    setIsOpen(false);
+
+    // Get the navigation element by ID
+    const navElement = document.getElementById("primary-navigation");
+    const body = document.body;
+
+    if (navElement) {
+      // Toggle classes
+      navElement.classList.remove("overflow-hidden");
+      navElement.classList.add("overflow-auto");
+    }
+
+    if (body && body.clientWidth < 1024) {
+      setTimeout(() => {
+        body.classList.add("overflow-hidden");
+      }, 0)
+    }
+  }
+
   return (
     <>
       {renderProps ? (
         renderProps({
-          handleDialogOpen: () => setIsOpen(true),
+          handleDialogOpen: handleOpen,
           selectedLanguage:
             languagesList.find((l) => l.code === params?.locale) ??
             languagesList[0],
@@ -138,7 +173,7 @@ export const LanguageSwitcher = ({ renderProps }: LanguageSwitcherProps) => {
       ) : (
         <TertiaryButton
           className="pt-3 pb-3 pl-3 pr-3 h-11 w-11"
-          onClick={() => setIsOpen(true)}
+          onClick={handleOpen}
         >
           <Image
             src="/icons/black/language.svg"
@@ -149,8 +184,8 @@ export const LanguageSwitcher = ({ renderProps }: LanguageSwitcherProps) => {
         </TertiaryButton>
       )}
       {isOpen && (
-        <Dialog onClose={() => setIsOpen(false)}>
-          <DialogTitle title={t("title")} onClose={() => setIsOpen(false)} />
+        <Dialog onClose={handleClose} mdHeightAuto>
+          <DialogTitle title={t("title")} onClose={handleClose} />
           <div className="w-full grid grid-cols-1 gap-4 md:grid-cols-3">
             {languagesList.map((language) => (
               <LanguageBlock
