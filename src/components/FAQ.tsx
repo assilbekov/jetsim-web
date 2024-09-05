@@ -2,145 +2,135 @@ import { LandingContainer } from "./LandingContainer";
 import { Card } from "./Card";
 import { AccordionPanel } from "./AccordionPanel";
 import { Typography, TypographyVariants } from "./Typography";
-import Link from "next/link";
 import { CheckCompatibility } from "./CheckCompatibility";
 import { SupportButton } from "./SupportButton";
+import { useTranslations } from "next-intl";
 
 export const FAQ = () => {
+  const t = useTranslations("FAQ");
+
   const faq = [
     {
-      title: "What is an eSIM and how do you use it?",
-      description:
-        "An eSIM is an electronic, or virtual, SIM card. You can use it along with your physical SIM card, if necessary. To start using an eSIM, activate it by scanning a provided QR code (or use manual setup).",
+      title: t("whatIsAnEsimAndHowDoYouUseIt.title"),
+      description: t("whatIsAnEsimAndHowDoYouUseIt.description"),
     },
     {
-      title: "How do I install my eSIM from JetSim?",
+      title: t("howDoIInstallMyEsimFromJetSim.title"),
       description: (
         <>
-          <p>
-            Once you complete a purchase, you receive a QR code. Then, follow
-            these steps:
-          </p>
+          <p>{t("howDoIInstallMyEsimFromJetSim.description1")}</p>
           <ol className="list-decimal ml-8">
-            <li>
-              Scan the QR code to activate an eSIM or use an instruction for
-              manual setup.
-            </li>
-            <li>Turn on data roaming on your eSIM upon arrival.</li>
-            <li>Use your cellular plan!</li>
+            <li>{t("howDoIInstallMyEsimFromJetSim.description2")}</li>
+            <li>{t("howDoIInstallMyEsimFromJetSim.description3")}</li>
+            <li>{t("howDoIInstallMyEsimFromJetSim.description4")}</li>
           </ol>
           <p className="mt-4">
-            If you can&apos;t scan the QR code, try sending it to another device
-            or install it manually (instructions are provided along with the
-            code).
+            {t("howDoIInstallMyEsimFromJetSim.description5")}
           </p>
         </>
       ),
     },
     {
-      title: "Can I use my eSIM on any device?",
+      title: t("canIUseMyEsimOnAnyDevice.title"),
       description: (
         <>
-          JetSim eSIM is compatible with the majority of smartphones,
-          smartwatches, and tablets. However, if you have any doubts, please
-          check compatibility before buying an eSIM. You can check it{" "}
+          {t("canIUseMyEsimOnAnyDevice.description1")}
           <CheckCompatibility
-            label="here"
+            label={t("canIUseMyEsimOnAnyDevice.link")}
             className="inline-flex items-center"
             hideIcon
           />{" "}
-          or contact your cellular provider to learn more.
+          {t("canIUseMyEsimOnAnyDevice.description2")}
         </>
       ),
     },
     {
-      title: "How is eSIM better than traditional SIM cards?",
-      description:
-        "With an eSIM, you can start using local mobile networks right upon arrival, even before going through passport control. You can buy and install an eSIM in a few minutes, without standing in long lines at the airport shops to buy a physical SIM card, and it is usually a more pocket-friendly solution. Also, no need to provide your passport for verification.",
+      title: t("howIsEsimBetterThanTraditionalSimCards.title"),
+      description: t("howIsEsimBetterThanTraditionalSimCards.description"),
     },
     {
-      title: "Once eSIM expires, can I switch back to a physical SIM card?",
-      description:
-        "Yes, you can switch back to a physical SIM whenever you need it. Don't uninstall an active eSIM if you want to use it later because you can only install it once.",
+      title: t("onceEsimExpiresCanISwitchBackToAPhysicalSimCard.title"),
+      description: t(
+        "onceEsimExpiresCanISwitchBackToAPhysicalSimCard.description"
+      ),
     },
     {
-      title: "Is eSIM secure?",
-      description:
-        "JetSim uses modern encryption technologies to secure the connection between your device and a cellular network.",
+      title: t("isEsimSecure.title"),
+      description: t("isEsimSecure.description"),
     },
     {
-      title:
-        "Can I use both my SIM card and an eSIM during international travel?",
-      description:
-        "Yes, you can use your physical SIM card and an eSIM simultaneously. Your primary phone number will remain active, and you'll be able to receive calls and SMS. However, note that you'll be charged according to your mobile operator's pricing in this case, which is why eSIM can be a more suitable option.",
+      title: t("canIUseBothMySimCardAndAnEsimDuringInternationalTravel.title"),
+      description: t(
+        "canIUseBothMySimCardAndAnEsimDuringInternationalTravel.description"
+      ),
     },
     {
-      title: "Should I install my eSIM in advance, before the trip?",
-      description: `Note that JetSim's data plan becomes active once you purchase it even if you don't start using it right away, so plan the use accordingly. We recommend purchasing and installing your eSIM once you arrive at your destination.
-        Note that you need to connect to Wi-Fi or mobile data to install an eSIM. If you believe you may not have access to Wi-Fi when you arrive, it's better to activate your eSIM in advance.
-        `,
+      title: t("shouldIInstallMyEsimInAdvanceBeforeTheTrip.title"),
+      description: (
+        <>
+          <p>{t("shouldIInstallMyEsimInAdvanceBeforeTheTrip.description1")}</p>
+          <p>{t("shouldIInstallMyEsimInAdvanceBeforeTheTrip.description2")}</p>
+        </>
+      ),
     },
     {
-      title: "Do I need to provide my ID to use a JetSim eSIM?",
-      description:
-        "JetSim doesn't request your ID before or after a purchase. You can buy an eSIM and start using it right away.",
+      title: t("doINeedToProvideMyIdToUseAJetSimEsim.title"),
+      description: t("doINeedToProvideMyIdToUseAJetSimEsim.description"),
     },
     {
-      title: "How many times can I use my eSIM?",
-      description:
-        "You can use your QR code to install an eSIM only once and only on any device.",
+      title: t("howManyTimesCanIUseMyEsim.title"),
+      description: t("howManyTimesCanIUseMyEsim.description"),
     },
     {
-      title: "Can I reinstall my eSIM?",
-      description:
-        "No, you can only scan the QR code once. If you uninstall your eSIM, you have to buy a new plan and install it from scratch.",
+      title: t("canIReinstallMyEsim.title"),
+      description: t("canIReinstallMyEsim.description"),
     },
     {
-      title: "Can I call or text with JetSim eSIM?",
-      description:
-        "JetSim offers only data plans for you to access the internet anywhere. Our eSIMs do not support phone calls or SMS messages.",
+      title: t("canICallOrTextWithJetSimEsim.title"),
+      description: t("canICallOrTextWithJetSimEsim.description"),
     },
     {
-      title: "Can I share internet access with other devices?",
-      description:
-        "Yes, you can use your phone as a personal hotspot. However, you can't install one eSIM on several devices.",
+      title: t("canIShareInternetAccessWithOtherDevices.title"),
+      description: t("canIShareInternetAccessWithOtherDevices.description"),
     },
     {
-      title: "What happens if I use all my data before the eSIM plan expires?",
-      description: `If you use a standard plan, your eSIM gets deactivated once you use all the data included. If you need more data, you have to buy another plan.
-        If you purchase an unlimited eSIM, you can use it during the whole plan's duration. You might experience a slightly lower internet speed after a certain threshold, but it may happen only after significant data use.
-        `,
-    },
-    {
-      title: "My QR code isn't working. What should I do?",
+      title: t("whatHappensIfIUseAllMyDataBeforeTheEsimPlanExpires.title"),
       description: (
         <>
           <p>
-            Here are a few things to check if your QR code isn&apos;t working:
+            {t(
+              "whatHappensIfIUseAllMyDataBeforeTheEsimPlanExpires.description1"
+            )}
           </p>
+          <p>
+            {t(
+              "whatHappensIfIUseAllMyDataBeforeTheEsimPlanExpires.description2"
+            )}
+          </p>
+        </>
+      ),
+    },
+    {
+      title: t("myQrCodeIsntWorkingWhatShouldIDo.title"),
+      description: (
+        <>
+          <p>{t("myQrCodeIsntWorkingWhatShouldIDo.description1")}</p>
           <ol className="list-decimal ml-8">
             <li>
-              Check device compatibility with an eSIM. You can do it{" "}
+              {t("myQrCodeIsntWorkingWhatShouldIDo.description2")}{" "}
               <CheckCompatibility
-                label="here"
+                label={t("myQrCodeIsntWorkingWhatShouldIDo.link1")}
                 className="inline-flex items-center"
                 hideIcon
               />
-              .
             </li>
-            <li>
-              Check your connection to Wi-Fi or mobile data. You need it to
-              install your eSIM.
-            </li>
-            <li>
-              Try to install your eSIM manually (instructions are provided along
-              with the QR code).
-            </li>
+            <li>{t("myQrCodeIsntWorkingWhatShouldIDo.description3")}</li>
+            <li>{t("myQrCodeIsntWorkingWhatShouldIDo.description4")}</li>
           </ol>
           <p className="mt-4">
-            If none of the above solutions work, please{" "}
+            {t("myQrCodeIsntWorkingWhatShouldIDo.description5")}{" "}
             <SupportButton className="inline text-secondary-500 hover:text-secondary-300 transition-colors duration-200 ease-in-out cursor-pointer">
-              contact JetSim support.
+              {t("myQrCodeIsntWorkingWhatShouldIDo.link2")}
             </SupportButton>
           </p>
         </>
@@ -154,17 +144,17 @@ export const FAQ = () => {
     <LandingContainer id="faq">
       <Card size="md">
         <Typography variant={TypographyVariants.H2}>
-          Frequently Asked Questions
+          {t("frequentlyAskedQuestions")}
         </Typography>
         <div className="flex flex-col md:flex-row gap-4 mt-4 md:mt-6 lg:mt-8">
-          <div className="flex gap-4 flex-col flex-wrap justify-start box-border">
+          <div className="flex gap-4 flex-col flex-wrap justify-start box-border w-full">
             {faqLeft.map((item, index) => (
               <AccordionPanel key={item.title} title={item.title} index={index}>
                 {item.description}
               </AccordionPanel>
             ))}
           </div>
-          <div className="flex gap-4 flex-col flex-wrap justify-start box-border">
+          <div className="flex gap-4 flex-col flex-wrap justify-start box-border w-full">
             {faqRight.map((item, index) => (
               <AccordionPanel key={item.title} title={item.title} index={index}>
                 {item.description}

@@ -2,9 +2,11 @@ import { clsx } from "@/utils";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { SecondaryButton } from "../buttons/SecondaryButton";
-import Link from "next/link";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 export function PlanningTripCard() {
+  const t = useTranslations("PlanningTripCard");
   return (
     <div className="flex flex-col justify-center h-[300px] py-5 px-6 items-center rounded-3xl border-2 border-solid border-[#E9F0F2]">
       <div className="flex flex-col gap-4 text-center">
@@ -18,7 +20,7 @@ export function PlanningTripCard() {
         />
         <div className="text-center">
           <h5 className={getTypographyClass(TypographyVariants.Subheader)}>
-            Planning a new trip?
+            {t("title")}
           </h5>
           <p
             className={clsx(
@@ -26,12 +28,12 @@ export function PlanningTripCard() {
               "mt-2 text-text-600"
             )}
           >
-            Buy new plan at affordable price
+            {t("description")}
           </p>
         </div>
         <Link href="/all-destinations">
           <SecondaryButton className="w-[190px] py-[14px] mx-auto">
-            Buy new plan
+            {t("buyNewPlan")}
           </SecondaryButton>
         </Link>
       </div>

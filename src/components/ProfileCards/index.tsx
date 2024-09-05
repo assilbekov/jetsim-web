@@ -17,15 +17,16 @@ import {
   handleSuccessPaymentInstructionClick,
 } from "@/gtm-events";
 import { MockCards } from "./mockCards";
+import { useLocale } from "next-intl";
 
-export const ProfileCards = () => {
+export const ProfileCards = ({ locale }: { locale: string }) => {
   const [dialog, setDialog] = useState<CardDialogModel | null>(null);
   const [instructionsDialog, setInstructionsDialog] =
     useState<CardDialogModel | null>(null);
   const { data: cards, isFetched: isCardsFetched } = useQuery({
     queryKey: ["cards"],
     queryFn: async () => {
-      return await fetchCards();
+      return await fetchCards(locale);
       //const cardsRes = await fetchCards();
       //return MockCards//.concat(cardsRes);
     },
@@ -52,7 +53,7 @@ export const ProfileCards = () => {
     queryKey: ["locations", ...locationIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
-        locationIds.map((locationId) => fetchLocation(locationId)) || []
+        locationIds.map((locationId) => fetchLocation(locationId, locale)) || []
       );
 
       return await promiseAll;
@@ -62,7 +63,7 @@ export const ProfileCards = () => {
     queryKey: ["packages", ...packageIds],
     queryFn: async () => {
       const promiseAll = Promise.all(
-        packageIds.map((packageId) => fetchPackage(packageId)) || []
+        packageIds.map((packageId) => fetchPackage(packageId, locale)) || []
       );
 
       return await promiseAll;
@@ -141,6 +142,7 @@ export const ProfileCards = () => {
           <CardDialog
             key={dialog.type}
             {...dialog}
+            locale={locale}
             setDialog={setDialog}
             onSeeInstructionsClick={() => {
               handleSuccessPaymentInstructionClick();

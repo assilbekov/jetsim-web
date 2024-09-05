@@ -15,11 +15,13 @@ import { QRCodeBlock } from "../QRCodeBlock";
 
 type QRCodeInstallProps = {
   card: Card;
+  locale: string;
   onSeeInstructionsClick: () => void;
 };
 
 export const QRCodeInstall = ({
   card,
+  locale,
   onSeeInstructionsClick,
 }: QRCodeInstallProps) => {
   const qrRef = useRef<HTMLDivElement>(null);
@@ -40,9 +42,9 @@ export const QRCodeInstall = ({
 
   return (
     <div>
-      <QRCodeBlock size={220} card={card} />
+      <QRCodeBlock size={220} card={card} locale={locale} />
     </div>
-  )
+  );
 
   return (
     <div className="flex flex-col justify-center text-base font-medium leading-6">

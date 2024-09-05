@@ -1,6 +1,6 @@
-import { CardStatus } from "@/models/Card";
+import { Card, CardStatus } from "@/models/Card";
 
-export const MockCards = [
+export const MockCards: Card[] = [
   {
     id: "expires-in-0-hours",
     status: CardStatus.Installed,
@@ -38,7 +38,7 @@ export const MockCards = [
     status: CardStatus.Installed,
     lpaCode: "LPA:1$smdp.io$K2-1VL1UJ-1DISWVF",
     activatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
-    //expiresAt: "invalid",
+    expiresAt: "invalid",
     trafficTotalBytes: 3221225472,
     trafficRemainingBytes: -1,
     package: {

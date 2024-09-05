@@ -10,6 +10,7 @@ import {
   TypographyVariants,
   getTypographyClass,
 } from "@/components/Typography";
+import { useTranslations } from "next-intl";
 
 type ScanQRStepProps = {
   step: number;
@@ -18,6 +19,7 @@ type ScanQRStepProps = {
 };
 
 export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
+  const t = useTranslations("SeeInstructions");
   const deviceTypeAndVerion = useDeviceTypeAndVerion();
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 
@@ -28,11 +30,14 @@ export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
       return (
         <>
           <span>
-            Tap {deviceTypeAndVerion.version >= "17.5" ? "" : "and hold "}on QR
-            code
+            {t("tap")}
+            {deviceTypeAndVerion.version >= "17.5"
+              ? ""
+              : ` ${t("andHold")}`}{" "}
+            {t("onQR")}
           </span>
           <ArrowRightImage />
-          <span>Add eSIM</span>
+          <span>{t("addEsim")}</span>
         </>
       );
     }
@@ -40,21 +45,21 @@ export const ScanQRStep = ({ step, card, helperText }: ScanQRStepProps) => {
     if (!deviceTypeAndVerion.isDesktop) {
       return (
         <div>
-          <p>Share the QR code to a different screen</p>
+          <p>{t("shareQRCode")}</p>
           <p
             className={clsx(
               getTypographyClass(TypographyVariants.Caption),
               "mt-1 w-full text-text-600 text-center"
             )}
           >
-            Or use alternative method bellow
+            {t("alternativeMethod")}
           </p>
           <ShareQRCodeButton />
         </div>
       );
     }
 
-    return "Scan this QR code";
+    return t("scanQRCode");
   };
 
   return (

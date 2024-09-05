@@ -18,8 +18,9 @@ import {
   handleLoginEmailClickEvent,
   handleLoginEmailCodeClickEvent,
 } from "@/gtm-events";
-import { getProfile } from "@/api/auth";
+import { getProfile, setUserLanguage } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
+import { useLocale, useTranslations } from "next-intl";
 
 const validateEmail = (email: string): boolean => {
   return Boolean(
@@ -67,6 +68,8 @@ type EmailLoginProps = {
 
 export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("LoginDialog");
   const { utmsSearchParams } = useContext(UTMContext);
 
   const [email, setEmail] = useState("");
@@ -81,7 +84,10 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
     const response = await fetch("https://auth.jetsim.app/api/v1/email", {
       method: "POST",
       body: JSON.stringify({ email }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Accept-Language": locale,
+      },
     });
     if (response.ok) {
       setStep(LoginStep.Code);
@@ -99,11 +105,16 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       {
         method: "POST",
         body: JSON.stringify({ code, email }),
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "Accept-Language": locale,
+        },
       }
     );
     if (response.ok) {
       const json: ApiResponse<Tokens> = await response.json();
+
+      setUserLanguage(locale);
 
       if (json.payload?.meta?.newUser) {
         (window as any)?.dataLayer.push({ event: "registration" });
@@ -112,7 +123,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       localStorage.setItem("accessToken", json.payload?.accessToken);
       localStorage.setItem("refreshToken", json.payload?.refreshToken);
       localStorage.setItem("user_email", email);
-      getProfile().then((profile) => {
+      getProfile(locale).then((profile) => {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);
       });
@@ -145,22 +156,28 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
         {step === LoginStep.Email ? (
           <StyledInput
             key="email"
+            placeholder={t("enterEmail")}
             type="email"
-            placeholder="Enter email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         ) : (
           <StyledInput
             key="code"
-            placeholder="Enter the verification code"
+            placeholder={t("enterVerificationCode")}
             value={code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(e) => {
+              const input = e.target.value;
+              // Allow only digits and limit to 6 characters
+              if (/^\d{0,6}$/.test(input)) {
+                setCode(input);
+              }
+            }}
             className={isCodeInvalid ? "border-[#F00]" : ""}
           />
         )}
         {step === LoginStep.Code && (
-          <div className="absolute bottom-0 right-0 flex gap-4 items-center">
+          <div className="absolute bottom-[17px] right-6 flex gap-4 items-center">
             {isCodeInvalid && (
               <p
                 className={clsx(
@@ -168,20 +185,31 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
                   "text-[#F00]"
                 )}
               >
-                Wrong code
+                {t("wrongCode")}
               </p>
             )}
-            <ChangeEmailButton
-              onClick={() => {
-                setStep(LoginStep.Email);
-                setCode("");
-                setIsCodeInvalid(false);
-              }}
-              type="button"
-            />
           </div>
         )}
       </div>
+
+      {step === LoginStep.Code && (
+        <p
+          className={clsx(
+            getTypographyClass(TypographyVariants.Body2),
+            "text-text-600 mt-2 w-full"
+          )}
+        >
+          {t("verificationCodeSent", { email })}{" "}
+          <ChangeEmailButton
+            onClick={() => {
+              setStep(LoginStep.Email);
+              setCode("");
+              setIsCodeInvalid(false);
+            }}
+            type="button"
+          />
+        </p>
+      )}
 
       <PrimaryButton
         disabled={
@@ -190,7 +218,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
         type="submit"
         className="w-full mt-4"
       >
-        Continue{step === LoginStep.Email ? " with code" : ""}
+        {t(step === LoginStep.Email ? "continueWithCode" : "continue")}
       </PrimaryButton>
     </form>
   );

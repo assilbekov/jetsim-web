@@ -1,48 +1,55 @@
+"use client";
+
 import { ArrowRightImage } from "./ArrowRightImage";
 import { IconWithText } from "./IconWithText";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
+import { useTranslations } from "next-intl";
 
-type EnterDetailsManuallyStep = {
+type EnterDetailsManuallyStepProps = {
   step: number;
 };
 
 export const EnterDetailsManuallyStep = ({
   step,
-}: EnterDetailsManuallyStep) => {
+}: EnterDetailsManuallyStepProps) => {
+  const t = useTranslations("InstallESimInstructionsDialog");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("EnterDetailsManuallyStep_instruction_1_text")}</span>
           <IconWithText
-            src="/icons/settings.png"
-            alt="settings icon"
-            text="Settings"
+            src={t("EnterDetailsManuallyStep_instruction_1_icon_src")}
+            alt={t("EnterDetailsManuallyStep_instruction_1_icon_alt")}
+            text={t("EnterDetailsManuallyStep_instruction_1_icon_text")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
-            src="/icons/mobile-service.svg"
-            alt="mobile service icon"
-            text="Mobile Service"
+            src={t("EnterDetailsManuallyStep_instruction_2_icon_src")}
+            alt={t("EnterDetailsManuallyStep_instruction_2_icon_alt")}
+            text={t("EnterDetailsManuallyStep_instruction_2_icon_text")}
           />
           <ArrowRightImage />
-          <span>Add eSIM</span>
+          <span>
+            {t("EnterDetailsManuallyStep_instruction_2_additional_text")}
+          </span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
-            src="/icons/primary/qr.svg"
-            alt="QR code icon"
-            text="Use QR Code"
+            src={t("EnterDetailsManuallyStep_instruction_3_icon_src")}
+            alt={t("EnterDetailsManuallyStep_instruction_3_icon_alt")}
+            text={t("EnterDetailsManuallyStep_instruction_3_icon_text")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>Enter Details Manually</span>
+          <span>{t("EnterDetailsManuallyStep_final_step")}</span>
         </InfoRow>
       </div>
     </div>

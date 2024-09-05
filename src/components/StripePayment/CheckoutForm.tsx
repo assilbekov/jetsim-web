@@ -10,20 +10,27 @@ import { PrimaryButton } from "../buttons/PrimaryButton";
 import { StripeError } from "@stripe/stripe-js";
 import { ErrorMessage } from "./ErrorMessage";
 import { useRouter, useSearchParams } from "next/navigation";
-import { handlePaymentAttemptEvent, handlePaymentMethodClickEvent, trackPurchase } from "@/gtm-events";
+import {
+  handlePaymentAttemptEvent,
+  handlePaymentMethodClickEvent,
+  trackPurchase,
+} from "@/gtm-events";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPackage } from "@/api/packages";
+import { useTranslations } from "next-intl";
 
 type CheckoutFormProps = {
   packageID: string;
   placeID: string;
   cardID: string;
+  locale: string;
 };
 
 export const CheckoutForm = ({
   cardID,
   packageID,
   placeID,
+  locale,
 }: CheckoutFormProps) => {
   const router = useRouter();
   const stripe = useStripe();
@@ -31,8 +38,9 @@ export const CheckoutForm = ({
   const searchParams = useSearchParams();
   const packageInfo = useQuery({
     queryKey: ["packages", packageID],
-    queryFn: () => fetchPackage(packageID),
+    queryFn: () => fetchPackage(packageID, locale),
   });
+  const t = useTranslations("OrderSummary");
 
   const [err, setErr] = useState<StripeError | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -56,7 +64,7 @@ export const CheckoutForm = ({
       confirmParams: {
         return_url: `${
           window.location.origin
-        }/payment/completion?cardID=${cardID}${
+        }/${locale}/payment/completion?cardID=${cardID}${
           isReinstall ? `&reinstall=true` : ``
         }`,
       },
@@ -83,11 +91,10 @@ export const CheckoutForm = ({
             price: paymentIntent.amount / 100,
           },
         ],
-        //items: [packageInfo.data],
       });
 
       router.push(
-        `/payment/completion?cardID=${cardID}${
+        `/${locale}/payment/completion?cardID=${cardID}${
           isReinstall ? `&reinstall=true` : ``
         }`
       );
@@ -109,7 +116,7 @@ export const CheckoutForm = ({
       <PaymentElement />
       {err && <ErrorMessage err={err} />}
       <PrimaryButton disabled={isProcessing} id="submit" className="w-full">
-        {isProcessing ? "Processing..." : "Pay"}
+        {isProcessing ? t("CheckoutForm_processing") : t("CheckoutForm_pay")}
       </PrimaryButton>
     </form>
   );

@@ -9,6 +9,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { ProgressBar, ProgressBarSignleLine } from "./ProgressBar";
 import { Package } from "@/models/Package";
 import { convertDaysText } from "@/converters/texts";
+import { useTranslations } from "next-intl";
 
 type ProfileCardProps = {
   card: Card;
@@ -27,6 +28,7 @@ export function ProfileCard({
   onDetailsClick,
   onInstallClick,
 }: ProfileCardProps) {
+  const t = useTranslations("ProfileCard");
   const expirationDate = new Date(
     card.expiresAt.replace(" +0000 UTC", "Z").replace(" ", "T")
   );
@@ -43,20 +45,27 @@ export function ProfileCard({
   const isDaysLeftLow = daysProgress < 20;
   const isTimeLeftLow = timeProgress < 80;
 
-  const expiredText = convertDateDiffToText(expirationDate, currentDate);
+  const expiredText = convertDateDiffToText(expirationDate, currentDate, {
+    hourSingular: t("hour"),
+    hourPlural: t("hours"),
+    daySingular: t("day"),
+    dayPlural: t("days"),
+    monthSingular: t("month"),
+    monthPlural: t("months"),
+  });
   const dataIsOver =
     !card.package.traffic.isUnlimited &&
     (!card.trafficRemainingBytes || card.trafficRemainingBytes < 1);
 
   const getExpirationText = () => {
     if (dataIsOver) {
-      return "Data is over";
+      return t("dataIsOver");
     }
 
     if (expirationDate < currentDate) {
-      return `Expired ${expiredText} ago`;
+      return t("expiredAgo", { expiredText });
     }
-    return `Expires in ${expiredText}`;
+    return t("expiresIn", { expiresText: expiredText });
   };
 
   const renderTrafficText = () => {
@@ -70,7 +79,7 @@ export function ProfileCard({
         return (
           <p>
             {card.package.traffic.isUnlimited
-              ? convertDaysText(selectedPackage.days)
+              ? convertDaysText(selectedPackage.days, t("day"), t("days"))
               : formatBytes(card.trafficTotalBytes)}
           </p>
         );
@@ -79,7 +88,7 @@ export function ProfileCard({
           return (
             <>
               <p className={clsx(isDaysLeftLow ? "text-secondary-500" : "")}>
-                {convertDaysText(selectedPackage.days)}
+                {convertDaysText(selectedPackage.days, t("day"), t("days"))}
               </p>
               <p className="text-text-600">∞ GB</p>
             </>
@@ -142,7 +151,7 @@ export function ProfileCard({
             className="w-full"
             onClick={() => onInstallClick(card, location)}
           >
-            Install eSIM
+            {t("installESim")}
           </PrimaryButton>
         );
       case CardStatus.Installed:
@@ -153,21 +162,21 @@ export function ProfileCard({
                 className="w-full pr-1 pl-1"
                 onClick={() => onBuyNewPlanClick(card, location)}
               >
-                Buy new plan
+                {t("buyNewPlan")}
               </SecondaryButton>
             ) : (
               <PrimaryButton
                 className="w-full pr-1 pl-1"
                 onClick={() => onBuyNewPlanClick(card, location)}
               >
-                Buy new plan
+                {t("buyNewPlan")}
               </PrimaryButton>
             )}
             <SecondaryButton
               className="w-full py-[14px] pr-1 pl-1"
               onClick={() => onDetailsClick(card, location)}
             >
-              View details
+              {t("viewDetails")}
             </SecondaryButton>
           </div>
         );
@@ -178,13 +187,13 @@ export function ProfileCard({
               className="w-full py-[14px] pr-1 pl-1"
               onClick={() => onBuyNewPlanClick(card, location)}
             >
-              Buy new plan
+              {t("buyNewPlan")}
             </SecondaryButton>
             <SecondaryButton
               className="w-full py-[14px] pr-1 pl-1"
               onClick={() => onDetailsClick(card, location)}
             >
-              View details
+              {t("viewDetails")}
             </SecondaryButton>
           </div>
         );

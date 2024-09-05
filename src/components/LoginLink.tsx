@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { LoginDialog } from "./LoginDialog";
 import { useEffect, useState } from "react";
 import { ApiResponse } from "@/models/ApiResponse";
@@ -9,8 +8,16 @@ import { SecondaryButton } from "./buttons/SecondaryButton";
 import Image from "next/image";
 import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
-export const LoginLink = () => {
+type LoginLink = {
+  locale: string;
+};
+
+export const LoginLink = ({ locale }: LoginLink) => {
+  const t = useTranslations("Login");
+
   const [isLoginDialogOpen, setIsLoginDialogOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -19,13 +26,13 @@ export const LoginLink = () => {
     localStorage.removeItem("refreshToken");
     setIsLoggedIn(false);
 
-    if (window.location.pathname === "/profile") {
-      window.location.href = "/";
+    if (window.location.pathname === `/${locale}/profile`) {
+      window.location.href = `/${locale}`;
     }
   };
 
   const getUserProfile = async () => {
-    getProfile().then((profile) => {
+    getProfile(locale).then((profile) => {
       localStorage.setItem("user_email", profile.email);
       localStorage.setItem("user_id", profile.id);
     });
@@ -39,7 +46,10 @@ export const LoginLink = () => {
     }
 
     fetch("https://auth.jetsim.app/api/v1/check", {
-      headers: { Authorization: `Bearer ${accessToken}` },
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Accept-Language": locale,
+      },
     }).then((res) => {
       if (res.ok) {
         setIsLoggedIn(true);
@@ -54,7 +64,10 @@ export const LoginLink = () => {
       }
 
       fetch("https://auth.jetsim.app/api/v1/renew", {
-        headers: { Authorization: `Bearer ${refreshToken}` },
+        headers: {
+          Authorization: `Bearer ${refreshToken}`,
+          "Accept-Language": locale,
+        },
         method: "POST",
       }).then(async (res) => {
         if (!res.ok) {
@@ -78,7 +91,7 @@ export const LoginLink = () => {
   }, []);
 
   const handleLoginClick = () => {
-    // This should be tracked on the BE. Maybe 
+    // This should be tracked on the BE. Maybe
     // (window as any)?.dataLayer.push({ event: "registration" });
     setIsLoginDialogOpen(true);
     handleLoginScreenEvent();
@@ -91,7 +104,7 @@ export const LoginLink = () => {
           <div className="flex flex-col gap-4 md:flex-row">
             <Link href="/profile" className="w-full">
               <SecondaryButton className="pl-1 pr-1 min-w-[140px] w-full">
-                My eSIMs
+                {t("myEsims")}
               </SecondaryButton>
             </Link>
             <SecondaryButton
@@ -104,18 +117,18 @@ export const LoginLink = () => {
                 width={20}
                 height={20}
               />
-              <span className="md:hidden">Log out</span>
+              <span className="md:hidden">{t("logout")}</span>
             </SecondaryButton>
           </div>
         ) : (
           <SecondaryButton className="w-full" onClick={handleLoginClick}>
-            Login
+            {t("login")}
           </SecondaryButton>
         )}
       </div>
       {isLoginDialogOpen && (
         <LoginDialog
-          redirectUrl="/profile"
+          redirectUrl={`/${locale}/profile`}
           onClose={() => setIsLoginDialogOpen(false)}
         />
       )}

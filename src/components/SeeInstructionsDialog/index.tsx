@@ -10,6 +10,7 @@ import { clsx } from "@/utils";
 import Image from "next/image";
 import { IOSContent } from "./IOSContent";
 import { AndroidContent } from "./AndroidContent";
+import { useTranslations } from "next-intl";
 
 const StyledTagButton = (props: TagButtonsProps) => {
   return (
@@ -26,6 +27,7 @@ const StyledTagButton = (props: TagButtonsProps) => {
 type SeeInstructionsDialogProps = {
   card: Card;
   onClose: () => void;
+  locale: string;
 };
 
 enum DeviceType {
@@ -36,7 +38,9 @@ enum DeviceType {
 export const SeeInstructionsDialog = ({
   card,
   onClose,
+  locale,
 }: SeeInstructionsDialogProps) => {
+  const t = useTranslations("SeeInstructionsDialog");
   const { isAndroid } = useDeviceTypeAndVerion();
   const [deviceType, setDeviceType] = useState<DeviceType>(() => {
     return isAndroid ? DeviceType.android : DeviceType.iOS;
@@ -56,7 +60,7 @@ export const SeeInstructionsDialog = ({
             height={20}
             width={20}
           />
-          iOS
+          {t("ios")}
         </StyledTagButton>
         <StyledTagButton
           active={deviceType === DeviceType.android}
@@ -68,11 +72,11 @@ export const SeeInstructionsDialog = ({
             height={20}
             width={20}
           />
-          Android
+          {t("android")}
         </StyledTagButton>
       </div>
       {deviceType === DeviceType.iOS ? (
-        <IOSContent card={card} />
+        <IOSContent card={card} locale={locale} />
       ) : (
         <AndroidContent card={card} />
       )}
