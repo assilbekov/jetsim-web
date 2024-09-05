@@ -141,7 +141,7 @@ export const LandingFooterContent = ({
   locale,
 }: LandingFooterProps) => {
   const t = useTranslations("Footer");
-
+ 
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
       <div className="flex gap-8 flex-col lg:flex-row lg:justify-between">
