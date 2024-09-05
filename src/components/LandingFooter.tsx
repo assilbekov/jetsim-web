@@ -6,6 +6,7 @@ import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "./Typography";
 import { fetchTopCountries } from "@/api/locations";
 import { Link } from "@/navigation";
+import NextLink from "next/link";
 
 const Title = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -17,9 +18,11 @@ const Title = ({ children }: { children: React.ReactNode }) => {
 const ListElement = ({
   children,
   href,
+  ...restProps
 }: {
   children: React.ReactNode;
   href?: string;
+  locale?: string;
 }) => {
   return (
     <li
@@ -28,7 +31,9 @@ const ListElement = ({
         getTypographyClass(TypographyVariants.Caption)
       )}
     >
-      <Link href={href || "#"}>{children}</Link>
+      <Link href={href || "#"} {...(restProps as any)}>
+        {children}
+      </Link>
     </li>
   );
 };
@@ -82,12 +87,61 @@ type LandingFooterProps = {
   locale: string;
 };
 
+// Refactor this. Delete code duplication.
+const languagesList = [
+  {
+    country: "United States",
+    language: "English",
+    code: "en-US",
+  },
+  {
+    country: "France",
+    language: "Français",
+    code: "fr-FR",
+  },
+  {
+    country: "Deutschland",
+    language: "Deutsch",
+    code: "de-DE",
+  },
+  {
+    country: "Polska",
+    language: "Polski",
+    code: "pl-PL",
+  },
+  {
+    country: "Portugal",
+    language: "Português",
+    code: "pt-PT",
+  },
+  {
+    country: "Србија",
+    language: "Српски",
+    code: "sr-RS",
+  },
+  {
+    country: "España",
+    language: "Español",
+    code: "es-ES",
+  },
+  {
+    country: "Italia",
+    language: "Italiano",
+    code: "it-IT",
+  },
+  {
+    country: "Türkiye",
+    language: "Türkçe",
+    code: "tr-TR",
+  },
+];
+
 export const LandingFooterContent = ({
   cardClassName,
   locale,
 }: LandingFooterProps) => {
   const t = useTranslations("Footer");
-
+  
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
       <div className="flex gap-8 flex-col lg:flex-row lg:justify-between">
@@ -109,6 +163,22 @@ export const LandingFooterContent = ({
               <ListElement href="/terms-of-service">
                 {t("terms_of_service")}
               </ListElement>
+            </ListBlock>
+          </LinksBlock>
+          <LinksBlock>
+            <Title>{t("language")}</Title>
+            <ListBlock>
+              {languagesList.map((l) => (
+                <li
+                  key={l.code}
+                  className={clsx(
+                    "text-text-600 hover:text-text-300 transition duration-200 ease-in-out",
+                    getTypographyClass(TypographyVariants.Caption)
+                  )}
+                >
+                  <NextLink href={`/${l.code}`}>{l.language}</NextLink>
+                </li>
+              ))}
             </ListBlock>
           </LinksBlock>
           <AddressBlock className="lg:hidden" />
