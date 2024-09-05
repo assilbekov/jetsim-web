@@ -1,6 +1,6 @@
 "use client";
 
-import { getProfile } from "@/api/auth";
+import { getProfile, setUserLanguage } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
@@ -14,12 +14,14 @@ export default function CallbackPage() {
   useQuery({
     queryKey: ["callback"],
     queryFn: async () => {
+      const locale = localStorage.getItem("last_locale") || "en-US";
       const res = await fetch(
         `https://auth.jetsim.app/api/v1/google/callback${
           window.location.search
         }&redirect=${window.location.origin}/auth/callback${
           utmsSearchParams ? `&${utmsSearchParams}` : ""
-        }`
+        }`,
+        { headers: { "Accept-Language": locale } }
       );
       const {
         payload: { accessToken, refreshToken, meta },
@@ -34,7 +36,10 @@ export default function CallbackPage() {
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
-      getProfile().then((profile) => {
+
+      setUserLanguage(locale);
+
+      getProfile(locale).then((profile) => {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);
       });

@@ -6,6 +6,7 @@ import {
   getTypographyClass,
   matchTypographyMediaQuery,
 } from "./Typography";
+import { useTranslations } from "next-intl";
 
 type ChipProps = {
   label: string;
@@ -31,6 +32,8 @@ const Chip = ({ label, image }: ChipProps) => {
 };
 
 export const NoPlasticWaste = () => {
+  const t = useTranslations("NoPlasticWasteTitle");
+
   return (
     <LandingContainer>
       <div className="w-full bg-[url('/no-waste-background.png')] bg-[bottom_50%_right_55%] bg-cover rounded-none sm:rounded-[20px]">
@@ -44,7 +47,7 @@ export const NoPlasticWaste = () => {
               })
             )}
           >
-            No more plastic waste
+            {t("title")}
           </p>
           <h3
             className={clsx(
@@ -55,13 +58,13 @@ export const NoPlasticWaste = () => {
               })
             )}
           >
-            Join us in our mission to save the planet
+            {t("noPlasticWasteSubtitle")}
           </h3>
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 sm:justify-center mt-4 md:mt-8">
-            <Chip label="No plastic SIM cards" image="/no-sim.svg" />
-            <Chip label="No packaging" image="/delete.svg" />
-            <Chip label="No transport fees" image="/no_transfer.svg" />
-            <Chip label="No physical advertising" image="/scan.svg" />
+            <Chip label={t("noPlasticSimCards")} image="/no-sim.svg" />
+            <Chip label={t("noPackaging")} image="/delete.svg" />
+            <Chip label={t("noTransportFees")} image="/no_transfer.svg" />
+            <Chip label={t("noPhysicalAdvertising")} image="/scan.svg" />
           </div>
         </div>
       </div>

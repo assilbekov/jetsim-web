@@ -16,10 +16,11 @@ import {
 function fetchCardWithRetry(
   cardID: string,
   retries: number,
-  delay: number
+  delay: number,
+  locale: string
 ): Promise<CardModel> {
   async function attemptFetch(remainingRetries: number): Promise<CardModel> {
-    return fetchCard(cardID)
+    return fetchCard(cardID, locale)
       .then((card) => {
         if (!card.lpaCode && remainingRetries > 0) {
           return new Promise<CardModel>((resolve) => {
@@ -47,12 +48,18 @@ function fetchCardWithRetry(
   return attemptFetch(retries);
 }
 
-export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
+export const CompletionSuccess = ({
+  cardID,
+  locale,
+}: {
+  cardID: string;
+  locale: string;
+}) => {
   const [card, setCard] = useState<CardModel | null>(null);
   const [instructionsDialogShow, setInstructionsDialogShow] = useState(false);
 
   useEffect(() => {
-    fetchCardWithRetry(cardID, 10, 1000)
+    fetchCardWithRetry(cardID, 10, 1000, locale)
       .then((card) => {
         setCard(card);
       })
@@ -67,6 +74,7 @@ export const CompletionSuccess = ({ cardID }: { cardID: string }) => {
         <>
           <InstallESim
             card={card}
+            locale={locale}
             onSeeInstructionsClick={() => {
               handleSuccessPaymentInstructionClick();
               setInstructionsDialogShow(true);

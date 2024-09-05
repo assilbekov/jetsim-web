@@ -9,16 +9,20 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Card } from "../Card";
 import { clsx } from "@/utils";
 import { Skeleton } from "../Skeleton";
+import { useTranslations } from "next-intl";
 
 type StripePaymentProps = {
   packageID: string;
   placeID: string;
+  locale: string;
 };
 
 export const StripePayment = ({
   placeID = "",
   packageID = "",
+  locale,
 }: StripePaymentProps) => {
+  const t = useTranslations("OrderSummary");
   const [stripePromise, setStripePromise] = useState<
     Stripe | PromiseLike<Stripe | null> | null
   >(null);
@@ -26,7 +30,7 @@ export const StripePayment = ({
   const [cardID, setCardID] = useState("");
 
   useEffect(() => {
-    fetchClientOptions().then((res) => {
+    fetchClientOptions(locale).then((res) => {
       setStripePromise(loadStripe(res.stripePublishableKey));
     });
   }, []);
@@ -36,7 +40,7 @@ export const StripePayment = ({
       return;
     }
 
-    createCard(packageID, placeID).then((res) => {
+    createCard(packageID, placeID, locale).then((res) => {
       setClientSecret(res.gatewayTransaction.meta.paymentIntentSecret);
       setCardID(res.cardID);
     });
@@ -50,18 +54,20 @@ export const StripePayment = ({
           "mb-5 sm:text-2xl sm:leading-[30px]"
         )}
       >
-        Select a payment method
+        {t("StripePayment_selectPaymentMethod")}
       </h3>
       {stripePromise && clientSecret ? (
         <Elements
           key={clientSecret}
           stripe={stripePromise}
-          options={{ clientSecret }}
+          // TODO: Remove typecasting
+          options={{ clientSecret, locale: locale as any }}
         >
           <CheckoutForm
             cardID={cardID}
             packageID={packageID}
             placeID={placeID}
+            locale={locale}
           />
         </Elements>
       ) : (

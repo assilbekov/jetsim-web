@@ -2,6 +2,7 @@ import { ArrowRightImage } from "../ArrowRightImage";
 import { IconWithText } from "../IconWithText";
 import { InfoRow } from "../InfoRow";
 import { RoundedLabel } from "../RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type SamsungScanQRDesktopStepProps = {
   step: number;
@@ -10,16 +11,18 @@ type SamsungScanQRDesktopStepProps = {
 export const SamsungScanQRDesktopStep = ({
   step,
 }: SamsungScanQRDesktopStepProps) => {
+  const t = useTranslations("DesktopInstructions");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-blue.png"
             alt="settings icon"
-            text="Settings"
+            text={t("settings")}
           />
           <ArrowRightImage />
         </InfoRow>
@@ -27,20 +30,20 @@ export const SamsungScanQRDesktopStep = ({
           <IconWithText
             src="/icons/connection-blue.svg"
             alt="wifi icon"
-            text="Connections"
+            text={t("connections")}
           />
           <ArrowRightImage />
-          <span>SIM manager</span>
+          <span>{t("simManager")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/plus-green.svg"
             alt="add icon"
-            text="Add eSIM"
+            text={t("addEsim")}
           />
           <ArrowRightImage />
-          <span>Scan QR code</span>
+          <span>{t("scanQrCode")}</span>
           <ArrowRightImage />
         </InfoRow>
       </div>

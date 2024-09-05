@@ -2,40 +2,43 @@ import { ArrowRightImage } from "./ArrowRightImage";
 import { IconWithText } from "./IconWithText";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type UseQRDetailsStepProps = {
   step: number;
 };
 
 export const UseQRDetailsStep = ({ step }: UseQRDetailsStepProps) => {
+  const t = useTranslations("SeeInstructions");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings.png"
-            alt="settings icon"
-            text="Settings"
+            alt={t("settingsIconAlt")}
+            text={t("settings_setting")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/mobile-service.svg"
-            alt="mobile service icon"
-            text="Mobile Service"
+            alt={t("mobileServiceIconAlt")}
+            text={t("mobileService_setting")}
           />
           <ArrowRightImage />
-          <span>Add eSIM</span>
+          <span>{t("addESIM_setting")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/primary/qr.svg"
-            alt="QR code icon"
-            text="Use QR Code"
+            alt={t("qrCodeIconAlt")}
+            text={t("useQRCode_setting")}
           />
           <ArrowRightImage />
         </InfoRow>

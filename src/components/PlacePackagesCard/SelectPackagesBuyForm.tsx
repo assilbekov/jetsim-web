@@ -13,8 +13,9 @@ import "./styles.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { SecondaryButton } from "../buttons/SecondaryButton";
-import Link from "next/link";
 import { Location } from "@/models/Location";
+import { Link } from "@/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { handleCheckoutClickEvent } from "@/gtm-events";
 
 type SelectPackagesBuyFormProps = {
@@ -33,6 +34,8 @@ export const SelectPackagesBuyForm = ({
   updateSearchParams,
 }: SelectPackagesBuyFormProps) => {
   const formRef = useRef<HTMLFormElement>(null);
+  const t = useTranslations("PlacePackagesCard");
+  const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -67,7 +70,6 @@ export const SelectPackagesBuyForm = ({
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleScroll);
 
-    // Cleanup the event listener
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.addEventListener("resize", handleScroll);
@@ -83,14 +85,14 @@ export const SelectPackagesBuyForm = ({
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
+      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
+      return await fetchPackages(placeId, PackageTagEnum.STANDARD, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
@@ -172,12 +174,13 @@ export const SelectPackagesBuyForm = ({
               "text-center"
             )}
           >
-            There are no available data plans for{" "}
-            {location?.title || "the selected location"} at the moment
+            {t("noPackagesAvailable", {
+              location: location?.title || t("location"),
+            })}
           </p>
         </div>
         <Link href="/all-destinations" className="text-center">
-          <SecondaryButton>Choose another country</SecondaryButton>
+          <SecondaryButton>{t("chooseAnotherCountry")}</SecondaryButton>
         </Link>
       </div>
     );
@@ -191,7 +194,7 @@ export const SelectPackagesBuyForm = ({
       )}
       type="submit"
     >
-      Go to checkout
+      {t("goToCheckout")}
     </button>
   );
 
@@ -212,7 +215,7 @@ export const SelectPackagesBuyForm = ({
               active={selectedTag === PackageTagEnum.STANDARD}
               onClick={() => handleTagChange(PackageTagEnum.STANDARD)}
             >
-              Standard
+              {t("standard")}
             </TagButton>
           ) : (
             <Skeleton className="w-28 h-11 rounded-xl" />
@@ -223,7 +226,7 @@ export const SelectPackagesBuyForm = ({
               active={selectedTag === PackageTagEnum.UNLIMITED}
               onClick={() => handleTagChange(PackageTagEnum.UNLIMITED)}
             >
-              Unlimited
+              {t("unlimited")}
             </TagButton>
           ) : (
             <Skeleton className="w-28 h-11 rounded-xl" />
@@ -263,14 +266,17 @@ export const SelectPackagesBuyForm = ({
               >
                 <span>
                   {selectedPackage.traffic.isUnlimited
-                    ? "Unlimited GB"
+                    ? t("unlimitedGB")
                     : `${selectedPackage.traffic.unit.count} ${selectedPackage.traffic.unit.label}`}{" "}
-                  for {selectedPackage.days}{" "}
-                  {selectedPackage.days > 1 ? "days" : "day"}
+                  {t(selectedPackage.days > 1 ? "days" : "day", {
+                    count: selectedPackage.days,
+                  })}
                 </span>
                 <span className="flex gap-2 items-center">
-                  {selectedPackage.cost.price / 100}{" "}
-                  {selectedPackage.cost.currency}
+                  {t("currencyPrice", {
+                    price: selectedPackage.cost.price / 100,
+                    currency: selectedPackage.cost.currency,
+                  })}
                   <Image
                     src="/icons/black/chevron-right.svg"
                     alt="Arrow right"

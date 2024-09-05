@@ -2,8 +2,10 @@ import { clsx } from "@/utils";
 import { Card } from "./Card";
 import { LandingContainer } from "./LandingContainer";
 import { TypographyVariants, getTypographyClass } from "./Typography";
+import { useTranslations } from "next-intl";
 
 export const PageNotFoundBlock = () => {
+  const t = useTranslations("NotFoundPage");
   return (
     <LandingContainer>
       <Card className="lg:px-[120px] lg:py-12 xxl:px-[240px]">
@@ -16,7 +18,7 @@ export const PageNotFoundBlock = () => {
               "text-center"
             )}
           >
-            Page not tound
+            {t("title")}
           </h1>
           <p
             className={clsx(
@@ -25,8 +27,7 @@ export const PageNotFoundBlock = () => {
               "text-center"
             )}
           >
-            Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been
-            moved or deleted, or perhaps the URL was mistyped
+            {t("description")}
           </p>
         </div>
       </Card>

@@ -1,5 +1,13 @@
+"use client";
+
 import { clsx } from "@/utils";
 import { TagButton, TagButtonsProps } from "../PlacePackagesCard/TagButton";
+import { useTranslations } from "next-intl";
+
+export enum InstallMethod {
+  QR = "qr",
+  MANUAL = "manual",
+}
 
 const StyledTagButton = (props: TagButtonsProps) => {
   return (
@@ -13,12 +21,7 @@ const StyledTagButton = (props: TagButtonsProps) => {
   );
 };
 
-export enum InstallMethod {
-  QR = "qr",
-  MANUAL = "manual",
-}
-
-type InstallToggleButtons = {
+type InstallToggleButtonsProps = {
   installMethod: InstallMethod;
   setInstallMethod: (method: InstallMethod) => void;
 };
@@ -26,20 +29,22 @@ type InstallToggleButtons = {
 export const InstallToggleButtons = ({
   installMethod,
   setInstallMethod,
-}: InstallToggleButtons) => {
+}: InstallToggleButtonsProps) => {
+  const t = useTranslations("InstallESim");
+
   return (
     <div className="flex gap-4 justify-center max-w-[360px] w-full mx-auto">
       <StyledTagButton
         active={installMethod === InstallMethod.QR}
         onClick={() => setInstallMethod(InstallMethod.QR)}
       >
-        QR code install
+        {t("InstallToggleButtons_qr_code_install")}
       </StyledTagButton>
       <StyledTagButton
         active={installMethod === InstallMethod.MANUAL}
         onClick={() => setInstallMethod(InstallMethod.MANUAL)}
       >
-        Manual install
+        {t("InstallToggleButtons_manual_install")}
       </StyledTagButton>
     </div>
   );

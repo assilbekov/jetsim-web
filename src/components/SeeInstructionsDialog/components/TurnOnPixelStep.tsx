@@ -2,58 +2,61 @@ import { ArrowRightImage } from "./ArrowRightImage";
 import { IconWithText } from "./IconWithText";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type TurnOnPixelStepProps = {
   step: number;
 };
 
 export const TurnOnPixelStep = ({ step }: TurnOnPixelStepProps) => {
+  const t = useTranslations("SeeInstructions");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-pixel.svg"
-            alt="settings icon"
-            text="Settings"
+            alt={t("settingsAlt")}
+            text={t("settings")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/wifi-pixel.svg"
-            alt="network and internet icon"
-            text="Network & Internet"
+            alt={t("networkAlt")}
+            text={t("network")}
           />
           <ArrowRightImage />
-          <span>SIMs</span>
+          <span>{t("sims")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>JetSim</span>
+          <span>{t("jetSim")}</span>
           <ArrowRightImage />
           <IconWithText
             src="/icons/toggle-blue.svg"
-            alt="toggle icon"
-            text="Use SIM"
+            alt={t("toggleAlt")}
+            text={t("useSim")}
           />
           <ArrowRightImage />
-          <span>Yes</span>
+          <span>{t("yes")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>Use JetSim</span>
+          <span>{t("useJetSim")}</span>
           <ArrowRightImage />
-          <span>Scroll and enable</span>
+          <span>{t("scrollEnable")}</span>
         </InfoRow>
         <InfoRow>
-          <span>Turn on</span>
+          <span>{t("turnOn")}</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
-            alt="toggle icon"
-            text="Roaming"
+            alt={t("toggleAlt")}
+            text={t("roaming")}
           />
         </InfoRow>
       </div>

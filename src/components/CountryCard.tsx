@@ -1,7 +1,7 @@
 "use client";
 
+import { Link } from "@/navigation";
 import { Location } from "@/models/Location";
-import Link from "next/link";
 import {
   TypographyVariants,
   getTypographyClass,
@@ -15,6 +15,7 @@ import {
   handleCountrySelectMainEvent,
   handleMainPageCountryClickEvent,
 } from "@/gtm-events";
+import { useTranslations } from "next-intl";
 
 type CountryCardProps = {
   country: Location;
@@ -24,6 +25,7 @@ type CountryCardProps = {
 
 // Fix navigation issue.
 export const CountryCard = ({ country, className, page }: CountryCardProps) => {
+  const t = useTranslations("CountryCard");
   return (
     <Link
       key={country.title}
@@ -62,7 +64,7 @@ export const CountryCard = ({ country, className, page }: CountryCardProps) => {
                 getTypographyClass(TypographyVariants.Caption)
               )}
             >
-              {convertLocationBestCost(country)}
+              {t("from")} {convertLocationBestCost(country)}
             </p>
           )}
         </div>

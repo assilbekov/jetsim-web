@@ -4,13 +4,14 @@ import { fetchLocations, fetchTopCountries } from "@/api/locations";
 import { Location } from "@/models/Location";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { CircledCountryImage } from "./CircledCountryImage";
 import { convertLocationBestCost } from "@/converters/location";
 import { Skeleton } from "./Skeleton";
 import { SecondaryButton } from "./buttons/SecondaryButton";
 import { TypographyVariants, getTypographyClass } from "./Typography";
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 import {
   handleCountrySelectCatalogEvent,
   handleCountrySelectMainEvent,
@@ -19,25 +20,27 @@ import {
 
 type SearchProps = {
   page: "Main" | "All-Destinations";
+  locale: string;
 };
 
 // TODO: add variables for shadow, border
 // TODO: use data type for queryInfo
-export const Search = ({ page }: SearchProps) => {
+export const Search = ({ page, locale }: SearchProps) => {
+  const t = useTranslations("Search")
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [debouncedQuery, setDebouncedQuery] = useState("");
   const queryInfo = useQuery({
     queryKey: ["search", debouncedQuery],
     queryFn: async () => {
-      return fetchLocations(debouncedQuery);
+      return fetchLocations(debouncedQuery, locale);
     },
     staleTime: 1000 * 60 * 60,
   });
   const topCountriesInfo = useQuery({
     queryKey: ["topCountries"],
     queryFn: async () => {
-      return fetchTopCountries(11);
+      return fetchTopCountries(11, locale);
     },
     staleTime: 1000 * 60 * 60,
   });
@@ -79,14 +82,14 @@ export const Search = ({ page }: SearchProps) => {
       return (
         <li className="flex items-center justify-between gap-2 py-3 px-6">
           <p className={getTypographyClass(TypographyVariants.Body)}>
-            No results found
+            {t("noResults")}
           </p>
-          <Link href="all-destinations">
+          <Link href="/all-destinations">
             <SecondaryButton
               onClick={() => setOpen(false)}
               className="pt-3 pb-3"
             >
-              Show all countries
+              {t("showAllCountries")}
             </SecondaryButton>
           </Link>
         </li>
@@ -142,7 +145,7 @@ export const Search = ({ page }: SearchProps) => {
           className="absolute hidden xxs:block left-6 md:left-9 top-[49%] translate-y-[-50%] w-5 h-5 md:w-6 md:h-6"
         />
         <input
-          className="py-[24px] pl-[24px] xxs:pl-[56px] pr-[76px] md:py-[26px] md:pl-[76px] md:pr-[90px] w-full text-base md:text-xl leading-5 md:leading-6 font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600"
+          className="py-[24px] pl-[24px] xxs:pl-[56px] pr-[96px] md:py-[26px] md:pl-[96px] md:pr-[90px] w-full text-base md:text-xl leading-5 md:leading-6 font-medium rounded-full border-2 shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] border-[#EBEFF0] outline-text-600 text-ellipsis"
           type="text"
           value={query}
           id="search"
@@ -150,7 +153,7 @@ export const Search = ({ page }: SearchProps) => {
             setQuery(e.target.value);
           }}
           onFocus={() => setOpen(true)}
-          placeholder="Enter your destination"
+          placeholder={t("placeholder")}
           autoComplete="off"
         />
       </div>

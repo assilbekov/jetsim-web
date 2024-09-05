@@ -1,5 +1,4 @@
 import { clsx } from "@/utils";
-import Link from "next/link";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 
 type CheckCompatibilityLinkProps = {

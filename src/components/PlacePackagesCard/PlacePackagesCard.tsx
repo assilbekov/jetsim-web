@@ -22,13 +22,20 @@ import { SelectPackagesBuyForm } from "./SelectPackagesBuyForm";
 import { PackageTagEnum } from "@/models/Package";
 import { fetchPackages } from "@/api/packages";
 import { handleCountryPageCheckoutEvent } from "@/gtm-events";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/navigation";
 
 type PlacePackagesCardProps = {
   placeId: string;
   locale: string;
 };
 
-export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
+export const PlacePackagesCard = ({
+  placeId,
+  locale,
+}: PlacePackagesCardProps) => {
+  const router = useRouter();
+  const t = useTranslations("PlacePackagesCard");
   const searchParams = useSearchParams();
 
   const [loginRedirectUrl, setLoginRedirectUrl] = useState<string>("");
@@ -36,14 +43,14 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const packagesUnlimitedQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.UNLIMITED],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED);
+      return await fetchPackages(placeId, PackageTagEnum.UNLIMITED, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
   const packagesStandardQuery = useQuery({
     queryKey: ["place-packages", placeId, PackageTagEnum.STANDARD],
     queryFn: async () => {
-      return await fetchPackages(placeId, PackageTagEnum.STANDARD);
+      return await fetchPackages(placeId, PackageTagEnum.STANDARD, locale);
     },
     staleTime: 1000 * 60 * 5,
   });
@@ -57,7 +64,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const locationQuery = useQuery({
     queryKey: ["place-packages", placeId],
     queryFn: async () => {
-      const locs = await fetchLocation(placeId);
+      const locs = await fetchLocation(placeId, locale);
       return locs;
     },
     staleTime: 1000 * 60 * 5,
@@ -65,7 +72,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
   const locationCoverQuery = useQuery({
     queryKey: ["place-packages-cover", placeId],
     queryFn: async () => {
-      return await fetchLocationCover(placeId);
+      return await fetchLocationCover(placeId, locale);
     },
     staleTime: 1000 * 60 * 5,
     retry: 1,
@@ -79,7 +86,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
     const accessToken = localStorage.getItem("accessToken");
     const redirectUrl = `${
       window.location.origin
-    }/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
+    }/${locale}/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
 
     if (!accessToken) {
       return setLoginRedirectUrl(redirectUrl);
@@ -103,7 +110,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
                   "w-full flex gap-2"
                 )}
               >
-                eSIM for{" "}
+                {t("eSIMFor")}{" "}
                 {locationQuery.isFetched ? (
                   locationQuery.data?.title
                 ) : (
@@ -127,7 +134,7 @@ export const PlacePackagesCard = ({ placeId }: PlacePackagesCardProps) => {
                 "text-text-600"
               )}
             >
-              Unlimited and standard plans for travellers and remote workers
+              {t("travellersAndRemoteWorkers")}
             </p>
           </div>
         )}

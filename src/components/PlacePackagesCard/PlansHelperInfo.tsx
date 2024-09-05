@@ -5,6 +5,7 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { clsx } from "@/utils";
 import { useState } from "react";
 import { PackageTagEnum } from "@/models/Package";
+import { useTranslations } from "next-intl";
 
 type PlansHelperInfoProps = {
   tag: PackageTagEnum;
@@ -12,6 +13,7 @@ type PlansHelperInfoProps = {
 
 export const PlansHelperInfo = ({ tag }: PlansHelperInfoProps) => {
   const [open, setOpen] = useState(false);
+  const t = useTranslations("PlacePackagesCard");
 
   const handleToggle = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -39,16 +41,12 @@ export const PlansHelperInfo = ({ tag }: PlansHelperInfoProps) => {
             <div>
               <h6 className={getTypographyClass(TypographyVariants.Caption)}>
                 {tag === PackageTagEnum.STANDARD
-                  ? "Calculated based on"
-                  : "Unlimited plans"}
+                  ? t("calculatedBasedOn")
+                  : t("unlimitedPlans")}
               </h6>
               {tag === PackageTagEnum.STANDARD ? (
                 <div className="mt-0.5">
-                  {[
-                    "50 mb / hour for browsing",
-                    "75 mb / hour for music",
-                    "500 mb / hour for video",
-                  ].map((text) => (
+                  {[t("browsing"), t("music"), t("video")].map((text) => (
                     <p
                       key={text}
                       className={clsx(
@@ -67,9 +65,7 @@ export const PlansHelperInfo = ({ tag }: PlansHelperInfoProps) => {
                     "text-text-600 mt-1 font-normal"
                   )}
                 >
-                  Unlimited plans are subject to ISP policies and fair use
-                  policies, which may include data throttling and usage
-                  restrictions after a certain threshold
+                  {t("unlimitedPlansInfo")}
                 </p>
               )}
             </div>

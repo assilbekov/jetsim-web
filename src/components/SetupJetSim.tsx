@@ -8,6 +8,7 @@ import {
   matchTypographyMediaQuery,
 } from "./Typography";
 import { CheckCompatibility } from "./CheckCompatibility";
+import { useTranslations } from "next-intl";
 
 type SelectDataPlanProps = {
   selected: boolean;
@@ -61,10 +62,11 @@ const DataRoaming = () => {
 };
 
 const DataRoamingActive = () => {
+  const t = useTranslations("SetupJetSim");
   return (
     <div className="flex gap-4 items-center justify-between">
       <p className={getTypographyClass(TypographyVariants.Caption)}>
-        Data roaming
+        {t("dataRoaming")}
       </p>
       <DisabledToggle checked />
     </div>
@@ -114,6 +116,8 @@ const Step = ({ step, title, content }: StepProps) => {
 };
 
 export const SetupJetSim = () => {
+  const t = useTranslations("SetupJetSim");
+
   return (
     <LandingContainer
       className="border-t-2 border-[#E9F0F2] xxs:border-t-0"
@@ -121,35 +125,33 @@ export const SetupJetSim = () => {
     >
       <Card className="flex flex-col gap-5 md:gap-6 lg:gap-8">
         <div className="flex flex-col gap-4 xxs:gap-5 sm:gap-6 lg:gap-8">
-          <Typography variant={TypographyVariants.H2}>
-            Set up your JetSim eSIM in 1 minute
-          </Typography>
+          <Typography variant={TypographyVariants.H2}>{t("title")}</Typography>
           <div className="flex flex-col sm:flex-row gap-5 md:gap-8">
             <Step
               step="01"
-              title="Choose your destination and select a data plan"
+              title={t("step01Title")}
               content={
                 <StepContent>
-                  <SelectDataPlan label="5 gb" selected />
-                  <SelectDataPlan label="15 gb" selected={false} />
-                  <SelectDataPlan label="30 gb" selected={false} />
+                  <SelectDataPlan label={t("step01Option1")} selected />
+                  <SelectDataPlan label={t("step01Option2")} selected={false} />
+                  <SelectDataPlan label={t("step01Option3")} selected={false} />
                 </StepContent>
               }
             />
             <Step
               step="02"
-              title="Follow the instructions to install your eSIM"
+              title={t("step02Title")}
               content={
                 <StepContent>
-                  <InstructionStep step="1" />
-                  <InstructionStep step="2" />
-                  <InstructionStep step="3" />
+                  <InstructionStep step={t("step02Instruction1")} />
+                  <InstructionStep step={t("step02Instruction2")} />
+                  <InstructionStep step={t("step02Instruction3")} />
                 </StepContent>
               }
             />
             <Step
               step="03"
-              title="Activate your data roaming on arrival"
+              title={t("step03Title")}
               content={
                 <div className="flex flex-col gap-4 p-4 md:p-6 pb-1 bg-text-900 rounded-lg">
                   <DataRoamingActive />
@@ -165,7 +167,7 @@ export const SetupJetSim = () => {
         <div className="bg-[#F8F9FB] p-4 xxs:p-6 md:px-8 rounded-xl relative overflow-visible">
           <div className="flex flex-col lg:flex-row gap-4 md:gap-4 lg:gap-8 w-full md:w-[60%] lg:w-3/4">
             <h3 className={getTypographyClass(TypographyVariants.Subheader)}>
-              See if your phone supports eSIM technology
+              {t("checkCompatibilityTitle")}
             </h3>
             <div>
               <p
@@ -174,11 +176,10 @@ export const SetupJetSim = () => {
                   getTypographyClass(TypographyVariants.Caption)
                 )}
               >
-                Most phones, tablets, and watches support eSIM. However, your
-                device might only support physical SIM cards.
+                {t("checkCompatibilityDescription")}
               </p>
               <CheckCompatibility
-                label="Check compatibility"
+                label={t("checkCompatibilityButtonLabel")}
                 className="mt-3 xxs:mt-4"
               />
             </div>

@@ -2,46 +2,49 @@ import { ArrowRightImage } from "./ArrowRightImage";
 import { IconWithText } from "./IconWithText";
 import { InfoRow } from "./InfoRow";
 import { RoundedLabel } from "./RoundedLabel";
+import { useTranslations } from "next-intl";
 
 type TurnOnQRPixelStepProps = {
   step: number;
 };
 
 export const TurnOnQRPixelStep = ({ step }: TurnOnQRPixelStepProps) => {
+  const t = useTranslations("SeeInstructions");
+
   return (
     <div>
       <RoundedLabel>{step}</RoundedLabel>
       <div className="mt-4 flex flex-col gap-[10px]">
         <InfoRow>
-          <span>Go to</span>
+          <span>{t("goTo")}</span>
           <IconWithText
             src="/icons/settings-pixel.svg"
-            alt="settings icon"
-            text="Settings"
+            alt={t("settingsIconAlt")}
+            text={t("settings_setting")}
           />
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
           <IconWithText
             src="/icons/wifi-pixel.svg"
-            alt="network and internet icon"
-            text="Network & Internet"
+            alt={t("networkInternetIconAlt")}
+            text={t("networkInternet_setting")}
           />
           <ArrowRightImage />
-          <span>SIMs</span>
+          <span>{t("sims_setting")}</span>
           <ArrowRightImage />
         </InfoRow>
         <InfoRow>
-          <span>JetSim</span>
+          <span>{t("jetSim")}</span>
           <ArrowRightImage />
-          <span>Scroll and enable</span>
+          <span>{t("scrollEnable")}</span>
         </InfoRow>
         <InfoRow>
-          <span>Turn on</span>
+          <span>{t("turnOn")}</span>
           <IconWithText
             src="/icons/toggle-blue.svg"
-            alt="toggle icon"
-            text="Roaming"
+            alt={t("toggleIconAlt")}
+            text={t("roaming_setting")}
           />
         </InfoRow>
       </div>

@@ -1,16 +1,21 @@
+"use client";
+
 import { clsx } from "@/utils";
 import Image from "next/image";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Card } from "../Card";
 import { LandingContainer } from "../LandingContainer";
+import { useTranslations } from "next-intl";
 
 export const ThanksForPurchase = () => {
+  const t = useTranslations("CompletionSuccess");
+
   return (
     <LandingContainer>
       <Card className="px-4 pt-10 pb-14">
         <Image
           src="/icons/primary/success-circled.svg"
-          alt="success icon"
+          alt={t("ThanksForPurchase_image_alt")}
           width={64}
           height={64}
           className="self-center mx-auto"
@@ -21,7 +26,7 @@ export const ThanksForPurchase = () => {
             "md:font-interTight md:text-[34px] md:leading-[38px] md:tracking-[0.68px] text-center mt-4 md:mt-6"
           )}
         >
-          Thank you for purchase!
+          {t("ThanksForPurchase_title")}
         </h3>
         <p
           className={clsx(
@@ -29,7 +34,7 @@ export const ThanksForPurchase = () => {
             "md:text-xl md:leading-[26px] mt-2 md:mt-3 text-center text-text-600"
           )}
         >
-          The check will be sent to your email
+          {t("ThanksForPurchase_message")}
         </p>
       </Card>
     </LandingContainer>
