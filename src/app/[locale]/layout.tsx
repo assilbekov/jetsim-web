@@ -49,6 +49,7 @@ export default async function LocaleLayout({
         <Facebook />
         <YA />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-itunes-app" content="app-id=6504028637, app-argument=https://www.jetsim.app/apple-app-site-association" />
       </head>
       <body>
         <FacebookNoScript />
