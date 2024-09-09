@@ -44,13 +44,13 @@ const ListBlock = ({ children }: { children: React.ReactNode }) => {
 
 const LinksBlock = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col gap-4 w-full lg:min-w-[260px]">
+    <div className="flex flex-col gap-4 w-full lg:min-w-[240px]">
       {children}
     </div>
   );
 };
 
-const AddressBlock = ({ className }: { className: string }) => {
+const AddressBlock = ({ className }: { className?: string }) => {
   const t = useTranslations("Footer");
   return (
     <p
@@ -141,13 +141,22 @@ export const LandingFooterContent = ({
   locale,
 }: LandingFooterProps) => {
   const t = useTranslations("Footer");
-  
+
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
       <div className="flex gap-8 flex-col lg:flex-row lg:justify-between">
-        <div className="w-1/2 flex flex-col justify-between">
+        <div className="w-full flex flex-col justify-between gap-6 sm:gap-8">
           <Image src="/logo.svg" alt="logo image" width={155} height={36} />
-          <AddressBlock className="hidden lg:block" />
+          <AddressBlock />
+          <div className="bg-[#E9F0F2] w-full h-0.5" />
+          <a href="https://apps.apple.com/app/id6504028637" target="_blank">
+            <Image
+              src="/images/download-ios-app.svg"
+              alt="Download iOS app"
+              width={154}
+              height={50}
+            />
+          </a>
         </div>
         <div className="flex gap-8 flex-col sm:flex-row">
           <LinksBlock>
@@ -181,7 +190,7 @@ export const LandingFooterContent = ({
               ))}
             </ListBlock>
           </LinksBlock>
-          <AddressBlock className="lg:hidden" />
+          {/* <AddressBlock className="lg:hidden" /> */}
         </div>
       </div>
     </Card>
