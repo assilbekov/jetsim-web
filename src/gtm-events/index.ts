@@ -236,3 +236,7 @@ export const handleCheckoutClickEvent = () => {
 export const handlePaymentAttemptEvent = () => {
   handleGTMEvent("payment_attempt");
 };
+
+export const handleRegistrationEvent = () => {
+  handleGTMEvent("registration");
+};

@@ -2,6 +2,7 @@
 
 import { getProfile, setUserLanguage } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
+import { handleRegistrationEvent } from "@/gtm-events";
 import { ApiResponse } from "@/models/ApiResponse";
 import { Tokens } from "@/models/Tokens";
 import { useQuery } from "@tanstack/react-query";
@@ -31,7 +32,7 @@ export default function CallbackPage() {
       const locale = localStorage.getItem("last_locale") || "en-US";
 
       if (meta?.newUser) {
-        (window as any)?.dataLayer.push({ event: "registration" });
+        handleRegistrationEvent();
       }
 
       router.push(lastPage ?? "/");

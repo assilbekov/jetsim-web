@@ -14,8 +14,8 @@ export default createMiddleware({
 export const config = {
   // Match only internationalized pathnames
   matcher: [
-    '/((?!api|_next|.*\\..*).*)', // Matches paths excluding API, _next, and static files
-    //"/",
+    '/.well-known/apple-app-site-association', // Ensure .well-known path is accessible
+    '/((?!api|_next|.*\\..*).*)', // Matches other paths excluding API, _next, and static files
     //`/(en-US|fr-FR|de-DE|pl-PL|pt-PT|sr-RS|es-ES|it-IT|tr-TR)/:path*`,
   ],
 };
