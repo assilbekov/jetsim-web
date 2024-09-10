@@ -17,6 +17,7 @@ import { ApiResponse } from "@/models/ApiResponse";
 import {
   handleLoginEmailClickEvent,
   handleLoginEmailCodeClickEvent,
+  handleRegistrationEvent,
 } from "@/gtm-events";
 import { getProfile, setUserLanguage } from "@/api/auth";
 import { UTMContext } from "@/contexts/UTMContext";
@@ -117,7 +118,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       setUserLanguage(locale);
 
       if (json.payload?.meta?.newUser) {
-        (window as any)?.dataLayer.push({ event: "registration" });
+        handleRegistrationEvent();
       }
 
       localStorage.setItem("accessToken", json.payload?.accessToken);

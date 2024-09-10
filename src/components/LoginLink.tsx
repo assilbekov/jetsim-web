@@ -91,8 +91,6 @@ export const LoginLink = ({ locale }: LoginLink) => {
   }, []);
 
   const handleLoginClick = () => {
-    // This should be tracked on the BE. Maybe
-    // (window as any)?.dataLayer.push({ event: "registration" });
     setIsLoginDialogOpen(true);
     handleLoginScreenEvent();
   };
