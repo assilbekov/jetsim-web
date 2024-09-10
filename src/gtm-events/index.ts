@@ -67,6 +67,10 @@ export function getBrowserData(): string {
   });
 }
 
+const getUtmParam = (utmTag: string) => {
+  return sessionStorage.getItem(utmTag) || "";
+};
+
 export const getDefaultFields = () => {
   return {
     ip: getUserIP(),
@@ -76,6 +80,11 @@ export const getDefaultFields = () => {
     timestamp: getTimestamp(),
     browser_data: getBrowserData(),
     country_id: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    utm_source: getUtmParam("utm_source"),
+    utm_medium: getUtmParam("utm_medium"),
+    utm_campaign: getUtmParam("utm_campaign"),
+    utm_term: getUtmParam("utm_term"),
+    utm_content: getUtmParam("utm_content"),
   };
 };
 
@@ -239,4 +248,8 @@ export const handlePaymentAttemptEvent = () => {
 
 export const handleRegistrationEvent = () => {
   handleGTMEvent("registration");
+};
+
+export const handleUTMCaptureEvent = (data: any) => {
+  handleGTMEvent("utm_capture", data);
 };
