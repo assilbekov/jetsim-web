@@ -171,6 +171,8 @@
     "hours": "saatler",
     "month": "ay",
     "months": "aylar",
+    "year": "yıl",
+    "years": "yıllar",
     "viewDetails": "Ayrıntıları görüntüle"
   },
   "PlanningTripCard": {

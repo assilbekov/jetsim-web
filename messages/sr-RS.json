@@ -171,6 +171,8 @@
     "hours": "сати",
     "month": "месец",
     "months": "месеци",
+    "year": "година",
+    "years": "године",
     "viewDetails": "Погледајте детаље"
   },
   "PlanningTripCard": {

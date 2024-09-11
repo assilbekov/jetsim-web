@@ -29,29 +29,38 @@ export const convertDateDiffToText = (
     dayPlural: string;
     monthSingular: string;
     monthPlural: string;
+    yearSingular: string;
+    yearPlural: string;
   }
 ): string => {
   const diffTime = Math.abs(d1.getTime() - d2.getTime());
   const diffHours = Math.round(diffTime / (1000 * 60 * 60));
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
   const diffMonths = Math.round(diffDays / 30);
+  const diffYears = Math.round(diffMonths / 12);
 
   if (!diffTime) return "";
 
-  if (diffMonths >= 1) {
-    return `${diffMonths} ${
-      diffMonths > 1 ? translations.monthPlural : translations.monthSingular
+  if (diffHours < 24) {
+    return `${diffHours} ${
+      diffHours > 1 ? translations.hourPlural : translations.hourSingular
     }`;
   }
 
-  if (diffDays >= 1) {
+  if (diffDays < 30) {
     return `${diffDays} ${
       diffDays > 1 ? translations.dayPlural : translations.daySingular
     }`;
   }
 
-  return `${diffHours} ${
-    diffHours > 1 ? translations.hourPlural : translations.hourSingular
+  if (diffMonths < 12) {
+    return `${diffMonths} ${
+      diffMonths > 1 ? translations.monthPlural : translations.monthSingular
+    }`;
+  }
+
+  return `${diffYears} ${
+    diffYears > 1 ? translations.yearPlural : translations.yearSingular
   }`;
 };
 
