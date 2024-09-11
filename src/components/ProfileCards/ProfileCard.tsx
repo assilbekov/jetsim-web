@@ -46,6 +46,8 @@ export function ProfileCard({
   const isTimeLeftLow = timeProgress < 80;
 
   const expiredText = convertDateDiffToText(expirationDate, currentDate, {
+    minutesSingular: t("minute"),
+    minutesPlural: t("minutes"),
     hourSingular: t("hour"),
     hourPlural: t("hours"),
     daySingular: t("day"),
