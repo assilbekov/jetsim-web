@@ -118,7 +118,7 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       setUserLanguage(locale);
 
       if (json.payload?.meta?.newUser) {
-        handleRegistrationEvent();
+        handleRegistrationEvent({email});
       }
 
       localStorage.setItem("accessToken", json.payload?.accessToken);

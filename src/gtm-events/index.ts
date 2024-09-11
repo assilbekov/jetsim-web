@@ -246,8 +246,8 @@ export const handlePaymentAttemptEvent = () => {
   handleGTMEvent("payment_attempt");
 };
 
-export const handleRegistrationEvent = () => {
-  handleGTMEvent("registration");
+export const handleRegistrationEvent = (data: any) => {
+  handleGTMEvent("registration", data);
 };
 
 export const handleUTMCaptureEvent = (data: any) => {
