@@ -23,6 +23,8 @@ export const convertDateDiffToText = (
   d1: Date,
   d2: Date,
   translations: {
+    minutesSingular: string;
+    minutesPlural: string;
     hourSingular: string;
     hourPlural: string;
     daySingular: string;
@@ -34,12 +36,21 @@ export const convertDateDiffToText = (
   }
 ): string => {
   const diffTime = Math.abs(d1.getTime() - d2.getTime());
-  const diffHours = Math.round(diffTime / (1000 * 60 * 60));
-  const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-  const diffMonths = Math.round(diffDays / 30);
-  const diffYears = Math.round(diffMonths / 12);
+  const diffMinutes = Math.floor(diffTime / (1000 * 60));
+  const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffMonths = Math.floor(diffDays / 30);
+  const diffYears = Math.floor(diffMonths / 12);
 
   if (!diffTime) return "";
+
+  if (diffMinutes < 60) {
+    return `${diffMinutes} ${
+      diffMinutes > 1
+        ? translations.minutesPlural
+        : translations.minutesSingular
+    }`;
+  }
 
   if (diffHours < 24) {
     return `${diffHours} ${
