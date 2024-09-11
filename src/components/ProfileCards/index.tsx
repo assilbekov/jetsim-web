@@ -73,10 +73,12 @@ export const ProfileCards = ({ locale }: { locale: string }) => {
   const cardsWithLocation = cards
     ?.filter((card) => card.placeID && card.lpaCode)
     .map((card) => {
-      const location = locations?.find(
-        (location) => location.placeID === card.placeID
-      );
-      const selectedPackage = packages?.find((p) => p.id === card.package.id);
+      const location =
+        Array.isArray(locations) &&
+        locations?.find((location) => location.placeID === card.placeID);
+      const selectedPackage =
+        Array.isArray(packages) &&
+        packages?.find((p) => p.id === card.package.id);
 
       return {
         card,
