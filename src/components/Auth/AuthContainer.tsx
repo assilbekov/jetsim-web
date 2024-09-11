@@ -23,6 +23,8 @@ export const AuthContainer = ({ locale, renderProps }: AuthContainerProps) => {
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
+    localStorage.removeItem("user_email");
+    localStorage.removeItem("user_id");
     setIsLoggedIn(false);
 
     if (window.location.pathname === `/${locale}/profile`) {
