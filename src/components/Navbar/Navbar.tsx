@@ -80,7 +80,7 @@ export const Navbar = ({
       } else {
         console.error("Maximum reload attempts reached. Not reloading.");
         // Optional: Show a message to the user
-        alert("Something went wrong. Please try again later.");
+        // alert("Something went wrong. Please try again later.");
       }
     };
   }, []);
