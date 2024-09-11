@@ -31,10 +31,6 @@ export default function CallbackPage() {
       const lastPage = localStorage.getItem("last_page");
       const locale = localStorage.getItem("last_locale") || "en-US";
 
-      if (meta?.newUser) {
-        handleRegistrationEvent();
-      }
-
       router.push(lastPage ?? "/");
 
       localStorage.setItem("accessToken", accessToken);
@@ -45,6 +41,10 @@ export default function CallbackPage() {
       getProfile(locale).then((profile) => {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);
+
+        if (meta?.newUser) {
+          handleRegistrationEvent({email: profile.email});
+        }
       });
     },
     staleTime: 1000,
