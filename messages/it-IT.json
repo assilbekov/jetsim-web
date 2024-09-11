@@ -171,6 +171,8 @@
     "hours": "ore",
     "month": "mese",
     "months": "mesi",
+    "year": "anno",
+    "years": "anni",
     "viewDetails": "Visualizza dettagli"
   },
   "PlanningTripCard": {

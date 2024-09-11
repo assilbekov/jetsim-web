@@ -52,6 +52,8 @@ export function ProfileCard({
     dayPlural: t("days"),
     monthSingular: t("month"),
     monthPlural: t("months"),
+    yearSingular: t("year"),
+    yearPlural: t("years"),
   });
   const dataIsOver =
     !card.package.traffic.isUnlimited &&
