@@ -199,7 +199,7 @@ export const handleSuccessPaymentManualClick = () => {
 };
 
 export const handleSuccessPaymentInstructionClick = () => {
-  handleGTMEvent("finished_payment_instruction_click");
+  handleGTMEvent("instruction_click");
 };
 
 export const handleInstructionsScreenEvent = () => {
@@ -215,7 +215,7 @@ export const handleProfileScreenEvent = () => {
 };
 
 export const handleAllDestinationsScreenEvent = () => {
-  handleGTMEvent("add_destinations_screen");
+  handleGTMEvent("country_list_screen");
 };
 
 export const handleProfileInstallClickEvent = () => {
@@ -230,16 +230,26 @@ export const handleProfileCountryClickEvent = (countryId: string) => {
   handleGTMEvent("profile_country_click", { county_page: countryId });
 };
 
-export const handleCountrySelectMainEvent = () => {
-  handleGTMEvent("country_select_main");
+export const handleCountrySelectMainEvent = ({
+  country_page,
+}: {
+  country_page: string;
+}) => {
+  handleGTMEvent("country_select_main", { country_page });
 };
 
 export const handleCountrySelectCatalogEvent = () => {
   handleGTMEvent("country_select_catalog");
 };
 
-export const handleCheckoutClickEvent = () => {
-  handleGTMEvent("checkout");
+export const handleCheckoutClickEvent = ({
+  country_page,
+  tariff,
+}: {
+  country_page: string;
+  tariff: string;
+}) => {
+  handleGTMEvent("checkout", { country_page, tariff });
 };
 
 export const handlePaymentAttemptEvent = () => {
@@ -256,8 +266,4 @@ export const handleRegistrationEvent = (data: any) => {
     //value: allFields,
     ...allFields,
   });
-};
-
-export const handleUTMCaptureEvent = (data: any) => {
-  handleGTMEvent("utm_capture", data);
 };

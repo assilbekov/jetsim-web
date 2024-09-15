@@ -13,6 +13,7 @@ const nextConfig = {
         port: "",
       },
     ],
+    minimumCacheTTL: 31536000, // Cache for 1 year (in seconds)
   },
 };
 

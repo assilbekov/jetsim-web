@@ -36,7 +36,7 @@ export const CountryCard = ({ country, className, page }: CountryCardProps) => {
         if (page === "All-Destinations") {
           handleCountrySelectCatalogEvent();
         } else {
-          handleCountrySelectMainEvent();
+          handleCountrySelectMainEvent({ country_page: country.placeID });
         }
       }}
     >
