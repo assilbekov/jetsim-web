@@ -76,7 +76,6 @@ export const BackgroundImage = ({
             visibilityClassName || ""
           )}
           style={{ objectFit: "cover" }}
-          priority
         />
       ) : (
         <Skeleton
