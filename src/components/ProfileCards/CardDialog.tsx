@@ -23,7 +23,10 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { TertiaryButton } from "../buttons/TertiaryButton";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCard } from "@/api/cards";
-import { handleProfileCountryClickEvent } from "@/gtm-events";
+import {
+  handleCountryPageCheckoutEvent,
+  handleProfileCountryClickEvent,
+} from "@/gtm-events";
 import { useLocale, useTranslations } from "next-intl";
 
 export enum CardDialogType {
@@ -237,7 +240,7 @@ const BuyNewPlanContent = ({
   const t = useTranslations("CardDialog");
 
   const handleCheckout = (selectedPackageId: string) => {
-    handleProfileCountryClickEvent(location.placeID);
+    handleCountryPageCheckoutEvent(location.placeID, selectedPackageId);
     const redirectUrl = `${window.location.origin}/${locale}/payment?packageID=${selectedPackageId}&placeID=${location.placeID}&reinstall=true`;
     router.push(redirectUrl);
   };

@@ -1,7 +1,6 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { handleUTMCaptureEvent } from "@/gtm-events";
 
 type UTM = {
   utm_source: string;
@@ -49,9 +48,6 @@ export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
       utm_content: getUtmParam(urlParams, "utm_content"),
     };
     setUtms(newUtms);
-
-    // Send custom event to GA4 with UTM parameters
-    handleUTMCaptureEvent(newUtms);
   }, []);
 
   const utmsSearchParams = utms

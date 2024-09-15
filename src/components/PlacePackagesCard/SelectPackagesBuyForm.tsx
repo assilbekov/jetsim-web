@@ -154,7 +154,10 @@ export const SelectPackagesBuyForm = ({
   };
 
   const handleCheckout = () => {
-    handleCheckoutClickEvent();
+    handleCheckoutClickEvent({
+      country_page: location?.placeID ?? "",
+      tariff: selectedPackage?.id ?? "",
+    });
     onSubmit(selectedPackageId);
   };
 

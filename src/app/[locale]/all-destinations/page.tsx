@@ -35,7 +35,7 @@ export default function Index({ params }: { params: { locale: string } }) {
         </LandingContainer>
       </div>
       <div className="flex flex-col bg-[#F8F9FB] sm:gap-[10px] md:gap-6 lg:gap-[10px]">
-        <AllDestinations locale={params?.locale} page="Main" />
+        <AllDestinations locale={params?.locale} page="All-Destinations" />
         <LandingFooter locale={params?.locale} />
       </div>
     </main>

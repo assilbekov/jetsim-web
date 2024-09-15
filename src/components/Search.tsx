@@ -59,7 +59,7 @@ export const Search = ({ page, locale }: SearchProps) => {
     if (page === "All-Destinations") {
       handleCountrySelectCatalogEvent();
     } else {
-      handleCountrySelectMainEvent();
+      handleCountrySelectMainEvent({ country_page: location.placeID });
     }
   };
 

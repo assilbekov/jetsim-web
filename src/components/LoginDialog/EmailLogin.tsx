@@ -94,11 +94,11 @@ export const EmailLogin = ({ redirectUrl }: EmailLoginProps) => {
       setStep(LoginStep.Code);
       setCode("");
       setIsCodeInvalid(false);
-      handleLoginEmailCodeClickEvent();
     }
   };
 
   const handleCodeSubmit = async (_: React.FormEvent<HTMLFormElement>) => {
+    handleLoginEmailCodeClickEvent();
     const response = await fetch(
       `https://auth.jetsim.app/api/v1/email/check-code${
         utmsSearchParams ? `?${utmsSearchParams}` : ""

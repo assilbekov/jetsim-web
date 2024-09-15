@@ -4,7 +4,7 @@ import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { ProfileCards } from "@/components/ProfileCards";
-import { Recommendations } from "@/components/Recommendations";
+import { Recommendations } from "@/components/Recommendations/index";
 import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
 import { PageProps } from "@/models/PageProps";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
