@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SecondaryButton } from "../buttons/SecondaryButton";
 import { InstallESimInstructionsDialog } from "../InstallESimInstructionsDialog";
 import { Card } from "@/models/Card";
-import { handleSuccessPaymentInstructionClick } from "@/gtm-events";
+import { handleSuccessPaymentInstructionClick, handleSuccessPaymentManualClick } from "@/gtm-events";
 import { SeeInstructionsDialog } from "../SeeInstructionsDialog";
 import { useTranslations } from "next-intl";
 
@@ -25,6 +25,7 @@ export const SeeInstructionsButton = ({
         onClick={() => {
           setInstructionsDialogShow(true);
           handleSuccessPaymentInstructionClick();
+          handleSuccessPaymentManualClick();
         }}
       >
         {t("seeInstructions")}

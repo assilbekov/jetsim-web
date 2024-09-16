@@ -21,7 +21,7 @@ import { PaymentMethodsInfo } from "./PaymentMethodsInfo";
 import { SelectPackagesBuyForm } from "./SelectPackagesBuyForm";
 import { PackageTagEnum } from "@/models/Package";
 import { fetchPackages } from "@/api/packages";
-import { handleCountryPageCheckoutEvent } from "@/gtm-events";
+import { handleCountryPageCheckoutEvent, handleLoginScreenEvent } from "@/gtm-events";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/navigation";
 
@@ -89,6 +89,7 @@ export const PlacePackagesCard = ({
     }/${locale}/payment?packageID=${selectedPackageId}&placeID=${placeId}&${searchParams.toString()}`;
 
     if (!accessToken) {
+      handleLoginScreenEvent();
       return setLoginRedirectUrl(redirectUrl);
     }
 
