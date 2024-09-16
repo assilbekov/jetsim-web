@@ -1,4 +1,8 @@
 {
+  "DownloadAppLandingBlock": {
+    "title": "JetSim Uygulamasını İndirin",
+    "description": "Veri kullanımı hakkında uyarıları push bildirimleri ve widget aracılığıyla alın ve kolayca yeni SIM kartları satın alın"
+  },
   "Footer": {
     "top_destinations": "Popüler Destinasyonlar",
     "legal": "Yasal",

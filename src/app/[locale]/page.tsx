@@ -11,6 +11,7 @@ import { WhyBlock } from "@/components/WhyBlock";
 import { MainScreenEvent } from "../_components/MainScreenEvent";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { PageProps } from "@/models/PageProps";
+import { DownloadAppLandingBlock } from "@/components/DownloadAppLandingBlock";
 
 export async function generateMetadata({ params }: PageProps) {
   const t = await getTranslations({
@@ -44,6 +45,7 @@ export default function Index({ params }: PageProps) {
         <WhyBlock />
         <NoPlasticWaste />
         <FAQ />
+        <DownloadAppLandingBlock />
         <LandingFooter locale={params?.locale} />
       </div>
     </main>

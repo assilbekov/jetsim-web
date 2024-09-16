@@ -1,4 +1,8 @@
 {
+  "DownloadAppLandingBlock": {
+    "title": "Download JetSim App",
+    "description": "Receive traffic usage alerts via push notifications and in the widget, and easily purchase new SIM cards"
+  },
   "Footer": {
     "top_destinations": "Top destinations",
     "legal": "Legal",
