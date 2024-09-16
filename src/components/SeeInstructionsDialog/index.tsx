@@ -3,7 +3,7 @@
 import { Card } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
 import { TagButton, TagButtonsProps } from "../PlacePackagesCard/TagButton";
 import { clsx } from "@/utils";
@@ -11,6 +11,7 @@ import Image from "next/image";
 import { IOSContent } from "./IOSContent";
 import { AndroidContent } from "./AndroidContent";
 import { useTranslations } from "next-intl";
+import { handleInstructionsScreenEvent } from "@/gtm-events";
 
 const StyledTagButton = (props: TagButtonsProps) => {
   return (
@@ -45,6 +46,10 @@ export const SeeInstructionsDialog = ({
   const [deviceType, setDeviceType] = useState<DeviceType>(() => {
     return isAndroid ? DeviceType.android : DeviceType.iOS;
   });
+
+  useEffect(() => {
+    handleInstructionsScreenEvent();
+  }, []);
 
   return (
     <Dialog onClose={onClose}>

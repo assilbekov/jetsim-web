@@ -23,10 +23,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { TertiaryButton } from "../buttons/TertiaryButton";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteCard } from "@/api/cards";
-import {
-  handleCountryPageCheckoutEvent,
-  handleProfileCountryClickEvent,
-} from "@/gtm-events";
+import { handleCountryPageCheckoutEvent } from "@/gtm-events";
 import { useLocale, useTranslations } from "next-intl";
 
 export enum CardDialogType {

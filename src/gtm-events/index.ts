@@ -109,7 +109,11 @@ export const handleGTMEvent = (eventName: string, event?: any) => {
 };
 
 export const trackPurchase = (data: any) => {
-  const allFields = { ...getDefaultFields(), ...data };
+  const allFields = {
+    ...getDefaultFields(),
+    ...data,
+    items: JSON.stringify(data.items),
+  };
   const localWindow: any = window;
 
   // Facebook Pixel
@@ -138,6 +142,9 @@ export const trackPurchase = (data: any) => {
     ...allFields,
     itemss: JSON.stringify(allFields.items),
   });
+
+  // GTM
+  handleGTMEvent("purchase", allFields);
 };
 
 export const handleMainPageScreenEvent = () => {
@@ -218,16 +225,12 @@ export const handleAllDestinationsScreenEvent = () => {
   handleGTMEvent("country_list_screen");
 };
 
-export const handleProfileInstallClickEvent = () => {
-  handleGTMEvent("profile_install_click");
+export const handleProfileInstallClickEvent = (country_page: string) => {
+  handleGTMEvent("profile_install_click", {country_page});
 };
 
-export const handleProfileBuyClickEvent = () => {
-  handleGTMEvent("profile_buy_click");
-};
-
-export const handleProfileCountryClickEvent = (countryId: string) => {
-  handleGTMEvent("profile_country_click", { county_page: countryId });
+export const handleProfileBuyClickEvent = (country_page: string) => {
+  handleGTMEvent("profile_buy_click", {country_page});
 };
 
 export const handleCountrySelectMainEvent = ({

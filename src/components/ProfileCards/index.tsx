@@ -106,7 +106,7 @@ export const ProfileCards = ({ locale }: { locale: string }) => {
                     location={location}
                     selectedPackage={selectedPackage}
                     onBuyNewPlanClick={(card, location) => {
-                      handleProfileBuyClickEvent();
+                      handleProfileBuyClickEvent(location.placeID);
                       setDialog({
                         type: CardDialogType.BUY_NEW_PLAN,
                         card,
@@ -123,7 +123,7 @@ export const ProfileCards = ({ locale }: { locale: string }) => {
                       })
                     }
                     onInstallClick={(card, location) => {
-                      handleProfileInstallClickEvent();
+                      handleProfileInstallClickEvent(location.placeID);
                       setDialog({
                         type: CardDialogType.INSTALL,
                         card,
