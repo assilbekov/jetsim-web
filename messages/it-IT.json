@@ -1,4 +1,8 @@
 {
+  "DownloadAppLandingBlock": {
+    "title": "Scarica l'app JetSim",
+    "description": "Ricevi avvisi sul consumo dei dati tramite notifiche push e nel widget, e acquista facilmente nuove carte SIM"
+  },
   "Footer": {
     "top_destinations": "Destinazioni principali",
     "legal": "Legale",

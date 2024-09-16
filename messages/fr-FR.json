@@ -1,4 +1,8 @@
 {
+  "DownloadAppLandingBlock": {
+    "title": "Télécharger l'application JetSim",
+    "description": "Recevez des alertes de consommation de données via les notifications push et dans le widget, et achetez facilement de nouvelles cartes SIM"
+  },
   "Footer": {
     "top_destinations": "Destinations populaires",
     "legal": "Mentions légales",

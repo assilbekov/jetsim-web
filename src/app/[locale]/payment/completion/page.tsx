@@ -9,6 +9,7 @@ import { Navbar } from "@/components/Navbar/Navbar";
 import { FinishedScreenEvent } from "./_components/FinishedScreenEvent";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { PageProps } from "@/models/PageProps";
+import { DownloadAppLandingBlock } from "@/components/DownloadAppLandingBlock";
 
 export async function generateMetadata({ params }: PageProps) {
   const t = await getTranslations({
@@ -48,6 +49,7 @@ export default function Completion({
         <BeforeInstallation />
         <LandingSupport />
         <FAQ />
+        <DownloadAppLandingBlock />
         <LandingFooter locale={params?.locale} />
       </div>
     </main>
