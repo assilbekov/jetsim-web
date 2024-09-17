@@ -1,10 +1,14 @@
 "use client";
 
-import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { deviceDetect } from "react-device-detect";
 
 export const ImageBlock = () => {
-  const { isDesktop } = useDeviceTypeAndVersion();
+  const [isDesktop, setIsDesktop] = useState(true);
+  useEffect(() => {
+    setIsDesktop(!deviceDetect(window?.navigator?.userAgent)?.isMobile);
+  }, []);
 
   return (
     <div className="flex justify-center relative">
