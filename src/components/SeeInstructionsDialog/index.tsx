@@ -4,7 +4,7 @@ import { Card } from "@/models/Card";
 import { Dialog } from "../Dialog";
 import { DialogTitle } from "../Dialog/DialogTitle";
 import { useEffect, useState } from "react";
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { TagButton, TagButtonsProps } from "../PlacePackagesCard/TagButton";
 import { clsx } from "@/utils";
 import Image from "next/image";
@@ -42,7 +42,7 @@ export const SeeInstructionsDialog = ({
   locale,
 }: SeeInstructionsDialogProps) => {
   const t = useTranslations("SeeInstructionsDialog");
-  const { isAndroid } = useDeviceTypeAndVerion();
+  const { isAndroid } = useDeviceTypeAndVersion();
   const [deviceType, setDeviceType] = useState<DeviceType>(() => {
     return isAndroid ? DeviceType.android : DeviceType.iOS;
   });

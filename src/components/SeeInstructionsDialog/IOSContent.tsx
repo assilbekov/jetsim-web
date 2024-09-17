@@ -9,7 +9,7 @@ import { TurnOnDataRoamingStep } from "../InstallESimInstructionsDialog/TurnOnDa
 import { StyledContent } from "./components/StyledContent";
 import { EnterDetailsManuallyStep } from "./components/EnterDetailsManuallyStep";
 import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { UseQRDetailsStep } from "./components/UseQRDetailsStep";
 import { OpenMyEsim } from "./components/DesktopComponents/OpenMyEsim";
 import { useTranslations } from "next-intl";
@@ -21,7 +21,7 @@ type IOSContentProps = {
 
 export const IOSContent = ({ card, locale }: IOSContentProps) => {
   const t = useTranslations("SeeInstructionsDialog");
-  const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const deviceTypeAndVerion = useDeviceTypeAndVersion();
 
   const renderQRInstallation = () => {
     if (deviceTypeAndVerion.isIOS && deviceTypeAndVerion.version >= "16") {

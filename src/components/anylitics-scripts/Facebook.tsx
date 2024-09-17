@@ -6,6 +6,7 @@ const PIXEL_ID = "2669054566608624"; // Replace with your Pixel ID
 
 export const Facebook = () => {
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const localWindow: any = window;
 
     const handleRouteChange = () => {

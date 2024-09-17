@@ -3,6 +3,7 @@ import { LandingContainer } from "../LandingContainer";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { useTranslations } from "next-intl";
+import { ImageBlock } from "./ImageBlock";
 
 export const DownloadAppLandingBlock = () => {
   const t = useTranslations("DownloadAppLandingBlock");
@@ -35,26 +36,7 @@ export const DownloadAppLandingBlock = () => {
             />
           </a>
         </div>
-        <div className="flex justify-center relative">
-          <div className="overflow-hidden h-[312px] xxs:h-[375px] mx-auto">
-            <Image
-              src="/images/iphone-ios-app-screenshot.png"
-              alt="Download JetSim App"
-              width={272}
-              height={558}
-              className="w-[272px] xxs:w-[327px] sm:w-[305px]"
-            />
-          </div>
-          <div className="absolute bottom-0 right-[-140px] hidden md:block">
-            <Image
-              src="/images/iphone-ios-app-promotion-person.png"
-              alt="Download JetSim App promotion person"
-              width={156}
-              height={52}
-              className="h-full"
-            />
-          </div>
-        </div>
+        <ImageBlock />
       </div>
     </LandingContainer>
   );
