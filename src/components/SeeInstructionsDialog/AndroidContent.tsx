@@ -7,7 +7,7 @@ import { ScanQRStep } from "./components/ScanQRStep";
 import { PlanTextStep } from "./components/PlanTextStep";
 import { StyledContent } from "./components/StyledContent";
 import { EnterFollowingDataStep } from "./components/EnterFollowingDataStep";
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { useState } from "react";
 import { PixelManualStep } from "./components/PixelManualStep";
 import { TurnOnPixelStep } from "./components/TurnOnPixelStep";
@@ -37,7 +37,7 @@ enum AndroidType {
 
 export const AndroidContent = ({ card }: AndroidContentProps) => {
   const t = useTranslations("SeeInstructionsDialog");
-  const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const deviceTypeAndVerion = useDeviceTypeAndVersion();
   const [type, setType] = useState<AndroidType>(AndroidType.Samsung);
 
   const renderManualBlockMobile = () => {

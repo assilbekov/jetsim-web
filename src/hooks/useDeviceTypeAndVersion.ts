@@ -7,7 +7,7 @@ type DeviceData = {
   version: string;
 };
 
-export const useDeviceTypeAndVerion = (): DeviceData => {
+export const useDeviceTypeAndVersion = (): DeviceData => {
   const deviceData = useDeviceData(window.navigator.userAgent);
 
   return {

@@ -5,7 +5,7 @@ import { CopyButton } from "../buttons/CopyButton";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 import { clsx, convertLPACodeToBlocks } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { useTranslations } from "next-intl";
 
 type CopyCardProps = {
@@ -43,7 +43,7 @@ export const ManualInstall = ({
   onSeeInstructionsClick,
 }: ManualInstallProps) => {
   const t = useTranslations("InstallESim");
-  const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const deviceTypeAndVerion = useDeviceTypeAndVersion();
   const { addr, activationCodeAndroid, activationCodeIOS } =
     convertLPACodeToBlocks(card.lpaCode);
 

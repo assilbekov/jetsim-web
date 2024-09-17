@@ -4,7 +4,7 @@ import { Card } from "@/models/Card";
 import { CopyButton } from "../buttons/CopyButton";
 import { RoundedLabel } from "./RoundedLabel";
 import { InfoRow } from "./InfoRow";
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { convertLPACodeToBlocks } from "@/utils";
 import { useTranslations } from "next-intl";
 
@@ -35,7 +35,7 @@ export const EnterFollowingDataStep = ({
   card,
 }: EnterFollowingDataStepProps) => {
   const t = useTranslations("InstallESimInstructionsDialog");
-  const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const deviceTypeAndVerion = useDeviceTypeAndVersion();
 
   const { addr, activationCodeAndroid, activationCodeIOS } =
     convertLPACodeToBlocks(card.lpaCode);

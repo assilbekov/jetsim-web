@@ -1,6 +1,6 @@
 "use client";
 
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { Card } from "@/models/Card";
 import { clsx } from "@/utils";
 import Image from "next/image";
@@ -55,7 +55,7 @@ const QRCodeElement = ({ url, size }: { url: string; size: number }) => {
 
 export const QRCodeBlock = ({ card, size, locale }: QRCodeBlockProps) => {
   const t = useTranslations("QRCodeBlock");
-  const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const deviceTypeAndVerion = useDeviceTypeAndVersion();
 
   const url = `https://esimsetup.apple.com/esim_qrcode_provisioning?carddata=${card.lpaCode}`;
 

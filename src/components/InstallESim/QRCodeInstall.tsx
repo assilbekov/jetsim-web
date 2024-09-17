@@ -10,7 +10,7 @@ import { SecondaryButton } from "../buttons/SecondaryButton";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { useRef } from "react";
-import { useDeviceTypeAndVerion } from "@/hooks/useDeviceTypeAndVerion";
+import { useDeviceTypeAndVersion } from "@/hooks/useDeviceTypeAndVersion";
 import { QRCodeBlock } from "../QRCodeBlock";
 
 type QRCodeInstallProps = {
@@ -26,7 +26,7 @@ export const QRCodeInstall = ({
 }: QRCodeInstallProps) => {
   const qrRef = useRef<HTMLDivElement>(null);
   const deviceData = useDeviceData(window.navigator.userAgent);
-  const deviceTypeAndVerion = useDeviceTypeAndVerion();
+  const deviceTypeAndVerion = useDeviceTypeAndVersion();
 
   const handleShare = () => {
     const canvas = qrRef?.current?.querySelector("canvas");
