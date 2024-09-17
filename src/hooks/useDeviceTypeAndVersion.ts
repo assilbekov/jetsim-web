@@ -17,13 +17,10 @@ export const useDeviceTypeAndVersion = (): DeviceData => {
     isDesktop: true, // Default to desktop
     version: "",
   });
+  const detectedData = useDeviceData(window.navigator.userAgent);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const detectedData = useDeviceData(window.navigator.userAgent);
-
-      console.log({ detectedData });
-
       setDeviceData({
         isIOS: detectedData?.os?.name === "iOS",
         isAndroid: detectedData?.os?.name === "Android",
@@ -33,7 +30,7 @@ export const useDeviceTypeAndVersion = (): DeviceData => {
         version: detectedData?.os?.version,
       });
     }
-  }, []);
+  }, [detectedData]);
 
   return deviceData;
 };
