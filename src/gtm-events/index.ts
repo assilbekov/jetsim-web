@@ -261,12 +261,12 @@ export const handlePaymentAttemptEvent = () => {
 
 export const handleRegistrationEvent = (data: any) => {
   handleGTMEvent("registration", data);
-  const allFields = { ...getDefaultFields(), ...data };
+  /* const allFields = { ...getDefaultFields(), ...data };
   const localWindow: any = window;
   localWindow.gtag("event", "registration", {
     category: "Ecommerce",
     label: "Registration",
     //value: allFields,
     ...allFields,
-  });
+  }); */
 };
