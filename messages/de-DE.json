@@ -1,4 +1,9 @@
 {
+  "CarriersLandingBlock": {
+    "title": "Führende Mobilfunknetzbetreiber",
+    "description": "Zusammenhängende Verbindungen mit hochwertiger und stabilen Service überall und jederzeit",
+    "otherCarriers": "800+ weitere Anbieter"
+  },
   "DownloadAppLandingBlock": {
     "title": "JetSim App herunterladen",
     "description": "Erhalten Sie Verkehrsverwendungsbenachrichtigungen über Push-Benachrichtigungen und im Widget und kaufen Sie ganz einfach neue SIM-Karten"

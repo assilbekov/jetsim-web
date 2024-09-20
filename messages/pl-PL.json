@@ -1,4 +1,9 @@
 {
+  "CarriersLandingBlock": {
+    "title": "Liderujące operatory sieci komórkowej",
+    "description": "Bezproblemowe połączenia z usługami wysokiej jakości i stabilności wszędzie i w każdym czasie",
+    "otherCarriers": "800+ operatorów sieci komórkowej"
+  },
   "DownloadAppLandingBlock": {
     "title": "Pobierz aplikację JetSim",
     "description": "Otrzymuj powiadomienia o zużyciu danych za pośrednictwem powiadomień push i w widget, oraz kup nowe karty SIM bardzo prosto"

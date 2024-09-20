@@ -5,6 +5,7 @@ import { CheckCompatibilityLink } from "./CheckCompatibilityLink";
 import { CheckCompatibilityDialog } from "./CheckCompatibilityDialog";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
+import { PrimaryButton } from "../buttons/PrimaryButton";
 
 export type CheckCompatibilityProps = {
   label: React.ReactNode;
@@ -20,6 +21,20 @@ export const CheckCompatibility = (props: CheckCompatibilityProps) => {
         {...props}
         onClick={() => setIsDialogShow(true)}
       />
+      {isDialogShow && (
+        <CheckCompatibilityDialog onClose={() => setIsDialogShow(false)} />
+      )}
+    </>
+  );
+};
+
+export const CheckCompatibilityButton = (props: CheckCompatibilityProps) => {
+  const [isDialogShow, setIsDialogShow] = useState(false);
+  return (
+    <>
+      <PrimaryButton {...props} onClick={() => setIsDialogShow(true)}>
+        {props.label}
+      </PrimaryButton>
       {isDialogShow && (
         <CheckCompatibilityDialog onClose={() => setIsDialogShow(false)} />
       )}

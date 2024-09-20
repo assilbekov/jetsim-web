@@ -5,7 +5,7 @@ import { LandingFooter } from "@/components/LandingFooter";
 import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { PlacePackagesCard } from "@/components/PlacePackagesCard";
-import { SetupJetSim } from "@/components/SetupJetSim";
+import { SetupJetsimInMinuteLanding } from "@/components/SetupJetsimInMinuteLanding";
 import { WhyBlock } from "@/components/WhyBlock";
 import { CountryScreenEvent } from "./_components/CountryScreenEvent";
 import { Metadata } from "next";
@@ -47,7 +47,7 @@ export default function Index({ params }: PageProps) {
         <PlacePackagesCard placeId={params.placeId} locale={params?.locale} />
         <FeatureAndTechDetails />
         <WhyBlock showSecurePaymentMethods={false} />
-        <SetupJetSim />
+        <SetupJetsimInMinuteLanding />
         <LandingSupport />
         <FAQ />
         <LandingFooter locale={params?.locale} />
