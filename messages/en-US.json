@@ -1,4 +1,9 @@
 {
+  "CarriersLandingBlock": {
+    "title": "Leading network carriers",
+    "description": "Seamless connectivity with top-quality and stable service anywhere, anytime",
+    "otherCarriers": "800+ wireless carriers"
+  },
   "DownloadAppLandingBlock": {
     "title": "Download JetSim App",
     "description": "Receive traffic usage alerts via push notifications and in the widget, and easily purchase new SIM cards"

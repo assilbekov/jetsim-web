@@ -1,4 +1,9 @@
 {
+  "CarriersLandingBlock": {
+    "title": "Opérateurs de réseau mobiles leaders",
+    "description": "Connexion sans problèmes avec des services de haute qualité et stabilité partout et en tout temps",
+    "otherCarriers": "800+ opérateurs de réseau mobiles"
+  },
   "DownloadAppLandingBlock": {
     "title": "Télécharger l'application JetSim",
     "description": "Recevez des alertes de consommation de données via les notifications push et dans le widget, et achetez facilement de nouvelles cartes SIM"

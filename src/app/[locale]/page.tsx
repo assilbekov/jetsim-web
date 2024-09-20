@@ -6,12 +6,13 @@ import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { NoPlasticWaste } from "@/components/NoPlasticWaste";
 import { Recommendations } from "@/components/Recommendations";
-import { SetupJetSim } from "@/components/SetupJetSim";
 import { WhyBlock } from "@/components/WhyBlock";
 import { MainScreenEvent } from "../_components/MainScreenEvent";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { PageProps } from "@/models/PageProps";
 import { DownloadAppLandingBlock } from "@/components/DownloadAppLandingBlock";
+import { SetupJetsimInMinuteLanding } from "@/components/SetupJetsimInMinuteLanding";
+import { CarriersLandingBlock } from "@/components/CarriersLandingBlock";
 
 export async function generateMetadata({ params }: PageProps) {
   const t = await getTranslations({
@@ -40,10 +41,11 @@ export default function Index({ params }: PageProps) {
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
         <Recommendations locale={params?.locale} page="Main" />
-        <SetupJetSim />
+        <SetupJetsimInMinuteLanding />
         <LandingSupport />
         <WhyBlock />
         <NoPlasticWaste />
+        <CarriersLandingBlock />
         <FAQ />
         <DownloadAppLandingBlock />
         <LandingFooter locale={params?.locale} />
