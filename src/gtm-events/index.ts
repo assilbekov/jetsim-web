@@ -68,7 +68,7 @@ export function getBrowserData(): string {
 }
 
 const getUtmParam = (utmTag: string) => {
-  return sessionStorage.getItem(utmTag) || "";
+  return localStorage.getItem(utmTag) || "";
 };
 
 export const getDefaultFields = () => {
