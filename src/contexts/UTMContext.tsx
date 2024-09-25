@@ -72,7 +72,13 @@ export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    setUtms(extractUTMParams(window.location.href));
+    const utmParams = extractUTMParams(window.location.href);
+    setUtms(utmParams);
+    localStorage.setItem("utm_source", utmParams.utm_source);
+    localStorage.setItem("utm_medium", utmParams.utm_medium);
+    localStorage.setItem("utm_campaign", utmParams.utm_campaign);
+    localStorage.setItem("utm_term", utmParams.utm_term);
+    localStorage.setItem("utm_content", utmParams.utm_content);
   }, []);
 
   const utmsSearchParams = utms
