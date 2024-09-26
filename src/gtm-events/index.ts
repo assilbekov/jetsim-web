@@ -68,7 +68,7 @@ export function getBrowserData(): string {
 }
 
 const getUtmParam = (utmTag: string) => {
-  return localStorage.getItem(utmTag) || "";
+  return sessionStorage.getItem(utmTag) || "";
 };
 
 export const getDefaultFields = () => {
@@ -226,11 +226,11 @@ export const handleAllDestinationsScreenEvent = () => {
 };
 
 export const handleProfileInstallClickEvent = (country_page: string) => {
-  handleGTMEvent("profile_install_click", {country_page});
+  handleGTMEvent("profile_install_click", { country_page });
 };
 
 export const handleProfileBuyClickEvent = (country_page: string) => {
-  handleGTMEvent("profile_buy_click", {country_page});
+  handleGTMEvent("profile_buy_click", { country_page });
 };
 
 export const handleCountrySelectMainEvent = ({
