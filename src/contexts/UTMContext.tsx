@@ -20,49 +20,16 @@ export const UTMContext = createContext<UTMContextType>({
   utmsSearchParams: "",
 });
 
-function extractUTMParams(urlString: string): UTMParams {
-  const utmParams: UTMParams = {
-    utm_source: "",
-    utm_medium: "",
-    utm_campaign: "",
-    utm_term: "",
-    utm_content: "",
-  };
-  const utmKeys = [
-    "utm_source",
-    "utm_medium",
-    "utm_campaign",
-    "utm_term",
-    "utm_content",
-  ];
+const getUtmParam = (urlParams: URLSearchParams, utmTag: string) => {
+  let utmVal = urlParams.get(utmTag);
 
-  // Function to extract key-value pairs from a query string
-  const extractParams = (query: string) => {
-    return query.split("&").reduce((params: Record<string, string>, pair) => {
-      const [key, value] = pair.split("=");
-      if (key && value) {
-        params[decodeURIComponent(key).toLowerCase()] =
-          decodeURIComponent(value);
-      }
-      return params;
-    }, {});
-  };
+  if (utmVal) {
+    sessionStorage.setItem(utmTag, utmVal);
+    return utmVal;
+  }
 
-  // Extract all possible query strings
-  const queries = urlString.split(/[?#]/).slice(1);
-
-  // Process each query string
-  queries.forEach((query) => {
-    const params = extractParams(query);
-    utmKeys.forEach((key) => {
-      if (params[key] && !utmParams[key as keyof UTMParams]) {
-        utmParams[key as keyof UTMParams] = params[key];
-      }
-    });
-  });
-
-  return utmParams;
-}
+  return sessionStorage.getItem(utmTag) || "";
+};
 
 export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
   const [utms, setUtms] = useState<UTMParams | null>(null);
@@ -72,13 +39,15 @@ export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    const utmParams = extractUTMParams(window.location.href);
-    setUtms(utmParams);
-    localStorage.setItem("utm_source", utmParams.utm_source);
-    localStorage.setItem("utm_medium", utmParams.utm_medium);
-    localStorage.setItem("utm_campaign", utmParams.utm_campaign);
-    localStorage.setItem("utm_term", utmParams.utm_term);
-    localStorage.setItem("utm_content", utmParams.utm_content);
+    const urlParams = new URLSearchParams(window.location.search);
+    const newUtms = {
+      utm_source: getUtmParam(urlParams, "utm_source"),
+      utm_medium: getUtmParam(urlParams, "utm_medium"),
+      utm_campaign: getUtmParam(urlParams, "utm_campaign"),
+      utm_term: getUtmParam(urlParams, "utm_term"),
+      utm_content: getUtmParam(urlParams, "utm_content"),
+    };
+    setUtms(newUtms);
   }, []);
 
   const utmsSearchParams = utms
