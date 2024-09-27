@@ -29,7 +29,6 @@ export default function CallbackPage() {
       }: ApiResponse<Tokens> = await res.json();
       const lastPage = localStorage.getItem("last_page");
 
-
       router.push(lastPage ?? "/");
 
       localStorage.setItem("accessToken", accessToken);
@@ -41,7 +40,7 @@ export default function CallbackPage() {
         localStorage.setItem("user_email", profile.email);
         localStorage.setItem("user_id", profile.id);
         if (meta?.newUser) {
-          handleRegistrationEvent({email: profile.email});
+          handleRegistrationEvent({ email: profile.email });
         }
       });
     },

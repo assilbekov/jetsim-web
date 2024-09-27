@@ -43,7 +43,7 @@ export default function CallbackPage() {
         localStorage.setItem("user_id", profile.id);
 
         if (meta?.newUser) {
-          handleRegistrationEvent({email: profile.email});
+          handleRegistrationEvent({ email: profile.email });
         }
       });
     },

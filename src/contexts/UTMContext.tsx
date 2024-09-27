@@ -32,7 +32,20 @@ const getUtmParam = (urlParams: URLSearchParams, utmTag: string) => {
 };
 
 export const UTMProvider = ({ children }: { children: React.ReactNode }) => {
-  const [utms, setUtms] = useState<UTMParams | null>(null);
+  const [utms, setUtms] = useState<UTMParams | null>(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+      utm_source: getUtmParam(urlParams, "utm_source"),
+      utm_medium: getUtmParam(urlParams, "utm_medium"),
+      utm_campaign: getUtmParam(urlParams, "utm_campaign"),
+      utm_term: getUtmParam(urlParams, "utm_term"),
+      utm_content: getUtmParam(urlParams, "utm_content"),
+    };
+  });
 
   useEffect(() => {
     if (typeof window === "undefined") {
