@@ -10,6 +10,7 @@ import { handleLoginScreenEvent } from "@/gtm-events";
 import { getProfile } from "@/api/auth";
 import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
+import { ProfileMenu } from "./ProfileMenu";
 
 type LoginLink = {
   locale: string;
