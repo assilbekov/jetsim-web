@@ -105,7 +105,7 @@ export const SelectPackagesBuyForm = ({
 
   useEffect(() => {
     setSelectedTag(
-      isStandardEmpty ? PackageTagEnum.UNLIMITED : PackageTagEnum.STANDARD
+      isUnlimitedEmpty ? PackageTagEnum.STANDARD : PackageTagEnum.UNLIMITED
     );
   }, [isStandardEmpty, isUnlimitedEmpty]);
 
