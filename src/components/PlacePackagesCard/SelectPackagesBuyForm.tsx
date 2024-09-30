@@ -46,7 +46,7 @@ export const SelectPackagesBuyForm = ({
   });
   const [selectedTag, setSelectedTag] = useState<PackageTagEnum>(() => {
     return (
-      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.STANDARD
+      (searchParams.get("tags") as PackageTagEnum) ?? PackageTagEnum.UNLIMITED
     );
   });
 
