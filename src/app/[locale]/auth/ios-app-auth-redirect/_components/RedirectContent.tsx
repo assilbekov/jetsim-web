@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
@@ -47,7 +47,7 @@ export const RedirectContent: React.FC = () => {
       )}
       {isScriptLoaded && redirectFailed && (
         <p>
-          If the app doesn't open, you'll be redirected to the website shortly.
+          If the app does not open, you will be redirected to the website shortly.
         </p>
       )}
     </>
