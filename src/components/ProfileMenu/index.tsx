@@ -39,7 +39,8 @@ export const ProfileMenu = () => {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && window.innerWidth < 768) {
+      // Only for xs and sm screens
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -66,17 +67,16 @@ export const ProfileMenu = () => {
       </SecondaryButton>
       <div
         className={clsx(
-          "fixed inset-0 top-20 bg-white lg:absolute lg:top-10 lg:right-0 lg:left-auto lg:bottom-auto lg:w-64 lg:rounded-md lg:shadow-md z-[9999]",
+          "fixed sm:absolute inset-0 top-20 sm:inset-auto sm:top-12 sm:right-0 bg-white z-[9999]",
+          "sm:w-80 md:w-96 lg:w-64",
           "transform transition-all duration-300 ease-in-out",
-          "lg:origin-top-right",
+          "sm:origin-top-right",
           isOpen
-            ? "translate-y-0 opacity-100"
-            : "translate-y-full lg:translate-y-0 opacity-0 pointer-events-none",
-          isOpen && "lg:scale-100",
-          !isOpen && "lg:scale-95"
+            ? "translate-y-0 sm:translate-y-0 opacity-100 sm:scale-100"
+            : "translate-y-full sm:translate-y-0 opacity-0 sm:scale-95 pointer-events-none"
         )}
       >
-        <div className="h-full lg:h-auto overflow-y-auto p-4">
+        <div className="h-full sm:h-auto overflow-y-auto p-4 sm:p-0">
           <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4">
             <SettingsButton
               className="border-b-2 last:border-b-0 last:rounded-b-xl"
@@ -98,7 +98,7 @@ export const ProfileMenu = () => {
               {t("allDestinations")}
             </SettingsButton>
           </div>
-          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-col lg:gap-4 items-start">
+          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center">
             <StyledLink
               href="/all-destinations"
               onClick={() => setIsOpen(false)}
