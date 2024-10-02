@@ -3,9 +3,7 @@
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 
-import { HumburgerButton } from "./HumburgerButton";
 import "./navbar.css";
-import { LoginLink } from "../LoginLink";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { HomeLogo } from "../HomeLogo";
@@ -16,6 +14,7 @@ import { LanguageSwitcher } from "../LanguageSwitcher";
 import Image from "next/image";
 import { SettingsButton } from "./SettingsButton";
 import { AuthContainer } from "../Auth/AuthContainer";
+import { ProfileMenu } from "../ProfileMenu";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -121,7 +120,10 @@ export const Navbar = ({
         <div className="hidden xxs:block z-[1001] lg:hidden">
           <LanguageSwitcher />
         </div>
-        <HumburgerButton onClick={handleButtonClick} />
+        <div className="lg:hidden">
+          <ProfileMenu howToHref={howToHref} faqHref={faqHref} />
+        </div>
+        {/* <HumburgerButton onClick={handleButtonClick} /> */}
       </div>
       <nav
         id="primary-navigation"
@@ -222,8 +224,13 @@ export const Navbar = ({
           </div>
         )}
         <div className="lg:flex items-center gap-2 hidden">
-          <LanguageSwitcher />
-          <LoginLink locale={locale} />
+          <div>
+            <LanguageSwitcher />
+          </div>
+          {/* <LoginLink locale={locale} /> */}
+          <div className="lg:block relative">
+            <ProfileMenu howToHref={howToHref} faqHref={faqHref} />
+          </div>
         </div>
       </nav>
       <CookieInfo />

@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { SecondaryButton } from "../buttons/SecondaryButton";
@@ -32,7 +30,6 @@ export const ProfileMenu = ({
   const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const t = useTranslations("ProfileMenu");
   const loginTranslations = useTranslations("Login");
   const navbarTranslations = useTranslations("Navbar");
 
@@ -82,15 +79,15 @@ export const ProfileMenu = ({
           "transform transition-all duration-300 ease-in-out",
           "sm:origin-top-right",
           isOpen
-            ? "translate-y-0 sm:translate-y-0 opacity-100 sm:scale-100"
-            : "translate-y-full sm:translate-y-0 opacity-0 sm:scale-95 pointer-events-none"
+            ? "translate-x-0 sm:translate-x-0 opacity-100 sm:scale-100"
+            : "translate-x-full sm:translate-x-0 opacity-0 sm:scale-95 pointer-events-none"
         )}
       >
         <div className="h-full sm:h-auto overflow-y-auto p-4 sm:p-0">
           <AuthContainer
             locale={locale}
             renderProps={({ isLoggedIn, handleLoginClick, handleLogout }) => (
-              <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4">
+              <div className="border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4 lg:mb-0">
                 {isLoggedIn ? (
                   <>
                     <Link
@@ -146,7 +143,7 @@ export const ProfileMenu = ({
               </div>
             )}
           />
-          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center">
+          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center lg:hidden">
             <StyledLink
               href="/all-destinations"
               onClick={() => setIsOpen(false)}
