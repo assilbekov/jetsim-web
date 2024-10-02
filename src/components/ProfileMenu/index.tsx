@@ -22,7 +22,13 @@ const StyledLink = (props: LinkProps) => (
   />
 );
 
-export const ProfileMenu = () => {
+export const ProfileMenu = ({
+  howToHref = "#how-to",
+  faqHref = "#faq",
+}: {
+  howToHref?: string;
+  faqHref?: string;
+}) => {
   const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -45,7 +51,6 @@ export const ProfileMenu = () => {
 
   useEffect(() => {
     if (isOpen && window.innerWidth < 768) {
-      // Only for xs and sm screens
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -148,7 +153,7 @@ export const ProfileMenu = () => {
             >
               {navbarTranslations("destinations")}
             </StyledLink>
-            <StyledLink href="#how-to" onClick={() => setIsOpen(false)}>
+            <StyledLink href={howToHref} onClick={() => setIsOpen(false)}>
               {navbarTranslations("howItWorks")}
             </StyledLink>
             <SupportButton>
@@ -156,7 +161,7 @@ export const ProfileMenu = () => {
                 {navbarTranslations("support")}
               </StyledLink>
             </SupportButton>
-            <StyledLink href="#faq" onClick={() => setIsOpen(false)}>
+            <StyledLink href={faqHref} onClick={() => setIsOpen(false)}>
               {navbarTranslations("faq")}
             </StyledLink>
           </div>
