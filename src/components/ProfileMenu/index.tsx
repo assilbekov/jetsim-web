@@ -7,8 +7,10 @@ import { ProfileIcon } from "./ProfileIcon";
 import { Link, LinkProps } from "@/navigation";
 import { clsx } from "@/utils";
 import { getTypographyClass, TypographyVariants } from "../Typography";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { SettingsButton } from "../Navbar/SettingsButton";
+import { AuthContainer } from "../Auth/AuthContainer";
+import { SupportButton } from "../SupportButton";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -21,9 +23,12 @@ const StyledLink = (props: LinkProps) => (
 );
 
 export const ProfileMenu = () => {
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("ProfileMenu");
+  const loginTranslations = useTranslations("Login");
+  const navbarTranslations = useTranslations("Navbar");
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -77,51 +82,82 @@ export const ProfileMenu = () => {
         )}
       >
         <div className="h-full sm:h-auto overflow-y-auto p-4 sm:p-0">
-          <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4">
-            <SettingsButton
-              className="border-b-2 last:border-b-0 last:rounded-b-xl"
-              onClick={() => setIsOpen(false)}
-            >
-              <Image
-                src="/icons/black/sim.svg"
-                alt="sim icon"
-                width={12}
-                height={16}
-                className="w-5 h-5"
-              />
-              {t("myEsims")}
-            </SettingsButton>
-            <SettingsButton
-              className="border-b-2 last:border-b-0 last:rounded-b-xl"
-              onClick={() => setIsOpen(false)}
-            >
-              {t("allDestinations")}
-            </SettingsButton>
-          </div>
+          <AuthContainer
+            locale={locale}
+            renderProps={({ isLoggedIn, handleLoginClick, handleLogout }) => (
+              <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4">
+                {isLoggedIn ? (
+                  <>
+                    <Link
+                      href="/profile"
+                      className="w-full"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <SettingsButton className="border-b-2 last:border-b-2 last:rounded-b-none">
+                        <Image
+                          src="/icons/black/sim.svg"
+                          alt="sim icon"
+                          width={12}
+                          height={16}
+                          className="w-5 h-5"
+                        />
+                        {loginTranslations("myEsims")}
+                      </SettingsButton>
+                    </Link>
+                    <SettingsButton
+                      onClick={() => {
+                        setIsOpen(false);
+                        handleLogout();
+                      }}
+                    >
+                      <Image
+                        src="/icons/black/logout.svg"
+                        alt="logout icon"
+                        width={14}
+                        height={14}
+                        className="w-5 h-5"
+                      />
+                      {loginTranslations("logout")}
+                    </SettingsButton>
+                  </>
+                ) : (
+                  <SettingsButton
+                    onClick={() => {
+                      setIsOpen(false);
+                      handleLoginClick();
+                    }}
+                    className="xxs:border-none"
+                  >
+                    <Image
+                      src="/icons/black/logout.svg"
+                      alt="logout icon"
+                      width={14}
+                      height={14}
+                      className="w-5 h-5"
+                    />
+                    {loginTranslations("login")}
+                  </SettingsButton>
+                )}
+              </div>
+            )}
+          />
           <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center">
             <StyledLink
               href="/all-destinations"
               onClick={() => setIsOpen(false)}
             >
-              {t("allDestinations")}
+              {navbarTranslations("destinations")}
             </StyledLink>
-            <StyledLink
-              href="/all-destinations"
-              onClick={() => setIsOpen(false)}
-            >
-              {t("allDestinations")}
+            <StyledLink href="#how-to" onClick={() => setIsOpen(false)}>
+              {navbarTranslations("howItWorks")}
             </StyledLink>
-            <StyledLink
-              href="/all-destinations"
-              onClick={() => setIsOpen(false)}
-            >
-              {t("allDestinations")}
-            </StyledLink>
-            <StyledLink
-              href="/all-destinations"
-              onClick={() => setIsOpen(false)}
-            >
-              {t("allDestinations")}
+            <SupportButton>
+              <StyledLink href="#" onClick={() => setIsOpen(false)}>
+                {navbarTranslations("support")}
+              </StyledLink>
+            </SupportButton>
+            <StyledLink href="#faq" onClick={() => setIsOpen(false)}>
+              {navbarTranslations("faq")}
             </StyledLink>
           </div>
         </div>
