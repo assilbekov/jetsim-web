@@ -74,7 +74,7 @@ export const ProfileMenu = ({
       </SecondaryButton>
       <div
         className={clsx(
-          "fixed sm:absolute inset-0 top-20 sm:inset-auto sm:top-12 sm:right-0 bg-white z-[9999]",
+          "fixed sm:absolute inset-0 top-20 sm:inset-auto sm:top-12 sm:right-0 bg-white z-[9999] rounded-[20px]",
           "sm:w-80 md:w-96 lg:w-64",
           "transform transition-all duration-300 ease-in-out",
           "sm:origin-top-right",

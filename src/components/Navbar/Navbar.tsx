@@ -128,7 +128,7 @@ export const Navbar = ({
       <nav
         id="primary-navigation"
         data-visible="false"
-        className="primary-navigation overflow-auto pb-[100px] px-6 mt-[80px] xxs:mt-[100px] sm:mt-0 sm:pt-[100px] lg:bg-[#F8F9FB] flex gap-8 text-text-600 lg:w-full lg:justify-between sm:min-w-[750px]"
+        className="primary-navigation overflow-auto pb-[200px] px-6 mt-[180px] xxs:mt-[200px] sm:mt-0 sm:pt-[200px] lg:bg-[#F8F9FB] flex gap-8 text-text-600 lg:w-full lg:justify-between sm:min-w-[750px]"
       >
         <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl">
           {
