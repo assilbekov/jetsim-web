@@ -74,7 +74,7 @@ export const ProfileMenu = ({
       </SecondaryButton>
       <div
         className={clsx(
-          "fixed sm:absolute inset-0 top-20 sm:inset-auto sm:top-12 sm:right-0 bg-white z-[9999] rounded-[20px]",
+          "fixed sm:absolute inset-0 top-20 sm:inset-auto sm:top-12 sm:right-0 z-[9999] rounded-[20px] bg-white sm:bg-transparent",
           "sm:w-80 md:w-96 lg:w-64",
           "transform transition-all duration-300 ease-in-out",
           "sm:origin-top-right",
@@ -87,7 +87,7 @@ export const ProfileMenu = ({
           <AuthContainer
             locale={locale}
             renderProps={({ isLoggedIn, handleLoginClick, handleLogout }) => (
-              <div className="border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4 lg:mb-0">
+              <div className="border-[2px] border-solid border-[#E9F0F2] rounded-2xl mb-4 lg:mb-0 bg-white">
                 {isLoggedIn ? (
                   <>
                     <Link
@@ -143,7 +143,7 @@ export const ProfileMenu = ({
               </div>
             )}
           />
-          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center lg:hidden">
+          <div className="flex flex-col gap-4 p-6 lg:p-0 border-[2px] lg:border-none border-solid border-[#E9F0F2] rounded-2xl lg:flex-row lg:gap-8 items-start lg:items-center lg:hidden bg-white">
             <StyledLink
               href="/all-destinations"
               onClick={() => setIsOpen(false)}
