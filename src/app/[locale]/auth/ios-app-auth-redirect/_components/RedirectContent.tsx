@@ -1,23 +1,18 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Script from "next/script";
 
 export const RedirectContent: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
   const [redirectFailed, setRedirectFailed] = useState(false);
 
-  const handleScriptLoad = useCallback(() => {
-    setIsScriptLoaded(true);
+  useEffect(() => {
     const queryString = searchParams.toString() || window.location.search;
     const customSchemeUrl = `jetsim://google-auth${
       queryString ? `?${queryString}` : ""
     }`;
-    router.push(customSchemeUrl);
-
     const fallbackUrl = `https://jetsim.app/${
       queryString ? `?${queryString}` : ""
     }`;
@@ -40,14 +35,12 @@ export const RedirectContent: React.FC = () => {
 
   return (
     <>
-      <Script src="https://static.app/js/static.js" onLoad={handleScriptLoad} />
-      {!isScriptLoaded && <p>Loading necessary resources...</p>}
-      {isScriptLoaded && !redirectFailed && (
+      {!redirectFailed ? (
         <p>Attempting to open the app...</p>
-      )}
-      {isScriptLoaded && redirectFailed && (
+      ) : (
         <p>
-          If the app does not open, you will be redirected to the website shortly.
+          If the app does not open, you will be redirected to the website
+          shortly.
         </p>
       )}
     </>
