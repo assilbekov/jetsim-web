@@ -1,4 +1,5 @@
-export const clsx = (...classes: string[]) => classes.filter(Boolean).join(" ");
+export const clsx = (...classes: (string | boolean)[]) =>
+  classes.filter(Boolean).join(" ");
 
 export function formatBytes(bytes: number, decimals = 2) {
   if (bytes < 1 || !bytes) return "0 Bytes";

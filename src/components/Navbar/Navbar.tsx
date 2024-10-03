@@ -3,9 +3,7 @@
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 
-import { HumburgerButton } from "./HumburgerButton";
 import "./navbar.css";
-import { LoginLink } from "../LoginLink";
 import { clsx } from "@/utils";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { HomeLogo } from "../HomeLogo";
@@ -16,6 +14,7 @@ import { LanguageSwitcher } from "../LanguageSwitcher";
 import Image from "next/image";
 import { SettingsButton } from "./SettingsButton";
 import { AuthContainer } from "../Auth/AuthContainer";
+import { ProfileMenu } from "../ProfileMenu";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -121,12 +120,15 @@ export const Navbar = ({
         <div className="hidden xxs:block z-[1001] lg:hidden">
           <LanguageSwitcher />
         </div>
-        <HumburgerButton onClick={handleButtonClick} />
+        <div className="lg:hidden">
+          <ProfileMenu howToHref={howToHref} faqHref={faqHref} />
+        </div>
+        {/* <HumburgerButton onClick={handleButtonClick} /> */}
       </div>
       <nav
         id="primary-navigation"
         data-visible="false"
-        className="primary-navigation overflow-auto pb-[100px] px-6 mt-[80px] xxs:mt-[100px] sm:mt-0 sm:pt-[100px] lg:bg-[#F8F9FB] flex gap-8 text-text-600 lg:w-full lg:justify-between sm:min-w-[750px]"
+        className="primary-navigation overflow-auto pb-[200px] px-6 mt-[180px] xxs:mt-[200px] sm:mt-0 sm:pt-[200px] lg:bg-[#F8F9FB] flex gap-8 text-text-600 lg:w-full lg:justify-between sm:min-w-[750px]"
       >
         <div className="lg:hidden border-[2px] border-solid border-[#E9F0F2] rounded-2xl">
           {
@@ -222,8 +224,13 @@ export const Navbar = ({
           </div>
         )}
         <div className="lg:flex items-center gap-2 hidden">
-          <LanguageSwitcher />
-          <LoginLink locale={locale} />
+          <div>
+            <LanguageSwitcher />
+          </div>
+          {/* <LoginLink locale={locale} /> */}
+          <div className="lg:block relative">
+            <ProfileMenu howToHref={howToHref} faqHref={faqHref} />
+          </div>
         </div>
       </nav>
       <CookieInfo />
