@@ -1,5 +1,19 @@
 "use client";
 
+import React, { useEffect } from "react";
+
+const RedirectPage: React.FC = () => {
+  useEffect(() => {
+    window.location.href = `jetsim://google-auth${window.location.search}`;
+  }, []);
+
+  return <p>Redirecting...</p>;
+};
+
+export default RedirectPage;
+
+/* "use client";
+
 import React, { Suspense } from "react";
 import { RedirectContent } from "./_components/RedirectContent";
 
@@ -22,4 +36,4 @@ const Redirect: React.FC = () => {
   );
 };
 
-export default Redirect;
+export default Redirect; */
