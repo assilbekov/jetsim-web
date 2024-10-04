@@ -9,6 +9,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { SettingsButton } from "../Navbar/SettingsButton";
 import { AuthContainer } from "../Auth/AuthContainer";
 import { SupportButton } from "../SupportButton";
+import { LanguageSwitcher } from "../LanguageSwitcher";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -20,13 +21,19 @@ const StyledLink = (props: LinkProps) => (
   />
 );
 
+type ProfileMenuProps = {
+  howToHref?: string;
+  faqHref?: string;
+  selectedLanguage: string;
+  handleLanguageDialogOpen: () => void;
+};
+
 export const ProfileMenu = ({
   howToHref = "#how-to",
   faqHref = "#faq",
-}: {
-  howToHref?: string;
-  faqHref?: string;
-}) => {
+  selectedLanguage,
+  handleLanguageDialogOpen,
+}: ProfileMenuProps) => {
   const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -109,6 +116,22 @@ export const ProfileMenu = ({
                     <SettingsButton
                       onClick={() => {
                         setIsOpen(false);
+                        handleLanguageDialogOpen();
+                      }}
+                      className="xxs:hidden"
+                    >
+                      <Image
+                        src="/icons/black/language.svg"
+                        alt="language icon"
+                        width={17}
+                        height={17}
+                        className="w-5 h-5"
+                      />
+                      {selectedLanguage}
+                    </SettingsButton>
+                    <SettingsButton
+                      onClick={() => {
+                        setIsOpen(false);
                         handleLogout();
                       }}
                     >
@@ -123,22 +146,40 @@ export const ProfileMenu = ({
                     </SettingsButton>
                   </>
                 ) : (
-                  <SettingsButton
-                    onClick={() => {
-                      setIsOpen(false);
-                      handleLoginClick();
-                    }}
-                    className="xxs:border-none"
-                  >
-                    <Image
-                      src="/icons/black/logout.svg"
-                      alt="logout icon"
-                      width={14}
-                      height={14}
-                      className="w-5 h-5"
-                    />
-                    {loginTranslations("login")}
-                  </SettingsButton>
+                  <>
+                    <SettingsButton
+                      onClick={() => {
+                        setIsOpen(false);
+                        handleLoginClick();
+                      }}
+                      className="xxs:border-none"
+                    >
+                      <Image
+                        src="/icons/black/logout.svg"
+                        alt="logout icon"
+                        width={14}
+                        height={14}
+                        className="w-5 h-5"
+                      />
+                      {loginTranslations("login")}
+                    </SettingsButton>
+                    <SettingsButton
+                      onClick={() => {
+                        setIsOpen(false);
+                        handleLanguageDialogOpen();
+                      }}
+                      className="xxs:hidden"
+                    >
+                      <Image
+                        src="/icons/black/language.svg"
+                        alt="language icon"
+                        width={17}
+                        height={17}
+                        className="w-5 h-5"
+                      />
+                      {selectedLanguage}
+                    </SettingsButton>
+                  </>
                 )}
               </div>
             )}
