@@ -121,7 +121,16 @@ export const Navbar = ({
           <LanguageSwitcher />
         </div>
         <div className="lg:hidden">
-          <ProfileMenu howToHref={howToHref} faqHref={faqHref} />
+          <LanguageSwitcher
+            renderProps={({ selectedLanguage, handleDialogOpen }) => (
+              <ProfileMenu
+                howToHref={howToHref}
+                faqHref={faqHref}
+                selectedLanguage={selectedLanguage.language}
+                handleLanguageDialogOpen={handleDialogOpen}
+              />
+            )}
+          />
         </div>
         {/* <HumburgerButton onClick={handleButtonClick} /> */}
       </div>
@@ -229,7 +238,16 @@ export const Navbar = ({
           </div>
           {/* <LoginLink locale={locale} /> */}
           <div className="lg:block relative">
-            <ProfileMenu howToHref={howToHref} faqHref={faqHref} />
+            <LanguageSwitcher
+              renderProps={({ selectedLanguage, handleDialogOpen }) => (
+                <ProfileMenu
+                  howToHref={howToHref}
+                  faqHref={faqHref}
+                  selectedLanguage={selectedLanguage.language}
+                  handleLanguageDialogOpen={handleDialogOpen}
+                />
+              )}
+            />
           </div>
         </div>
       </nav>
