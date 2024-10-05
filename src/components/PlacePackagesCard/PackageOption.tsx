@@ -4,12 +4,12 @@ import { Package, PackageTagEnum } from "@/models/Package";
 import Image from "next/image";
 import { Checkbox } from "../Checkbox";
 import { clsx } from "@/utils";
-import { BestBadge } from "./BestBadge";
 import { PlansHelperInfo } from "./PlansHelperInfo";
 import { convertPrice } from "@/converters/prices";
 import { convertSecondsToHours } from "@/converters/times";
 import { convertDaysText } from "@/converters/texts";
 import { useTranslations } from "next-intl";
+import { DiscountBadge } from "./DiscountBadge";
 
 const BoldText = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -70,6 +70,7 @@ type PackageOptionProps = {
   selected: boolean;
   tag: PackageTagEnum;
   onSelect: (packageEntity: Package) => void;
+  discount: number;
 };
 
 export const PackageOption = ({
@@ -77,6 +78,7 @@ export const PackageOption = ({
   onSelect,
   selected,
   tag,
+  discount,
 }: PackageOptionProps) => {
   const t = useTranslations("PlacePackagesCard");
 
@@ -128,10 +130,12 @@ export const PackageOption = ({
         <div
           className={clsx(
             "flex gap-3 items-start",
-            packageEntity.bestChoice ? "min-w-[68px] xxs:min-w-[96px]" : ""
+            //packageEntity.bestChoice ? "min-w-[68px] xxs:min-w-[96px]" : ""
           )}
         >
-          {packageEntity.bestChoice && <BestBadge />}
+          {/* TODO: Remove this */}
+          {/*  {packageEntity.bestChoice && <BestBadge />} */}
+          {discount > 0 && <DiscountBadge discount={discount} />}
           <Checkbox
             id={packageEntity.id}
             checked={selected}
