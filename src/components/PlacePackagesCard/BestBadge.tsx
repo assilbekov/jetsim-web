@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// TODO: Remove this component
 export const BestBadge = () => {
   return (
     <>

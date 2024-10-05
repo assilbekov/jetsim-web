@@ -26,6 +26,34 @@ type SelectPackagesBuyFormProps = {
   onSubmit: (selectedPackageId: string) => void;
 };
 
+function findHighestPricePerUnit(
+  packages: Package[],
+  tag: PackageTagEnum
+): number {
+  return packages.reduce((maxPrice, pkg) => {
+    const pricePerUnit =
+      tag === PackageTagEnum.STANDARD
+        ? pkg.cost.price / pkg.traffic.unit.count
+        : pkg.cost.price / pkg.days;
+    return Math.max(maxPrice, pricePerUnit);
+  }, 0);
+}
+
+function calculatePackageDiscount(
+  packageEntity: Package,
+  highestPricePerUnit: number,
+  tag: PackageTagEnum
+): number {
+  const packagePricePerUnit =
+    tag === PackageTagEnum.STANDARD
+      ? packageEntity.cost.price / packageEntity.traffic.unit.count
+      : packageEntity.cost.price / packageEntity.days;
+  packageEntity.traffic.unit.count || packageEntity.days;
+  const discountPercentage =
+    ((highestPricePerUnit - packagePricePerUnit) / highestPricePerUnit) * 100;
+  return Number(discountPercentage.toFixed(0));
+}
+
 export const SelectPackagesBuyForm = ({
   placeId,
   location,
@@ -248,6 +276,11 @@ export const SelectPackagesBuyForm = ({
                 packageEntity={packageEntity}
                 selected={selectedPackageId === packageEntity.id}
                 onSelect={handlePackageChange}
+                discount={calculatePackageDiscount(
+                  packageEntity,
+                  findHighestPricePerUnit(packagesList, selectedTag),
+                  selectedTag
+                )}
               />
             ))}
       </div>
