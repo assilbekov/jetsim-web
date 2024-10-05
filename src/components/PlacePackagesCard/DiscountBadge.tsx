@@ -7,10 +7,10 @@ type DiscountBadgeProps = {
 
 export const DiscountBadge = ({ discount }: DiscountBadgeProps) => {
   return (
-    <div className="relative h-[24px] w-[61px] bg-[url('/images/discount-bg.png')] bg-no-repeat bg-cover flex items-center justify-center">
+    <div className="relative h-[24px] w-[61px] bg-[url('/images/discount-bg.png')] bg-no-repeat bg-cover flex items-center justify-center  text-[#00B5F2]">
       <Typography
         variant={TypographyVariants.Caption}
-        className="font-semibold text-[#00B5F2]"
+        className="font-semibold"
       >
         -{discount}%
       </Typography>
