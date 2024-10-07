@@ -35,7 +35,7 @@ export const HelperText = ({ title, description }: PlansHelperInfoProps) => {
       </div>
       {open && (
         <>
-          <div className="absolute w-72 -right-4 top-12 p-4 pt-[14px] flex gap-2 items-start z-10 rounded-2xl border-[2px] border-[#E9F0F2] bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
+          <div className="absolute w-72 left-1/2 -translate-x-1/2 top-12 p-4 pt-[14px] flex gap-2 items-start z-10 rounded-2xl border-[2px] border-[#E9F0F2] bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] sm:left-auto sm:-right-4 sm:translate-x-0">
             <div>
               <h6 className={getTypographyClass(TypographyVariants.Body2)}>
                 {title}

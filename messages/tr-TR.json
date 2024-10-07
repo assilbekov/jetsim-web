@@ -1,4 +1,13 @@
 {
+  "ProfileBalanceInvitation": {
+    "title": "Bir arkadaşınızı davet edin ve $4 alın",
+    "description": "Ve o da $4 alacak! Bu teklif sadece toplam alımınızın %30'una uygulanır",
+    "inviteFriend": "Arkadaşınızı davet edin",
+    "rewards": "Ödüller",
+    "pending": "Devam ediyor",
+    "pendingHelperText": "Bu, arkadaşınız plan satın alırsa kazanacağınız miktar. Arkadaşınıza, indirimli bir eSIM satın almak için $5 ödülünü almasını hatırlatın!",
+    "friendsInvited": "Davet edilen arkadaşlar"
+  },
   "CarriersLandingBlock": {
     "title": "Vodeći operateri mreže",
     "description": "Bez problema povezivanje sa uslugama visoke kvalitete i stabilnosti bilo gde i u bilo koje vreme",

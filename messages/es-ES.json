@@ -1,4 +1,13 @@
 {
+  "ProfileBalanceInvitation": {
+    "title": "Invita a un amigo y consigue $4 para ti, $4 para él",
+    "description": "¡Y él también conseguirá $4! Este descuento solo se aplica a hasta un 30% de tu compra total",
+    "inviteFriend": "Invitar amigo",
+    "rewards": "Recompensas",
+    "pending": "Pendiente",
+    "pendingHelperText": "Es cuanto ganarás si tu amigo compra un plan. Recuerda a tu amigo que obtenga su recompensa de $5 para comprar una eSIM con un descuento!",
+    "friendsInvited": "Amigos invitados"
+  },
   "CarriersLandingBlock": {
     "title": "Operadores de red móvil líderes",
     "description": "Conectividad sin problemas con servicios de alta calidad y estabilidad en cualquier lugar y en cualquier momento",

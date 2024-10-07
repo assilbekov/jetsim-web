@@ -1,4 +1,13 @@
 {
+  "ProfileBalanceInvitation": {
+    "title": "Zaproś znajomego i otrzymaj $4 dla ciebie, $4 dla niego",
+    "description": "I on również otrzyma $4! Ta oferta dotyczy tylko do 30% Twojej całkowitej zakupy",
+    "inviteFriend": "Zaproś znajomego",
+    "rewards": "Nagrody",
+    "pending": "W toku",
+    "pendingHelperText": "To jest, ile zarobisz, jeśli Twój znajomy kupi plan. Przypomnij swojemu znajomemu, aby otrzymać swoją nagrodę w wysokości $5, aby kupić eSIM z rabatem!",
+    "friendsInvited": "Zaproszeni znajomi"
+  },
   "CarriersLandingBlock": {
     "title": "Liderujące operatory sieci komórkowej",
     "description": "Bezproblemowe połączenia z usługami wysokiej jakości i stabilności wszędzie i w każdym czasie",

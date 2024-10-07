@@ -1,4 +1,13 @@
 {
+  "ProfileBalanceInvitation": {
+    "title": "Lade einen Freund ein und erhalte $4 für dich, $4 für ihn",
+    "description": "Und er wird auch $4 erhalten! Diese Angebot gilt nur für bis zu 30% Ihrer Gesamtsumme",
+    "inviteFriend": "Freund einladen",
+    "rewards": "Belohnungen",
+    "pending": "In Progress",
+    "pendingHelperText": "Es ist, wie viel Sie erhalten, wenn Ihr Freund einen Plan kauft. Erinnern Sie Ihren Freund daran, ihre $5 Belohnung zu erhalten, um eine eSIM mit einem Rabatt zu kaufen!",
+    "friendsInvited": "Freunde eingeladen"
+  },
   "CarriersLandingBlock": {
     "title": "Führende Mobilfunknetzbetreiber",
     "description": "Zusammenhängende Verbindungen mit hochwertiger und stabilen Service überall und jederzeit",
