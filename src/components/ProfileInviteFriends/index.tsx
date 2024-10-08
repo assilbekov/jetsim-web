@@ -50,7 +50,7 @@ export const ProfileInviteFriends = () => {
 
   return (
     <LandingContainer>
-      <Card className="p-6 pt-0 xxs:pt-0 sm:hidden">
+      <Card className="p-6 pt-0 xxs:pt-0 md:hidden sm:mt-4">
         <Image
           src="/images/invite-friends-bg.jpg"
           alt="Invite friends hero image"
@@ -92,7 +92,7 @@ export const ProfileInviteFriends = () => {
         </div>
         <CopyInput value="jetsim.app/invite/12345" />
       </Card>
-      <div className="hidden sm:block">
+      <div className="hidden md:block">
         <div className="grid grid-cols-2 xxs:grid-cols-3 gap-3 mt-5 mb-4">
           <InfoBox
             label={t("rewards")}
