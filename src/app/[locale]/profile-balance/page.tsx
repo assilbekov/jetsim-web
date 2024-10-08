@@ -30,9 +30,11 @@ export default function Index({
   unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
-      <LandingContainer className="p-6 bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
-        <Navbar howToHref="/#how-to" locale={params?.locale} />
-      </LandingContainer>
+      <div className="bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)]">
+        <LandingContainer className="p-6">
+          <Navbar howToHref="/#how-to" locale={params?.locale} />
+        </LandingContainer>
+      </div>
       <ProfileScreenEvent />
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <ProfileInviteFriends />

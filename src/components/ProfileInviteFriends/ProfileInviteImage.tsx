@@ -4,15 +4,17 @@ import { clsx } from "@/utils";
 
 type ArchProps = {
   fill: string;
+  height: number;
   className: string;
 };
 
-const LeftArch = ({ fill, className }: ArchProps) => {
+const LeftArch = ({ fill, className, height }: ArchProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 277 796"
       fill="none"
+      height={height}
       className={clsx("w-[101%]", className)}
     >
       <path
@@ -23,12 +25,13 @@ const LeftArch = ({ fill, className }: ArchProps) => {
   );
 };
 
-const RightArch = ({ fill, className }: ArchProps) => {
+const RightArch = ({ fill, height, className }: ArchProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 227 796"
       fill="none"
+      height={height}
       className={clsx("w-[101%]", className)}
     >
       <path
@@ -72,7 +75,7 @@ export const ProfileInviteImage = ({
   return (
     <div className="relative">
       <div className="absolute top-[-1px] left-[-1px]">
-        <LeftArch fill={archFill} className={`h-${imgHeight + 2}px`} />
+        <LeftArch fill={archFill} className={`h-${imgHeight + 2}px`} height={imgHeight + 2} />
       </div>
       {imageLoaded ? (
         <Image
@@ -87,7 +90,7 @@ export const ProfileInviteImage = ({
         <Skeleton className="hidden md:block pb-0.5 pr-0.5" />
       )}
       <div className="absolute top-0 right-0">
-        <RightArch fill={archFill} className={`h-${imgHeight + 2}px`} />
+        <RightArch fill={archFill} className={`h-${imgHeight + 2}px`} height={imgHeight + 2} />
       </div>
     </div>
   );
