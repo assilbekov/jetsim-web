@@ -1,4 +1,32 @@
 {
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Sıkça sorulan sorular",
+    "howDoesThisWork": {
+      "title": "Nasıl çalışır?",
+      "description": "JetSim kullanıcısı olarak, herhangi bir arkadaşınızın kayıt ve satın alımı sırasında $4 kazanabileceğinizi unutmayın. Sadece e-posta, sosyal medya veya mesaj uygulamaları aracılığıyla kolayca paylaşabilirsiniz."
+    },
+    "whoCanGetTheReward": {
+      "title": "Kimler ödül alabilir?",
+      "description": "Sen ve arkadaşlarınız ödül alabilirsiniz:\n* Sen, JetSim kullanıcısı olarak, herhangi bir arkadaşınızın kayıt ve satın alımı sırasında $4 kazanabileceğinizi unutmayın.\n* Arkadaşlarınız, ilk satın alımı sırasında $4 indirim alır."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "Ödülüm ne zaman alırım?",
+      "description": "Ödülünüz, arkadaşınızın ilk satın alımı sırasında kullanılan bağlantınızı kullandığında hemen size verilecektir. $4, hesabınıza eklenir ve bir sonraki satın alımınızda kullanılabilir."
+    },
+    "howDoIApplyTheReward": {
+      "title": "Ödülümü nasıl kullanabilirim?",
+      "description1": "Ödülünüzü bir sonraki eSIM satın alımınızda kullanabilirsiniz. Ödeme sırasında bunu kullanma seçeneğiniz vardır. Not: Ödülünüzü eSIM satın alımınızın toplam fiyatının %30'una uygulayabilirsiniz. Örneğin, eSIM'iniz $20 ise, $6 ödül kullanabilirsiniz."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "Bağlantımı nasıl bulabilirim?",
+      "description": "Sadece jetsim.app/(lang)/rewards adresine gidin ve paylaşılmak üzere hazır olan tek kullanımlık bağlantınızı bulun."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "Bağlantımı nasıl paylaşabilirim?",
+      "description1": "E-posta, sosyal medya veya mesaj uygulamaları aracılığıyla kolayca paylaşabilirsiniz.",
+      "description2": "Örneğin, WhatsApp'ta paylaşmak isterseniz, sayfanızda ödül simgesine tıklayabilirsiniz."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Nasıl çalışır",
     "shareYourUniqueLink": "Bir kerelik bağlantınızı paylaşın",

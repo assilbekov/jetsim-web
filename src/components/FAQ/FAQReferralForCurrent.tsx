@@ -1,33 +1,49 @@
+import React from "react";
 import { useTranslations } from "next-intl";
 import { FAQRenderer } from "./FAQRenderer";
 
 export const FAQReferralForCurrent = () => {
   const t = useTranslations("FAQReferralForCurrent");
+
   const faq = [
     {
-      title: t("question1.question"),
-      description: t("question1.answer"),
+      title: t("howDoesThisWork.title"),
+      description: t("howDoesThisWork.description"),
     },
     {
-      title: t("question2.question"),
-      description: t("question2.answer"),
+      title: t("whoCanGetTheReward.title"),
+      description: (
+        <>
+          <p>{t("whoCanGetTheReward.description")}</p>
+          <ul className="list-disc ml-8">
+            <li>{t("whoCanGetTheReward.point1")}</li>
+            <li>{t("whoCanGetTheReward.point2")}</li>
+          </ul>
+        </>
+      ),
     },
     {
-      title: t("question3.question"),
-      description: t("question3.answer"),
+      title: t("whenWillIReceiveMyReward.title"),
+      description: t("whenWillIReceiveMyReward.description"),
     },
     {
-      title: t("question4.question"),
-      description: t("question4.answer"),
+      title: t("howDoIApplyTheReward.title"),
+      description: (
+        <>
+          <p>{t("howDoIApplyTheReward.description1")}</p>
+          <p>{t("howDoIApplyTheReward.description2")}</p>
+        </>
+      ),
     },
     {
-      title: t("question5.question"),
-      description: t("question5.answer"),
+      title: t("howDoIFindMyReferralLink.title"),
+      description: t("howDoIFindMyReferralLink.description"),
     },
     {
-      title: t("question6.question"),
-      description: t("question6.answer"),
+      title: t("isThereALimitToHowManyFriendsICanRefer.title"),
+      description: t("isThereALimitToHowManyFriendsICanRefer.description"),
     },
   ];
-  return <FAQRenderer header={t("title")} faq={faq} />;
+
+  return <FAQRenderer header={t("yourQuestionsAnswered")} faq={faq} />;
 };

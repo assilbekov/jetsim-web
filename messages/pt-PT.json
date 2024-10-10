@@ -1,4 +1,32 @@
 {
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Perguntas frequentes",
+    "howDoesThisWork": {
+      "title": "Como funciona?",
+      "description": "Como usuário da JetSim, você pode ganhar $4 por cada amigo que se registra e compra usando seu link de referência único. Basta compartilhar seu link facilmente por email, redes sociais ou aplicativos de mensagens."
+    },
+    "whoCanGetTheReward": {
+      "title": "Quem pode receber a recompensa?",
+      "description": "Você e seus amigos podem receber recompensas:\n* Você, como usuário atual da JetSim, receberá $4 por cada amigo que se registra e compra.\n* Seus amigos receberão $4 de desconto em seu primeiro compra quando se registrarem usando seu link de referência."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "Quando receberei minha recompensa?",
+      "description": "Você receberá sua recompensa imediatamente após o seu amigo fazer seu primeiro compra usando seu link de referência. O $4 será adicionado ao seu saldo e estará disponível para o seu próximo compra."
+    },
+    "howDoIApplyTheReward": {
+      "title": "Como posso usar minha recompensa?",
+      "description1": "Você pode usar suas recompensas para compras futuras de eSIM. Durante o pagamento, você terá a opção de usá-las. Nota: você pode usar recompensas até 30% do preço total da compra de eSIM. Por exemplo, se sua eSIM custar $20, você pode aplicar até $6 em recompensas."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "Como posso encontrar meu link de referência?",
+      "description": "Basta ir para jetsim.app/(lang)/rewards, e você encontrará seu link de referência único pronto para ser compartilhado."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "Como posso compartilhar meu link de referência?",
+      "description1": "Você pode compartilhar seu link de referência por email, redes sociais ou aplicativos de mensagens.",
+      "description2": "Por exemplo, se você quiser compartilhar em WhatsApp, você pode fazer isso clicando no ícone WhatsApp na página de recompensas."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Como funciona",
     "shareYourUniqueLink": "Compartilhe seu link único",

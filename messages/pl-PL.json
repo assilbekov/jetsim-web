@@ -1,4 +1,32 @@
 {
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Twoje pytania odpowiedziane",
+    "howDoesThisWork": {
+      "title": "Jak to działa?",
+      "description": "Jako użytkownik JetSim możesz zarobić $4 za każdego znajomego, który się zarejestruje i dokona zakupu za pomocą Twojego jednorazowego linku odniesienia. Łatwo go możesz udostępnić poprzez email, społecznościowe media lub aplikacje do komunikacji."
+    },
+    "whoCanGetTheReward": {
+      "title": "Kto może otrzymać nagrodę?",
+      "description": "Ty i Twoje znajomi mogą otrzymać nagrody:\n* Ty, jako aktualny użytkownik JetSim, otrzymasz $4 za każdego zarejestrowanego przez Ciebie znajomego, który dokona zakupu.\n* Twoje znajomi otrzymują $4 zniżki na ich pierwszy zakup, gdy się zarejestrują za pomocą Twojego linku odniesienia."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "Kiedy otrzymam moją nagrodę?",
+      "description": "Nagrodę otrzymasz natychmiast po tym, jak Twoje znajomy dokona swojego pierwszego zakupu za pomocą Twojego linku odniesienia. $4 zostanie dodane do Twojego salda i będzie dostępne do Twojego następnego zakupu."
+    },
+    "howDoIApplyTheReward": {
+      "title": "Jak mogę wykorzystać moją nagrodę?",
+      "description1": "Możesz wykorzystać swoje nagrody na kolejne zakupy eSIM. Podczas płatności otrzymasz możliwość ich wykorzystania. Uwaga: możesz wykorzystać nagrody do wysokości 30% ceny zakupu eSIM. Na przykład, jeśli Twoja eSIM kosztuje $20, możesz zastosować do $6 w nagrodach."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "Jak mogę znaleźć mojego linku odniesienia?",
+      "description": "Po prostu przejdź do jetsim.app/(lang)/rewards, i znajdziesz swoje jednorazowe linku odniesienia gotowego do udostępnienia."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "Jak mogę udostępnić mojego linku odniesienia?",
+      "description1": "Możesz udostępnić swój link odniesienia poprzez email, społecznościowe media lub aplikacje do komunikacji.",
+      "description2": "Na przykład, jeśli chcesz go udostępnić w WhatsApp, możesz to zrobić, klikając na ikonę WhatsApp na stronie nagrody."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Jak to działa",
     "shareYourUniqueLink": "Udostępnij swój link jednorazowy",

@@ -1,4 +1,35 @@
 {
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Your questions answered",
+    "howDoesThisWork": {
+      "title": "How does this work?",
+      "description": "As a JetSim user, you can earn $4 for each friend who signs up and makes a purchase using your unique referral link. Share your link easily via email, social media, or messaging apps."
+    },
+    "whoCanGetTheReward": {
+      "title": "Who can get the reward?",
+      "description": "Both you and your friends can receive rewards:",
+      "point1": "You, as a current JetSim user, will earn $4 for each invited friend who makes a purchase.",
+      "point2": "Your friends will receive $4 off their first purchase when they sign up using your referral link."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "When will I receive my reward?",
+      "description": "You'll receive your reward immediately after your friend completes their first purchase using your referral link. The $4 will be added to your balance and available for your next purchase."
+    },
+    "howDoIApplyTheReward": {
+      "title": "How do I apply the reward?",
+      "description1": "You can use your accumulated rewards on future eSIM purchases. During checkout, you'll have the option to apply them.",
+      "description2": "Note: You can use rewards for up to 30% of the total eSIM purchase price. For example, if your eSIM costs $20, you can apply up to $6 in rewards."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "How do I find my referral link?",
+      "description": "Simply head over to jetsim.app/(lang)/rewards, and you'll find your unique referral link ready to share."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "How do I share my referral link?",
+      "description1": "You can share your referral link via email, social media, or messaging apps.",
+      "description2": "For example, if you want to share it on WhatsApp, you can do so by clicking the WhatsApp icon on the rewards page."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Wie es funktioniert",
     "shareYourUniqueLink": "Teile deine eindeutige Link",

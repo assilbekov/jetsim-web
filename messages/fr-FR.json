@@ -1,4 +1,32 @@
 {
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Vos questions répondues",
+    "howDoesThisWork": {
+      "title": "Comment ça marche ?",
+      "description": "Comme utilisateur de JetSim, vous pouvez gagner 4 $ pour chaque ami qui s'inscrit et effectue un achat en utilisant votre lien de référence unique. Partagez facilement votre lien via des e-mails, des réseaux sociaux ou des applications de messagerie."
+    },
+    "whoCanGetTheReward": {
+      "title": "Qui peut recevoir la récompense ?",
+      "description": "Vous et vos amis peuvent recevoir des récompenses :\n* Vous, en tant qu'utilisateur actuel de JetSim, recevez 4 $ pour chaque ami qui s'inscrit et effectue un achat.\n* Vos amis reçoivent 4 $ de réduction sur leur premier achat lorsqu'ils s'inscrivent en utilisant votre lien de référence."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "Quand vais-je recevoir ma récompense ?",
+      "description": "Vous recevez votre récompense dès que votre ami a terminé son premier achat en utilisant votre lien de référence. Le $4 sera ajouté à votre solde et sera disponible pour votre prochain achat."
+    },
+    "howDoIApplyTheReward": {
+      "title": "Comment puis-je utiliser ma récompense ?",
+      "description1": "Vous pouvez utiliser vos récompenses accumulées pour des futures achats d'eSIM. Pendant le paiement, vous aurez la possibilité de les utiliser. Remarque : Vous pouvez utiliser des récompenses pour un maximum de 30% du prix total d'achat de l'eSIM. Par exemple, si votre eSIM coûte 20 $, vous pouvez appliquer jusqu'à 6 $ en récompenses."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "Comment trouver mon lien de référence ?",
+      "description": "Simplemente dirigez-vous à jetsim.app/(lang)/rewards, et vous trouverez votre lien de référence unique prêt à être partagé."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "Comment partager mon lien de référence ?",
+      "description1": "Vous pouvez partager votre lien de référence via des e-mails, des réseaux sociaux ou des applications de messagerie.",
+      "description2": "Par exemple, si vous voulez le partager sur WhatsApp, vous pouvez le faire en cliquant sur l'icône WhatsApp sur la page des récompenses."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Comment ça marche",
     "shareYourUniqueLink": "Partagez votre lien unique",
