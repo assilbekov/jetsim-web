@@ -1,4 +1,64 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Frequently Asked Questions",
+    "whatIsJetSim": {
+      "title": "What is JetSim?",
+      "description": "JetSim is an eSIM service that offers affordable, reliable global internet access. With JetSim, you can stay connected in over 200 countries without the hassle of physical SIM cards or high roaming fees."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "How do I sign up through a referral?",
+      "description": "Simply click the referral link shared by your friend. This will take you to a special sign-up page where you can create an account and choose your first data plan with the discount applied."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "What benefits do I get for signing up through a referral?",
+      "description": "When you sign up through a referral, you'll receive $4 off your first eSIM purchase. This discount can be applied to up to 30% of your total purchase."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "How do I claim my $4 discount?",
+      "description": "To claim your $4 discount:",
+      "point1": "Select your destination for internet access.",
+      "point2": "Enjoy your reward ($4 off, up to 30% of your purchase).",
+      "point3": "Afterward, you can refer friends to earn more rewards."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Can I use JetSim alongside my regular SIM card?",
+      "description": "Yes, JetSim uses eSIM technology, which allows you to keep your regular SIM card in your device while using JetSim for data."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "How do I install and activate my JetSim eSIM?",
+      "description": "After purchase, you'll receive a QR code. Scan the code with your device to install the eSIM. Then, simply activate data roaming when you arrive at your destination."
+    }
+  },
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Your questions answered",
+    "howDoesThisWork": {
+      "title": "How does this work?",
+      "description": "As a JetSim user, you can earn $4 for each friend who signs up and makes a purchase using your unique referral link. Share your link easily via email, social media, or messaging apps."
+    },
+    "whoCanGetTheReward": {
+      "title": "Who can get the reward?",
+      "description": "Both you and your friends can receive rewards:",
+      "point1": "You, as a current JetSim user, will earn $4 for each invited friend who makes a purchase.",
+      "point2": "Your friends will receive $4 off their first purchase when they sign up using your referral link."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "When will I receive my reward?",
+      "description": "You'll receive your reward immediately after your friend completes their first purchase using your referral link. The $4 will be added to your balance and available for your next purchase."
+    },
+    "howDoIApplyTheReward": {
+      "title": "How do I apply the reward?",
+      "description1": "You can use your accumulated rewards on future eSIM purchases. During checkout, you'll have the option to apply them.",
+      "description2": "Note: You can use rewards for up to 30% of the total eSIM purchase price. For example, if your eSIM costs $20, you can apply up to $6 in rewards."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "How do I find my referral link?",
+      "description": "Simply head over to jetsim.app/(lang)/rewards, and you'll find your unique referral link ready to share."
+    },
+    "isThereALimitToHowManyFriendsICanRefer": {
+      "title": "Is there a limit to how many friends I can refer?",
+      "description": "No, there's no limit! The more friends you refer who make a purchase, the more $4 rewards you can earn."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "How it works",
     "shareYourUniqueLink": "Share your unique link",

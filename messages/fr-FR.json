@@ -1,4 +1,62 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Questions fréquemment posées",
+    "whatIsJetSim": {
+      "title": "Qu'est-ce que JetSim ?",
+      "description": "JetSim est un service eSIM qui offre un accès Internet mondial abordable et fiable. Avec JetSim, vous pouvez rester connecté dans plus de 200 pays sans les tracas des cartes SIM physiques ou des frais d'itinérance élevés."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Comment puis-je m'inscrire via un parrainage ?",
+      "description": "Cliquez simplement sur le lien de parrainage partagé par votre ami. Cela vous amènera à une page d'inscription spéciale où vous pourrez créer un compte et choisir votre premier forfait de données avec la réduction appliquée."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Quels avantages ai-je en m'inscrivant via un parrainage ?",
+      "description": "Lorsque vous vous inscrivez via un parrainage, vous recevrez 4 $ de réduction sur votre premier achat d'eSIM. Cette réduction peut être appliquée jusqu'à 30% de votre achat total."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "Comment puis-je réclamer ma réduction de 4 $ ?",
+      "description": "Pour réclamer votre réduction de 4 $ :",
+      "point1": "Sélectionnez votre destination pour l'accès Internet.",
+      "point2": "Profitez de votre récompense (4 $ de réduction, jusqu'à 30% de votre achat).",
+      "point3": "Ensuite, vous pouvez parrainer des amis pour gagner plus de récompenses."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Puis-je utiliser JetSim en parallèle avec ma carte SIM habituelle ?",
+      "description": "Oui, JetSim utilise la technologie eSIM, qui vous permet de garder votre carte SIM habituelle dans votre appareil tout en utilisant JetSim pour les données."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "Comment installer et activer mon eSIM JetSim ?",
+      "description": "Après l'achat, vous recevrez un code QR. Scannez le code avec votre appareil pour installer l'eSIM. Ensuite, activez simplement l'itinérance des données lorsque vous arrivez à votre destination."
+    }
+  },
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Vos questions répondues",
+    "howDoesThisWork": {
+      "title": "Comment ça marche ?",
+      "description": "Comme utilisateur de JetSim, vous pouvez gagner 4 $ pour chaque ami qui s'inscrit et effectue un achat en utilisant votre lien de référence unique. Partagez facilement votre lien via des e-mails, des réseaux sociaux ou des applications de messagerie."
+    },
+    "whoCanGetTheReward": {
+      "title": "Qui peut recevoir la récompense ?",
+      "description": "Vous et vos amis peuvent recevoir des récompenses :\n* Vous, en tant qu'utilisateur actuel de JetSim, recevez 4 $ pour chaque ami qui s'inscrit et effectue un achat.\n* Vos amis reçoivent 4 $ de réduction sur leur premier achat lorsqu'ils s'inscrivent en utilisant votre lien de référence."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "Quand vais-je recevoir ma récompense ?",
+      "description": "Vous recevez votre récompense dès que votre ami a terminé son premier achat en utilisant votre lien de référence. Le $4 sera ajouté à votre solde et sera disponible pour votre prochain achat."
+    },
+    "howDoIApplyTheReward": {
+      "title": "Comment puis-je utiliser ma récompense ?",
+      "description1": "Vous pouvez utiliser vos récompenses accumulées pour des futures achats d'eSIM. Pendant le paiement, vous aurez la possibilité de les utiliser. Remarque : Vous pouvez utiliser des récompenses pour un maximum de 30% du prix total d'achat de l'eSIM. Par exemple, si votre eSIM coûte 20 $, vous pouvez appliquer jusqu'à 6 $ en récompenses."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "Comment trouver mon lien de référence ?",
+      "description": "Simplemente dirigez-vous à jetsim.app/(lang)/rewards, et vous trouverez votre lien de référence unique prêt à être partagé."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "Comment partager mon lien de référence ?",
+      "description1": "Vous pouvez partager votre lien de référence via des e-mails, des réseaux sociaux ou des applications de messagerie.",
+      "description2": "Par exemple, si vous voulez le partager sur WhatsApp, vous pouvez le faire en cliquant sur l'icône WhatsApp sur la page des récompenses."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Comment ça marche",
     "shareYourUniqueLink": "Partagez votre lien unique",

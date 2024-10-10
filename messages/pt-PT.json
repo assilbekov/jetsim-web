@@ -1,4 +1,62 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Perguntas Frequentes",
+    "whatIsJetSim": {
+      "title": "O que é JetSim?",
+      "description": "JetSim é um serviço de eSIM que oferece acesso à internet global acessível e confiável. Com JetSim, você pode ficar conectado em mais de 200 países sem o incômodo de cartões SIM físicos ou altas taxas de roaming."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Como me inscrevo através de uma indicação?",
+      "description": "Basta clicar no link de indicação compartilhado pelo seu amigo. Isso o levará a uma página de inscrição especial onde você pode criar uma conta e escolher seu primeiro plano de dados com o desconto aplicado."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Quais benefícios eu ganho ao me inscrever através de uma indicação?",
+      "description": "Quando você se inscreve através de uma indicação, receberá $4 de desconto na sua primeira compra de eSIM. Este desconto pode ser aplicado em até 30% do total da sua compra."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "Como reivindico meu desconto de $4?",
+      "description": "Para reivindicar seu desconto de $4:",
+      "point1": "Selecione seu destino para acesso à internet.",
+      "point2": "Aproveite sua recompensa ($4 de desconto, até 30% da sua compra).",
+      "point3": "Depois, você pode indicar amigos para ganhar mais recompensas."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Posso usar JetSim junto com meu cartão SIM regular?",
+      "description": "Sim, JetSim usa tecnologia eSIM, que permite que você mantenha seu cartão SIM regular no seu dispositivo enquanto usa JetSim para dados."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "Como instalo e ativo meu eSIM JetSim?",
+      "description": "Após a compra, você receberá um código QR. Escaneie o código com seu dispositivo para instalar o eSIM. Então, basta ativar o roaming de dados quando chegar ao seu destino."
+    }
+  },
+  "FAQReferralForCurrent": {
+    "yourQuestionsAnswered": "Perguntas frequentes",
+    "howDoesThisWork": {
+      "title": "Como funciona?",
+      "description": "Como usuário da JetSim, você pode ganhar $4 por cada amigo que se registra e compra usando seu link de referência único. Basta compartilhar seu link facilmente por email, redes sociais ou aplicativos de mensagens."
+    },
+    "whoCanGetTheReward": {
+      "title": "Quem pode receber a recompensa?",
+      "description": "Você e seus amigos podem receber recompensas:\n* Você, como usuário atual da JetSim, receberá $4 por cada amigo que se registra e compra.\n* Seus amigos receberão $4 de desconto em seu primeiro compra quando se registrarem usando seu link de referência."
+    },
+    "whenWillIReceiveMyReward": {
+      "title": "Quando receberei minha recompensa?",
+      "description": "Você receberá sua recompensa imediatamente após o seu amigo fazer seu primeiro compra usando seu link de referência. O $4 será adicionado ao seu saldo e estará disponível para o seu próximo compra."
+    },
+    "howDoIApplyTheReward": {
+      "title": "Como posso usar minha recompensa?",
+      "description1": "Você pode usar suas recompensas para compras futuras de eSIM. Durante o pagamento, você terá a opção de usá-las. Nota: você pode usar recompensas até 30% do preço total da compra de eSIM. Por exemplo, se sua eSIM custar $20, você pode aplicar até $6 em recompensas."
+    },
+    "howDoIFindMyReferralLink": {
+      "title": "Como posso encontrar meu link de referência?",
+      "description": "Basta ir para jetsim.app/(lang)/rewards, e você encontrará seu link de referência único pronto para ser compartilhado."
+    },
+    "howDoIShareMyReferralLink": {
+      "title": "Como posso compartilhar meu link de referência?",
+      "description1": "Você pode compartilhar seu link de referência por email, redes sociais ou aplicativos de mensagens.",
+      "description2": "Por exemplo, se você quiser compartilhar em WhatsApp, você pode fazer isso clicando no ícone WhatsApp na página de recompensas."
+    }
+  },
   "InviteFriendsHowItWorksProfileBalance": {
     "title": "Como funciona",
     "shareYourUniqueLink": "Compartilhe seu link único",

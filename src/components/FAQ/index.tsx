@@ -1,10 +1,7 @@
-import { LandingContainer } from "./LandingContainer";
-import { Card } from "./Card";
-import { AccordionPanel } from "./AccordionPanel";
-import { Typography, TypographyVariants } from "./Typography";
-import { CheckCompatibility } from "./CheckCompatibility";
-import { SupportButton } from "./SupportButton";
+import { CheckCompatibility } from "../CheckCompatibility";
+import { SupportButton } from "../SupportButton";
 import { useTranslations } from "next-intl";
+import { FAQRenderer } from "./FAQRenderer";
 
 export const FAQ = () => {
   const t = useTranslations("FAQ");
@@ -138,31 +135,5 @@ export const FAQ = () => {
     },
   ];
 
-  const faqLeft = faq.slice(0, Math.ceil(faq.length / 2));
-  const faqRight = faq.slice(Math.ceil(faq.length / 2));
-  return (
-    <LandingContainer id="faq">
-      <Card size="md">
-        <Typography variant={TypographyVariants.H2}>
-          {t("frequentlyAskedQuestions")}
-        </Typography>
-        <div className="flex flex-col md:flex-row gap-4 mt-4 md:mt-6 lg:mt-8">
-          <div className="flex gap-4 flex-col flex-wrap justify-start box-border w-full">
-            {faqLeft.map((item, index) => (
-              <AccordionPanel key={item.title} title={item.title} index={index}>
-                {item.description}
-              </AccordionPanel>
-            ))}
-          </div>
-          <div className="flex gap-4 flex-col flex-wrap justify-start box-border w-full">
-            {faqRight.map((item, index) => (
-              <AccordionPanel key={item.title} title={item.title} index={index}>
-                {item.description}
-              </AccordionPanel>
-            ))}
-          </div>
-        </div>
-      </Card>
-    </LandingContainer>
-  );
+  return <FAQRenderer header={t("frequentlyAskedQuestions")} faq={faq} />;
 };
