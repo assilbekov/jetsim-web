@@ -1,11 +1,9 @@
 import { FAQ } from "@/components/FAQ";
+import { InviteFriendsHowItWorksProfileBalance } from "@/components/InviteFriendsHowItWorks";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
-import { LandingSupport } from "@/components/LandingSupport";
 import { Navbar } from "@/components/Navbar/Navbar";
-import { ProfileCards } from "@/components/ProfileCards";
 import { ProfileInviteFriends } from "@/components/ProfileInviteFriends";
-import { Recommendations } from "@/components/Recommendations";
 import { ProfileScreenEvent } from "@/components/ScreenEvents/TermsScreenEvent";
 import { PageProps } from "@/models/PageProps";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
@@ -38,9 +36,7 @@ export default function Index({
       <ProfileScreenEvent />
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <ProfileInviteFriends />
-        <ProfileCards locale={params?.locale} />
-        <LandingSupport />
-        <Recommendations locale={params?.locale} page="Main" />
+        <InviteFriendsHowItWorksProfileBalance />
         <FAQ />
         <LandingFooter locale={params?.locale} />
       </div>

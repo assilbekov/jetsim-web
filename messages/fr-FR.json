@@ -1,4 +1,22 @@
 {
+  "InviteFriendsHowItWorksProfileBalance": {
+    "title": "Comment ça marche",
+    "shareYourUniqueLink": "Partagez votre lien unique",
+    "shareYourUniqueLinkDescription": "Choisissez où vous allez pour accéder à Internet",
+    "friendGets4": "Votre ami reçoit $4",
+    "friendGets4Description": "Pour couvrir jusqu'à 30% de leur prochain achat",
+    "youGet4Too": "Vous recevez également $4",
+    "youGet4TooDescription": "Après que votre ami ait activé son eSIM"
+  },
+  "InviteFriendsHowItWorksInvited": {
+    "title": "Comment obtenir vos $4",
+    "selectYourCountry": "Choisissez votre pays",
+    "selectYourCountryDescription": "Choisissez où vous allez pour accéder à Internet",
+    "enjoyYourReward": "Profitez de votre récompense",
+    "enjoyYourRewardDescription": "$4 off, pour un maximum de 30% de votre prochain achat",
+    "referMoreFriends": "Invitez plus d'amis",
+    "referMoreFriendsDescription": "Partagez votre lien avec un ami pour gagner un supplément de $4"
+  },
   "ProfileBalanceInvitation": {
     "title": "Invitez un ami et obtenez $4 pour vous, $4 pour eux",
     "description": "Et il obtiendra également $4 ! Cette offre ne s'applique qu'à 30% de votre achat total",
