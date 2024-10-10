@@ -1,4 +1,34 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Często zadawane pytania",
+    "whatIsJetSim": {
+      "title": "Czym jest JetSim?",
+      "description": "JetSim to usługa eSIM oferująca przystępny cenowo, niezawodny globalny dostęp do internetu. Dzięki JetSim możesz pozostać w łączności w ponad 200 krajach bez kłopotów związanych z fizycznymi kartami SIM lub wysokimi opłatami roamingowymi."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Jak mogę zarejestrować się przez polecenie?",
+      "description": "Po prostu kliknij link polecający udostępniony przez Twojego znajomego. Przeniesie Cię to na specjalną stronę rejestracji, gdzie możesz utworzyć konto i wybrać swój pierwszy plan danych z zastosowaną zniżką."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Jakie korzyści otrzymam za rejestrację przez polecenie?",
+      "description": "Gdy zarejestrujesz się przez polecenie, otrzymasz $4 zniżki na swój pierwszy zakup eSIM. Ta zniżka może być zastosowana do 30% całkowitej wartości zakupu."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "Jak mogę odebrać moją zniżkę $4?",
+      "description": "Aby odebrać swoją zniżkę $4:",
+      "point1": "Wybierz swój cel podróży dla dostępu do internetu.",
+      "point2": "Ciesz się swoją nagrodą ($4 zniżki, do 30% wartości zakupu).",
+      "point3": "Następnie możesz polecać znajomych, aby zdobyć więcej nagród."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Czy mogę używać JetSim równolegle z moją regularną kartą SIM?",
+      "description": "Tak, JetSim wykorzystuje technologię eSIM, która pozwala na zachowanie regularnej karty SIM w urządzeniu podczas korzystania z JetSim do transmisji danych."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "Jak zainstalować i aktywować moją eSIM JetSim?",
+      "description": "Po zakupie otrzymasz kod QR. Zeskanuj kod swoim urządzeniem, aby zainstalować eSIM. Następnie po prostu aktywuj roaming danych po przybyciu do miejsca docelowego."
+    }
+  },
   "FAQReferralForCurrent": {
     "yourQuestionsAnswered": "Twoje pytania odpowiedziane",
     "howDoesThisWork": {

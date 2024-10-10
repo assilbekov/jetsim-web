@@ -1,4 +1,34 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Domande frequenti",
+    "whatIsJetSim": {
+      "title": "Cos'è JetSim?",
+      "description": "JetSim è un servizio eSIM che offre accesso a Internet globale affidabile e conveniente. Con JetSim, puoi rimanere connesso in oltre 200 paesi senza il fastidio delle schede SIM fisiche o delle elevate tariffe di roaming."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Come posso registrarmi tramite un referral?",
+      "description": "Basta cliccare sul link di referral condiviso dal tuo amico. Questo ti porterà a una pagina di registrazione speciale dove potrai creare un account e scegliere il tuo primo piano dati con lo sconto applicato."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Quali vantaggi ottengo registrandomi tramite un referral?",
+      "description": "Quando ti registri tramite un referral, riceverai $4 di sconto sul tuo primo acquisto di eSIM. Questo sconto può essere applicato fino al 30% del tuo acquisto totale."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "Come posso richiedere il mio sconto di $4?",
+      "description": "Per richiedere il tuo sconto di $4:",
+      "point1": "Seleziona la tua destinazione per l'accesso a Internet.",
+      "point2": "Goditi la tua ricompensa ($4 di sconto, fino al 30% del tuo acquisto).",
+      "point3": "Successivamente, puoi invitare amici per guadagnare più ricompense."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Posso usare JetSim insieme alla mia scheda SIM normale?",
+      "description": "Sì, JetSim utilizza la tecnologia eSIM, che ti permette di mantenere la tua scheda SIM normale nel dispositivo mentre usi JetSim per i dati."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "Come installo e attivo la mia eSIM JetSim?",
+      "description": "Dopo l'acquisto, riceverai un codice QR. Scansiona il codice con il tuo dispositivo per installare l'eSIM. Poi, basta attivare il roaming dati quando arrivi a destinazione."
+    }
+  },
   "FAQReferralForCurrent": {
     "yourQuestionsAnswered": "Le tue domande risolte",
     "howDoesThisWork": {

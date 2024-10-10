@@ -1,4 +1,34 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Questions fréquemment posées",
+    "whatIsJetSim": {
+      "title": "Qu'est-ce que JetSim ?",
+      "description": "JetSim est un service eSIM qui offre un accès Internet mondial abordable et fiable. Avec JetSim, vous pouvez rester connecté dans plus de 200 pays sans les tracas des cartes SIM physiques ou des frais d'itinérance élevés."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Comment puis-je m'inscrire via un parrainage ?",
+      "description": "Cliquez simplement sur le lien de parrainage partagé par votre ami. Cela vous amènera à une page d'inscription spéciale où vous pourrez créer un compte et choisir votre premier forfait de données avec la réduction appliquée."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Quels avantages ai-je en m'inscrivant via un parrainage ?",
+      "description": "Lorsque vous vous inscrivez via un parrainage, vous recevrez 4 $ de réduction sur votre premier achat d'eSIM. Cette réduction peut être appliquée jusqu'à 30% de votre achat total."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "Comment puis-je réclamer ma réduction de 4 $ ?",
+      "description": "Pour réclamer votre réduction de 4 $ :",
+      "point1": "Sélectionnez votre destination pour l'accès Internet.",
+      "point2": "Profitez de votre récompense (4 $ de réduction, jusqu'à 30% de votre achat).",
+      "point3": "Ensuite, vous pouvez parrainer des amis pour gagner plus de récompenses."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Puis-je utiliser JetSim en parallèle avec ma carte SIM habituelle ?",
+      "description": "Oui, JetSim utilise la technologie eSIM, qui vous permet de garder votre carte SIM habituelle dans votre appareil tout en utilisant JetSim pour les données."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "Comment installer et activer mon eSIM JetSim ?",
+      "description": "Après l'achat, vous recevrez un code QR. Scannez le code avec votre appareil pour installer l'eSIM. Ensuite, activez simplement l'itinérance des données lorsque vous arrivez à votre destination."
+    }
+  },
   "FAQReferralForCurrent": {
     "yourQuestionsAnswered": "Vos questions répondues",
     "howDoesThisWork": {

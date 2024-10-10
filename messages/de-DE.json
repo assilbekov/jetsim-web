@@ -1,4 +1,34 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Häufig gestellte Fragen",
+    "whatIsJetSim": {
+      "title": "Was ist JetSim?",
+      "description": "JetSim ist eine eSIM-Dienstleistung, die günstige, zuverlässige globale Internetzugang anbietet. Mit JetSim können Sie in über 200 Ländern verbunden bleiben, ohne die Mühe mit physischen SIM-Karten oder hohen Roaming-Gebühren."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Wie melde ich mich über eine Referenz an?",
+      "description": "Klicken Sie einfach auf den von Ihrem Freund geteilten Referenzlink. Dies führt Sie zu einer speziellen Anmeldeseite, auf der Sie ein Konto erstellen und Ihren ersten Datentarif mit dem Rabatt auswählen können."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Welche Vorteile erhalten Sie für die Anmeldung über eine Referenz?",
+      "description": "Wenn Sie sich über eine Referenz anmelden, erhalten Sie $4 Rabatt auf Ihren ersten eSIM-Kauf. Dieser Rabatt kann auf bis zu 30% Ihrer Gesamtsumme angewendet werden."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "Wie erhalte ich meinen $4-Rabatt?",
+      "description": "Um Ihren $4-Rabatt zu erhalten:",
+      "point1": "Wählen Sie Ihr Ziel für den Internetzugang aus.",
+      "point2": "Genießen Sie Ihre Belohnung ($4 ab, bis zu 30% Ihrer Einkauf)",
+      "point3": "Danach können Sie Ihre Freunde einladen, um weitere Belohnungen zu erhalten."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "Kann ich JetSim neben meiner regulären SIM-Karte verwenden?",
+      "description": "Ja, JetSim verwendet eSIM-Technologie, die es Ihnen ermöglicht, Ihre reguläre SIM-Karte in Ihrem Gerät zu behalten, während Sie JetSim für Daten verwenden."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "Wie installiere und aktiviere ich meine JetSim eSIM?",
+      "description": "Nach dem Kauf erhalten Sie einen QR-Code. Scannen Sie den Code mit Ihrem Gerät, um die eSIM zu installieren. Danach aktivieren Sie einfach das Datenroaming, wenn Sie Ihre Ziel erreichen."
+    }
+  },
   "FAQReferralForCurrent": {
     "yourQuestionsAnswered": "Your questions answered",
     "howDoesThisWork": {

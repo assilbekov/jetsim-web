@@ -1,4 +1,34 @@
 {
+  "FAQReferralForInvited": {
+    "frequentlyAskedQuestions": "Sıkça Sorulan Sorular",
+    "whatIsJetSim": {
+      "title": "JetSim nedir?",
+      "description": "JetSim, uygun fiyatlı ve güvenilir küresel internet erişimi sunan bir eSIM hizmetidir. JetSim ile, fiziksel SIM kartların zorluğu veya yüksek dolaşım ücretleri olmadan 200'den fazla ülkede bağlantıda kalabilirsiniz."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "Bir referans aracılığıyla nasıl kaydolurum?",
+      "description": "Arkadaşınızın paylaştığı referans bağlantısına tıklamanız yeterlidir. Bu sizi, indirim uygulanmış ilk veri planınızı seçebileceğiniz ve hesap oluşturabileceğiniz özel bir kayıt sayfasına yönlendirecektir."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "Bir referans aracılığıyla kaydolduğumda ne gibi faydalar elde ederim?",
+      "description": "Bir referans aracılığıyla kaydolduğunuzda, ilk eSIM alışverişinizde 4$ indirim alacaksınız. Bu indirim, toplam alışverişinizin %30'una kadar uygulanabilir."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "4$ indirimimi nasıl talep ederim?",
+      "description": "4$ indirimi talep etmek için:",
+      "point1": "İnternet erişimi için gideceğiniz yeri seçin.",
+      "point2": "Ödülünüzün keyfini çıkarın (4$ indirim, alışverişinizin %30'una kadar).",
+      "point3": "Daha sonra, daha fazla ödül kazanmak için arkadaşlarınızı davet edebilirsiniz."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "JetSim'i normal SIM kartımla birlikte kullanabilir miyim?",
+      "description": "Evet, JetSim eSIM teknolojisini kullanır, bu da cihazınızda normal SIM kartınızı tutarken JetSim'i veri için kullanmanıza olanak tanır."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "JetSim eSIM'imi nasıl yükler ve etkinleştiririm?",
+      "description": "Satın alma işleminden sonra bir QR kodu alacaksınız. eSIM'i yüklemek için kodu cihazınızla tarayın. Ardından, varış noktanıza ulaştığınızda sadece veri dolaşımını etkinleştirin."
+    }
+  },
   "FAQReferralForCurrent": {
     "yourQuestionsAnswered": "Sıkça sorulan sorular",
     "howDoesThisWork": {

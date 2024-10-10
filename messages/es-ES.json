@@ -1,4 +1,34 @@
 {
+  "FAQReferralForInvited": {
+    "yourQuestionsAnswered": "Preguntas frecuentes",
+    "whatIsJetSim": {
+      "title": "¿Qué es JetSim?",
+      "description": "JetSim es un servicio de eSIM que ofrece acceso a internet global asequible y confiable. Con JetSim, puedes mantenerte conectado en más de 200 países sin complicaciones con tarjetas SIM físicas o altos costes de itinerancia."
+    },
+    "howDoISignUpThroughAReferral": {
+      "title": "¿Cómo me registro a través de una referida?",
+      "description": "Simplemente haz clic en el enlace de referido compartido por tu amigo. Esto te llevará a una página de registro especial, donde puedes crear una cuenta y elegir tu primer plan de datos con el descuento aplicado."
+    },
+    "whatBenefitsDoIGetForSigningUpThroughAReferral": {
+      "title": "¿Qué beneficios obtengo por registrarme a través de una referida?",
+      "description": "Cuando te registres a través de una referida, recibirás $4 de descuento en tu primer compra de eSIM. Este descuento se puede aplicar a hasta un 30% de tu compra total."
+    },
+    "howDoIClaimMyDiscount": {
+      "title": "¿Cómo reclamo mi descuento de $4?",
+      "description": "Para reclamar tu descuento de $4:",
+      "point1": "Selecciona tu destino para el acceso a internet.",
+      "point2": "Disfruta de tu recompensa ($4 off, hasta un 30% de tu compra).",
+      "point3": "Después, puedes invitar a tus amigos para ganar más recompensas."
+    },
+    "canIUseJetSimAlongsideMyRegularSimCard": {
+      "title": "¿Puedo usar JetSim junto a mi tarjeta SIM regular?",
+      "description": "Sí, JetSim usa tecnología eSIM, lo que te permite mantener tu tarjeta SIM regular en tu dispositivo mientras usas JetSim para datos."
+    },
+    "howDoIInstallAndActivateMyJetSimEsim": {
+      "title": "¿Cómo instalo y activo mi eSIM de JetSim?",
+      "description": "Después de la compra, recibirás un código QR. Escanea el código con tu dispositivo para instalar la eSIM. Luego, simplemente activa el itinerancia de datos cuando llegues a tu destino."
+    }
+  },
   "FAQReferralForCurrent": {
     "yourQuestionsAnswered": "Preguntas frecuentes",
     "howDoesThisWork": {
