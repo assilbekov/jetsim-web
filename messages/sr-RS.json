@@ -1,4 +1,22 @@
 {
+  "InviteFriendsHowItWorksProfileBalance": {
+    "title": "Како то ради",
+    "shareYourUniqueLink": "Споделите свој јединствени линк",
+    "shareYourUniqueLinkDescription": "Одаберите место где ћете имати приступ Интернету",
+    "friendGets4": "Ваш пријатељ добија $4",
+    "friendGets4Description": "Да бисте покрили до 30% његовог следећег плаћања",
+    "youGet4Too": "И ви сте добили $4",
+    "youGet4TooDescription": "После што је ваш пријатељ активирао своју eSIM"
+  },
+  "InviteFriendsHowItWorksInvited": {
+    "title": "Како добити своје $4",
+    "selectYourCountry": "Одаберите своју земљу",
+    "selectYourCountryDescription": "Одаберите место где ћете имати приступ Интернету",
+    "enjoyYourReward": "Наслађи се на своју награду",
+    "enjoyYourRewardDescription": "$4 off, за максимум 30% вашег следећег плаћања",
+    "referMoreFriends": "Пријавите више пријатеља",
+    "referMoreFriendsDescription": "Споделите свој линк са једним од њих да бисте добили додатних $4"
+  },
   "ProfileBalanceInvitation": {
     "title": "Пријавите друга и добијете $4 за вас, $4 за њега",
     "description": "И он ће добити $4! Ова понуда се примењује само на 30% вашег укупног трошка",

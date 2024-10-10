@@ -1,4 +1,22 @@
 {
+  "InviteFriendsHowItWorksProfileBalance": {
+    "title": "Nasıl çalışır",
+    "shareYourUniqueLink": "Bir kerelik bağlantınızı paylaşın",
+    "shareYourUniqueLinkDescription": "Hangi ülkeye gideceğinizi seçin",
+    "friendGets4": "Arkadaşınız $4 alır",
+    "friendGets4Description": "Bir sonraki ödemenin %30'unu karşılar",
+    "youGet4Too": "Sen de $4 alırsın",
+    "youGet4TooDescription": "Arkadaşınızın eSIM'ini aktif ettikten sonra"
+  },
+  "InviteFriendsHowItWorksInvited": {
+    "title": "Nasıl $4 alırsınız",
+    "selectYourCountry": "Ülkenizi seçin",
+    "selectYourCountryDescription": "Hangi ülkeye gideceğinizi seçin",
+    "enjoyYourReward": "Ödülünüzü keyifli bir şekilde kullanın",
+    "enjoyYourRewardDescription": "$4 off, bir sonraki ödemenin %30'unu karşılar",
+    "referMoreFriends": "Daha fazla arkadaşınızı davet edin",
+    "referMoreFriendsDescription": "Bir arkadaşınızla paylaşın ve daha fazla $4 alın"
+  },
   "ProfileBalanceInvitation": {
     "title": "Bir arkadaşınızı davet edin ve $4 alın",
     "description": "Ve o da $4 alacak! Bu teklif sadece toplam alımınızın %30'una uygulanır",
