@@ -1,4 +1,4 @@
-import { FAQ } from "@/components/FAQ";
+import { FAQReferralForCurrent } from "@/components/FAQ/FAQReferralForCurrent";
 import { InviteFriendsHowItWorksProfileBalance } from "@/components/InviteFriendsHowItWorks";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
@@ -37,7 +37,7 @@ export default function Index({
       <div className="flex flex-col bg-[#F8F9FB] gap-4 md:gap-6">
         <ProfileInviteFriends />
         <InviteFriendsHowItWorksProfileBalance />
-        <FAQ />
+        <FAQReferralForCurrent />
         <LandingFooter locale={params?.locale} />
       </div>
     </main>
