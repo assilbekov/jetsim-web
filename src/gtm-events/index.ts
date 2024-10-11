@@ -108,7 +108,7 @@ export const handleGTMEvent = (eventName: string, event?: any) => {
   }, 0);
 };
 
-export const trackPurchase = (data: any) => {
+export const trackPurchase = (data: any, eventName = "purchase") => {
   const allFields = {
     ...getDefaultFields(),
     ...data,
@@ -135,7 +135,7 @@ export const trackPurchase = (data: any) => {
   }); */
 
   // Google Analytics
-  localWindow.gtag("event", "purchase", {
+  localWindow.gtag("event", eventName, {
     category: "Ecommerce",
     label: "Purchase Completed",
     //value: allFields,
@@ -144,7 +144,11 @@ export const trackPurchase = (data: any) => {
   });
 
   // GTM
-  handleGTMEvent("purchase", allFields);
+  handleGTMEvent(eventName, allFields);
+};
+
+export const trackPurchaseSuccessPage = (data: any) => {
+  trackPurchase(data, "purchase_success");
 };
 
 export const handleMainPageScreenEvent = () => {

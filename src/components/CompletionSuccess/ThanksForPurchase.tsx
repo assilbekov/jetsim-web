@@ -6,9 +6,21 @@ import { TypographyVariants, getTypographyClass } from "../Typography";
 import { Card } from "../Card";
 import { LandingContainer } from "../LandingContainer";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
+import { trackPurchaseSuccessPage } from "@/gtm-events";
 
 export const ThanksForPurchase = () => {
   const t = useTranslations("CompletionSuccess");
+
+  useEffect(() => {
+    const orderSummary = localStorage.getItem("orderSummary");
+    if (orderSummary) {
+      trackPurchaseSuccessPage(JSON.parse(orderSummary));
+    }
+    return () => {
+      localStorage.removeItem("orderSummary");
+    };
+  }, []);
 
   return (
     <LandingContainer>
