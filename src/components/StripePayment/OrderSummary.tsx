@@ -58,6 +58,22 @@ export const OrderSummary = ({
   useEffect(() => {
     fetchPackage(packageID, locale).then((res) => {
       setPackageData(res);
+
+      localStorage.setItem(
+        "orderSummary",
+        JSON.stringify({
+          value: res.cost.price / 100,
+          currency: res.cost.currency,
+          price: res.cost.price / 100,
+          items: [
+            {
+              item_id: res.id,
+              item_name: res.name,
+              price: res.cost.price / 100,
+            },
+          ],
+        })
+      );
     });
   }, [packageID]);
 
