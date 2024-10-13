@@ -65,11 +65,18 @@ export const OrderSummary = ({
           value: res.cost.price / 100,
           currency: res.cost.currency,
           price: res.cost.price / 100,
+          payment_method: "stripe",
+          tax: 0,
+          shipping: 0,
+          affiliation: "Online Store",
           items: [
             {
               item_id: res.id,
               item_name: res.name,
               price: res.cost.price / 100,
+              index: 0,
+              discount: 0,
+              quantity: 1,
             },
           ],
         })
