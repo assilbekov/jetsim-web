@@ -1,4 +1,9 @@
 {
+  "AcceptInvitationHeroBlock": {
+    "title": "Ваш пријатељ је вам дао $4 за вашу прву eSIM",
+    "description": "И он ће добити $4! Ова понуда се примењује само на 30% вашег укупног трошка",
+    "button": "$4 бесплатно"
+  },
   "FAQReferralForInvited": {
     "frequentlyAskedQuestions": "Често постављана питања",
     "whatIsJetSim": {

@@ -47,14 +47,6 @@ type ImageSizeByScreen = {
   width: number;
 };
 
-type ImageSizes = {
-  sm: ImageSizeByScreen;
-  md: ImageSizeByScreen;
-  lg: ImageSizeByScreen;
-  xl: ImageSizeByScreen;
-  xxl: ImageSizeByScreen;
-}
-
 type ProfileInviteImageProps = {
   url: string;
   alt: string;
@@ -75,7 +67,11 @@ export const ProfileInviteImage = ({
   return (
     <div className="relative">
       <div className="absolute top-[-1px] left-[-1px]">
-        <LeftArch fill={archFill} className={`h-${imgHeight + 2}px`} height={imgHeight + 2} />
+        <LeftArch
+          fill={archFill}
+          className={`h-${imgHeight + 2}px`}
+          height={imgHeight + 2}
+        />
       </div>
       {imageLoaded ? (
         <Image
@@ -83,14 +79,18 @@ export const ProfileInviteImage = ({
           alt={alt}
           width={imgHeight}
           height={imgWidth}
-          objectFit="cover"
-          className="h-[400px] w-[400px]"
+          objectFit="none"
+          className="h-[400px] w-[430px] object-cover object-[35%_50%]"
         />
       ) : (
         <Skeleton className="hidden md:block pb-0.5 pr-0.5" />
       )}
       <div className="absolute top-0 right-0">
-        <RightArch fill={archFill} className={`h-${imgHeight + 2}px`} height={imgHeight + 2} />
+        <RightArch
+          fill={archFill}
+          className={`h-${imgHeight + 2}px`}
+          height={imgHeight + 2}
+        />
       </div>
     </div>
   );

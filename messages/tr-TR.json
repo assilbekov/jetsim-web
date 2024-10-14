@@ -1,4 +1,9 @@
 {
+  "AcceptInvitationHeroBlock": {
+    "title": "Arkadaşınız size $4 indirim kuponu verdi",
+    "description": "Ve o da $4 alır! Bu indirim sadece toplam alışverişinizin %30'una uygulanır",
+    "button": "$4 indirim"
+  },
   "FAQReferralForInvited": {
     "frequentlyAskedQuestions": "Sıkça Sorulan Sorular",
     "whatIsJetSim": {

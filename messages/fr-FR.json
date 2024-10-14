@@ -1,4 +1,9 @@
 {
+  "AcceptInvitationHeroBlock": {
+    "title": "Votre ami vous a offert $4 pour votre première eSIM",
+    "description": "Et il obtiendra $4 aussi ! Cette offre ne s'applique qu'à 30% de votre achat total",
+    "button": "$4 gratuit"
+  },
   "FAQReferralForInvited": {
     "frequentlyAskedQuestions": "Questions fréquemment posées",
     "whatIsJetSim": {
