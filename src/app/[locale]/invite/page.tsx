@@ -1,5 +1,5 @@
-import { FAQ } from "@/components/FAQ";
-import { Hero } from "@/components/Hero";
+import { FAQReferralForInvited } from "@/components/FAQ/FAQReferralForInvited";
+import { InviteFriendsHowItWorksInvited } from "@/components/InviteFriendsHowItWorks";
 import { LandingContainer } from "@/components/LandingContainer";
 import { LandingFooter } from "@/components/LandingFooter";
 import { Navbar } from "@/components/Navbar/Navbar";
@@ -25,8 +25,6 @@ export default function Index({ params }: { params: { locale: string } }) {
   unstable_setRequestLocale(params?.locale);
   return (
     <main className="bg-[#F8F9FB] bg-white-900 overflow-hidden sm:pb-11">
-      {/* <InviteFriendsHero /> */}
-      {/* <MainScreenEvent /> */}
       <div className="bg-white shadow-[0px_4px_12px_0px_rgba(0,0,0,0.04)] sm:mb-12">
         <LandingContainer className="p-6">
           <Navbar howToHref="/#how-to" locale={params?.locale} />
@@ -34,10 +32,10 @@ export default function Index({ params }: { params: { locale: string } }) {
         </LandingContainer>
       </div>
       <div className="flex flex-col sm:gap-4 md:gap-6">
-        {/* <HowToGetBonusFromInvitingFriends /> */}
+        <InviteFriendsHowItWorksInvited />
         <Recommendations locale={params?.locale} page="Main" />
-        <WhyBlock />
-        <FAQ />
+        <WhyBlock showSecurePaymentMethods={false} />
+        <FAQReferralForInvited />
         <LandingFooter locale={params?.locale} />
       </div>
     </main>
