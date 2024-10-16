@@ -10,12 +10,19 @@ import { clsx } from "@/utils";
 import { useTranslations } from "next-intl";
 import { PrimaryButton } from "../buttons/PrimaryButton";
 
+enum DialogType {
+  Success = "success",
+  ErrorAlreadyApplied = "errorAlreadyApplied",
+  ErrorCanNotApplyToYourself = "errorCanNotApplyToYourself",
+  Empty = "",
+}
+
 export const AcceptRefDialog = () => {
   const t = useTranslations("AcceptRefDialog");
   const searchParams = useSearchParams();
   const inviteId = searchParams.get("inviteId");
   const [isOpen, setIsOpen] = useState(true);
-
+  const [dialogType, setDialogType] = useState<DialogType>(DialogType.Empty);
   console.log({ inviteId });
 
   const handleClose = () => {
@@ -33,7 +40,7 @@ export const AcceptRefDialog = () => {
   return (
     <Dialog onClose={handleClose} dialogClassName="md:w-[360px]" mdHeightAuto>
       <DialogTitle title={""} onClose={handleClose} />
-      <div className="flex flex-col items-center gap-4 -mt-12 text-center">
+      <div className="flex flex-col justify-between items-center gap-4 -mt-12 text-center h-full">
         <Image
           src="/icons/primary/featured_seasonal_and_gifts.svg"
           alt="gift icon"
@@ -44,15 +51,15 @@ export const AcceptRefDialog = () => {
           <h5
             className={clsx(
               getTypographyClass(TypographyVariants.Subheader),
-              "text-text-100 mt-2"
+              "text-text-100"
             )}
           >
             {t("success.title")}
           </h5>
           <p
             className={clsx(
-              getTypographyClass(TypographyVariants.Caption),
-              "text-text-600"
+              getTypographyClass(TypographyVariants.Body2),
+              "text-text-600 mt-2"
             )}
           >
             {t("success.description")}
@@ -61,7 +68,7 @@ export const AcceptRefDialog = () => {
         <PrimaryButton>{t("success.button")}</PrimaryButton>
         <p
           className={clsx(
-            getTypographyClass(TypographyVariants.Caption),
+            getTypographyClass(TypographyVariants.Body2),
             "text-text-600"
           )}
         >
