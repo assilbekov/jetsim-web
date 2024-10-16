@@ -1,4 +1,24 @@
 {
+  "AcceptRefDialog": {
+    "success": {
+      "title": "Glückwunsch! Sie haben $4 in Ihrem Guthaben",
+      "description": "Dank Ihres Freundes für die Referenz. Wir freuen uns, dass Sie bei uns sind",
+      "button": "Super!",
+      "terms": "Sie können eine maximale Rabatt von 30% abziehen"
+    },
+    "errorAlreadyApplied": {
+      "title": "Bonus bereits angewendet!",
+      "description": "Sie können keinen weiteren Bonus von diesem Link erhalten, aber laden Sie einen Freund ein, um mehr zu erhalten",
+      "buttonOk": "Weitere $4 erhalten",
+      "buttonClose": "Schließen"
+    },
+    "errorCanNotApplyToYourself": {
+      "title": "Sie können den Bonus nicht auf sich selbst anwenden!",
+      "description": "Sie können keinen weiteren Bonus von diesem Link erhalten, aber laden Sie einen Freund ein, um mehr zu erhalten",
+      "buttonOk": "Weitere $4 erhalten",
+      "buttonClose": "Schließen"
+    }
+  },
   "AcceptInvitationHeroBlock": {
     "title": "Ihr Freund hat Ihnen $4 für Ihre erste eSIM geschenkt",
     "description": "Und sie erhalten $4 auch! Dieses Angebot gilt nur für bis zu 30% Ihrer Gesamtsumme",

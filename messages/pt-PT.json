@@ -1,4 +1,24 @@
 {
+  "AcceptRefDialog": {
+    "success": {
+      "title": "Parabéns! Você tem $4 no seu saldo!",
+      "description": "Obrigado ao seu amigo por indicá-lo. Estamos muito felizes em tê-lo conosco",
+      "button": "Incrível!",
+      "terms": "Você pode aplicar um desconto máximo de 30%"
+    },
+    "errorAlreadyApplied": {
+      "title": "Bônus já aplicado!",
+      "description": "Você não pode obter outro bônus deste link, mas indique um amigo para ganhar mais",
+      "buttonOk": "Ganhe mais $4",
+      "buttonClose": "Fechar"
+    },
+    "errorCanNotApplyToYourself": {
+      "title": "Você não pode aplicar a recompensa a si mesmo!",
+      "description": "Você não pode obter outro bônus deste link, mas indique um amigo para ganhar mais",
+      "buttonOk": "Ganhe mais $4",
+      "buttonClose": "Fechar"
+    }
+  },
   "AcceptInvitationHeroBlock": {
     "title": "O seu amigo acabou de lhe dar $4 para a sua primeira eSIM",
     "description": "E ele também receberá $4! Este desconto só se aplica a até 30% do seu total de compra",

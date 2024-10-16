@@ -1,4 +1,24 @@
 {
+  "AcceptRefDialog": {
+    "success": {
+      "title": "Gratulacje! Masz $4 na swoim koncie!",
+      "description": "Dziękujemy Twojemu znajomemu za polecenie. Cieszymy się, że jesteś z nami",
+      "button": "Świetnie!",
+      "terms": "Możesz zastosować maksymalną zniżkę w wysokości 30%"
+    },
+    "errorAlreadyApplied": {
+      "title": "Bonus już zastosowany!",
+      "description": "Nie możesz otrzymać kolejnego bonusu z tego linku, ale poleć znajomego, aby zyskać więcej",
+      "buttonOk": "Zdobądź dodatkowe $4",
+      "buttonClose": "Zamknij"
+    },
+    "errorCanNotApplyToYourself": {
+      "title": "Nie możesz zastosować nagrody dla siebie!",
+      "description": "Nie możesz otrzymać kolejnego bonusu z tego linku, ale poleć znajomego, aby zyskać więcej",
+      "buttonOk": "Zdobądź dodatkowe $4",
+      "buttonClose": "Zamknij"
+    }
+  },
   "AcceptInvitationHeroBlock": {
     "title": "Twój znajomy wam daruje $4 za pierwszą eSIM",
     "description": "I on również otrzyma $4! Ta oferta dotyczy tylko do 30% całkowitej wartości zakupu",

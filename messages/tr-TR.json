@@ -1,4 +1,24 @@
 {
+  "AcceptRefDialog": {
+    "success": {
+      "title": "Tebrikler! Hesabınızda $4 var!",
+      "description": "Sizi bize yönlendirdiği için arkadaşınıza teşekkürler. Aramıza katılmanızdan dolayı çok mutluyuz",
+      "button": "Harika!",
+      "terms": "Maksimum %30 indirim uygulayabilirsiniz"
+    },
+    "errorAlreadyApplied": {
+      "title": "Bonus zaten uygulandı!",
+      "description": "Bu bağlantıdan başka bir bonus alamazsınız, ancak daha fazla kazanmak için bir arkadaşınızı davet edin",
+      "buttonOk": "$4 daha kazanın",
+      "buttonClose": "Kapat"
+    },
+    "errorCanNotApplyToYourself": {
+      "title": "Ödülü kendinize uygulayamazsınız!",
+      "description": "Bu bağlantıdan başka bir bonus alamazsınız, ancak daha fazla kazanmak için bir arkadaşınızı davet edin",
+      "buttonOk": "$4 daha kazanın",
+      "buttonClose": "Kapat"
+    }
+  },
   "AcceptInvitationHeroBlock": {
     "title": "Arkadaşınız size $4 indirim kuponu verdi",
     "description": "Ve o da $4 alır! Bu indirim sadece toplam alışverişinizin %30'una uygulanır",
