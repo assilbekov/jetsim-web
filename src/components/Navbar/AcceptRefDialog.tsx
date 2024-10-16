@@ -22,7 +22,7 @@ export const AcceptRefDialog = () => {
   const t = useTranslations("AcceptRefDialog");
   const searchParams = useSearchParams();
   const inviteId = searchParams.get("inviteId");
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [dialogType, setDialogType] = useState<DialogType>(DialogType.Empty);
 
   const handleClose = () => {
@@ -33,12 +33,15 @@ export const AcceptRefDialog = () => {
     switch (inviteId) {
       case "success":
         setDialogType(DialogType.Success);
+        setIsOpen(true);
         break;
       case "errorAlreadyApplied":
         setDialogType(DialogType.ErrorAlreadyApplied);
+        setIsOpen(true);
         break;
       case "errorCanNotApplyToYourself":
         setDialogType(DialogType.ErrorCanNotApplyToYourself);
+        setIsOpen(true);
         break;
       default:
         setDialogType(DialogType.Empty);
@@ -114,9 +117,11 @@ export const AcceptRefDialog = () => {
                 {t("errorAlreadyApplied.description")}
               </p>
             </div>
-            <div>
-              <PrimaryButton>{t("errorAlreadyApplied.buttonOk")}</PrimaryButton>
-              <SecondaryButton>
+            <div className="flex flex-col gap-3 w-full">
+              <PrimaryButton className="w-full">
+                {t("errorAlreadyApplied.buttonOk")}
+              </PrimaryButton>
+              <SecondaryButton className="w-full">
                 {t("errorAlreadyApplied.buttonClose")}
               </SecondaryButton>
             </div>
@@ -150,11 +155,11 @@ export const AcceptRefDialog = () => {
                 {t("errorCanNotApplyToYourself.description")}
               </p>
             </div>
-            <div>
-              <PrimaryButton>
+            <div className="flex flex-col gap-3 w-full">
+              <PrimaryButton className="w-full">
                 {t("errorCanNotApplyToYourself.buttonOk")}
               </PrimaryButton>
-              <SecondaryButton>
+              <SecondaryButton className="w-full">
                 {t("errorCanNotApplyToYourself.buttonClose")}
               </SecondaryButton>
             </div>
@@ -166,10 +171,17 @@ export const AcceptRefDialog = () => {
     }
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || dialogType === DialogType.Empty) return null;
 
   return (
-    <Dialog onClose={handleClose} dialogClassName="md:w-[360px]" mdHeightAuto>
+    <Dialog
+      onClose={handleClose}
+      dialogClassName={clsx(
+        "md:w-[360px]",
+        dialogType !== DialogType.Success && "md:h-[450px]"
+      )}
+      mdHeightAuto
+    >
       <DialogTitle title={""} onClose={handleClose} />
       <div className="flex flex-col justify-between items-center gap-4 -mt-12 text-center h-full">
         {renderDialogContent()}
