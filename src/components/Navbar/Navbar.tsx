@@ -15,6 +15,7 @@ import Image from "next/image";
 import { SettingsButton } from "./SettingsButton";
 import { AuthContainer } from "../Auth/AuthContainer";
 import { ProfileMenu } from "../ProfileMenu";
+import { AcceptRefDialog } from "./AcceptRefDialog";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -252,6 +253,7 @@ export const Navbar = ({
         </div>
       </nav>
       <CookieInfo />
+      <AcceptRefDialog />
     </header>
   );
 };
