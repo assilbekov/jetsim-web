@@ -5,6 +5,18 @@
       "description": "Thanks to your friend for referring you. We're thrilled to have you with us",
       "button": "Awesome!",
       "terms": "You can apply a maximum discount of 30% off"
+    },
+    "errorAlreadyApplied": {
+      "title": "Bonus already applied!",
+      "description": "You can't get another bonus from this link, but refer a friend to earn more",
+      "buttonOk": "Get $4 more",
+      "buttonClose": "Close"
+    },
+    "errorCanNotApplyToYourself": {
+      "title": "You can’t apply reward to yourself!",
+      "description": "You can't get another bonus from this link, but refer a friend to earn more",
+      "buttonOk": "Get $4 more",
+      "buttonClose": "Close"
     }
   },
   "AcceptInvitationHeroBlock": {
