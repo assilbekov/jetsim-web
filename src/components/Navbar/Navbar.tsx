@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useTranslations } from "next-intl";
 
 import "./navbar.css";
@@ -253,7 +253,9 @@ export const Navbar = ({
         </div>
       </nav>
       <CookieInfo />
-      <AcceptRefDialog />
+      <Suspense>
+        <AcceptRefDialog />
+      </Suspense>
     </header>
   );
 };
