@@ -149,6 +149,7 @@ export const LandingFooterContent = ({
           <Image src="/logo.svg" alt="logo image" width={155} height={36} />
           <AddressBlock />
           <div className="bg-[#E9F0F2] w-full h-0.5" />
+          <div className="max-w-[222px]">
           <a href="https://apps.apple.com/app/id6504028637" target="_blank">
             <Image
               src="/images/download-ios-app.svg"
@@ -157,6 +158,23 @@ export const LandingFooterContent = ({
               height={50}
             />
           </a>
+          <div
+            className="trustpilot-widget -ml-10 mt-4"
+            data-locale="en-US"
+            data-template-id="56278e9abfbbba0bdcd568bc"
+            data-businessunit-id="66a1084c4ae13784bfed55e1"
+            data-style-height="52px"
+            data-style-width="100%"
+          >
+            <a
+              href="https://www.trustpilot.com/review/jetsim.app"
+              target="_blank"
+              rel="noopener"
+            >
+              Trustpilot
+            </a>
+          </div>
+          </div>
         </div>
         <div className="flex gap-8 flex-col sm:flex-row">
           <LinksBlock>

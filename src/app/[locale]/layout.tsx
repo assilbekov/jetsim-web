@@ -53,6 +53,11 @@ export default async function LocaleLayout({
           name="apple-itunes-app"
           content="app-id=6504028637, app-argument=https://www.jetsim.app"
         />
+        <script
+          type="text/javascript"
+          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          async
+        ></script>
       </head>
       <body>
         <FacebookNoScript />
