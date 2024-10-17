@@ -22,7 +22,7 @@ export const getTypographyClass = (variant: TypographyVariants) => {
     case TypographyVariants.Body2:
       return "font-inter text-[16px] leading-[19px] font-medium";
     case TypographyVariants.Caption:
-      return "font-inter text-base leading-[22px] font-medium";
+      return "font-inter text-[14px] leading-[18px] font-medium";
   }
 };
 

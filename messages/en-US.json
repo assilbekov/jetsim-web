@@ -1,4 +1,24 @@
 {
+  "AcceptRefDialog": {
+    "success": {
+      "title": "Congrats! You have $4 in your balance!",
+      "description": "Thanks to your friend for referring you. We're thrilled to have you with us",
+      "button": "Awesome!",
+      "terms": "You can apply a maximum discount of 30% off"
+    },
+    "errorAlreadyApplied": {
+      "title": "Bonus already applied!",
+      "description": "You can't get another bonus from this link, but refer a friend to earn more",
+      "buttonOk": "Get $4 more",
+      "buttonClose": "Close"
+    },
+    "errorCanNotApplyToYourself": {
+      "title": "You can’t apply reward to yourself!",
+      "description": "You can't get another bonus from this link, but refer a friend to earn more",
+      "buttonOk": "Get $4 more",
+      "buttonClose": "Close"
+    }
+  },
   "AcceptInvitationHeroBlock": {
     "title": "Your friend just gifted you $4 off your first eSIM",
     "description": "And they’ll get $4 too! This offer only applies to up to 30% of your total purchase",

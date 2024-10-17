@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { useTranslations } from "next-intl";
 
 import "./navbar.css";
@@ -15,6 +15,7 @@ import Image from "next/image";
 import { SettingsButton } from "./SettingsButton";
 import { AuthContainer } from "../Auth/AuthContainer";
 import { ProfileMenu } from "../ProfileMenu";
+import { AcceptRefDialog } from "./AcceptRefDialog";
 
 const StyledLink = (props: LinkProps) => (
   <Link
@@ -252,6 +253,9 @@ export const Navbar = ({
         </div>
       </nav>
       <CookieInfo />
+      <Suspense>
+        <AcceptRefDialog />
+      </Suspense>
     </header>
   );
 };
