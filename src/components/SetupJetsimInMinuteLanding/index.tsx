@@ -107,7 +107,7 @@ export const SetupJetsimInMinuteLanding: React.FC = () => {
   ];
 
   return (
-    <LandingContainer>
+    <LandingContainer id="how-to">
       <Card className="flex flex-col gap-5 md:gap-6 lg:gap-8">
         <Typography variant={TypographyVariants.H2}>{t("title")}</Typography>
         <div className="hidden md:flex gap-4">
