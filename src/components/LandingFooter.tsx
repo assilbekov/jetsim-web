@@ -193,7 +193,7 @@ export const LandingFooterContent = ({
                 target="_blank"
                 rel="noopener"
               >
-                <img
+                <Image
                   src="/images/trustpilot-review.png"
                   alt="Trustpilot"
                   width={209.55}
