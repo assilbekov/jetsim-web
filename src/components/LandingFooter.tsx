@@ -142,6 +142,24 @@ export const LandingFooterContent = ({
 }: LandingFooterProps) => {
   const t = useTranslations("Footer");
 
+  const getTrustpilotMarginLeft = () => {
+    switch (locale) {
+      case "en-US":
+      case "pt-PT":
+      case "sr-RS":
+      case "tr-TR":
+        return -36;
+      case "es-ES":
+        return -30;
+      case "pl-PL":
+        return -14;
+      case "fr-FR":
+        return -12;
+      default:
+        return 0;
+    }
+  };
+
   return (
     <Card size="lg" className={clsx("sm:py-8", cardClassName ?? "")}>
       <div className="flex gap-8 flex-col lg:flex-row lg:justify-between">
@@ -159,7 +177,11 @@ export const LandingFooterContent = ({
               />
             </a>
             <div
-              className="trustpilot-widget -ml-10 mt-4"
+              key={locale}
+              className="trustpilot-widget mt-4"
+              style={{
+                marginLeft: getTrustpilotMarginLeft() + "px",
+              }}
               data-locale={locale}
               data-template-id="56278e9abfbbba0bdcd568bc"
               data-businessunit-id="66a1084c4ae13784bfed55e1"
@@ -171,7 +193,15 @@ export const LandingFooterContent = ({
                 target="_blank"
                 rel="noopener"
               >
-                Trustpilot
+                <img
+                  src="/images/trustpilot-review.png"
+                  alt="Trustpilot"
+                  width={209.55}
+                  height={52}
+                  style={{
+                    marginLeft: -getTrustpilotMarginLeft() + "px",
+                  }}
+                />
               </a>
             </div>
           </div>
