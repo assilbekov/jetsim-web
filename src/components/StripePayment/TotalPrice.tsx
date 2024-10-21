@@ -134,58 +134,24 @@ type TotalPriceProps = {
   fullPrice: number;
   currency: string;
   rewardsBalance: number;
+  className?: string;
 };
 
 export const TotalPrice = ({
-  packageID,
-  placeID,
+  totalPrice,
+  fullPrice,
+  currency,
+  rewardsBalance,
   className,
-  locale,
-}: OrderSummaryProps) => {
+}: TotalPriceProps) => {
   const t = useTranslations("OrderSummary");
-  const [location, setLocation] = useState<Location | null>(null);
-  const [packageData, setPackageData] = useState<Package | null>(null);
+  const [isRewardsUsed, setIsRewardsUsed] = useState(false);
 
-  useEffect(() => {
-    fetchLocation(placeID, locale).then((res) => {
-      setLocation(res);
-    });
-  }, [placeID]);
-
-  useEffect(() => {
-    fetchPackage(packageID, locale).then((res) => {
-      setPackageData(res);
-
-      localStorage.setItem(
-        "orderSummary",
-        JSON.stringify({
-          value: res.cost.price / 100,
-          currency: res.cost.currency,
-          price: res.cost.price / 100,
-          payment_method: "stripe",
-          tax: 0,
-          shipping: 0,
-          affiliation: "Online Store",
-          items: [
-            {
-              item_id: res.id,
-              item_name: res.name,
-              price: res.cost.price / 100,
-              index: 0,
-              discount: 0,
-              quantity: 1,
-            },
-          ],
-        })
-      );
-    });
-  }, [packageID]);
-
-  if (!packageData || !location) {
+  /* if (!packageData || !location) {
     return (
       <Skeleton className="min-w-full min-h-[250px] rounded-[20px] sm:max-w-[300px] sm:min-w-[300px]" />
     );
-  }
+  } */
 
   return (
     <Card
@@ -196,39 +162,31 @@ export const TotalPrice = ({
     >
       <div>
         <h3 className={getTypographyClass(TypographyVariants.Body)}>
-          {t("orderSummaryTitle")}
+          {t("totalPrice")}
         </h3>
+        <Odometer
+          value={isRewardsUsed ? totalPrice : fullPrice}
+          format="(.ddd),dd"
+          className="text-2xl"
+          duration={150}
+        />
+        <span>{convertPrice(totalPrice, currency)}</span>
       </div>
       <OrderElement
-        title={t("countryTitle")}
-        value={
-          <div className="flex gap-2 items-start">
-            <CircledCountryImage
-              countryCode={location.countryCode}
-              width={16}
-              height={16}
-              className="inline mt-0.5"
-            />
-            <span className="text-wrap">{location.title}</span>
-          </div>
-        }
+        title={t("fullPrice")}
+        value={convertPrice(fullPrice, currency)}
       />
       <OrderElement
-        title={t("dataTitle")}
-        value={
-          packageData.traffic.isUnlimited
-            ? t("unlimitedText")
-            : `${packageData.traffic.unit.count} ${packageData.traffic.unit.label}`
-        }
+        title={t("Rewards –30%")}
+        value={-convertPrice(rewardsBalance, currency)}
       />
-      <OrderElement
-        title={t("durationTitle")}
-        value={convertDaysText(packageData.days, t("day"), t("days"))}
-      />
-      <OrderElement
-        title={t("priceTitle")}
-        value={convertPrice(packageData.cost.price, packageData.cost.currency)}
-      />
+      <div>
+        <div>
+          <h6>Use rewards</h6>
+          <p>Balance $30</p>
+        </div>
+        <ToggleSwitch checked={isRewardsUsed} onChange={setIsRewardsUsed} />
+      </div>
     </Card>
   );
 };
