@@ -8,7 +8,7 @@ import { Package } from "@/models/Package";
 import { useEffect, useState } from "react";
 import { TypographyVariants, getTypographyClass } from "../Typography";
 import { CircledCountryImage } from "../CircledCountryImage";
-import { convertPrice } from "@/converters/prices";
+import { convertCurrencyCodeToSymbol, convertPrice } from "@/converters/prices";
 import { Skeleton } from "../Skeleton";
 import { Card } from "../Card";
 import { clsx } from "@/utils";
@@ -160,17 +160,21 @@ export const TotalPrice = ({
         className ?? ""
       )}
     >
-      <div>
-        <h3 className={getTypographyClass(TypographyVariants.Body)}>
-          {t("totalPrice")}
-        </h3>
-        <Odometer
-          value={isRewardsUsed ? totalPrice : fullPrice}
-          format="(.ddd),dd"
-          className="text-2xl"
-          duration={150}
-        />
-        <span>{convertPrice(totalPrice, currency)}</span>
+      <div
+        className={clsx(
+          "flex justify-between items-center",
+          getTypographyClass(TypographyVariants.Body)
+        )}
+      >
+        <span>{t("totalPrice")}</span>
+        <span className="flex items-center">
+          {convertCurrencyCodeToSymbol(currency)}
+          <Odometer
+            value={(isRewardsUsed ? totalPrice : fullPrice) / 100}
+            format="(.ddd),dd"
+            duration={150}
+          />
+        </span>
       </div>
       <OrderElement
         title={t("fullPrice")}
