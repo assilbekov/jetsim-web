@@ -438,7 +438,12 @@
     "CheckoutForm_processing": "İşleniyor...",
     "CheckoutForm_pay": "Öde",
     "ErrorMessage_paymentFailed": "Ödeme başarısız oldu",
-    "StripePayment_selectPaymentMethod": "Bir ödeme yöntemi seçin"
+    "StripePayment_selectPaymentMethod": "Bir ödeme yöntemi seçin",
+    "total": "Toplam",
+    "price": "Fiyat",
+    "rewards30": "Ödüller –30%",
+    "useRewards": "Ödülleri kullan",
+    "balance": "Bakiye {balance}"
   },
   "PaymentPageFooter": {
     "allRightsReserved": "2024 JetSIM. Tüm hakları saklıdır",

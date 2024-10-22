@@ -133,14 +133,17 @@ export const OrderSummaryV2 = ({
         />
         <OrderElement
           title={t("priceTitle")}
-          value={convertPrice(packageData.cost.price, packageData.cost.currency)}
+          value={convertPrice(
+            packageData.cost.price,
+            packageData.cost.currency
+          )}
         />
       </Card>
     );
   }
 
   return (
-    <div className="flex flex-col gap-6 sm:w-[336px]">
+    <div className="flex flex-col gap-6 sm:w-[336px] sm:max-h-[246px]">
       <Card
         className={clsx(
           "flex flex-col justify-center px-6 py-[22px] rounded-[20px] border-2 border-solid border-[#E9F0F2] sm:min-w-[336px]",
@@ -181,7 +184,7 @@ export const OrderSummaryV2 = ({
         totalPrice={1233}
         fullPrice={2349}
         currency="USD"
-        rewardsBalance={30}
+        rewardsBalance={400}
       />
     </div>
   );

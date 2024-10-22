@@ -438,7 +438,12 @@
     "CheckoutForm_processing": "Przetwarzanie...",
     "CheckoutForm_pay": "Zapłać",
     "ErrorMessage_paymentFailed": "Płatność nie powiodła się",
-    "StripePayment_selectPaymentMethod": "Wybierz metodę płatności"
+    "StripePayment_selectPaymentMethod": "Wybierz metodę płatności",
+    "total": "Łącznie",
+    "price": "Cena",
+    "rewards30": "Recompense –30%",
+    "useRewards": "Użyj rekompens",
+    "balance": "Saldo {balance}"
   },
   "PaymentPageFooter": {
     "allRightsReserved": "2024 JetSIM. Wszelkie prawa zastrzeżone",

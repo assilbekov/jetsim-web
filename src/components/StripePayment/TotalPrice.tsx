@@ -57,7 +57,7 @@ export const TotalPrice = ({
           getTypographyClass(TypographyVariants.Body2)
         )}
       >
-        <span>Price</span>
+        <span>{t("price")}</span>
         <span>{convertPrice(fullPrice, currency)}</span>
       </div>
       <div
@@ -66,14 +66,14 @@ export const TotalPrice = ({
           getTypographyClass(TypographyVariants.Body2)
         )}
       >
-        <span>Rewards</span>
+        <span>{t("rewards30")}</span>
         <span>{convertPrice(rewardsBalance, currency)}</span>
       </div>
       <div className="shrink-0 my-5 h-0.5 bg-[#E9F0F2]" />
       <div className="flex justify-between items-center">
         <div>
           <h6 className={getTypographyClass(TypographyVariants.Body)}>
-            Use rewards
+            {t("useRewards")}
           </h6>
           <p
             className={clsx(
@@ -81,7 +81,7 @@ export const TotalPrice = ({
               "text-[#95A2A6] mt-1"
             )}
           >
-            Balance $30
+            {t("balance", { balance: convertPrice(rewardsBalance, currency) })}
           </p>
         </div>
         <ToggleSwitch checked={isRewardsUsed} onChange={setIsRewardsUsed} />
