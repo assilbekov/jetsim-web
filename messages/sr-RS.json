@@ -438,7 +438,12 @@
     "CheckoutForm_processing": "Обрада...",
     "CheckoutForm_pay": "Платите",
     "ErrorMessage_paymentFailed": "Плаћање није успело",
-    "StripePayment_selectPaymentMethod": "Изаберите начин плаћања"
+    "StripePayment_selectPaymentMethod": "Изаберите начин плаћања",
+    "total": "Укупно",
+    "price": "Цена",
+    "rewards30": "Награде –30%",
+    "useRewards": "Користите награде",
+    "balance": "Баланс {balance}"
   },
   "PaymentPageFooter": {
     "allRightsReserved": "2024 JetSIM. Сва права задржана",

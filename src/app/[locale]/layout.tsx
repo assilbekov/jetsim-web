@@ -46,7 +46,7 @@ export default async function LocaleLayout({
       <head>
         <GA4 />
         <GTM />
-        <Facebook />
+        {/* <Facebook /> */}
         <YA />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
