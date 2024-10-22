@@ -11,11 +11,11 @@ type FeatureFlags = {
 const FeatureFlagsContext = createContext<FeatureFlags | undefined>(undefined);
 
 export const useFeatureFlags = () => {
-  const context = useContext(FeatureFlagsContext);
   const searchParams = useSearchParams();
   const [featureFlags, setFeatureFlags] = useState<FeatureFlags>({
     [REFERRALS_FEATURE_FLAG]: false,
   });
+  console.log({featureFlags, searchParams});
 
   useEffect(() => {
     const urlFlags = searchParams.get("flags");
@@ -27,12 +27,6 @@ export const useFeatureFlags = () => {
       setFeatureFlags((prevFlags) => ({ ...prevFlags, ...parsedFlags }));
     }
   }, [searchParams]);
-
-  if (!context) {
-    throw new Error(
-      "useFeatureFlags must be used within a FeatureFlagsProvider"
-    );
-  }
 
   return featureFlags;
 };

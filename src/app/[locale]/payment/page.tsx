@@ -1,6 +1,6 @@
 import { HomeLogo } from "@/components/HomeLogo";
 import { StripePayment } from "@/components/StripePayment";
-import { OrderSummary } from "@/components/StripePayment/OrderSummary";
+import { OrderSummaryV2 } from "@/components/StripePayment/OrderSummaryV2";
 import {
   TypographyVariants,
   getTypographyClass,
@@ -59,7 +59,7 @@ export default function Index({ searchParams, params }: PageProps) {
             <HomeLogo />
           </div>
           <div className="flex flex-col sm:flex-row-reverse gap-6 mt-6">
-            <OrderSummary
+            <OrderSummaryV2
               {...searchParams}
               className="sm:max-w-[300px] sm:h-full"
               locale={params?.locale}

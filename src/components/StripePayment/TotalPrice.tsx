@@ -41,7 +41,7 @@ export const TotalPrice = ({
           getTypographyClass(TypographyVariants.Body)
         )}
       >
-        <span>{t("totalPrice")}</span>
+        <span>{t("total")}</span>
         <span className="flex items-center">
           {convertCurrencyCodeToSymbol(currency)}
           <Odometer
