@@ -17,6 +17,12 @@
       "description": "No puedes obtener otro bono de este enlace, pero recomienda a un amigo para ganar más",
       "buttonOk": "Obtener $4 más",
       "buttonClose": "Cerrar"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "No eres elegible para recompensas de invitaciones de amigos.",
+      "description": "Ya has realizado tu primera compra, por lo que no puedes reclamar una recompensa de tu amigo. En su lugar, invita a un amigo para ganar aún más recompensas para tus futuras compras.",
+      "buttonOk": "Obtener $4 más",
+      "buttonClose": "Cerrar"
     }
   },
   "AcceptInvitationHeroBlock": {

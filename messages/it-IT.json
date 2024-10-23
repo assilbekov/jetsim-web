@@ -17,6 +17,12 @@
       "description": "Non puoi ottenere un altro bonus da questo link, ma segnala un amico per guadagnare di più",
       "buttonOk": "Ottieni altri $4",
       "buttonClose": "Chiudi"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "Non sei elegibile per le ricompense dalle inviti dei tuoi amici.",
+      "description": "Hai già effettuato il tuo primo acquisto, quindi non puoi reclamare una ricompensa dal tuo amico. Invece, invita un amico per guadagnare ulteriori ricompense per i tuoi futuri acquisti.",
+      "buttonOk": "Ottieni altri $4",
+      "buttonClose": "Chiudi"
     }
   },
   "AcceptInvitationHeroBlock": {

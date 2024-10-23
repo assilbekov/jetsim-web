@@ -17,6 +17,12 @@
       "description": "Nie możesz otrzymać kolejnego bonusu z tego linku, ale poleć znajomego, aby zyskać więcej",
       "buttonOk": "Zdobądź dodatkowe $4",
       "buttonClose": "Zamknij"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "Nie jesteś uprawniony do nagrody z zaproszeń od znajomych.",
+      "description": "Już dokonałeś swojego pierwszego zakupu, więc nie możesz złożyć reklamacji od swojego znajomego. Zamiast tego zaproś znajomego, aby zdobyć jeszcze więcej nagród na Twoje przyszłe zakupy.",
+      "buttonOk": "Zdobądź dodatkowe $4",
+      "buttonClose": "Zamknij"
     }
   },
   "AcceptInvitationHeroBlock": {

@@ -17,6 +17,12 @@
       "description": "Bu bağlantıdan başka bir bonus alamazsınız, ancak daha fazla kazanmak için bir arkadaşınızı davet edin",
       "buttonOk": "$4 daha kazanın",
       "buttonClose": "Kapat"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "Arkadaşınızın davetinden ödül alamazsınız!",
+      "description": "Bir sonraki alışverişinizde daha fazla kazanmak için bir arkadaşınızı davet edin",
+      "buttonOk": "$4 daha kazanın",
+      "buttonClose": "Kapat"
     }
   },
   "AcceptInvitationHeroBlock": {

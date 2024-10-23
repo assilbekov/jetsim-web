@@ -17,6 +17,12 @@
       "description": "You can't get another bonus from this link, but refer a friend to earn more",
       "buttonOk": "Get $4 more",
       "buttonClose": "Close"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "You’re not eligible for rewards from friends’ invitations.",
+      "description": "You’ve already made your first purchase, so you can’t claim a reward from your friend. Refer a friend instead to earn even more rewards for your future purchases.",
+      "buttonOk": "Get $4 more",
+      "buttonClose": "Close"
     }
   },
   "AcceptInvitationHeroBlock": {

@@ -17,6 +17,12 @@
       "description": "Você não pode obter outro bônus deste link, mas indique um amigo para ganhar mais",
       "buttonOk": "Ganhe mais $4",
       "buttonClose": "Fechar"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "Você não é elegível para recompensas de indicações de amigos.",
+      "description": "Você já fez seu primeiro pedido, então não pode reivindicar uma recompensa do seu amigo. Em vez disso, indique um amigo para ganhar mais recompensas para seus futuros pedidos.",
+      "buttonOk": "Ganhe mais $4",
+      "buttonClose": "Fechar"
     }
   },
   "AcceptInvitationHeroBlock": {
