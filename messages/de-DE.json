@@ -17,6 +17,12 @@
       "description": "Sie können keinen weiteren Bonus von diesem Link erhalten, aber laden Sie einen Freund ein, um mehr zu erhalten",
       "buttonOk": "Weitere $4 erhalten",
       "buttonClose": "Schließen"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "Sie sind nicht berechtigt für Belohnungen aus Einladungen von Freunden.",
+      "description": "Sie haben bereits Ihren ersten Einkauf getätigt, daher können Sie keine Belohnung von Ihrem Freund beanspruchen. Laden Sie stattdessen einen Freund ein, um noch mehr Belohnungen für Ihre zukünftigen Einkäufe zu erhalten.",
+      "buttonOk": "Weitere $4 erhalten",
+      "buttonClose": "Schließen"
     }
   },
   "AcceptInvitationHeroBlock": {

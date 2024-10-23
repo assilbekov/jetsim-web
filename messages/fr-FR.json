@@ -17,6 +17,12 @@
       "description": "Vous ne pouvez pas obtenir un autre bonus avec ce lien, mais parrainez un ami pour gagner plus",
       "buttonOk": "Obtenez 4 $ de plus",
       "buttonClose": "Fermer"
+    },
+    "errorAlreadyMadePurchase": {
+      "title": "Vous n'êtes pas éligible pour les récompenses des invitations de vos amis.",
+      "description": "Vous avez déjà fait votre première achat, vous ne pouvez donc pas réclamer une récompense de votre ami. Envisagez plutôt d'inviter un ami pour gagner encore plus de récompenses pour vos futurs achats.",
+      "buttonOk": "Obtenez 4 $ de plus",
+      "buttonClose": "Fermer"
     }
   },
   "AcceptInvitationHeroBlock": {

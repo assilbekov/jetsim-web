@@ -15,6 +15,7 @@ enum DialogType {
   Success = "success",
   ErrorAlreadyApplied = "errorAlreadyApplied",
   ErrorCanNotApplyToYourself = "errorCanNotApplyToYourself",
+  ErrorAlreadyMadePurchase = "errorAlreadyMadePurchase",
   Empty = "",
 }
 
@@ -41,6 +42,10 @@ export const AcceptRefDialog = () => {
         break;
       case "errorCanNotApplyToYourself":
         setDialogType(DialogType.ErrorCanNotApplyToYourself);
+        setIsOpen(true);
+        break;
+      case "errorAlreadyMadePurchase":
+        setDialogType(DialogType.ErrorAlreadyMadePurchase);
         setIsOpen(true);
         break;
       default:
@@ -165,6 +170,44 @@ export const AcceptRefDialog = () => {
             </div>
           </>
         );
+
+      case DialogType.ErrorAlreadyMadePurchase:
+        return (
+          <>
+            <Image
+              src="/icons/primary/mood_bad.svg"
+              alt="error icon"
+              width={48}
+              height={48}
+            />
+            <div>
+              <h5
+                className={clsx(
+                  getTypographyClass(TypographyVariants.Subheader),
+                  "text-text-100"
+                )}
+              >
+                {t("errorAlreadyMadePurchase.title")}
+              </h5>
+              <p
+                className={clsx(
+                  getTypographyClass(TypographyVariants.Body2),
+                  "text-text-600 mt-2"
+                )}
+              >
+                {t("errorAlreadyMadePurchase.description")}
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 w-full">
+              <PrimaryButton className="w-full">
+                {t("errorAlreadyMadePurchase.buttonOk")}
+              </PrimaryButton>
+              <SecondaryButton className="w-full">
+                {t("errorAlreadyMadePurchase.buttonClose")}
+              </SecondaryButton>
+            </div>
+          </>
+        )
 
       default:
         return null;
